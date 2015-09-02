@@ -1,0 +1,42 @@
+make_pbs()
+{
+
+if [[ $# -ne 6 ]]; then
+echo "Usage: make_pbs filename jobname procs walltime queue execution(opt)"
+else
+
+FILENAME=$1
+JOBNAME=$2
+PROCS=$3
+WALL=$4
+QUEUE=$5
+EXECUTE=$6
+
+cat > ${FILENAME} << EOF
+#!/bin/bash -l
+#PBS -q $QUEUE
+#PBS -N $JOBNAME
+#PBS -l mppwidth=$PROCS
+#PBS -l walltime=$WALL
+#PBS -j eo
+#PBS -A m1380
+#PBS -m ae
+#PBS -V
+EOF
+
+echo ${FILENAME}
+
+cat >> ${FILENAME} << "EOF"
+
+cd ${PBS_O_WORKDIR}
+
+EOF
+
+cat >> ${FILENAME} << EOF
+
+aprun -n ${PROCS} ${EXECUTE}
+
+EOF
+
+fi
+}

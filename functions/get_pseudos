@@ -1,0 +1,16 @@
+get_pseudos ()
+{
+  DIRECTORY=$1
+  echo "Finding pseudopotentials in..." $DIRECTORY
+
+  if [[ -d $DIRECTORY ]]; then
+
+    find ${DIRECTORY} -name '*.upf' -exec cp "{}" ./ \;
+
+  else
+
+    echo "Directory not found. Pseudopotentials not copied."
+
+  fi
+
+}

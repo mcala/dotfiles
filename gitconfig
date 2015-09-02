@@ -1,0 +1,14 @@
+[user]
+    name = Andrew McAllister
+    email = mcala@umich.edu
+[alias]
+    co = checkout
+    st = status
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[color]
+    ui = true
+[color "status"]
+    changed = blue
+    untracked = red
+    added = green
+    branch = white

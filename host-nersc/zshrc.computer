@@ -1,0 +1,80 @@
+# Computer file for NERSC
+
+# Default modules to load
+module load espresso/5.1.1
+module load berkeleygw
+module load gnuplot/4.6.3
+#module load g09
+
+# For Auger Code
+module unload altd darshan
+module load fftw
+#module swap PrgEnv-pgi PrgEnv-intel
+
+module load vim
+
+# Checking computer specific dotfiles
+# CHANGE FOR RCUP
+alias zshrcc='vim $HOME/.zshrc.computer'
+alias rcup='rcup -x zshrc'
+
+# PATH settings
+export PATH=$PATH:~/commands/bin
+#export PATH=$HOME/soft/vim/bin/:$PATH
+export PATH=$PATH:$HOME/soft/auger
+MANPATH=$MANPATH:$HOME/commands/share/man
+export MANPATH
+
+# Variable settings
+export GIT_EDITOR='vim'
+
+# Directory commands
+# Programs
+alias espressodir='cd /usr/common/usg/espresso/5.1.1'
+alias siestadir='cd /usr/common/usg/siesta/3.0-rc2'
+alias berkeleydir='cd /usr/common/usg/berkeleygw/1.0.3/'
+alias vaspdir='cd /usr/common/usg/vasp'
+alias lammpsdir='cd /usr/common/usg/lammps/20130727'
+alias ase='cd /usr/common/usg/ase/3.7.1.3184/'
+
+# Storage Locations (General Scratch is is hopper/edison specific files)
+alias projectdir='cd /project/projectdirs/m1380'
+alias gscratch='cd /global/scratch2/sd/mcala/'
+
+alias pbs='cd $PBS_O_WORKDIR'
+alias make_pbs='make_pbs_nersc'
+
+# Commands
+alias show_cmd='ls -l ~/commands/bin'
+alias go_cmd='cd ~/commands/bin'
+
+# Program Commands
+alias gnuplot='gnuplot -background white'
+
+# Queue commands
+alias q='clear; qstat -u mcala'
+alias start='showstart'
+alias check='checkjob'
+
+# Get Blank Files
+alias get_blank='~/scripts/get_blank/grab.zsh'
+
+# BGW Scripts
+alias make_bgw='/global/u1/m/mcala/scripts/BGW/make_bgw'
+alias change_path='source /global/u1/m/mcala/scripts/BGW/path_changes'
+alias make_eps_sig='/global/u1/m/mcala/scripts/BGW/make_eps_sig'
+
+# Misc
+#
+#Auger Indirect
+alias make_phonon_points='~/scripts/phonon_auger/main_script'
+alias omega_make='~/scripts/phonon_auger/make_files/omega_make'
+alias check_run='~/scripts/phonon_auger/check_run'
+alias check_wan_run='~/scripts/phonon_auger/check_wan_run'
+alias after_indirect='~/scripts/phonon_auger/after_indirect'
+alias auger_cleanup='~/scripts/phonon_auger/files/cleanup'
+
+#Auger Direct
+alias make_direct='~/scripts/direct_auger/main_script'
+alias after_direct='~/scripts/direct_auger/utilities/after_direct'
+

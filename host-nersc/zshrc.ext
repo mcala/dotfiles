@@ -1,0 +1,39 @@
+# begin .zshrc.ext
+[ -e $HOME/.dbgdot ] && echo "entering .zshrc.ext"
+ 
+# User additions to .zshrc go in this file
+ 
+# Un-comment and modify the following template for system-specific
+# personal settings.
+#
+#if [ $NERSC_HOST '==' 'edison' ]
+#then
+#fi
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/soft/repositories/oh-my-zsh
+
+# Uncomment following line if you want to disable autosetting terminal title.
+DISABLE_AUTO_TITLE="true"
+
+#plugins for oh-my-zsh
+plugins=(git)
+
+# Load personal and computer specific preferences
+source $ZSH/oh-my-zsh.sh
+source $HOME/.zshrc.personal
+source $HOME/.zshrc.prompt
+source $HOME/.zshrc.computer
+
+# Un-comment and modify the following template for system-specific
+# personal settings.
+#
+ if [[ $NERSC_HOST == "hopper" ]]; then
+    source $HOME/.zshrc.hopper
+ fi
+
+if [[ $NERSC_HOST == "edison" ]]; then
+    source $HOME/.zshrc.edison
+fi
+[ -e $HOME/.dbgdot ] && echo "exiting .zshrc.ext"
+# end .zshrc.ext

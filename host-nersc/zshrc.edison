@@ -1,0 +1,3 @@
+alias scratch='cd /scratch2/scratchdirs/mcala'
+# If you don't swap these, serial codes copiled by you will not work
+module swap craype-ivybridge craype-sandybridge

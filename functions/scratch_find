@@ -1,0 +1,11 @@
+scratch_find () {
+
+  if [[ -a SCRATCH ]]; then
+    SCRATCH=`cat SCRATCH`
+    echo "I'm using $SCRATCH for my scratch space."
+  else 
+    echo "Scratch space?"
+    read SCRATCH
+    echo $SCRATCH > SCRATCH
+  fi
+}

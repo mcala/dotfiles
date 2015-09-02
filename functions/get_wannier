@@ -1,0 +1,17 @@
+get_wannier()
+{
+  DIRECTORY=$1
+  echo "Finding wannier files in..." $DIRECTORY
+
+  if [[ -d $DIRECTORY ]]; then
+
+    cp *.eig ./
+    cp u_mat* ./
+
+  else
+
+    echo "Directory not found. Wannier files not copied."
+
+  fi
+
+}

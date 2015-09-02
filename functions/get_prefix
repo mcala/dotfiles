@@ -1,0 +1,21 @@
+get_prefix ()
+{
+  DIRECTORY=$1
+
+  if [[ -d $DIRECTORY ]]; then
+
+    PREFIX=`grep "prefix" ${DIRECTORY}/scf.in | awk '{print $3}'`
+
+    # Strip off quotes
+    # ( http://zsh.sourceforge.net/Guide/zshguide05.html )
+    PREFIX=${(Q)PREFIX}
+
+  else
+
+    echo "Directory not found."
+
+  fi
+
+  echo $PREFIX
+
+}

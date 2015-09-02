@@ -1,0 +1,75 @@
+# Computer file for flux
+
+module load git
+
+## Intel compilers for ESPRESSO/5.1.1 are defaults with this mkl
+#module load mkl/11.2
+#module load espresso/5.1.1
+
+## INTEL compilers for AUGER code. 
+module load fftw/3.3.2/intel/12.1
+module unload intel-comp/14.0.2
+module load intel-comp/12.1
+module unload openmpi
+module load openmpi/1.6.3/intel/12.1
+module load mkl/11.1
+#
+# Checking computer specific dotfiles
+# FIX AFTER RCM
+alias zshrcc='vim $HOME/repositories/dotfiles/flux/zshrc.computer'
+alias zshrc='vim $HOME/repositories/dotfiles/flux/zshrc'
+
+# Queue
+alias q='clear; qstat -u mcala'
+alias gq='clear; showq -w acct=kioup_flux'
+alias finished='clear showq -c -u mcala'
+
+alias vim='$HOME/commands/bin/vim'
+alias vimdiff='$HOME/commands/bin/vimdiff'
+
+#Locations
+alias scratch='cd /scratch/kioup_flux/mcala'
+alias vaspdir='cd /home/software/rhel6/vasp/5.2.12.11Nov2011/'
+alias gaussdir='cd /usr/caen/gaussian-09revc'
+
+# Get to commands
+alias go_cmd='cd $HOME/commands/bin'
+alias show_cmd='ls -l $HOME/commands/bin'
+
+alias gnuplot='gnuplot -background white'
+
+#Path Stuff
+PATH=$PATH:$HOME/bin:$HOME/commands/bin
+PATH=$PATH:$HOME/soft/auger/
+export PATH
+MANPATH=$MANPATH:$HOME/commands/share/man
+export MANPATH
+
+export GIT_EDITOR='$HOME/commands/bin/vim'
+
+
+
+# OLD MODULE LOADS
+## INTEL compilers
+#module load fftw/3.3.2/intel/12.1
+#module unload intel-comp/14.0.2
+#module load intel-comp/12.1
+#module unload openmpi
+#module load openmpi/1.6.3/intel/12.1
+#
+## PGI Compilers - need infiniband recompile (w/f Brock)
+##module load fftw/3.3.2/pgi/12.3
+##module unload intel-comp
+##module load pgi/12.3
+##module unload openmpi
+##module load openmpi/1.6.4/pgi/12.3
+##module load cuda/5.5
+#
+##!module load fftw/3.3.2/pgi/12.3
+##!module unload intel-comp
+##!module load pgi/12.3
+##!module unload openmpi
+##!module load openmpi/1.6.2/pgi/12.3
+##!module load cuda/5.5
+#
+#module load mkl/11.1

@@ -1,0 +1,10 @@
+alias scratch='cd `echo $SCRATCH`'
+alias scratch2='cd `echo $SCRATCH2`'
+
+alias interactive='qsub -I -V -q debug -l mppwidth=24'
+alias interactive_48='qsub -I -V -q debug -l mppwidth=48'
+alias interactive_96='qsub -I -V -q debug -l mppwidth=96'
+
+MANPATH=/usr/common/usg/man:/usr/common/mss/man:/usr/common/nsg/man:$MANPATH;export MANPATH
+PATH=/usr/common/usg/bin:/usr/common/mss/bin:/usr/common/nsg/bin:$PATH;export PATH
+

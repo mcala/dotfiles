@@ -1,0 +1,117 @@
+# Andrew McAllister's (AM) Gnuplot Setup File
+# Heavily Modified from Konstantin Weber's Gnuplot Setup File -- kweber
+#-----------------------------------------------------------------------
+
+#---LINESTYLES----------------------------------------------------------
+#-AM
+# Colorlind palatte taken from http://jfly.iam.u-tokyo.ac.jp/color/
+# Colors alternate from warm to cool to aid in differentiation.
+# In Theory, colors are identifiable to most type of color blindness
+# Possible issues with printing however, will need to test.
+
+# Normal Lines
+set style line 1 lt 1 linecolor rgb "black" pt 2   # Black
+set style line 2 lt 1 linecolor rgb '#E69F00' pt 2 # Bright Orange
+set style line 3 lt 1 linecolor rgb '#009e73' pt 2 # Dark Green
+set style line 4 lt 1 linecolor rgb '#f0e442' pt 2 # Yellow
+set style line 5 lt 1 linecolor rgb '#56b4e9' pt 2 # Sky Blue
+set style line 6 lt 1 linecolor rgb '#d55e00' pt 2 # Reddish Orange
+set style line 7 lt 1 linecolor rgb '#0072B2' pt 2 # Dark Blue
+set style line 8 lt 1 linecolor rgb '#cc79a7' pt 2 # Reddish Purple
+set style line 9 lt 1 linecolor rgb '#91a3b0' pt 2 # Grey
+
+# Basic Dashed Lines, for more elaborate styles you will have to change
+# the linesyle in your script
+set style line 10 lt 2 linecolor rgb "black" pt 2   # Black
+set style line 11 lt 2 linecolor rgb '#E69F00' pt 2 # Bright Orange
+set style line 12 lt 4 linecolor rgb '#009e73' pt 2 # Dark Green
+set style line 13 lt 4 linecolor rgb '#f0e442' pt 2 # Yellow
+set style line 14 lt 5 linecolor rgb '#56b4e9' pt 2 # Sky Blue
+set style line 15 lt 5 linecolor rgb '#d55e00' pt 2 # Reddish Orange
+set style line 16 lt 6 linecolor rgb '#0072B2' pt 2 # Dark Blue
+set style line 17 lt 6 linecolor rgb '#cc79a7' pt 2 # Reddish Purple
+set style line 18 lt 2 linecolor rgb '#91a3b0' pt 2 # Grey
+
+#--- ARROWSTYLES------------------------------------------------------
+#-AM
+# For these you should be able to change the colors by respecifiying line styles
+# To obtain just an indicator line, include the command no head to the arrow.
+
+set style arrow 1 size screen 0.008, 90 # Basic |----|
+set style arrow 2 filled size screen 0.025,30,45 # Actual arrow shape --->
+
+#--- TERMINAL SETTINGS --------------------------------------------------------
+#-AM
+set terminal x11 enhanced 
+print 'Terminal set to x11. If on Argus, remember to use pause -1 to enable mouse.'
+
+#--- COMMANDS --------------------------------------------------------
+#-kweber
+#-Small modifications by AM
+
+#--- bash("command") -------------------------------------------------
+# -allows to use bash commands in gnuplot
+bash(cmd) = sprintf('set print "| /bin/bash"; print "%s"; set print', cmd)
+
+
+#--- setterm("Name", "Xsize", "ysize","command")------------------------------
+# -sets terminal to epslatex and DOES NOT do LaTeX commands. This is specifically for
+# dealing with multiplot commands
+setterm(name, xsize, ysize, dash, debug, latexcommand) = sprintf('\
+name="%s";\
+xsize="%s";\
+ysize="%s";\
+dash="%s";\
+debug="%s";\
+latexcommand="%s";\
+set terminal epslatex size xsize, ysize dashlength dash color colortext standalone header latexcommand;\
+',name,xsize,ysize,dash,debug,latexcommand)
+
+
+#--- latex("Name", "Xsize", "ysize","command")------------------------------
+# -sets terminal to epslatex and creates output file with xsize and ysize
+latex(name, xsize, ysize, dash, debug, latexcommand) = sprintf('\
+name="%s";\
+xsize="%s";\
+ysize="%s";\
+dash="%s";\
+debug="%s";\
+latexcommand="%s";\
+eval bash("latex ".name.".tex"); \
+eval bash("dvips ".name.".dvi"); \
+eval bash("~/commands/gnuplot/ps2pdfbb ".name.".ps"); \
+if (debug eq "no") {;\
+eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
+};\
+',name,xsize,ysize,dash,debug,latexcommand)
+
+
+
+
+
+#--- Latexterm("Name", "Xsize", "ysize","command")------------------------------
+# -sets terminal to epslatex and creates output file with xsize and ysize
+latexterm(name, xsize, ysize, dash, debug, latexcommand) = sprintf('\
+name="%s";\
+xsize="%s";\
+ysize="%s";\
+dash="%s";\
+debug="%s";\
+latexcommand="%s";\
+set terminal epslatex size xsize, ysize dashlength dash color colortext standalone header latexcommand;\
+set output name.".tex";  \
+replot; \
+unset output;\
+eval bash("latex ".name.".tex"); \
+eval bash("dvips ".name.".dvi"); \
+eval bash("~/commands/gnuplot/ps2pdfbb ".name.".ps"); \
+if (debug eq "no") {;\
+eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
+};\
+set terminal x11; \
+',name,xsize,ysize,dash,debug,latexcommand)
+
+#set terminal epslatex size xsize, ysize dashlength dash color colortext standalone header "\\usepackage[T1]{fontenc}\n\\usepackage{mathptmx}\n\\usepackage{helvet}\n\\usepackage{amsmath}\n\\renewcommand{\\familydefault}{\\sfdefault}".latexcommand ; \
+
+
+

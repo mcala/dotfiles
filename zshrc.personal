@@ -1,0 +1,50 @@
+# Aliases
+
+# ls commands
+alias sl='ls'
+alias ll='ls -lh'
+alias lsa='ls -a'
+alias la='ls -lha'
+alias ldot='ls -ld .*'
+# "Phonon" ls - hides the phonon_ directories in phonon_points jobs
+alias pls='ls --hide "phonon_*"'
+
+# du size command
+alias size_save='du -hsc > size_of'
+alias size='du -hsc'
+alias size_all='du -hc'
+
+# quickly accessing general dot files
+# REWRITE AFTER RCM SWITCH
+alias vimrc='vim $HOME/.vimrc'
+alias zshrcp='vim $HOME/.zshrc.personal'
+alias udots='source $HOME/.zshrc'
+
+# moving commands
+alias ..='cd ..'
+alias ...='cd ../../'
+
+# find commands
+alias findd='find . -maxdepth 1 -mindepth 1 -type d'
+alias findf='find . -maxdepth 1 -mindepth 1 -type f'
+
+# tar aliases
+alias mtar='tar -cvzf'
+alias otar='tar -xvzf'
+
+# misc aliases
+alias vi='vim'
+alias gnuplot='gnuplot -background white'
+
+# misc git
+alias chkpull='git remote update; git status -uno'
+
+# Other zsh options
+set -o noclobber
+set opt nobeep
+
+# Order files for ls in way you like
+LC_COLLATE='C'
+
+# ssh host auto completion
+zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
