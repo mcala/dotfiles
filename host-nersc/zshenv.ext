@@ -1,0 +1,22 @@
+# begin .zshenv.ext
+[ -e $HOME/.dbgdot ] && echo "entering .zshenv.ext"
+
+# loading personal functions
+ FPATH=${FPATH}:${HOME}/.functions
+#
+ autoload scratch_find get_prefix get_pseudos get_wannier make_pbs
+
+ 
+
+[ -e $HOME/.dbgdot ] && echo "exiting .zshenv.ext"
+# end .zshenv.ext
+#
+# User additions to .zshenv go in this file
+ 
+# Un-comment and modify the following template for system-specific
+# personal settings.
+
+# if [ "$NERSC_HOST" == "hopper" ]
+# then
+#   export MY_ENV_VAR="my_val"
+# fi
