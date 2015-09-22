@@ -1,4 +1,4 @@
-make_pbs()
+make_pbs_nersc()
 {
 
 if [[ $# -ne 6 ]]; then
