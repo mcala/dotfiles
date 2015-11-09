@@ -71,10 +71,4 @@ alias make_phonon_points='~/scripts/phonon_auger/main_script'
 alias omega_make='~/scripts/phonon_auger/make_files/omega_make'
 alias check_run='~/scripts/phonon_auger/check_run'
 alias check_wan_run='~/scripts/phonon_auger/check_wan_run'
-alias after_indirect='~/scripts/phonon_auger/after_indirect'
 alias auger_cleanup='~/scripts/phonon_auger/files/cleanup'
-
-#Auger Direct
-alias make_direct='~/scripts/direct_auger/main_script'
-alias after_direct='~/scripts/direct_auger/utilities/after_direct'
-
