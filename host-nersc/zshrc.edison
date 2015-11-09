@@ -9,3 +9,9 @@ module load fftw
 #
 module load vim
 module load git
+
+
+# Queue commands
+alias q='clear; qstat -u mcala'
+alias start='showstart'
+alias check='checkjob'
