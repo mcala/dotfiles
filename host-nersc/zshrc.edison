@@ -1,3 +1,11 @@
 alias scratch='cd /scratch2/scratchdirs/mcala'
 # If you don't swap these, serial codes copiled by you will not work
 module swap craype-ivybridge craype-sandybridge
+
+# For Auger Code
+module unload altd darshan
+module load fftw
+
+#
+module load vim
+module load git
