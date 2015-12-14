@@ -1,0 +1,33 @@
+copy_scf()
+{
+
+  DIRECTORY=$1
+
+  if [[ -d $DIRECTORY ]]; then
+
+  PREFIX=`get_prefix $DIRECTORY`
+
+  get_pseudos ${DIRECTORY}
+
+  cp ${DIRECTORY}/scf.in ./
+  cp ${DIRECTORY}/scf.out ./
+
+
+  if [[ -a ${DIRECTORY}/${PREFIX}.occup ]]; then
+    cp ${DIRECTORY}/${PREFIX}.occup ./
+  else
+    echo "No .occup file! If running DFT+U check scf run."
+  fi
+
+  mkdir ${PREFIX}.save
+  cd ${PREFIX}.save
+  cp ../${DIRECTORY}/${PREFIX}.save/charge-density.dat ./
+  cp ../${DIRECTORY}/${PREFIX}.save/data-file.xml ./
+  cd -
+
+  else
+
+    echo "Directory not found."
+
+  fi
+}

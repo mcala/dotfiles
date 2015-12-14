@@ -24,6 +24,7 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc.personal
 source $HOME/.zshrc.prompt
 source $HOME/.zshrc.computer
+source $HOME/.zshrc.work
 
 # Un-comment and modify the following template for system-specific
 # personal settings.
@@ -36,4 +37,8 @@ if [[ $NERSC_HOST == "edison" ]]; then
     source $HOME/.zshrc.edison
 fi
 [ -e $HOME/.dbgdot ] && echo "exiting .zshrc.ext"
+
+ if [[ $NERSC_HOST == "cori" ]]; then
+    source $HOME/.zshrc.cori
+ fi
 # end .zshrc.ext

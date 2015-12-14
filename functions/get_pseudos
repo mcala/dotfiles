@@ -5,7 +5,7 @@ get_pseudos ()
 
   if [[ -d $DIRECTORY ]]; then
 
-    find ${DIRECTORY} -name '*.upf' -exec cp "{}" ./ \;
+    find ${DIRECTORY} -name '*.cpi.*' -exec cp "{}" ./ \;
 
   else
 

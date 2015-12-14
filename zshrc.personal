@@ -49,3 +49,5 @@ LC_COLLATE='C'
 
 # ssh host auto completion
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
+
+zstyle ':completion:*:*:vi(m|):*' ignored-patterns '*.x' '*.o' 

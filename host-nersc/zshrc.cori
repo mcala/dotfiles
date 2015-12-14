@@ -1,0 +1,27 @@
+# Default modules to load all the time
+module load vim
+module load git
+
+# Default Code modules to load
+
+
+# Auger code modules
+module unload altd darshan
+module load fftw
+
+# Programming environment modules
+
+
+# Aliases for getting around
+alias scratch 'cd `echo $SCRATCH`'
+
+
+# Aliases for SLURM
+alias qsub='sbatch'
+alias qdel='scancel'
+alias qhold='scontrol hold'
+alias qrls='scontrol release'
+alias q='squeue -u mcala' # may want to change to sqs
+
+# Not sure if this will work with allowing nodes to vary. Will see.
+alias interactive='salloc -I -p debug -t 00:30:00 -N'
