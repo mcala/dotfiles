@@ -1,0 +1,51 @@
+make_pbs_flux()
+{
+
+if [[ $# -ne 6 ]]; then
+echo "Usage: make_pbs filename jobname procs walltime queue execution(opt)"
+else
+
+FILENAME=$1
+JOBNAME=$2
+PROCS=$3
+WALL=$4
+QUEUE=$5
+EXECUTE=$6
+
+cat > ${FILENAME} << EOF
+#!/bin/bash
+
+#PBS -M mcala@umich.edu
+#PBS -m ae
+#PBS -j eo
+#PBS -q $QUEUE
+#PBS -A kioup_flux
+#PBS -l qos=flux
+
+#PBS -N $JOBNAME
+#PBS -l walltime=$WALL
+#PBS -l procs=$PROCS
+#PBS -V
+EOF
+
+echo ${FILENAME}
+
+cat >> ${FILENAME} << "EOF"
+
+#  Include the next three lines always
+if [ "x${PBS_NODEFILE}" != "x" ] ; then
+   cat $PBS_NODEFILE   # contains a list of the CPUs you were using
+fi
+
+cd ${PBS_O_WORKDIR}
+
+EOF
+
+cat >> ${FILENAME} << EOF
+
+mpirun -n ${PROCS} ${EXECUTE}
+
+EOF
+
+fi
+}
