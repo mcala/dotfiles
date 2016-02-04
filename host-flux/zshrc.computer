@@ -21,8 +21,11 @@ alias zshrc='vim $HOME/repositories/dotfiles/flux/zshrc'
 
 # Queue
 alias q='clear; qstat -u mcala'
+alias sq='clear; showq -u mcala'
 alias gq='clear; showq -w acct=kioup_flux'
-alias finished='clear showq -c -u mcala'
+alias eq='clear; showq -r -u mcala'
+alias nq='clear; showq -n -u mcala'
+alias finished='clear; showq -c -u mcala'
 
 alias vim='$HOME/commands/bin/vim'
 alias vimdiff='$HOME/commands/bin/vimdiff'
