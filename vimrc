@@ -48,7 +48,9 @@ if has ("autocmd")
 endif
 
 " Draw colored column at 85 characters for textwidth purposes.
+set textwidth=80
 set colorcolumn=80
+set wrap
 
 " How to draw invisible characters.
 set list
