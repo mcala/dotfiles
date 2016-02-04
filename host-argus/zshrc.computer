@@ -6,27 +6,32 @@
 #alias zshrc='vim $HOME/repositories/dotfiles/argus/zshrc'
 
 # PATH alterations
+export PATH=/anaconda/bin:$PATH
 export PATH=$HOME/MacPorts/bin:$PATH
+export PATH=$HOME/MacPorts/sbin:$PATH
 export PATH=$HOME/MacPort/lib:$PATH
 export PATH=${PATH}:/Users/mcala/soft/fhi98PP/bin/Tools
 export PATH=${PATH}:/Users/mcala/soft/espresso-5.1/bin
 
+export MANPATH=$HOME/MacPorts/share/man:${MANPATH}
+
 # Fink
 source /sw/bin/init.sh
+
+alias gcc='/usr/local/bin/gcc'
+alias g++='/usr/local/bin/g++'
 
 # Accessing computers
 alias cab='ssh -X mcall@cab.llnl.gov'
 alias ansel='ssh -X mcall@ansel.llnl.gov'
 alias oslic='ssh -X mcall@oslic.llnl.gov'
-alias hopper='ssh -X mcala@hopper.nersc.gov'
+alias cori='ssh -X mcala@cori.nersc.gov'
 alias edison='ssh -X mcala@edison.nersc.gov'
 alias carver='ssh -X mcala@carver.nersc.gov'
 alias flux='ssh -X mcala@flux-login.engin.umich.edu'
 alias umich='ssh -X mcala@login.itd.umich.edu'
 
 # Misc scp commands that you always use
-alias hop_vasp='scp mcala@hopper.nersc.gov:~/\@Action/\*.vasp .'
-alias hop_pdf='scp mcala@hopper.nersc.gov:~/\@Action/\*.pdf .'
 alias cab_pdf='scp mcall@cab.llnl.gov:~/\@Action/\*.pdf .'
 alias ansel_pdf='scp mcall@ansel.llnl.gov:~/\@Action/\*.pdf .'
 
@@ -37,3 +42,4 @@ alias scratch='cd $HOME/soft/scratch'
 alias action='${HOME}/Documents/Research/\@Action'
 
 export GIT_EDITOR='vim'
+
