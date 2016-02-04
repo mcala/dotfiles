@@ -34,7 +34,6 @@ alias otar='tar -xvzf'
 
 # misc aliases
 alias vi='vim'
-alias gnuplot='gnuplot -background white'
 
 # misc git
 alias chkpull='git remote update; git status -uno'

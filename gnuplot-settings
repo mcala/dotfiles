@@ -42,8 +42,9 @@ set style arrow 2 filled size screen 0.025,30,45 # Actual arrow shape --->
 
 #--- TERMINAL SETTINGS --------------------------------------------------------
 #-AM
-set terminal x11 enhanced 
-print 'Terminal set to x11. If on Argus, remember to use pause -1 to enable mouse.'
+#- Uneeded?
+set terminal x11 enhanced background rgb "white"
+#print 'Terminal set to x11. If on Argus, remember to use pause -1 to enable mouse.'
 
 #--- COMMANDS --------------------------------------------------------
 #-kweber
