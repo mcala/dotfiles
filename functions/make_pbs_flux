@@ -1,7 +1,7 @@
 make_pbs_flux()
 {
 
-if [[ $# -ne 6 ]]; then
+if [[ $# -ne 7 ]]; then
 echo "Usage: make_pbs filename jobname procs walltime queue execution(opt)"
 else
 
@@ -10,7 +10,8 @@ JOBNAME=$2
 PROCS=$3
 WALL=$4
 QUEUE=$5
-EXECUTE=$6
+ACCOUNT=$6
+EXECUTE=$7
 
 cat > ${FILENAME} << EOF
 #!/bin/bash
@@ -19,7 +20,7 @@ cat > ${FILENAME} << EOF
 #PBS -m ae
 #PBS -j eo
 #PBS -q $QUEUE
-#PBS -A kioup_flux
+#PBS -A $ACCOUNT
 #PBS -l qos=flux
 
 #PBS -N $JOBNAME
