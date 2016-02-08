@@ -13,7 +13,7 @@ module load intel-comp/12.1
 module unload openmpi
 module load openmpi/1.6.3/intel/12.1
 module load mkl/11.1
-#
+
 # Checking computer specific dotfiles
 # FIX AFTER RCM
 alias zshrcc='vim $HOME/repositories/dotfiles/flux/zshrc.computer'
@@ -32,14 +32,10 @@ alias vimdiff='$HOME/commands/bin/vimdiff'
 
 #Locations
 alias scratch='cd /scratch/kioup_flux/mcala'
-alias vaspdir='cd /home/software/rhel6/vasp/5.2.12.11Nov2011/'
-alias gaussdir='cd /usr/caen/gaussian-09revc'
 
 # Get to commands
 alias go_cmd='cd $HOME/commands/bin'
 alias show_cmd='ls -l $HOME/commands/bin'
-
-alias gnuplot='gnuplot -background white'
 
 #Path Stuff
 PATH=$PATH:$HOME/bin:$HOME/commands/bin
