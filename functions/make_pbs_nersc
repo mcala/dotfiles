@@ -1,42 +1,58 @@
-make_pbs_nersc()
+make_pbs_cori()
 {
 
-if [[ $# -ne 6 ]]; then
-echo "Usage: make_pbs filename jobname procs walltime queue execution(opt)"
+if [[ $# -lt 7 || $# -gt 8 ]]; then
+echo "Usage: make_pbs filename jobname nodes walltime queue modules execution execution(multi line)"
 else
 
 FILENAME=$1
 JOBNAME=$2
-PROCS=$3
+NODES=$3
 WALL=$4
 QUEUE=$5
-EXECUTE=$6
+MODULES=$6
+EXECUTE=$7
+MULTI_EXECUTE=$8
+
+PROCS=$(($NODES*32))
+
 
 cat > ${FILENAME} << EOF
 #!/bin/bash -l
-#PBS -q $QUEUE
-#PBS -N $JOBNAME
-#PBS -l mppwidth=$PROCS
-#PBS -l walltime=$WALL
-#PBS -j eo
-#PBS -A m1380
-#PBS -m ae
-#PBS -V
+#SBATCH -p $QUEUE
+#SBATCH -J $JOBNAME
+#SBATCH -N $NODES
+#SBATCH -t $WALL
+#SBATCH -A m1380
 EOF
+
+if [[ ${MODULES} != '' ]]; then
+cat >> ${FILENAME} << EOF
+module load ${MODULES}
+EOF
+fi
 
 echo ${FILENAME}
 
 cat >> ${FILENAME} << "EOF"
 
-cd ${PBS_O_WORKDIR}
+cd $SLURM_SUBMIT_DIR
 
 EOF
+
+
+if [[ $# -eq 8 ]]; then
 
 cat >> ${FILENAME} << EOF
-
-aprun -n ${PROCS} ${EXECUTE}
-
+${MULTI_EXECUTE}
 EOF
+
+else
+
+cat >> ${FILENAME} << EOF
+srun -n ${PROCS} ${EXECUTE}
+EOF
+fi
 
 fi
 }
