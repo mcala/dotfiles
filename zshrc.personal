@@ -34,14 +34,14 @@ alias otar='tar -xvzf'
 
 # misc aliases
 alias vi='vim'
-alias gnuplot='gnuplot -background white'
 
 # misc git
 alias chkpull='git remote update; git status -uno'
 
 # Other zsh options
-set -o noclobber
-set opt nobeep
+setopt -o noclobber
+setopt histallowclobber
+setopt nobeep
 
 # Order files for ls in way you like
 LC_COLLATE='C'
