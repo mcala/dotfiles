@@ -1,3 +1,5 @@
+
+module use /project/projectdirs/m1380/modules/cori/modulefiles
 # Default modules to load all the time
 module load vim
 module load git
@@ -13,7 +15,7 @@ module load fftw
 
 
 # Aliases for getting around
-alias scratch 'cd `echo $SCRATCH`'
+alias scratch='cd `echo $SCRATCH`'
 
 
 # Aliases for SLURM
@@ -21,7 +23,10 @@ alias qsub='sbatch'
 alias qdel='scancel'
 alias qhold='scontrol hold'
 alias qrls='scontrol release'
-alias q='squeue -u mcala' # may want to change to sqs
+#alias q='clear; squeue -u mcala' # may want to change to sqs
+alias q='clear; sqs -u mcala -s -w'
 
 # Not sure if this will work with allowing nodes to vary. Will see.
 alias interactive='salloc -I -p debug -t 00:30:00 -N'
+
+alias make_pbs='make_pbs_cori'
