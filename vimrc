@@ -15,14 +15,14 @@ set modelines=0
 
 " AESTHETICS
 " You only use free source fortran, so this doesn't bother with checking for
-" fixed format. Must be before syntax. 
+" fixed format. Must be before syntax.
 :let fortran_free_source=1
 :let fortran_more_precise=1
 " syntax highlighting
 syntax enable
 set background=dark
 colorscheme solarized
-" These may be necessary for supercomputers to work with solarized. 
+" These may be necessary for supercomputers to work with solarized.
 " Keep until you know for sure
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
@@ -40,10 +40,12 @@ let g:bufferline_echo=0
 if has ("autocmd")
     filetype on
     autocmd BufNewFile,BufRead *.cuf set filetype=fortran
+    autocmd BufNewFile,BufRead *.pf set filetype=fortran
     autocmd BufNewFile,BufRead make.sys set filetype=make
     autocmd Filetype make setlocal noexpandtab
-    autocmd Filetype gitcommit setlocal spell textwidth=72 
-    autocmd Filetype latex setlocal spell 
+    autocmd Filetype gitcommit setlocal spell textwidth=72
+    autocmd Filetype latex setlocal spell
+    autocmd Filetype python setlocal tabstop=2 shiftwidth=2 softtabstop=2
     filetype plugin indent on
 endif
 
