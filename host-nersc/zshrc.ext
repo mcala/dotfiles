@@ -36,9 +36,10 @@ source $HOME/.zshrc.work
 if [[ $NERSC_HOST == "edison" ]]; then
     source $HOME/.zshrc.edison
 fi
-[ -e $HOME/.dbgdot ] && echo "exiting .zshrc.ext"
 
  if [[ $NERSC_HOST == "cori" ]]; then
     source $HOME/.zshrc.cori
  fi
+
+[ -e $HOME/.dbgdot ] && echo "exiting .zshrc.ext"
 # end .zshrc.ext
