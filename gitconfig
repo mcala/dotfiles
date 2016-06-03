@@ -12,3 +12,5 @@
     untracked = red
     added = green
     branch = white
+[push]
+	default = simple
