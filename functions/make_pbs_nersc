@@ -1,4 +1,4 @@
-make_pbs_cori()
+make_pbs_nersc()
 {
 
 if [[ $# -lt 7 || $# -gt 8 ]]; then
@@ -14,7 +14,7 @@ MODULES=$6
 EXECUTE=$7
 MULTI_EXECUTE=$8
 
-PROCS=$(($NODES*32))
+PROCS=$(($NODES*24))
 
 
 cat > ${FILENAME} << EOF
@@ -51,6 +51,10 @@ else
 
 cat >> ${FILENAME} << EOF
 srun -n ${PROCS} ${EXECUTE}
+
+echo "------------------------------------------------------------------"
+sacct -j $SLURM_JOB_ID --format=JobID,JobName%30,MaxRSS,Elapsed
+echo "------------------------------------------------------------------"
 EOF
 fi
 
