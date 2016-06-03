@@ -26,6 +26,7 @@ alias udots='source $HOME/.zshrc'
 # moving commands
 alias ..='cd ..'
 alias ...='cd ../../'
+alias c\ d..='cd ..'
 
 # find commands
 alias findd='find . -maxdepth 1 -mindepth 1 -type d'

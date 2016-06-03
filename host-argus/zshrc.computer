@@ -12,14 +12,12 @@ export PATH=$HOME/MacPorts/sbin:$PATH
 export PATH=$HOME/MacPort/lib:$PATH
 export PATH=${PATH}:/Users/mcala/soft/fhi98PP/bin/Tools
 export PATH=${PATH}:/Users/mcala/soft/espresso-5.1/bin
+export PFUNIT=${HOME}/soft/pfunit/serial
 
 export MANPATH=$HOME/MacPorts/share/man:${MANPATH}
 
 # Fink
 source /sw/bin/init.sh
-
-alias gcc='/usr/local/bin/gcc'
-alias g++='/usr/local/bin/g++'
 
 # Accessing computers
 alias cab='ssh -X mcall@cab.llnl.gov'

@@ -115,4 +115,20 @@ set terminal x11; \
 #set terminal epslatex size xsize, ysize dashlength dash color colortext standalone header "\\usepackage[T1]{fontenc}\n\\usepackage{mathptmx}\n\\usepackage{helvet}\n\\usepackage{amsmath}\n\\renewcommand{\\familydefault}{\\sfdefault}".latexcommand ; \
 
 
-
+# This should be expanded into a command so you don't need it in each file, but
+# for now. Here is how you can use "cabin" font for all numbers in math
+# documents (not allsymbols)
+#
+#latexcommand='\\usepackage[sfdefault]{cabin}\\usepackage[T1]{fontenc} \
+#\\DeclareSymbolFont{numbers}{T1}{\\cabinfamily}{m}{n} \
+#\\SetSymbolFont{numbers}{bold}{T1}{\\cabinfamily}{bx}{n} \
+#\\DeclareMathSymbol{0}\\mathalpha{numbers}{\"30} \
+#\\DeclareMathSymbol{1}\\mathalpha{numbers}{\"31} \
+#\\DeclareMathSymbol{2}\\mathalpha{numbers}{\"32} \
+#\\DeclareMathSymbol{3}\\mathalpha{numbers}{\"33} \
+#\\DeclareMathSymbol{4}\\mathalpha{numbers}{\"34} \
+#\\DeclareMathSymbol{5}\\mathalpha{numbers}{\"35} \
+#\\DeclareMathSymbol{6}\\mathalpha{numbers}{\"36} \
+#\\DeclareMathSymbol{7}\\mathalpha{numbers}{\"37} \
+#\\DeclareMathSymbol{8}\\mathalpha{numbers}{\"38} \
+#\\DeclareMathSymbol{9}\\mathalpha{numbers}{\"39}'
