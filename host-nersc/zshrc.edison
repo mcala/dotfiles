@@ -1,4 +1,7 @@
+
 alias scratch='cd /scratch2/scratchdirs/mcala'
+
+module use /project/projectdirs/m1380/modules/edison/modulefiles
 # If you don't swap these, serial codes copiled by you will not work
 module swap craype-ivybridge craype-sandybridge
 
@@ -10,8 +13,13 @@ module load fftw
 module load vim
 module load git
 
+# Aliases for SLURM
+alias qsub='sbatch'
+alias qdel='scancel'
+alias qhold='scontrol hold'
+alias qrls='scontrol release'
+alias q='clear; squeue -u mcala' # may want to change to sqs
+alias dq='clear; sqs -u mcala -s -w'
 
-# Queue commands
-alias q='clear; qstat -u mcala'
-alias start='showstart'
-alias check='checkjob'
+alias interactive='salloc -N 2 -p debug'
+
