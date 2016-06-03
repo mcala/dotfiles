@@ -1,5 +1,4 @@
 " Andrew McAllister's .vimrc
-
 "GENERAL
 " Dealing with compatibility
 set nocompatible
@@ -151,3 +150,7 @@ nmap <leader>t :%s/\s\+$//<cr>
 
 " Unset line numbers and blank characters for easier copy and paste
 nmap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
+
+" Reset vim's current directory to pwd. Used mostly when moving to programming
+" directories using marks to allow navigation to other files
+nmap <leader>d :lcd %:p:h<cr>
