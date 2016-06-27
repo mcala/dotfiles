@@ -18,7 +18,6 @@ export GIT_EDITOR='vim'
 # Storage Locations (General Scratch is is hopper/edison specific files)
 alias projectdir='cd /project/projectdirs/m1380'
 
-alias pbs='cd $PBS_O_WORKDIR'
 alias make_pbs='make_pbs_nersc'
 
 # Commands

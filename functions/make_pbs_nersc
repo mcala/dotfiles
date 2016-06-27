@@ -24,6 +24,9 @@ cat > ${FILENAME} << EOF
 #SBATCH -N $NODES
 #SBATCH -t $WALL
 #SBATCH -A m1380
+#SBATCH -L scratch2,project
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=mcala@umich.edu
 EOF
 
 if [[ ${MODULES} != '' ]]; then
@@ -51,10 +54,11 @@ else
 
 cat >> ${FILENAME} << EOF
 srun -n ${PROCS} ${EXECUTE}
+EOF
 
+cat >> ${FILENAME} << "EOF"
 echo "------------------------------------------------------------------"
-sacct -j $SLURM_JOB_ID --format=JobID,JobName%30,MaxRSS,Elapsed
-echo "------------------------------------------------------------------"
+sacct -j $SLURM_JOB_ID --format=JobIDRAW,JobName%30,Elapsed,AllocCPUs,CPUTime,ReqMem
 EOF
 fi
 
