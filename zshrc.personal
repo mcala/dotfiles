@@ -19,9 +19,6 @@ alias size='du -hsc'
 alias size_all='du -hc'
 
 # quickly accessing general dot files
-# REWRITE AFTER RCM SWITCH
-alias vimrc='vim $HOME/.vimrc'
-alias zshrcp='vim $HOME/.zshrc.personal'
 alias udots='source $HOME/.zshrc'
 
 # moving commands
@@ -43,6 +40,10 @@ alias vi='vim'
 # misc git
 alias chkpull='git remote update; git status -uno'
 
+# zsh Global aliases
+alias -g L="|less"
+alias -g C="| wc -l"
+
 # Other zsh options
 setopt -o noclobber
 setopt histallowclobber
@@ -55,4 +56,3 @@ LC_COLLATE='C'
 zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 
 zstyle ':completion:*:*:vi(m|):*' ignored-patterns '*.x' '*.o' 
-

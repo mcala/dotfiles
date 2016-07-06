@@ -25,19 +25,18 @@ alias ansel='ssh -X mcall@ansel.llnl.gov'
 alias oslic='ssh -X mcall@oslic.llnl.gov'
 alias cori='ssh -X mcala@cori.nersc.gov'
 alias edison='ssh -X mcala@edison.nersc.gov'
-alias carver='ssh -X mcala@carver.nersc.gov'
 alias flux='ssh -X mcala@flux-login.engin.umich.edu'
 alias umich='ssh -X mcala@login.itd.umich.edu'
+alias xsede='ssh -X mcala@login.xsede.org'
 
 # Misc scp commands that you always use
 alias cab_pdf='scp mcall@cab.llnl.gov:~/\@Action/\*.pdf .'
 alias ansel_pdf='scp mcall@ansel.llnl.gov:~/\@Action/\*.pdf .'
 
 #Getting Arond this filesystem
-alias research='cd ~/research'
-alias classes='cd ~/cocuments/classes'
-alias scratch='cd $HOME/soft/scratch'
-alias action='${HOME}/Documents/Research/\@Action'
+hash -d research=~/research/
+hash -d algan=~/research/projects/algan
+hash -d action=${HOME}/Documents/Research/\@action
 
 export GIT_EDITOR='vim'
 
