@@ -8,6 +8,7 @@ alias la='ls -lha'
 alias ldot='ls -ld .*'
 # "Phonon" ls - hides the phonon_ directories in phonon_points jobs
 alias pls='ls --hide "phonon_*"'
+alias kls='ls --hide "k_*"'
 
 # colored grep
 alias grep='grep --color'
