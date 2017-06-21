@@ -8,7 +8,7 @@ HIST_STAMPS="mm/dd/yyyy"
 ZSH_CUSTOM=$HOME/.zsh_plugins
 
 #plugins for oh-my-zsh
-source .plugins.zsh
+source $HOME/.plugins.zsh
 plugins+=(git colored-man-pages zsh-syntax-highlighting)
 
 # Load personal and computer specific preferences
