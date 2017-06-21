@@ -6,6 +6,10 @@
 #
  autoload scratch_find get_prefix get_pseudos get_wannier make_pbs_nersc copy_scf get_prefix_file
 
+# Path to squeue (for getting queue info while on local machine)
+export PATH=/opt/slurm/default/bin/:${PATH}
+
+
  
 
 [ -e $HOME/.dbgdot ] && echo "exiting .zshenv.ext"
