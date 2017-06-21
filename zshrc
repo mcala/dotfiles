@@ -5,7 +5,7 @@ ZSH=$HOME/soft/repositories/oh-my-zsh
  DISABLE_AUTO_TITLE="true"
 
 #plugins for oh-my-zsh
-plugins=(git)
+plugins=(git colored-man-pages)
 
 # Load personal and computer specific preferences
 source $ZSH/oh-my-zsh.sh
