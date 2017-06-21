@@ -36,5 +36,13 @@ hash -d research=~/Documents/research/
 hash -d algan=~/Documents/research/projects/algan
 hash -d action=${HOME}/Documents/research/\@action
 
-export GIT_EDITOR='vim'
+#pdfs
+alias skim='open -a skim.app'
 
+alias import_articles='$HOME/.functions/pyzoteroWorkflow.py'
+
+# for dealing with new gnuplot location
+alias gnuplot_swap="sed -i '.gnu_backup' -e \
+  's/\/usr\/local\/bin\/gnuplot/\/Users\/mcala\/soft\/MacPorts\/bin\/gnuplot/g' *.gnu"
+
+export GIT_EDITOR='vim'
