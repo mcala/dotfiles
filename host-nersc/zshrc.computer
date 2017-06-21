@@ -1,13 +1,10 @@
 # Computer file for NERSC
 
-# Checking computer specific dotfiles
-# CHANGE FOR RCUP
-alias zshrcc='vim $HOME/.zshrc.computer'
+# To make sure not to overwrite NERSC's default
 alias rcup='rcup -x zshrc'
 
 # PATH settings
 export PATH=$PATH:~/commands/bin
-#export PATH=$HOME/soft/vim/bin/:$PATH
 export PATH=$PATH:$HOME/soft/auger
 MANPATH=$MANPATH:$HOME/commands/share/man
 export MANPATH
@@ -15,33 +12,10 @@ export MANPATH
 # Variable settings
 export GIT_EDITOR='vim'
 
-# Storage Locations (General Scratch is is hopper/edison specific files)
+# Storage Locations 
 hash -d projectdir=/project/projectdirs/m1380
 hash -d gscratch=/global/cscratch1/sd/mcala
-
-alias make_pbs='make_pbs_nersc'
-
-# Commands
-alias show_cmd='ls -l ~/commands/bin'
-alias go_cmd='cd ~/commands/bin'
+hash -d action=~/\@action
 
 # Program Commands
 alias gnuplot='gnuplot -background white'
-
-
-# Get Blank Files
-alias get_blank='~/scripts/get_blank/grab.zsh'
-
-# BGW Scripts
-alias make_bgw='/global/u1/m/mcala/scripts/BGW/make_bgw'
-alias change_path='source /global/u1/m/mcala/scripts/BGW/path_changes'
-alias make_eps_sig='/global/u1/m/mcala/scripts/BGW/make_eps_sig'
-
-# Misc
-#
-#Auger Indirect
-alias make_phonon_points='~/scripts/phonon_auger/main_script'
-alias omega_make='~/scripts/phonon_auger/make_files/omega_make'
-alias check_run='~/scripts/phonon_auger/check_run'
-alias check_wan_run='~/scripts/phonon_auger/check_wan_run'
-alias auger_cleanup='~/scripts/phonon_auger/files/cleanup'
