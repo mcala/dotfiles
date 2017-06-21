@@ -30,8 +30,14 @@ colorscheme solarized
 " Airline settings
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space="\ua0"
+
 " Disable bufferline (since already shown in airline)
 let g:bufferline_echo=0
+
 
 " Filetype settings
 " Make cuda fortran files display fortran syntax.
