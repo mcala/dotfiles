@@ -19,12 +19,13 @@ PROCS=$(($NODES*24))
 
 cat > ${FILENAME} << EOF
 #!/bin/bash -l
-#SBATCH -p $QUEUE
+#SBATCH -p regular
+#SBATCH --qos=$QUEUE
 #SBATCH -J $JOBNAME
 #SBATCH -N $NODES
 #SBATCH -t $WALL
 #SBATCH -A m1380
-#SBATCH -L scratch2,project
+#SBATCH -L cscratch1,project
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=mcala@umich.edu
 EOF
@@ -32,6 +33,7 @@ EOF
 if [[ ${MODULES} != '' ]]; then
 cat >> ${FILENAME} << EOF
 module load ${MODULES}
+export OMP_NUM_THREADS=1
 EOF
 fi
 
