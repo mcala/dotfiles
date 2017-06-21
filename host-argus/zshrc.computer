@@ -1,10 +1,6 @@
 # Computer file for home mac
 
-# Checking computer specific dotfiles
-# FIX AFTER RCM CHANGE
-#alias zshrcc='vim $HOME/repositories/dotfiles/argus/zshrc.computer'
-#alias zshrc='vim $HOME/repositories/dotfiles/argus/zshrc'
-#
+# Autocompletion for verdi
 source $HOME/.zshrc.verdi
 
 # PATH
@@ -21,30 +17,30 @@ source activate py27-aiida
 # Accessing computers
 alias cab='ssh mcall@cab.llnl.gov'
 alias ansel='ssh mcall@ansel.llnl.gov'
-alias oslic='ssh mcall@oslic.llnl.gov'
 alias cori='ssh cori'
 alias edison='ssh edison'
-alias edison_plot='ssh -Y edison'
-alias flux='ssh mcala@flux-login.arc-ts.umich.edu'
+alias flux='ssh flux'
 alias umich='ssh mcala@login.itd.umich.edu'
 alias xsede='ssh mcala@login.xsede.org'
 
-# Misc scp commands that you always use
-alias cab_pdf='scp mcall@cab.llnl.gov:~/\@Action/\*.pdf .'
-alias ansel_pdf='scp mcall@ansel.llnl.gov:~/\@Action/\*.pdf .'
-
 #Getting Arond this filesystem
+# Stable/Around a while
 hash -d research=~/Documents/research/
-hash -d algan=~/Documents/research/projects/algan
 hash -d action=${HOME}/Documents/research/\@action
+# Projects that change a lot
+hash -d algan=~/Documents/research/projects/algan
+hash -d alloys=~/Documents/research/projects/alloys
+hash -d inn=~/Documents/research/projects/inn
+hash -d innpaper=/Users/mcala/Documents/research/communication/written_work/papers/inn_density
 
 #pdfs
 alias skim='open -a skim.app'
 
-alias import_articles='$HOME/.functions/pyzoteroWorkflow.py'
-
-# for dealing with new gnuplot location
+# Gnuplot moved, use this to fix old scripts when you encountered them
 alias gnuplot_swap="sed -i '.gnu_backup' -e \
   's/\/usr\/local\/bin\/gnuplot/\/Users\/mcala\/soft\/MacPorts\/bin\/gnuplot/g' *.gnu"
 
 export GIT_EDITOR='vim'
+
+# work in progress with paper workflow
+alias import_articles='$HOME/.functions/pyzoteroWorkflow.py'
