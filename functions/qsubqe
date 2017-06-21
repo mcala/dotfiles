@@ -3,35 +3,20 @@
 # Your defult modules will be for Auger (since you are frequently compiling this
 # code).
 
+#Dependencies added with second argument. Quick hack
 qsubqe()
 {
-  if [[ $# -ne 1 ]]; then
-    echo "Usage: qsubqe submit_script"
-  else
+#  if [[ $# -ne 2 ]]; then
+#    echo "Usage: qsubqe submit_script"
+#  else
 
   JOBNAME=$1
 
-  module unload fftw/3.3.2/intel/12.1
-  module unload mkl/11.1
-  module unload openmpi/1.6.3/intel/12.1
-  module unload intel-comp/12.1
+# You no longer need to do this for differences in espresso / auger, but this
+# function is kept here to prevent scripts from breaking:
+# 7.26.2016
 
-  module load intel-comp/14.0.2
-  module load openmpi/1.6.5/intel/14.0.2
-  module load mkl/11.2
-  module load espresso/5.1.1
-  module list
+  qsub $JOBNAME $2
 
-  qsub $JOBNAME
-
-  module unload mkl
-  module unload openmpi
-  module unload intel-comp
-
-  module load intel-comp/12.1
-  module load openmpi/1.6.3/intel/12.1
-  module load mkl/11.1
-  module load fftw/3.3.2/intel/12.1
-
-fi
+#fi
 }
