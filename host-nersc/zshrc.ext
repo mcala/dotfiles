@@ -15,24 +15,22 @@ ZSH=$HOME/soft/repositories/oh-my-zsh
 
 # Uncomment following line if you want to disable autosetting terminal title.
 DISABLE_AUTO_TITLE="true"
+ENABLE_CORRECTION="true"
+HIST_STAMPS="mm/dd/yyyy"
+ZSH_CUSTOM=$HOME/.zsh_plugins
 
 #plugins for oh-my-zsh
-plugins=(git)
+source $HOME/.plugins.zsh
+plugins+=(git colored-man-pages zsh-syntax-highlighting)
 
 # Load personal and computer specific preferences
 source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc.personal
 source $HOME/.zshrc.prompt
 source $HOME/.zshrc.computer
-source $HOME/.zshrc.work
 
 # Un-comment and modify the following template for system-specific
 # personal settings.
-#
- if [[ $NERSC_HOST == "hopper" ]]; then
-    source $HOME/.zshrc.hopper
- fi
-
 if [[ $NERSC_HOST == "edison" ]]; then
     source $HOME/.zshrc.edison
 fi
