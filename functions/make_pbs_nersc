@@ -19,16 +19,21 @@ PROCS=$(($NODES*24))
 
 cat > ${FILENAME} << EOF
 #!/bin/bash -l
-#SBATCH -p $QUEUE
+#SBATCH -p regular
+#SBATCH --qos=$QUEUE
 #SBATCH -J $JOBNAME
 #SBATCH -N $NODES
 #SBATCH -t $WALL
 #SBATCH -A m1380
+#SBATCH -L cscratch1,project
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=mcala@umich.edu
 EOF
 
 if [[ ${MODULES} != '' ]]; then
 cat >> ${FILENAME} << EOF
 module load ${MODULES}
+export OMP_NUM_THREADS=1
 EOF
 fi
 
@@ -51,10 +56,11 @@ else
 
 cat >> ${FILENAME} << EOF
 srun -n ${PROCS} ${EXECUTE}
+EOF
 
+cat >> ${FILENAME} << "EOF"
 echo "------------------------------------------------------------------"
-sacct -j $SLURM_JOB_ID --format=JobID,JobName%30,MaxRSS,Elapsed
-echo "------------------------------------------------------------------"
+sacct -j $SLURM_JOB_ID --format=JobIDRAW,JobName%30,Elapsed,AllocCPUs,CPUTime,ReqMem
 EOF
 fi
 

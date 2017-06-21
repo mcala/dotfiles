@@ -7,10 +7,19 @@
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
 [color]
     ui = true
+    diff = always
+    status = always
+    branch = always
+    interactive = always
+    pager = true
 [color "status"]
     changed = blue
     untracked = red
     added = green
     branch = white
 [push]
-	default = simple
+	default = current
+[diff]
+	mnemonicprefix = true
+[core]
+	pager = less -R

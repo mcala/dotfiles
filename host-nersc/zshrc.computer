@@ -16,9 +16,9 @@ export MANPATH
 export GIT_EDITOR='vim'
 
 # Storage Locations (General Scratch is is hopper/edison specific files)
-alias projectdir='cd /project/projectdirs/m1380'
+hash -d projectdir=/project/projectdirs/m1380
+hash -d gscratch=/global/cscratch1/sd/mcala
 
-alias pbs='cd $PBS_O_WORKDIR'
 alias make_pbs='make_pbs_nersc'
 
 # Commands
