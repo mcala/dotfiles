@@ -1,16 +1,7 @@
 # Computer file for flux
 
-
 module use ${HOME}/privatemodules
 module load auger/develop
-
-
-## INTEL compilers for AUGER code.
-#module load fftw/3.3.4/intel/14.0.2
-#module load intel/14.0.2
-#module load openmpi/1.6.5/intel/14.0.2
-#module load espresso/5.4.0
-
 
 module load intel/17.0.1
 module load openmpi/1.10.2/intel/17.0.1   
@@ -18,11 +9,6 @@ module load fftw/3.3.4/intel/17.0.1
 module load mkl/11.3.3
 
 export PFUNIT=${HOME}/soft/pfunit
-
-# Checking computer specific dotfiles
-# FIX AFTER RCM
-alias zshrcc='vim $HOME/repositories/dotfiles/flux/zshrc.computer'
-alias zshrc='vim $HOME/repositories/dotfiles/flux/zshrc'
 
 # Queue
 alias q='clear; qstat -u mcala'
@@ -38,10 +24,6 @@ alias vimdiff='$HOME/commands/bin/vimdiff'
 
 #Locations
 hash -d scratch=/scratch/kioup_flux/mcala
-
-# Get to commands
-alias go_cmd='cd $HOME/commands/bin'
-alias show_cmd='ls -l $HOME/commands/bin'
 
 #Path Stuff
 PATH=$PATH:$HOME/bin:$HOME/commands/bin
