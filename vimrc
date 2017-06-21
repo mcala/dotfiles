@@ -60,6 +60,7 @@ set textwidth=80
 set colorcolumn=80
 set wrap
 
+
 " How to draw invisible characters.
 set list
 set listchars=tab:▸\ ,eol:¬,trail:.
@@ -163,3 +164,5 @@ nmap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
 " Reset vim's current directory to pwd. Used mostly when moving to programming
 " directories using marks to allow navigation to other files
 nmap <leader>d :lcd %:p:h<cr>
+
+set pastetoggle=<F3>
