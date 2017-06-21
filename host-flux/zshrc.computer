@@ -1,18 +1,21 @@
 # Computer file for flux
 
-module load git
 
-## Intel compilers for ESPRESSO/5.1.1 are defaults with this mkl
-#module load mkl/11.2
-#module load espresso/5.1.1
+module use ${HOME}/privatemodules
+module load auger/develop
 
-## INTEL compilers for AUGER code. 
-module load fftw/3.3.2/intel/12.1
-module unload intel-comp/14.0.2
-module load intel-comp/12.1
-module unload openmpi
-module load openmpi/1.6.3/intel/12.1
-module load mkl/11.1
+
+## INTEL compilers for AUGER code.
+#module load fftw/3.3.4/intel/14.0.2
+#module load intel/14.0.2
+#module load openmpi/1.6.5/intel/14.0.2
+#module load espresso/5.4.0
+
+
+module load intel/17.0.1
+module load openmpi/1.10.2/intel/17.0.1   
+module load fftw/3.3.4/intel/17.0.1   
+module load mkl/11.3.3
 
 export PFUNIT=${HOME}/soft/pfunit
 
@@ -27,13 +30,14 @@ alias sq='clear; showq -u mcala'
 alias gq='clear; showq -w acct=kioup_flux'
 alias eq='clear; showq -r -u mcala'
 alias nq='clear; showq -n -u mcala'
+alias check_acct='mdiag -a kioup_flux'
 alias finished='clear; showq -c -u mcala'
 
 alias vim='$HOME/commands/bin/vim'
 alias vimdiff='$HOME/commands/bin/vimdiff'
 
 #Locations
-alias scratch='cd /scratch/kioup_flux/mcala'
+hash -d scratch=/scratch/kioup_flux/mcala
 
 # Get to commands
 alias go_cmd='cd $HOME/commands/bin'
@@ -47,30 +51,3 @@ MANPATH=$MANPATH:$HOME/commands/share/man
 export MANPATH
 
 export GIT_EDITOR='$HOME/commands/bin/vim'
-
-
-
-# OLD MODULE LOADS
-## INTEL compilers
-#module load fftw/3.3.2/intel/12.1
-#module unload intel-comp/14.0.2
-#module load intel-comp/12.1
-#module unload openmpi
-#module load openmpi/1.6.3/intel/12.1
-#
-## PGI Compilers - need infiniband recompile (w/f Brock)
-##module load fftw/3.3.2/pgi/12.3
-##module unload intel-comp
-##module load pgi/12.3
-##module unload openmpi
-##module load openmpi/1.6.4/pgi/12.3
-##module load cuda/5.5
-#
-##!module load fftw/3.3.2/pgi/12.3
-##!module unload intel-comp
-##!module load pgi/12.3
-##!module unload openmpi
-##!module load openmpi/1.6.2/pgi/12.3
-##!module load cuda/5.5
-#
-#module load mkl/11.1
