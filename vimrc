@@ -30,8 +30,14 @@ colorscheme solarized
 " Airline settings
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space="\ua0"
+
 " Disable bufferline (since already shown in airline)
 let g:bufferline_echo=0
+
 
 " Filetype settings
 " Make cuda fortran files display fortran syntax.
@@ -43,7 +49,8 @@ if has ("autocmd")
     autocmd BufNewFile,BufRead make.sys set filetype=make
     autocmd Filetype make setlocal noexpandtab
     autocmd Filetype gitcommit setlocal spell textwidth=72
-    autocmd Filetype latex setlocal spell
+    autocmd Filetype tex setlocal spell textwidth=90 colorcolumn=90 wrap
+    autocmd Filetype latex setlocal spell textwidth=90 colorcolumn=90 wrap
     autocmd Filetype python setlocal tabstop=2 shiftwidth=2 softtabstop=2
     filetype plugin indent on
 endif
@@ -52,6 +59,7 @@ endif
 set textwidth=80
 set colorcolumn=80
 set wrap
+
 
 " How to draw invisible characters.
 set list
@@ -156,3 +164,5 @@ nmap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
 " Reset vim's current directory to pwd. Used mostly when moving to programming
 " directories using marks to allow navigation to other files
 nmap <leader>d :lcd %:p:h<cr>
+
+set pastetoggle=<F3>

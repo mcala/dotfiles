@@ -5,38 +5,44 @@
 #alias zshrcc='vim $HOME/repositories/dotfiles/argus/zshrc.computer'
 #alias zshrc='vim $HOME/repositories/dotfiles/argus/zshrc'
 
-# PATH alterations
-export PATH=/anaconda/bin:$PATH
-export PATH=$HOME/MacPorts/bin:$PATH
-export PATH=$HOME/MacPorts/sbin:$PATH
-export PATH=$HOME/MacPort/lib:$PATH
-export PATH=${PATH}:/Users/mcala/soft/fhi98PP/bin/Tools
-export PATH=${PATH}:/Users/mcala/soft/espresso-5.1/bin
-export PFUNIT=${HOME}/soft/pfunit/serial
+# PATH
+export PATH=$HOME/soft/MacPorts/bin:$PATH
+export PATH=$HOME/soft/Macports/sbin:$PATH
+export PATH=$HOME/soft/MacPorts/lib:$PATH
+export PATH=$HOME/soft/anaconda/bin:$PATH
 
-export MANPATH=$HOME/MacPorts/share/man:${MANPATH}
+# For QE commands
+export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
+source activate py27-aiida
 
-# Fink
-source /sw/bin/init.sh
-
+#------------------------------------------------------------------
 # Accessing computers
-alias cab='ssh -X mcall@cab.llnl.gov'
-alias ansel='ssh -X mcall@ansel.llnl.gov'
-alias oslic='ssh -X mcall@oslic.llnl.gov'
-alias cori='ssh -X mcala@cori.nersc.gov'
-alias edison='ssh -X mcala@edison.nersc.gov'
-alias flux='ssh -X mcala@flux-login.engin.umich.edu'
-alias umich='ssh -X mcala@login.itd.umich.edu'
-alias xsede='ssh -X mcala@login.xsede.org'
+alias cab='ssh mcall@cab.llnl.gov'
+alias ansel='ssh mcall@ansel.llnl.gov'
+alias oslic='ssh mcall@oslic.llnl.gov'
+alias cori='ssh cori'
+alias edison='ssh edison'
+alias edison_plot='ssh -Y edison'
+alias flux='ssh mcala@flux-login.arc-ts.umich.edu'
+alias umich='ssh mcala@login.itd.umich.edu'
+alias xsede='ssh mcala@login.xsede.org'
 
 # Misc scp commands that you always use
 alias cab_pdf='scp mcall@cab.llnl.gov:~/\@Action/\*.pdf .'
 alias ansel_pdf='scp mcall@ansel.llnl.gov:~/\@Action/\*.pdf .'
 
 #Getting Arond this filesystem
-hash -d research=~/research/
-hash -d algan=~/research/projects/algan
-hash -d action=${HOME}/Documents/Research/\@action
+hash -d research=~/Documents/research/
+hash -d algan=~/Documents/research/projects/algan
+hash -d action=${HOME}/Documents/research/\@action
+
+#pdfs
+alias skim='open -a skim.app'
+
+alias import_articles='$HOME/.functions/pyzoteroWorkflow.py'
+
+# for dealing with new gnuplot location
+alias gnuplot_swap="sed -i '.gnu_backup' -e \
+  's/\/usr\/local\/bin\/gnuplot/\/Users\/mcala\/soft\/MacPorts\/bin\/gnuplot/g' *.gnu"
 
 export GIT_EDITOR='vim'
-

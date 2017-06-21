@@ -80,7 +80,7 @@ debug="%s";\
 latexcommand="%s";\
 eval bash("latex ".name.".tex"); \
 eval bash("dvips ".name.".dvi"); \
-eval bash("~/commands/gnuplot/ps2pdfbb ".name.".ps"); \
+eval bash("~/.commands/gnuplot/ps2pdfbb ".name.".ps"); \
 if (debug eq "no") {;\
 eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
 };\
@@ -105,7 +105,7 @@ replot; \
 unset output;\
 eval bash("latex ".name.".tex"); \
 eval bash("dvips ".name.".dvi"); \
-eval bash("~/commands/gnuplot/ps2pdfbb ".name.".ps"); \
+eval bash("~/.commands/gnuplot/ps2pdfbb ".name.".ps"); \
 if (debug eq "no") {;\
 eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
 };\
