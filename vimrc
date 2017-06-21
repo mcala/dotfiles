@@ -49,7 +49,8 @@ if has ("autocmd")
     autocmd BufNewFile,BufRead make.sys set filetype=make
     autocmd Filetype make setlocal noexpandtab
     autocmd Filetype gitcommit setlocal spell textwidth=72
-    autocmd Filetype latex setlocal spell
+    autocmd Filetype tex setlocal spell textwidth=90 colorcolumn=90 wrap
+    autocmd Filetype latex setlocal spell textwidth=90 colorcolumn=90 wrap
     autocmd Filetype python setlocal tabstop=2 shiftwidth=2 softtabstop=2
     filetype plugin indent on
 endif
