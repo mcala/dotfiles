@@ -7,11 +7,13 @@ else
 
 FILENAME=$1
 JOBNAME=$2
-PROCS=$3
+NODES=$3
 WALL=$4
 QUEUE=$5
 ACCOUNT=$6
 EXECUTE=$7
+
+PROCS=$(($NODES*12))
 
 cat > ${FILENAME} << EOF
 #!/bin/bash
@@ -25,7 +27,7 @@ cat > ${FILENAME} << EOF
 
 #PBS -N $JOBNAME
 #PBS -l walltime=$WALL
-#PBS -l procs=$PROCS
+#PBS -l nodes=${NODES}:nehalem:ppn=12
 #PBS -V
 EOF
 
