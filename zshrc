@@ -12,5 +12,6 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc.personal
 source $HOME/.zshrc.prompt
 source $HOME/.zshrc.computer
+source $HOME/.zshrc.verdi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
