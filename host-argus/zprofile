@@ -4,7 +4,7 @@
 #https://github.com/b4winckler/macvim/wiki/Troubleshooting
 #has more information.
 
-export PATH=$HOME/MacPorts/bin:$PATH
-export PATH=$HOME/MacPort/lib:$PATH
-export PATH=${PATH}:/Users/mcala/soft/fhi98PP/bin/Tools
-export PATH=${PATH}:/Users/mcala/soft/espresso-5.1/bin
+#export PATH=$HOME/MacPorts/bin:$PATH
+#export PATH=$HOME/MacPort/lib:$PATH
+#export PATH=${PATH}:/Users/mcala/soft/fhi98PP/bin/Tools
+#export PATH=${PATH}:/Users/mcala/soft/espresso-5.1/bin
