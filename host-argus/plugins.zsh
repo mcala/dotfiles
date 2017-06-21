@@ -1,0 +1,1 @@
+plugins=( macports sundial-mottos )

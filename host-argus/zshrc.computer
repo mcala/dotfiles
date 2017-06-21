@@ -4,6 +4,8 @@
 # FIX AFTER RCM CHANGE
 #alias zshrcc='vim $HOME/repositories/dotfiles/argus/zshrc.computer'
 #alias zshrc='vim $HOME/repositories/dotfiles/argus/zshrc'
+#
+source $HOME/.zshrc.verdi
 
 # PATH
 export PATH=$HOME/soft/MacPorts/bin:$PATH
