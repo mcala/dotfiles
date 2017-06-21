@@ -32,9 +32,9 @@ alias cab_pdf='scp mcall@cab.llnl.gov:~/\@Action/\*.pdf .'
 alias ansel_pdf='scp mcall@ansel.llnl.gov:~/\@Action/\*.pdf .'
 
 #Getting Arond this filesystem
-hash -d research=~/research/
-hash -d algan=~/research/projects/algan
-hash -d action=${HOME}/Documents/Research/\@action
+hash -d research=~/Documents/research/
+hash -d algan=~/Documents/research/projects/algan
+hash -d action=${HOME}/Documents/research/\@action
 
 export GIT_EDITOR='vim'
 
