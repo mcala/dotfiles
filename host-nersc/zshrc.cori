@@ -1,12 +1,10 @@
 module use /project/projectdirs/m1380/modules/cori/modulefiles
 
-# Default modules to load all the time
 module load git
+module load python/2.7-anaconda
 
-# Aliases for getting around
-alias scratch='cd `echo $SCRATCH`'
 
-# Aliases for slrum
+# Aliases for SLURM
 alias jobinfo='sacct --format=JobIDRAW,JobName%30,Elapsed,AllocCPUs,CPUTime,ReqMem -j '
 alias qsub='sbatch'
 alias qdel='scancel'
@@ -17,3 +15,4 @@ alias checksys='sinfo --format="%10P %.10a %.20F"'
 alias q='clear; squeue -u mcala --format="%3t %10i %25j %.5D %.8M %.12l %.10P %.6q %.10r %.18E"'
 alias interactive='salloc -N 2 -p debug'
 alias interactive_extra='salloc -I -p debug -t 00:30:00 -N'
+

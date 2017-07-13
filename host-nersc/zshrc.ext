@@ -21,7 +21,15 @@ ZSH_CUSTOM=$HOME/.zsh_plugins
 
 #plugins for oh-my-zsh
 #source $HOME/.plugins.zsh
-plugins+=(git colored-man-pages zsh-syntax-highlighting)
+#plugins+=(git colored-man-pages zsh-syntax-highlighting)
+
+if [[ $NERSC_HOST == "edison" ]]; then
+  plugins+=(git colored-man-pages)
+fi
+
+if [[ $NERSC_HOST == "cori" ]]; then
+  plugins+=(git colored-man-pages zsh-syntax-highlighting)
+fi
 
 # Load personal and computer specific preferences
 source $ZSH/oh-my-zsh.sh
@@ -35,9 +43,9 @@ if [[ $NERSC_HOST == "edison" ]]; then
     source $HOME/.zshrc.edison
 fi
 
- if [[ $NERSC_HOST == "cori" ]]; then
-    source $HOME/.zshrc.cori
- fi
+if [[ $NERSC_HOST == "cori" ]]; then
+   source $HOME/.zshrc.cori
+fi
 
 [ -e $HOME/.dbgdot ] && echo "exiting .zshrc.ext"
 # end .zshrc.ext
