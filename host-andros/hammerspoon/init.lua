@@ -38,6 +38,8 @@ positions = {
   bot_23 = {x=0.33, y=0.5, w=0.33, h=0.5},
   bot_33 = {x=0.66, y=0.5, w=0.34, h=0.5},
 
+  middle_third = {x=0.33, y=0.33, w=0.33, h=0.5},
+
   -- Not really used, but kept in case.
   upperhalf = {x=0, y=0, w=1, h=0.5},
   lowerhalf = {x=0, y=0.5, w=1, h=0.5},
@@ -87,6 +89,8 @@ secondaryPositionKeys = {
   {key="]", units=positions.right_half},
   {key="w", units=positions.left_third},
   {key="[", units=positions.right_third},
+  {key="t", units=positions.middle_third},
+
 }
 
 layoutKeys = {
