@@ -52,6 +52,7 @@ if has ("autocmd")
     autocmd Filetype tex setlocal spell textwidth=90 colorcolumn=90 wrap
     autocmd Filetype latex setlocal spell textwidth=90 colorcolumn=90 wrap
     autocmd Filetype python setlocal tabstop=2 shiftwidth=2 softtabstop=2
+    autocmd Filetype markdown,mkd,md call pencil#init({'wrap' :'soft'})
     filetype plugin indent on
 endif
 
