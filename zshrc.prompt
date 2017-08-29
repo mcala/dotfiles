@@ -39,10 +39,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 
 #%{$fg[blue]%}%n%{$fg[white]%} on %{$fg[green]%}%m%{$fg[white]%} in %{$fg[yellow]%}%3~%{$fg[green]%}$(git_prompt_info)%E%
 RPROMPT='%{$fg[magenta]%} ${CONDA_DEFAULT_ENV} %{%f%k%b%}'
-PROMPT='
-%{$fg[blue]%}%n%{$fg[white]%} on %{$fg[green]%}%m%{$fg[white]%} in %{$fg[yellow]%}%3~%{$fg[green]%}$(git_prompt_info)%E%
-
+PROMPT=' 
+%{$fg[blue]%}%n%{$fg[white]%} on %{$fg[green]%}%m%{$fg[white]%} in %{$fg[yellow]%}%3~%{$fg[green]%}$(git_prompt_info)%E% 
 $(_prompt_char)%{$fg[white]%} > %{%f%k%b%}'
+
 
 
 #PROMPT='
