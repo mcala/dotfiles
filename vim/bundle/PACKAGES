@@ -1,0 +1,13 @@
+Packages used. Don't want to have to deal with git submodules to have them
+automatically included in dotfiles.
+
+vim-airline
+vim-airline-themes
+vim-bufferline
+vitality.vim
+vim-surround
+vim-fugitive
+vim-pencil
+LaTeX-Box
+goyo.vim
+vim-colors-solarized
