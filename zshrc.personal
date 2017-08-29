@@ -37,6 +37,7 @@ alias chkpull='git remote update; git status -uno'
 # zsh Global aliases
 alias -g L="|less"
 alias -g C="| wc -l"
+alias -g O="|xargs ls -G"
 alias -g no_phonon='--hide "phonon_*"'
 alias -g no_kpts='--hide "k_*"'
 
