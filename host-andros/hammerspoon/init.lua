@@ -30,7 +30,7 @@ positions = {
   right_half = hs.layout.right50,
   right_2thirds = {x=0.34, y=0, w=0.66, h=1},
 
-  -- Used for Evernote research journal tiling
+  -- Used for research journal tiling
   top_13 = {x=0, y=0, w=0.33, h=0.5},
   top_23 = {x=0.33, y=0, w=0.33, h=0.5},
   top_33 = {x=0.66, y=0, w=0.34, h=0.5},
@@ -120,7 +120,7 @@ hs.fnutils.each(layoutKeys, function(entry)
   end)
 end)
 
-bindHyperKey("4", function() applyEvernoteLayout() end)
+bindHyperKey("4", function() applyResearchLayout() end)
 bindHyperKey("5", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
@@ -150,11 +150,11 @@ function applyLayout(layout)
 end
 
 --[[
---Evernote is a bit more involved:
+--Research is a bit more involved:
 --After opening 6 or 4 latest research journal entries, tile them across the
 --screen.
 --]]
-function applyEvernoteLayout()
+function applyResearchLayout()
   windows=hs.window.allWindows()
   length=getLength(windows)
   windowList={}
@@ -192,31 +192,31 @@ function applyEvernoteLayout()
   print("DEBUG DEBUG DEBUG")
 
   if length == 5 then
-    evernoteLayout=  {
+    researchLayout=  {
       name="Research Journal",
       small={
-        {"Evernote", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_12, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_22, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[3]]]:title(), screen, positions.bot_12, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_22, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[5]]]:title(), screen, positions.center, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_12, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_22, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[3]]]:title(), screen, positions.bot_12, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_22, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[5]]]:title(), screen, positions.center, nil, nil},
       }}
   else
-    evernoteLayout=  {
+    researchLayout=  {
       name="Research Journal",
       large={
-        {"Evernote", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_13, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_23, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[3]]]:title(), screen, positions.top_33, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_13, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[5]]]:title(), screen, positions.bot_23, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[6]]]:title(), screen, positions.bot_33, nil, nil},
-        {"Evernote", windows[inverted[sortedKeys[7]]]:title(), screen, positions.center, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_13, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_23, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[3]]]:title(), screen, positions.top_33, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_13, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[5]]]:title(), screen, positions.bot_23, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[6]]]:title(), screen, positions.bot_33, nil, nil},
+        {"Bear", windows[inverted[sortedKeys[7]]]:title(), screen, positions.center, nil, nil},
       }}
   end
   print("DEBUG DEBUG GOT TO SEND LAYOUT DEBUG DEBUG")
 
-  applyLayout(evernoteLayout)
+  applyLayout(researchLayout)
 end
 
 --[[
