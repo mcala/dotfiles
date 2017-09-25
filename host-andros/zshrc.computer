@@ -36,6 +36,8 @@ hash -d algan=~/Documents/research/projects/algan
 hash -d alloys=~/Documents/research/projects/alloys
 hash -d inn=~/Documents/research/projects/inn
 hash -d innpaper=/Users/mcala/Documents/research/communication/written_work/papers/inn_density
+hash -d icloud=/Users/mcala/Library/Mobile\ Documents
+hash -d iclouddoc=/Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs
 
 #pdfs
 alias skim='open -a skim.app'
