@@ -52,7 +52,7 @@ setopt nobeep
 LC_COLLATE='C'
 
 # when auto completing vim, ignore *.o and *.x
-zstyle ':completion:*:*:vi(m|):*' ignored-patterns '*.x' '*.o' 
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
 
 # Checking computer specific dotfiles
 alias zshrcc='vim $HOME/.dotfiles/host-argus/zshrc.computer'
