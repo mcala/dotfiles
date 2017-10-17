@@ -55,11 +55,11 @@ layouts = {
     name="Coding",
     small={
       {"iTerm2", nil, screen, positions.left_half, nil, nil},
-      {"Google Chrome", nil, screen, positions.right_half, nil, nil},
+      {"Safari", nil, screen, positions.right_half, nil, nil},
     },
     large={
       {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
-      {"Google Chrome", nil, screen, positions.right_2thirds, nil, nil},
+      {"Safari", nil, screen, positions.right_2thirds, nil, nil},
     }
   },
   {
@@ -67,6 +67,10 @@ layouts = {
     small={
       {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
       {"Skim",   nil, screen, positions.right_third, nil, nil},
+    },
+    large={
+      {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
+      {"Safari", nil, screen, positions.right_third, nil, nil},
     }
   },
   {
@@ -217,6 +221,11 @@ function applyResearchLayout()
   print("DEBUG DEBUG GOT TO SEND LAYOUT DEBUG DEBUG")
 
   applyLayout(researchLayout)
+  for i =1,6 do
+    print(windows[inverted[sortedKeys[i]]])
+    windows[inverted[sortedKeys[i]]]:raise()
+  end
+
 end
 
 --[[

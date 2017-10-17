@@ -15,7 +15,7 @@ export PATH=$HOME/.rbenv/shims:$PATH
 
 # For QE commands
 export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
-source activate py27-aiida
+source activate py27-aiida_0.9
 
 #------------------------------------------------------------------
 # Accessing computers
