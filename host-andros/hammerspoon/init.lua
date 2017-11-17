@@ -69,14 +69,8 @@ layouts = {
       {"Skim",   nil, screen, positions.right_third, nil, nil},
     },
     large={
-      {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
+      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
       {"Safari", nil, screen, positions.right_third, nil, nil},
-    }
-  },
-  {
-    name="Writing",
-    small={
-      {"Ulysses", nil, screen, positions.maximized, nil, nil},
     }
   },
 }
@@ -93,14 +87,17 @@ secondaryPositionKeys = {
   {key="]", units=positions.right_half},
   {key="w", units=positions.left_third},
   {key="[", units=positions.right_third},
-  {key="t", units=positions.middle_third},
-
+  {key="1", units=positions.top_13},
+  {key="2", units=positions.top_23},
+  {key="3", units=positions.top_33},
+  {key="4", units=positions.bot_13},
+  {key="5", units=positions.bot_23},
+  {key="6", units=positions.bot_33},
 }
 
 layoutKeys = {
-  {key="1", layout=layouts[1]},
-  {key="2", layout=layouts[2]},
-  {key="3", layout=layouts[3]},
+  {key="c", layout=layouts[1]},
+  {key="t", layout=layouts[2]},
 }
 
 
