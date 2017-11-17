@@ -20,7 +20,10 @@ set modelines=0
 " syntax highlighting
 syntax enable
 set background=dark
-colorscheme solarized
+set termguicolors
+let g:quantum_black=1
+let g:quantum_italics=1
+colorscheme quantum
 " These may be necessary for supercomputers to work with solarized.
 " Keep until you know for sure
 "let g:solarized_visibility = "high"
@@ -29,7 +32,7 @@ colorscheme solarized
 
 " Airline settings
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='quantum'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
