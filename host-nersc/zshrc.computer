@@ -16,6 +16,7 @@ export GIT_EDITOR='vim'
 hash -d projectdir=/project/projectdirs/m1380
 hash -d gscratch=/global/cscratch1/sd/mcala
 hash -d action=~/\@action
+hash -d auger=/project/projectdirs/m1380/modules/edison/auger/develop
 
 # Program Commands
 alias gnuplot='gnuplot -background white'
