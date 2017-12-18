@@ -80,9 +80,9 @@ mainPositionKeys= {
   {key="q", units=positions.left_2thirds},
   {key="]", units=positions.right_2thirds},
   {key="g", units=positions.center},
-  {key="f", units=positions.maximize},
 }
 secondaryPositionKeys = {
+  {key="f", units=positions.maximize},
   {key="q", units=positions.left_half},
   {key="]", units=positions.right_half},
   {key="w", units=positions.left_third},
