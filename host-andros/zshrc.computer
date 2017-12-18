@@ -32,12 +32,12 @@ alias xsede='ssh mcala@login.xsede.org'
 hash -d research=~/Documents/research/
 hash -d action=${HOME}/Documents/research/\@action
 # Projects that change a lot
-hash -d algan=~/Documents/research/projects/algan
-hash -d alloys=~/Documents/research/projects/alloys
+hash -d sqs=~/Documents/research/projects/sqs
 hash -d inn=~/Documents/research/projects/inn
 hash -d innpaper=/Users/mcala/Documents/research/communication/written_work/papers/inn_density
 hash -d icloud=/Users/mcala/Library/Mobile\ Documents
 hash -d iclouddoc=/Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs
+hash -d memory=/Users/mcala/Dropbox/memory
 
 #pdfs
 alias skim='open -a skim.app'
