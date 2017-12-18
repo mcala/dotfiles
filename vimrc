@@ -17,6 +17,7 @@ set modelines=0
 " fixed format. Must be before syntax.
 :let fortran_free_source=1
 :let fortran_more_precise=1
+
 " syntax highlighting
 syntax enable
 set background=dark
@@ -24,11 +25,6 @@ set termguicolors
 let g:quantum_black=1
 let g:quantum_italics=1
 colorscheme quantum
-" These may be necessary for supercomputers to work with solarized.
-" Keep until you know for sure
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-"let g:hybrid_use_Xresources = 1
 
 " Airline settings
 let g:airline_powerline_fonts=1
@@ -40,7 +36,6 @@ let g:airline_symbols.space="\ua0"
 
 " Disable bufferline (since already shown in airline)
 let g:bufferline_echo=0
-
 
 " Filetype settings
 " Make cuda fortran files display fortran syntax.
@@ -54,16 +49,15 @@ if has ("autocmd")
     autocmd Filetype gitcommit setlocal spell textwidth=72
     autocmd Filetype tex setlocal spell textwidth=90 colorcolumn=90 wrap
     autocmd Filetype latex setlocal spell textwidth=90 colorcolumn=90 wrap
-    autocmd Filetype python setlocal tabstop=2 shiftwidth=2 softtabstop=2
-    autocmd Filetype markdown,mkd,md call pencil#init({'wrap' :'soft'})
+    autocmd Filetype markdown,mkd,md setlocal spell
+    autocmd Filetype markdown,mkd,md call pencil#init({'wrap' :'hard', 'autoformat' : 0})
     filetype plugin indent on
 endif
 
-" Draw colored column at 85 characters for textwidth purposes.
+" Draw colored column at 80 characters for textwidth purposes.
 set textwidth=80
 set colorcolumn=80
-set wrap
-
+let g:pencil#textwidth = 80
 
 " How to draw invisible characters.
 set list
@@ -71,8 +65,8 @@ set listchars=tab:▸\ ,eol:¬,trail:.
 
 " SETTINGS
 
-" Tab settings.
-"set smartindent
+"Tab settings.
+set smartindent
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -93,9 +87,6 @@ set smartcase
 set incsearch
 set hlsearch
 set showmatch               " Show matching brackets briefly by jumping to them.
-
-" Replacing, have g be default (global and local).
-set gdefault
 
 " Backing up and history.
 set history=100
@@ -126,20 +117,10 @@ set hidden
 " Remap leader and : to more convienent keys.
 let mapleader=","
 nnoremap ; :
-:imap jk <Esc>
-
-" Leader commands for saving and quitting.
-nmap <leader>s :w<cr>
-nmap <leader>q :wq<cr>
-imap <leader>s <Esc>:w<cr>i
-imap <leader>q <Esc>:wq<cr>
+:inoremap jk <Esc>
 
 " Gets rid of search highlighting when you find what you need.
 nnoremap <silent> <leader><space> :nohlsearch<cr>
-
-" Changes the bracket matching to use tab.
-nnoremap <tab> %
-vnoremap <tab> %
 
 " Window mappsing.
 " Use <ctrl>+hjkl to move around.
@@ -151,22 +132,37 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Autocenter movement commands
-nmap G Gzz
-nmap n nzz
-nmap N Nzz
-nmap } }zz
-nmap { {zz
-nmap <C-o> <C-o>zz
+nnoremap G Gzz
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap } }zz
+nnoremap { {zz
+nnoremap <C-o> <C-o>zz
 
 " COMMANDS
 " Strip (t)railing whitespace throughout file.
-nmap <leader>t :%s/\s\+$//<cr>
+nnoremap <leader>s :%s/\s\+$//<cr>
 
 " Unset line numbers and blank characters for easier copy and paste
-nmap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
+nnoremap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
 
 " Reset vim's current directory to pwd. Used mostly when moving to programming
 " directories using marks to allow navigation to other files
-nmap <leader>d :lcd %:p:h<cr>
+nnoremap <leader>d :lcd %:p:h<cr>
 
 set pastetoggle=<F3>
+
+" Wiki/Writing Settings
+let g:vimwiki_list = [{'path': '~/Dropbox/memory/', 'syntax': 'markdown', 'ext': '.md'}]
+map <C-n> :NERDTreeToggle<CR>
+set wildmenu
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby'] 
+" Combines all lines not separated by return into one soft wrapped paragraph
+nnoremap <silent> Q vipJ
+" No concealing
+let g:pencil#conceallevel = 0
+let g:markdown_syntax_conceal = 0
+let g:vimwiki_conceallevel = 0
+
+"Would be nice if this worked in vimwiki files
+":inoremap <Tab> <C-x><C-f>
