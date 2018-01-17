@@ -121,8 +121,8 @@ hs.fnutils.each(layoutKeys, function(entry)
   end)
 end)
 
-bindHyperKey("4", function() applyResearchLayout() end)
-bindHyperKey("5", function() moveScreen(hs.window.focusedWindow()) end)
+ bindHyperKey("r", function() applyResearchLayout() end)
+bindHyperKey("m", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
   local screen = hs.screen.mainScreen()
