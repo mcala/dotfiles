@@ -51,6 +51,3 @@ alias gnuplot_swap="sed -i '.gnu_backup' -e \
   's/\/usr\/local\/bin\/gnuplot/\/Users\/mcala\/soft\/MacPorts\/bin\/gnuplot/g' *.gnu"
 
 export GIT_EDITOR='vim'
-
-# work in progress with paper workflow
-alias import_articles='$HOME/.functions/pyzoteroWorkflow.py'
