@@ -3,6 +3,10 @@
 # Ruby Environments, Doesn't seem to be working?
 #eval "$(rbenv init -)"
 
+
+# Use gnucoreutils ls
+alias ls='gls --color=auto'
+
 # Autocompletion for verdi
 source $HOME/.zshrc.verdi
 
