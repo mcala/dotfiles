@@ -18,8 +18,8 @@
     added = green
     branch = white
 [push]
-	default = current
+    default = current
 [diff]
-	mnemonicprefix = true
+    mnemonicprefix = true
 [core]
-	pager = less -R
+    pager = less -R

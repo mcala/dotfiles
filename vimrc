@@ -21,14 +21,14 @@ set modelines=0
 " syntax highlighting
 syntax enable
 set background=dark
-set termguicolors
-let g:quantum_black=1
-let g:quantum_italics=1
-colorscheme quantum
+"set termguicolors
+"let g:quantum_black=1
+"let g:quantum_italics=1
+colorscheme solarized
 
 " Airline settings
 let g:airline_powerline_fonts=1
-let g:airline_theme='quantum'
+let g:airline_theme='solarized'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
