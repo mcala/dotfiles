@@ -42,4 +42,5 @@ alias holdall='squeue -u mcala --format="%10i" | tail -n+2 | xargs -n 1 scontrol
 alias rlsall='squeue -u mcala --format="%10i" | tail -n+2 | xargs -n 1 scontrol release'
 alias delall='squeue -u mcala --format="%10i" | tail -n+2 | xargs -n 1 scancel'
 
+alias -g grab="| cut -d' ' -f4 | cb "
 
