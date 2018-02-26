@@ -7,6 +7,9 @@
 # Use gnucoreutils ls
 alias ls='gls --color=auto'
 
+#
+alias q='~/.functions/all_sc.zsh'
+
 # Autocompletion for verdi
 source $HOME/.zshrc.verdi
 
