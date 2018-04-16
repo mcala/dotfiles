@@ -1,0 +1,29 @@
+# website.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+
+addressable -v2.5.1
+bigdecimal -v1.3.0
+bundler -v1.16.1
+colorator -v1.1.0
+ffi -v1.9.18
+forwardable-extended -v2.6.0
+io-console -v0.4.6
+jekyll -v3.4.3
+jekyll-paginate -v1.1.0
+jekyll-sass-converter -v1.5.0
+jekyll-watch -v1.5.0
+json -v2.0.2
+kramdown -v1.13.2
+liquid -v3.0.6
+listen -v3.0.8
+mercenary -v0.3.6
+openssl -v2.0.3
+pathutil -v0.14.0
+psych -v2.2.2
+public_suffix -v2.0.5
+rb-fsevent -v0.9.8
+rb-inotify -v0.9.8
+rdoc -v5.0.0
+rouge -v1.11.1
+safe_yaml -v1.0.4
+sass -v3.4.23
+support-for -v1.0.7

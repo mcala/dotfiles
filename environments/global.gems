@@ -1,0 +1,20 @@
+# global.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+
+bigdecimal -v1.3.0
+bundler-unload -v1.0.2
+did_you_mean -v1.1.0
+executable-hooks -v1.4.2
+gem-wrappers -v1.3.2
+io-console -v0.4.6
+json -v2.0.2
+minitest -v5.10.1
+net-telnet -v0.1.1
+openssl -v2.0.3
+power_assert -v0.4.1
+psych -v2.2.2
+rake -v12.0.0
+rdoc -v5.0.0
+rubygems-bundler -v1.4.4
+rvm -v1.11.3.9
+test-unit -v3.2.3
+xmlrpc -v0.2.1

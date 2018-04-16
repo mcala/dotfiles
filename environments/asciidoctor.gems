@@ -1,0 +1,9 @@
+# asciidoctor.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+
+asciidoctor -v1.5.6.2
+bigdecimal -v1.3.0
+io-console -v0.4.6
+json -v2.0.2
+openssl -v2.0.3
+psych -v2.2.2
+rdoc -v5.0.0
