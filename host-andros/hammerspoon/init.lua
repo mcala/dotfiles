@@ -14,7 +14,7 @@ end
 
 --Bind to HYPER
 function bindHyperKey(key, fn)
-  hs.hotkey.bind({"ctrl", "alt,", "command"}, key, fn)
+  hs.hotkey.bind({"ctrl", "alt,", "command", "shift"}, key, fn)
 end
 
 -- Define positions
