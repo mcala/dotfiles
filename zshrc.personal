@@ -17,8 +17,7 @@ alias size='du -hsc'
 alias size_save='du -hsc > size_of'
 alias size_all='du -hc'
 
-# moving commands
-alias ..='cd ..'
+# moving commands alias ..='cd ..'
 alias ...='cd ../../'
 alias c\ d..='cd ..'
 
@@ -63,6 +62,9 @@ alias zshrc='vim $HOME/.dotfiles/argus/zshrc'
 
 # quickly updating general dot files
 alias loaddots='source $HOME/.zshrc'
+
+#alias for unlocking time machine drive
+alias unlockTM='diskutil coreStorage unlockVolume B8029037-40C5-4F54-9CC1-9F6135E99541'
 
 # terminal colors
 # Specifically adds coloring to input/output, submission scripts

@@ -1,8 +1,5 @@
 # Computer file for home mac andros
 #
-# Ruby Environments, Doesn't seem to be working?
-#eval "$(rbenv init -)"
-
 
 # Use gnucoreutils ls
 alias ls='gls --color=auto'
@@ -11,18 +8,18 @@ alias ls='gls --color=auto'
 alias q='~/.functions/all_sc.zsh'
 
 # Autocompletion for verdi
-source $HOME/.zshrc.verdi
+#source $HOME/.zshrc.verdi
 
 # PATH
 export PATH=$HOME/soft/MacPorts/bin:$PATH
 export PATH=$HOME/soft/Macports/sbin:$PATH
 export PATH=$HOME/soft/MacPorts/lib:$PATH
-export PATH=$HOME/soft/anaconda/bin:$PATH
-export PATH=$HOME/.rbenv/shims:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
 
 # For QE commands
 export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
-source activate py27-aiida_0.9
+#source activate py27-aiida_0.9
+source activate py3
 
 #------------------------------------------------------------------
 # Accessing computers
@@ -48,6 +45,8 @@ hash -d memory=/Users/mcala/Dropbox/memory
 
 #pdfs
 alias skim='open -a skim.app'
+alias skimpdf='/Applications/Skim.app/Contents/SharedSupport/skimpdf'
+alias skimnotes='/Applications/Skim.app/Contents/SharedSupport/skimnotes'
 
 # Gnuplot moved, use this to fix old scripts when you encountered them
 alias gnuplot_swap="sed -i '.gnu_backup' -e \
