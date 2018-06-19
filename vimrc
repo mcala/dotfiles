@@ -154,7 +154,6 @@ set pastetoggle=<F3>
 
 " Wiki/Writing Settings
 let g:vimwiki_list = [{'path': '~/Dropbox/memory/', 'syntax': 'markdown', 'ext': '.md'}]
-map <C-n> :NERDTreeToggle<CR>
 set wildmenu
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby'] 
 " Combines all lines not separated by return into one soft wrapped paragraph
