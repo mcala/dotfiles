@@ -3,7 +3,6 @@
 
 # Use gnucoreutils ls
 alias ls='gls --color=auto'
-
 #
 alias q='~/.functions/all_sc.zsh'
 
@@ -14,6 +13,7 @@ alias q='~/.functions/all_sc.zsh'
 export PATH=$HOME/soft/MacPorts/bin:$PATH
 export PATH=$HOME/soft/Macports/sbin:$PATH
 export PATH=$HOME/soft/MacPorts/lib:$PATH
+export PATH=/Library/TeX/texbin/:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 
 # For QE commands
