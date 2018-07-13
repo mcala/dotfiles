@@ -30,7 +30,7 @@ function prompt_mcala_precmd {
   fi
 }
 
-function prompt_mcala_setup{
+function prompt_mcala_setup {
   setopt LOCAL_OPTIONS
   unsetopt XTRACE KSH_ARRAYS
   prompt_opts=(cr percent sp subst)
@@ -46,22 +46,24 @@ function prompt_mcala_setup{
   if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
     _prompt_mcala_colors=(
       "%F{61}"  # purple
-      "%F{64}" # Orange
+      "%F{64}"  # green
       "%F{33}"  # blue
-      "%F{160}" # Hotpink
-      "%F{136}" # Yellow
-      "%F{254}" #white
-      "%F{166}" #orange
+      "%F{160}" # red
+      "%F{136}" # yellow
+      "%F{254}" # white
+      "%F{166}" # orange
+      "%F{245}" # base (gray) -- Note that you had to change the iTerm color to match this (839496 → 8a8a8a)
     )
   else
     _prompt_mcala_colors=(
-      "%F{cyan}"
+      "%F{purple}"
       "%F{green}"
       "%F{blue}"
       "%F{red}"
       "%F{yellow}"
       "%F{white}"
       "%F{orange}"
+      "%F{gray}"
     )
   fi
 
@@ -89,11 +91,17 @@ function prompt_mcala_setup{
   # Set python-info parameters.
   zstyle ':prezto:module:python:info:virtualenv' format '(%v)'
 
-  # Define prompts.
   PROMPT="
 ${_prompt_mcala_colors[3]}%n%f${_prompt_mcala_colors[6]} on ${_prompt_mcala_colors[2]}%m%f${_prompt_mcala_colors[6]} in ${_prompt_mcala_colors[5]}%~%f "'${vcs_info_msg_0_}'"
- ${_prompt_mcala_colors[6]}> "
-  RPROMPT='${_prompt_mcala_colors[7]} ${CONDA_DEFAULT_ENV}'
+${_prompt_mcala_colors[6]}→  ${_prompt_mcala_colors[8]}"
+RPROMPT='${_prompt_mcala_colors[7]} ${CONDA_DEFAULT_ENV} ${_prompt_mcala_colors[8]}'
 }
 
 prompt_mcala_setup "$@"
+
+#  PROMPT="
+#${_prompt_mcala_colors[3]}%n%f${_prompt_mcala_colors[6]} on ${_prompt_mcala_colors[2]}%m%f${_prompt_mcala_colors[6]} in ${_prompt_mcala_colors[5]}%~%f "'${vcs_info_msg_0_}'"
+#${_prompt_mcala_colors[6]}> "
+#RPROMPT="${_prompt_mcala_colors[7]} ${CONDA_DEFAULT_ENV}"
+#
+
