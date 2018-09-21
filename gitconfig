@@ -23,3 +23,4 @@
     mnemonicprefix = true
 [core]
     pager = less -R
+    editor = nvim

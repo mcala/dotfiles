@@ -1,6 +1,10 @@
 # Computer file for home mac andros
 #
 
+# use neovim
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
 # Use gnucoreutils ls
 alias ls='gls --color=auto'
 #
@@ -15,6 +19,8 @@ export PATH=$HOME/soft/Macports/sbin:$PATH
 export PATH=$HOME/soft/MacPorts/lib:$PATH
 export PATH=/Library/TeX/texbin/:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 
 # For QE commands
 export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
@@ -33,15 +39,14 @@ alias xsede='ssh mcala@login.xsede.org'
 
 #Getting Arond this filesystem
 # Stable/Around a while
-hash -d research=~/Documents/research/
-hash -d action=${HOME}/Documents/research/\@action
+hash -d research=~/research/
+hash -d action=${HOME}/research/\@action
 # Projects that change a lot
-hash -d sqs=~/Documents/research/projects/sqs
-hash -d inn=~/Documents/research/projects/inn
-hash -d innpaper=/Users/mcala/Documents/research/communication/written_work/papers/inn_density
+hash -d sqs=~/research/projects/sqs
+hash -d algan=~/Documents/writing/algan
+hash -d inn=~/research/projects/inn
 hash -d icloud=/Users/mcala/Library/Mobile\ Documents
 hash -d iclouddoc=/Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs
-hash -d memory=/Users/mcala/Dropbox/memory
 
 #pdfs
 alias skim='open -a skim.app'
@@ -52,4 +57,3 @@ alias skimnotes='/Applications/Skim.app/Contents/SharedSupport/skimnotes'
 alias gnuplot_swap="sed -i '.gnu_backup' -e \
   's/\/usr\/local\/bin\/gnuplot/\/Users\/mcala\/soft\/MacPorts\/bin\/gnuplot/g' *.gnu"
 
-export GIT_EDITOR='vim'
