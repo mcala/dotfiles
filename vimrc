@@ -1,12 +1,15 @@
 " Andrew McAllister's .vimrc
-"GENERAL
-" Dealing with compatibility
-set nocompatible
-set encoding=utf-8
+
+
+" Python
+let g:python3_host_prog = '/Users/mcala/anaconda3/envs/neovim/bin/python'
+
+" use system clipboard rather than */+ register
+set clipboard+=unnamedplus
 
 " Pathogen plugins
 filetype off
-execute pathogen#infect()
+"execute pathogen#infect()
 filetype plugin indent on
 
 " Security measure.
@@ -19,14 +22,15 @@ set modelines=0
 :let fortran_more_precise=1
 
 " syntax highlighting
-syntax enable
 set background=dark
 "set termguicolors
 "let g:quantum_black=1
 "let g:quantum_italics=1
 colorscheme solarized
+highlight SpellBad cterm=bold ctermfg=red
 
 " Airline settings
+let g:airline#extensions#ale#enabled=1
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 if !exists('g:airline_symbols')
@@ -37,6 +41,11 @@ let g:airline_symbols.space="\ua0"
 " Disable bufferline (since already shown in airline)
 let g:bufferline_echo=0
 
+let g:lexical#spelllang = ['en_us']
+
+" pandoc syntax options
+let g:pandoc#syntax#conceal#use = 0
+
 " Filetype settings
 " Make cuda fortran files display fortran syntax.
 " Makefiles use tabs instead of spaces.
@@ -45,14 +54,16 @@ if has ("autocmd")
     autocmd BufNewFile,BufRead *.cuf set filetype=fortran
     autocmd BufNewFile,BufRead *.pf set filetype=fortran
     autocmd BufNewFile,BufRead make.sys set filetype=make
+    autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
     autocmd Filetype make setlocal noexpandtab
     autocmd Filetype gitcommit setlocal spell textwidth=72
     autocmd Filetype tex setlocal spell textwidth=90 colorcolumn=90 wrap
+    autocmd Filetype plaintex call pencil#init({'wrap' : 'soft', 'autoformat' : 0}) | call lexical#init()
     autocmd Filetype latex setlocal spell textwidth=90 colorcolumn=90 wrap
-    autocmd Filetype markdown,mkd,md setlocal spell
-    autocmd Filetype markdown,mkd,md call pencil#init({'wrap' :'soft', 'autoformat' : 0})
-    filetype plugin indent on
+    autocmd Filetype markdown,mkd,md,markdown.pandoc call pencil#init({'wrap' :'soft', 'autoformat' : 0}) | call lexical#init() | call litecorrect#init()
 endif
+
+
 
 " Draw colored column at 80 characters for textwidth purposes.
 set textwidth=80
@@ -73,28 +84,23 @@ set softtabstop=2
 set expandtab
 
 " Visual aspects of vim.
-set laststatus=2            " Always have bottom status (airline)
 set noshowmode "            " Don't show normal vim status (have airline)
 set number
 set relativenumber
 
 " Searching
 " case: all lowercase: no case. mixed case: will have case.
-" inc: incremental search
-" hl: highlight search
 set ignorecase
 set smartcase
-set incsearch
-set hlsearch
 set showmatch               " Show matching brackets briefly by jumping to them.
 
+"Central swap file location
+set directory^=$HOME/.vim/swapfiles//
+
 " Backing up and history.
-set history=100
 set undolevels=1000
 au FocusLost * :wa
 set undofile
-set undodir=~/.vim/undo
-set nobackup
 set swapfile
 
 " Don't redraw the window each time a macro is used.
@@ -108,7 +114,6 @@ nnoremap k gk
 " These are LLNL specific backspace commands as far as I know. However, they
 " do not affect other machines.
 set t_kb=
-fixdel
 
 " Use hidden buffers
 set hidden
