@@ -31,9 +31,10 @@ positions = {
   right_2thirds = {x=0.34, y=0, w=0.66, h=1},
 
   -- Used for research journal tiling
-  top_13 = {x=0, y=0, w=0.33, h=0.5},
-  top_23 = {x=0.33, y=0, w=0.33, h=0.5},
-  top_33 = {x=0.66, y=0, w=0.34, h=0.5},
+  -- Edited for just "thirds"
+  top_13 = {x=0, y=0, w=0.33, h=1.0},
+  top_23 = {x=0.33, y=0, w=0.33, h=1.0},
+  top_33 = {x=0.66, y=0, w=0.34, h=1.0},
   bot_13 = {x=0, y=0.5, w=0.33, h=0.5},
   bot_23 = {x=0.33, y=0.5, w=0.33, h=0.5},
   bot_33 = {x=0.66, y=0.5, w=0.34, h=0.5},
