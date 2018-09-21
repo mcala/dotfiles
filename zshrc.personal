@@ -8,8 +8,8 @@ alias la='ls -lha'
 alias ldot='ls -ld .*'
 
 # colored grep
-alias grep='grep --color -n -T'
-alias cgrep='grep --color=always -n -T'
+alias grep='ggrep --color -n -T'
+alias cgrep='ggrep --color=always -n -T'
 export GREP_COLORS="fn=00;34:mt=01;33:ln=32"
 
 # du size command
