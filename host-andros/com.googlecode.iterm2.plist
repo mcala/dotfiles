@@ -475,19 +475,12 @@
 	<real>1</real>
 	<key>GlobalKeyMap</key>
 	<dict>
-		<key>0x48-0x60000</key>
+		<key>0x62-0x40000</key>
 		<dict>
 			<key>Action</key>
 			<integer>10</integer>
 			<key>Text</key>
 			<string>b</string>
-		</dict>
-		<key>0x4c-0x60000</key>
-		<dict>
-			<key>Action</key>
-			<integer>10</integer>
-			<key>Text</key>
-			<string>f</string>
 		</dict>
 		<key>0x68-0x100000</key>
 		<dict>
@@ -516,6 +509,13 @@
 			<integer>30</integer>
 			<key>Text</key>
 			<string></string>
+		</dict>
+		<key>0x77-0x40000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>f</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -668,7 +668,7 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>518 664 937 514 0 0 1920 1200 </string>
+	<string>518 652 937 514 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1267 1177 0 0 1920 1177 </string>
 	<key>NeverWarnAboutShortLivedSessions_C3BD1AA8-21C9-4DE2-9B60-777E5DF7E629</key>
@@ -1267,7 +1267,7 @@
 			<key>Scrollback Lines</key>
 			<integer>0</integer>
 			<key>Scrollback With Status Bar</key>
-			<false/>
+			<true/>
 			<key>Scrollback in Alternate Screen</key>
 			<true/>
 			<key>Selected Text Color</key>
@@ -3029,7 +3029,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-10-11T21:27:06Z</date>
+	<date>2018-10-19T14:39:00Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
