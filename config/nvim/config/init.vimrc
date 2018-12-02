@@ -7,9 +7,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'reedes/vim-pencil'
-"Plug 'reedes/vim-lexical'
+Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-litecorrect'
-"Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
+Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
 
 " NEW
 "Plug 'neomake/neomake'
