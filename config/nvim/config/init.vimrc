@@ -10,6 +10,8 @@ Plug 'reedes/vim-pencil'
 Plug 'reedes/vim-lexical'
 Plug 'reedes/vim-litecorrect'
 Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
+"Plug 'mikewest/vimroom', { 'for' : ['markdown', 'tex', 'latex'] }
+Plug 'junegunn/goyo.vim', { 'for' : ['markdown', 'tex', 'latex'] }
 
 " NEW
 "Plug 'neomake/neomake'

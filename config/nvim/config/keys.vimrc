@@ -50,3 +50,6 @@ let g:vimwiki_conceallevel = 0
 
 "Would be nice if this worked in vimwiki files
 ":inoremap <Tab> <C-x><C-f>
+
+"Toggle Goyo -> leader WRITE
+nnoremap <silent> <Leader>W :Goyo<cr>
