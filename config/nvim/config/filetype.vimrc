@@ -13,7 +13,7 @@ autocmd Filetype make setlocal noexpandtab
 autocmd Filetype gitcommit setlocal spell textwidth=72 colorcolumn=72
 
 " latex
-autocmd Filetype tex,latex,plaintex call pencil#init({'wrap' :'soft', 'autoformat' : 0}) |  call litecorrect#init()
+autocmd Filetype tex,latex,plaintex call pencil#init({'wrap' :'soft', 'autoformat' : 0}) |  call lexical#init() | call litecorrect#init()
 
 " Markdown
 autocmd BufNewFile,BufRead *.markdown set filetype=markdown.pandoc
