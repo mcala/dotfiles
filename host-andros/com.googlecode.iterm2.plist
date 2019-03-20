@@ -660,17 +660,10 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
-	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
-	<dict>
-		<key>TB Is Shown</key>
-		<integer>1</integer>
-	</dict>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>518 652 937 514 0 0 1920 1177 </string>
+	<string>251 163 918 514 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1267 1177 0 0 1920 1177 </string>
+	<string>0 23 946 854 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_C3BD1AA8-21C9-4DE2-9B60-777E5DF7E629</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1247,11 +1240,11 @@
 			<key>Name</key>
 			<string>Andrew</string>
 			<key>Non Ascii Font</key>
-			<string>InconsolataForPowerline 15</string>
+			<string>InconsolataForPowerline 18</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>InconsolataForPowerline 15</string>
+			<string>InconsolataForPowerline 18</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Place Prompt at First Column</key>
@@ -2945,18 +2938,14 @@
 			<string>/Users/mcala</string>
 		</dict>
 	</array>
+	<key>NoSyncHaveRequestedFullDiskAccess</key>
+	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>A38B798D-E39F-4B95-836C-15B19EF71957</string>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
-	<true/>
-	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>0</integer>
-	<key>NoSyncPermissionToShowTip</key>
-	<false/>
+	<string>759B8E10-C25F-4E69-B5B3-A50CD12CC049</string>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>557762941.70773804</real>
+	<real>565389112.25481498</real>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -3025,11 +3014,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=70</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=23</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-10-19T14:39:00Z</date>
+	<date>2018-12-01T20:31:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3096,6 +3085,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.3</string>
+	<string>3.2.6</string>
 </dict>
 </plist>
