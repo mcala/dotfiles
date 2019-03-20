@@ -54,3 +54,5 @@ nnoremap k gk
 " Use hidden buffers
 set hidden
 
+let g:python3_host_prog = '/Users/mcala/anaconda3/envs/py3/bin/python'
+
