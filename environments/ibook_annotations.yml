@@ -1,0 +1,6 @@
+name: ibook_annotations
+channels:
+  - conda-forge
+  - defaults
+prefix: /Users/mcala/anaconda3/envs/ibook_annotations
+
