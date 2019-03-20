@@ -5,8 +5,9 @@
 alias vim='nvim'
 alias vimdiff='nvim -d'
 
-# Use gnucoreutils ls
+# Gnucoreutils Options
 alias ls='gls --color=auto'
+alias shred='gshred'
 #
 alias q='~/.functions/all_sc.zsh'
 
@@ -14,9 +15,9 @@ alias q='~/.functions/all_sc.zsh'
 #source $HOME/.zshrc.verdi
 
 # PATH
-export PATH=$HOME/soft/MacPorts/bin:$PATH
-export PATH=$HOME/soft/Macports/sbin:$PATH
-export PATH=$HOME/soft/MacPorts/lib:$PATH
+export PATH=$HOME/macports/bin:$PATH
+export PATH=$HOME/macports/sbin:$PATH
+export PATH=$HOME/macports/lib:$PATH
 export PATH=/Library/TeX/texbin/:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 export EDITOR=nvim
@@ -29,6 +30,8 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
 #source activate py27-aiida_0.9
 source activate py3
+
+export PATH=$HOME/.cabal/bin:$PATH
 
 #------------------------------------------------------------------
 # Accessing computers
