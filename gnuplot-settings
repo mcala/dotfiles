@@ -78,18 +78,11 @@ ysize="%s";\
 dash="%s";\
 debug="%s";\
 latexcommand="%s";\
-eval bash("xelatex ".name.".tex"); \
+eval bash("lualatex ".name.".tex"); \
 if (debug eq "no") {;\
 eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
 };\
 ',name,xsize,ysize,dash,debug,latexcommand)
-
-#eval bash("dvips ".name.".dvi"); \
-#eval bash("~/.commands/gnuplot/ps2pdfbb ".name.".ps"); \
-
-
-
-
 
 #--- Latexterm("Name", "Xsize", "ysize","command")------------------------------
 # -sets terminal to epslatex and creates output file with xsize and ysize
@@ -104,15 +97,14 @@ set terminal epslatex size xsize, ysize dashlength dash color colortext standalo
 set output name.".tex";  \
 replot; \
 unset output;\
-eval bash("xelatex ".name.".tex"); \
+eval bash("lualatex ".name.".tex"); \
 if (debug eq "no") {;\
-eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps"); \
+eval bash("rm -rf ".name.".aux ".name.".dvi ".name.".log ".name.".ps ".name.".tex ".name."-inc.eps ".name."-inc-eps-converted-to.pdf "."texput.log"); \
 };\
 set terminal x11; \
 ',name,xsize,ysize,dash,debug,latexcommand)
 
-#eval bash("dvips ".name.".dvi"); \
-#eval bash("~/.commands/gnuplot/ps2pdfbb ".name.".ps"); \
+
 
 #set terminal epslatex size xsize, ysize dashlength dash color colortext standalone header "\\usepackage[T1]{fontenc}\n\\usepackage{mathptmx}\n\\usepackage{helvet}\n\\usepackage{amsmath}\n\\renewcommand{\\familydefault}{\\sfdefault}".latexcommand ; \
 
