@@ -660,10 +660,14 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>650 588 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>251 163 918 514 0 0 1440 877 </string>
+	<string>251 120 937 514 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 23 946 854 0 0 1440 877 </string>
+	<string>0 0 946 877 0 0 1440 877 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>176 70 730 577 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_C3BD1AA8-21C9-4DE2-9B60-777E5DF7E629</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1258,7 +1262,7 @@
 			<key>Screen</key>
 			<integer>-1</integer>
 			<key>Scrollback Lines</key>
-			<integer>0</integer>
+			<integer>10000</integer>
 			<key>Scrollback With Status Bar</key>
 			<true/>
 			<key>Scrollback in Alternate Screen</key>
@@ -1408,7 +1412,7 @@
 			<key>Unicode Normalization</key>
 			<integer>0</integer>
 			<key>Unlimited Scrollback</key>
-			<true/>
+			<false/>
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
@@ -2944,6 +2948,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>759B8E10-C25F-4E69-B5B3-A50CD12CC049</string>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>565389112.25481498</real>
 	<key>OnlyWhenMoreTabs</key>
@@ -3018,7 +3024,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-01T20:31:52Z</date>
+	<date>2019-05-14T20:05:52Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -3085,6 +3091,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.6</string>
+	<string>3.2.9</string>
 </dict>
 </plist>
