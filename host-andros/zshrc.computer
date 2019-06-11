@@ -1,5 +1,7 @@
 # Computer file for home mac andros
 #
+#
+alias kill='echo "kill"'
 
 # use neovim
 alias vim='nvim'
