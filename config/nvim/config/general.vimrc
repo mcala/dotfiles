@@ -36,10 +36,11 @@ set showmatch               " Show matching brackets briefly by jumping to them.
 
 "Central swap file location
 set swapfile
-set directory^=$HOME/.config/nvim/swapfiles//
+set directory=$HOME/.config/nvim/swapfiles/
 
 " Undo files
 set undofile
+set undodir=$HOME/.config/nvim/undofiles/
 set undolevels=1000
 au FocusLost * :wa
 
