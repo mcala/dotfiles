@@ -1,6 +1,6 @@
 [user]
     name = Andrew McAllister
-    email = mcala@umich.edu
+    email = andrew@mcallister.science
 	signingkey = E761E09A1EC0FD5F
 [alias]
     co = checkout
