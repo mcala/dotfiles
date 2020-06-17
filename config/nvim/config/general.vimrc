@@ -1,11 +1,12 @@
 " Python
-let g:python3_host_prog = '/Users/mcala/anaconda3/envs/neovim/bin/python'
+" python3 problems? Remember to use :CheckHealth command in Neovim to figure
+" out what the issue is
+let g:python3_host_prog = '/Users/mcala/anaconda3/envs/py3/bin/python'
+
 " use system clipboard rather than */+ register
-"set clipboard+=unnamedplus
+set clipboard+=unnamedplus
 
-" Security measure.
 set modelines=0
-
 set omnifunc=
 
 " You only use free source fortran, so this doesn't bother with checking for
@@ -24,7 +25,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 
-" Visual aspects of vim.
+" Line Numbers
 set number
 set relativenumber
 
@@ -41,7 +42,7 @@ set directory=$HOME/.config/nvim/swapfiles/
 " Undo files
 set undofile
 set undodir=$HOME/.config/nvim/undofiles/
-set undolevels=1000
+set undolevels=10000
 au FocusLost * :wa
 
 " Don't redraw the window each time a macro is used.
