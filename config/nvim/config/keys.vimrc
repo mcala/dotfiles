@@ -4,6 +4,9 @@ let mapleader=","
 nnoremap ; :
 :inoremap jk <Esc>
 
+" netrwc
+nnoremap <silent> <leader>n :Vexplore<cr>
+
 " Gets rid of search highlighting when you find what you need.
 nnoremap <silent> <leader><space> :nohlsearch<cr>
 
