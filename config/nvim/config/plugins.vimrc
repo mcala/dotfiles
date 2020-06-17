@@ -101,3 +101,10 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Global line completion (not just open buffers. ripgrep required.)
+" options are options to fzf (see man page)
+inoremap <expr> <c-t> fzf#vim#complete(fzf#wrap({
+  \ 'source': 'rg "Tag:.*" /Users/mcala/Dropbox/5_management/1_projects /Users/mcala/Dropbox/5_management/2_areas',
+  \ 'options': '--ansi -i --delimiter=: --with-nth=3',
+  \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
