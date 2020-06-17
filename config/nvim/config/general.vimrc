@@ -55,5 +55,12 @@ nnoremap k gk
 " Use hidden buffers
 set hidden
 
-let g:python3_host_prog = '/Users/mcala/anaconda3/envs/py3/bin/python'
-
+" netrw
+" Get rid of banner
+let g:netrw_banner = 0
+" Show as tree style listing
+let g:netrw_liststyle = 3
+" Open files with  enter in _previous_ split
+let g:netrw_browse_split = 4
+" Keep window size at 20% 
+let g:netrw_winsize = 20
