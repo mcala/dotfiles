@@ -1,10 +1,20 @@
 " pandoc syntax options
-let g:pandoc#syntax#conceal#use = 0
+let g:pandoc#filetypes#handles = [ "pandoc", "markdown", "rst", "textile", "extra"]
+let g:pandoc#filetypes#pandoc_markdown = 1
+let g:pandoc#syntax#conceal#use = 0 " Show syntax
 let g:pandoc#syntax#style#emphases = 1
-let g:pandoc#modules#enabled = ["formatting", "toc", "spell", "command"]
-let g:pandoc#modules#disabled = ["folding"]
 
-" At the moment, issue with python
+let g:pandoc#modules#enabled = ["formatting", "toc", "spell", "folding", "keyboard"]
+let g:pandoc#modules#disabled = ["command"]
+
+let g:pandoc#keyboard#enabled_submodules = ["checkboxes"]
+
+" Folding
+let g:pandoc#folding#mode = 'relative'
+let g:pandoc#folding#level = 2
+let g:pandoc#folding#fdc = 0
+
+" Old thesis bibliography. Not in use at the moment.
 "let g:pandoc#biblio#sources = 'g'
 "let g:pandoc#biblio#bibs = '/Users/mcala/Documents/writing/thesis/bibliography'
 "let g:pandoc#completion#bib#mode = 'fallback'
