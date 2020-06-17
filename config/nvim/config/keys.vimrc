@@ -51,8 +51,13 @@ let g:pencil#conceallevel = 0
 let g:markdown_syntax_conceal = 0
 let g:vimwiki_conceallevel = 0
 
-"Would be nice if this worked in vimwiki files
-":inoremap <Tab> <C-x><C-f>
+set pastetoggle=<F3>
+
+" Plain Text Project Managment
+" Project Index
+nnoremap <leader>p :e /Users/mcala/Dropbox/5_management/index.md<cr>
+" Today's journal entry: Need to figure out how to use evaluation from zsh in vim
+nnoremap <leader>j :e ~/Dropbox/5_management/journal/$(date "+%Y.%m.%d.md)<cr>
 
 "Toggle Goyo -> leader WRITE
 nnoremap <silent> <Leader>W :Goyo<cr>
