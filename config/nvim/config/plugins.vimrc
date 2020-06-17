@@ -82,3 +82,6 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
+
+" Bullets.vim
+let g:bullets_enabled_file_types = [ 'pandoc', 'markdown', 'md', 'text']
