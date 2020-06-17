@@ -24,14 +24,16 @@ let g:tex_flavor = "latex"
 let g:neotex_pdflatex_alternative = 'lualatex'
 let g:neotex_latexdiff = 'lualatex'
 
-
 " syntax highlighting
 set termguicolors
-set background=dark
-colorscheme NeoSolarized
-let g:neosolarized_bold = 1
-let g:neosolarized_italic = 1
-let g:neosolarized_underline = 1
+colorscheme challenger_deep
+
+"set background=dark
+"colorscheme NeoSolarized
+"let g:neosolarized_bold = 1
+"let g:neosolarized_italic = 1
+"let g:neosolarized_underline = 1
+"
 highlight SpellBad cterm=bold ctermfg=red
 
 " nvim-editcommand
@@ -40,7 +42,7 @@ let g:editcommand_prompt = '>'
 " Airline settings
 set noshowmode
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
+let g:airline_theme='challenger_deep'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
