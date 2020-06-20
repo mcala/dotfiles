@@ -55,11 +55,6 @@ LC_COLLATE='C'
 # when auto completing vim, ignore *.o and *.x
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
 
-# Checking computer specific dotfiles
-alias zshrcc='vim $HOME/.dotfiles/host-argus/zshrc.computer'
-alias zshrcp='vim $HOME/.dotfiles/host-argus/zshrc.personal'
-alias zshrc='vim $HOME/.dotfiles/argus/zshrc'
-
 # quickly updating general dot files
 alias loaddots='source $HOME/.zshrc'
 
