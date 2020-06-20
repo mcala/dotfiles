@@ -2,4 +2,5 @@ channels:
   - conda-forge
   - defaults
 
-changeps1: False
+changeps1: false
+ssl_verify: true

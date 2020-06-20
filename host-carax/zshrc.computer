@@ -1,8 +1,5 @@
 # Computer file for home mac andros
 #
-#
-alias kill='echo "kill"'
-
 # use neovim
 alias vim='nvim'
 alias vimdiff='nvim -d'
@@ -17,25 +14,20 @@ alias q='~/.functions/all_sc.zsh'
 #source $HOME/.zshrc.verdi
 
 # PATH
-export PATH=$HOME/macports/bin:$PATH
-export PATH=$HOME/macports/sbin:$PATH
-export PATH=$HOME/macports/lib:$PATH
-export PATH=$HOME/code/atat/bin:$PATH
+export PATH=$HOME/software/bin:$PATH
+export PATH=$HOME/MacPorts/bin:$PATH
+export PATH=$HOME/MacPorts/sbin:$PATH
+export PATH=$HOME/MacPorts/lib:$PATH
 export PATH=/Library/TeX/texbin/:$PATH
-export PATH=/Users/mcala/.cabal/bin/:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
+export PATH=/Users/mcala/.cabal/bin/:$PATH
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# For QE commands
-export PATH=$HOME/soft/MacPorts/bin/bin:$PATH
-#source activate py27-aiida_0.9
 source activate py3
-
-export PATH=$HOME/.cabal/bin:$PATH
 
 #------------------------------------------------------------------
 # Accessing computers
@@ -48,13 +40,10 @@ alias umich='ssh mcala@login.itd.umich.edu'
 alias xsede='ssh mcala@login.xsede.org'
 
 #Getting Arond this filesystem
-# Stable/Around a while
-hash -d research=~/research/
-hash -d action=${HOME}/research/\@action
-# Projects that change a lot
-hash -d sqs=~/research/projects/sqs
-hash -d algan=~/Documents/writing/algan
-hash -d inn=~/research/projects/inn
+hash -d journal=~/Dropbox/5_journal
+hash -d projects=~/Documents/1_projects
+hash -d scripts=~/Documents/3_resources/scripts
+hash -d dropbox=~/Dropbox
 hash -d icloud=/Users/mcala/Library/Mobile\ Documents
 hash -d iclouddoc=/Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs
 
@@ -62,6 +51,11 @@ hash -d iclouddoc=/Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs
 alias skim='open -a skim.app'
 alias skimpdf='/Applications/Skim.app/Contents/SharedSupport/skimpdf'
 alias skimnotes='/Applications/Skim.app/Contents/SharedSupport/skimnotes'
+
+# FZF
+#--preview 'bat --style=numbers --color=always {}' | head -500
+export FZF_DEFAULT_COMMAND='find . -type f'
+export FZF_DEFAULT_OPTS="--height 75% --layout=reverse"
 
 # Gnuplot moved, use this to fix old scripts when you encountered them
 alias gnuplot_swap="sed -i '.gnu_backup' -e \
