@@ -52,14 +52,11 @@ let g:airline#extensions#ale#enabled=1
 " Disable bufferline (since already shown in airline)
 let g:bufferline_echo=0
 
-" Reedes Plugins
-let g:pencil#textwidth = 80
-let g:lexical#spelllang = ['en_us']
-
 "GoYo
 let g:goyo_width = 100  "default 80
 let g:goyo_height = "100%" "default 80%
-let g:goyo_linenr = 0 "(default: 0)
+let g:goyo_linenr = 1 "(default: 0)
+
 
 " :q straight from goyo
 function! s:goyo_enter()
@@ -85,6 +82,7 @@ autocmd! User GoyoLeave call <SID>goyo_leave()
 
 " Bullets.vim
 let g:bullets_enabled_file_types = [ 'pandoc', 'markdown', 'md', 'text']
+let g:bullets_checkbox_markers = ' x'
 
 " FZF Stuff
 let g:fzf_colors =
@@ -108,3 +106,4 @@ inoremap <expr> <c-t> fzf#vim#complete(fzf#wrap({
   \ 'source': 'rg "Tag:.*" /Users/mcala/Dropbox/5_management/1_projects /Users/mcala/Dropbox/5_management/2_areas',
   \ 'options': '--ansi -i --delimiter=: --with-nth=3',
   \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+

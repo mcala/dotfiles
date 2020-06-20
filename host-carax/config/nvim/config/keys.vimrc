@@ -1,6 +1,7 @@
 " MAPPINGS
 " Remap leader and : to more convienent keys.
 let mapleader=","
+let maplocalleader=","
 nnoremap ; :
 :inoremap jk <Esc>
 
@@ -10,7 +11,7 @@ nnoremap <silent> <leader>n :Vexplore<cr>
 " Gets rid of search highlighting when you find what you need.
 nnoremap <silent> <leader><space> :nohlsearch<cr>
 
-" Window mappsing.
+" Window mappings
 " Use <ctrl>+hjkl to move around.
 " Use <leader>w to open vertical split.
 nnoremap <leader>w <C-w>v<C-w>l
@@ -32,24 +33,14 @@ nnoremap <C-o> <C-o>zz
 nnoremap <leader>s :%s/\s\+$//<cr>
 
 " Unset line numbers and blank characters for easier copy and paste
-nnoremap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>
+nnoremap <leader>c :set nu!<cr>:set rnu!<cr>:set list!<cr>:GitGutterToggle<cr>
 
 " Reset vim's current directory to pwd. Used mostly when moving to programming
 " directories using marks to allow navigation to other files
 nnoremap <leader>d :lcd %:p:h<cr>
 
-set pastetoggle=<F3>
-
-" Wiki/Writing Settings
-let g:vimwiki_list = [{'path': '~/Dropbox/memory/', 'syntax': 'markdown', 'ext': '.md'}]
-set wildmenu
-let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'ruby'] 
 " Combines all lines not separated by return into one soft wrapped paragraph
 nnoremap <silent> Q vipJ
-" No concealing
-let g:pencil#conceallevel = 0
-let g:markdown_syntax_conceal = 0
-let g:vimwiki_conceallevel = 0
 
 set pastetoggle=<F3>
 
@@ -57,7 +48,7 @@ set pastetoggle=<F3>
 " Project Index
 nnoremap <leader>p :e /Users/mcala/Dropbox/5_management/index.md<cr>
 " Today's journal entry: Need to figure out how to use evaluation from zsh in vim
-nnoremap <leader>j :e ~/Dropbox/5_management/journal/$(date "+%Y.%m.%d.md)<cr>
+"nnoremap <leader>j :e ~/Dropbox/5_management/journal/$(date "+%Y.%m.%d.md)<cr>
 
 "Toggle Goyo -> leader WRITE
-nnoremap <silent> <Leader>W :Goyo<cr>
+nnoremap <silent> <leader>W :Goyo<cr>
