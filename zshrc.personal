@@ -4,7 +4,7 @@
 alias sl='ls'
 alias ll='ls -lh'
 alias lsa='ls -a'
-alias la='ls -lha'
+alias lla='ls -lha'
 alias ldot='ls -ld .*'
 
 # colored grep
