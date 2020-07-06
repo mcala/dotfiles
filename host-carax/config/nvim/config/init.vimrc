@@ -2,6 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
