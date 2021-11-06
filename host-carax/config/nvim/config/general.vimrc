@@ -9,8 +9,7 @@ set clipboard+=unnamedplus
 set modelines=0
 set omnifunc=
 
-" You only use free source fortran, so this doesn't bother with checking for
-" fixed format. Must be before syntax.
+" You only use free source fortran, so this doesn't bother with checking for fixed format. Must be before syntax.
 :let fortran_free_source=1
 :let fortran_more_precise=1
 
