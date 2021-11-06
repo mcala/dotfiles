@@ -9,6 +9,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'vim-pandoc/vim-pandoc' 
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'dkarter/bullets.vim'
+Plug 'neovim/nvim-lsp'
 Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
 Plug 'junegunn/goyo.vim', { 'for' : ['markdown', 'tex', 'latex'] }
 
