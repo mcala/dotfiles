@@ -20,28 +20,23 @@ end
 -- Define positions
 positions = {
   maximize = hs.layout.maximized,
-  center = hs.geometry.new({x=0.125, y=0.125, w=0.75, h=0.75}),
+  middle = hs.geometry.new({x=0.125, y=0.125, w=0.75, h=0.75}),
+  center = hs.geometry.new({x=0.125, y=0.0, w=0.75, h=1.0}),
 
-  left_third = {x=0, y=0, w=0.34, h=1},
   left_half = hs.layout.left50,
   left_2thirds = {x=0, y=0, w=0.66, h=1},
 
-  right_third = {x=0.66, y=0, w=0.34, h=1},
   right_half = hs.layout.right50,
   right_2thirds = {x=0.34, y=0, w=0.66, h=1},
 
-  -- Used for research journal tiling
-  -- Edited for just "thirds"
-  top_13 = {x=0, y=0, w=0.33, h=1.0},
-  top_23 = {x=0.33, y=0, w=0.33, h=1.0},
-  top_33 = {x=0.66, y=0, w=0.34, h=1.0},
+  left_third= {x=0, y=0, w=0.34, h=1.0},
+  middle_third = {x=0.34, y=0, w=0.34, h=1.0},
+  right_third = {x=0.68, y=0, w=0.32, h=1.0},
+
+  -- Not used 
   bot_13 = {x=0, y=0.5, w=0.33, h=0.5},
   bot_23 = {x=0.33, y=0.5, w=0.33, h=0.5},
   bot_33 = {x=0.66, y=0.5, w=0.34, h=0.5},
-
-  middle_third = {x=0.33, y=0.33, w=0.33, h=0.5},
-
-  -- Not really used, but kept in case.
   upperhalf = {x=0, y=0, w=1, h=0.5},
   lowerhalf = {x=0, y=0.5, w=1, h=0.5},
   top_12= {x=0, y=0, w=0.5, h=0.5},
@@ -80,20 +75,16 @@ layouts = {
 mainPositionKeys= {
   {key="q", units=positions.left_2thirds},
   {key="]", units=positions.right_2thirds},
-  {key="g", units=positions.center},
+  {key="m", units=positions.middle},
+    {key="g", units=positions.center},
 }
 secondaryPositionKeys = {
   {key="f", units=positions.maximize},
   {key="q", units=positions.left_half},
   {key="]", units=positions.right_half},
-  {key="w", units=positions.left_third},
-  {key="[", units=positions.right_third},
-  {key="1", units=positions.top_13},
-  {key="2", units=positions.top_23},
-  {key="3", units=positions.top_33},
-  {key="4", units=positions.bot_13},
-  {key="5", units=positions.bot_23},
-  {key="6", units=positions.bot_33},
+  {key="1", units=positions.left_third},
+  {key="2", units=positions.middle_third},
+  {key="3", units=positions.right_third},
 }
 
 layoutKeys = {
@@ -122,7 +113,7 @@ hs.fnutils.each(layoutKeys, function(entry)
   end)
 end)
 
- bindHyperKey("r", function() applyResearchLayout() end)
+bindHyperKey("r", function() applyResearchLayout() end)
 bindHyperKey("m", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
@@ -130,7 +121,7 @@ function moveScreen(focus)
 
   if screen:currentMode().w > 1500 then
     focus:moveOneScreenEast()
-    focus:moveToUnit(positions.center)
+    focus:moveToUnit(positions.middle)
   else
     focus:moveOneScreenWest()
     focus:moveToUnit(positions.center)
