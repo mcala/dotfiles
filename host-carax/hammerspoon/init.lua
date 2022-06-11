@@ -1,7 +1,5 @@
 --[[
 Window Management:
-  These commands replace Slate, which hasn't been updated since 2013.
-
   Inspired by: https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
 --]]
 
@@ -113,18 +111,21 @@ hs.fnutils.each(layoutKeys, function(entry)
   end)
 end)
 
-bindHyperKey("r", function() applyResearchLayout() end)
-bindHyperKey("m", function() moveScreen(hs.window.focusedWindow()) end)
+--bindHyperKey("r", function() applyResearchLayout() end)
+bindKey("=", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
   local screen = hs.screen.mainScreen()
 
-  if screen:currentMode().w > 1500 then
+  if screen:currentMode().w > 1920 then
     focus:moveOneScreenEast()
-    focus:moveToUnit(positions.middle)
+    focus:moveToUnit(positions.maximize)
+  elseif screen:name() == "DELL U2412M" then
+    focus:moveOneScreenWest()
+    focus:moveToUnit(positions.left_half)
   else
     focus:moveOneScreenWest()
-    focus:moveToUnit(positions.center)
+    focus:moveToUnit(positions.maximize)
   end
 end
 
@@ -254,26 +255,6 @@ SSH Lock Function:
     pow.new(on_pow):start()
 
     log.i("started")
-
---[[
-  Reload config file every time it is updated.
-  Can this be modified for dotfiles?
-
-  Taken from: http://www.hammerspoon.org/go/#fancyreload
---]]
-function reloadConfig(files)
-    doReload = false
-    for _,file in pairs(files) do
-        if file:sub(-4) == ".lua" then
-            doReload = true
-        end
-    end
-    if doReload then
-        hs.reload()
-    end
-end
-myWatcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
-hs.alert.show("Config loaded")
 
 -- Get's an array length, useful in some functions above
 function getLength(array)
