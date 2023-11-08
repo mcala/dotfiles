@@ -3,6 +3,10 @@ Window Management:
   Inspired by: https://aaronlasseigne.com/2016/02/16/switching-from-slate-to-hammerspoon/
 --]]
 
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", function()
+  hs.notify.new({title="Hammerspoon", informativeText="Hello World!"}):send()
+end)
+
 screens = hs.screen.allScreens()
 -- Functions for keybindings
 -- Bind to CTRL
@@ -18,18 +22,25 @@ end
 -- Define positions
 positions = {
   maximize = hs.layout.maximized,
-  middle = hs.geometry.new({x=0.125, y=0.125, w=0.75, h=0.75}),
   center = hs.geometry.new({x=0.125, y=0.0, w=0.75, h=1.0}),
+  center_left_for_stage_manager = {x=0.10, y=0, w=0.65, h=1},
+  
+  middle_left = hs.geometry.new({x=0.125, y=0.125, w=0.33, h=0.75}),
+  middle_right = hs.geometry.new({x=0.455, y=0.125, w=0.33, h=0.75}),
 
   left_half = hs.layout.left50,
   left_2thirds = {x=0, y=0, w=0.66, h=1},
+  left_2thirds_half= {x=0, y=0, w=0.66, h=0.5},
 
   right_half = hs.layout.right50,
+  right_90 = {x=0.10, y=0, w=0.9, h=1},
   right_2thirds = {x=0.34, y=0, w=0.66, h=1},
+  right_2thirds_half = {x=0.34, y=0, w=0.66, h=0.5},
 
   left_third= {x=0, y=0, w=0.34, h=1.0},
   middle_third = {x=0.34, y=0, w=0.34, h=1.0},
-  right_third = {x=0.68, y=0, w=0.32, h=1.0},
+  right_third = {x=0.66, y=0, w=0.34, h=1.0},
+  right_quarter = {x=0.75, y=0, w=.25, h=1.0},
 
   -- Not used 
   bot_13 = {x=0, y=0.5, w=0.33, h=0.5},
@@ -43,38 +54,18 @@ positions = {
   bot_22= {x=0.5, y=0.5, w=0.5, h=0.5}
 }
 
--- Define Layouts
-layouts = {
-  {
-    name="Coding",
-    small={
-      {"iTerm2", nil, screen, positions.left_half, nil, nil},
-      {"Safari", nil, screen, positions.right_half, nil, nil},
-    },
-    large={
-      {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
-      {"Safari", nil, screen, positions.right_2thirds, nil, nil},
-    }
-  },
-  {
-    name="Technical Writing",
-    small={
-      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
-      {"Skim",   nil, screen, positions.right_third, nil, nil},
-    },
-    large={
-      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
-      {"Safari", nil, screen, positions.right_third, nil, nil},
-    }
-  },
-}
 
 -- Set up keybinding table
 mainPositionKeys= {
   {key="q", units=positions.left_2thirds},
   {key="]", units=positions.right_2thirds},
-  {key="m", units=positions.middle},
-    {key="g", units=positions.center},
+  {key="m", units=positions.middle_right},
+  {key="n", units=positions.middle_left},
+  {key="g", units=positions.center},
+  {key="=", units=positions.left_2thirds_half},
+  {key="-", units=positions.right_2thirds_half},
+  {key="\\", units=positions.right_90},
+  {key="\'", units=positions.center_left_for_stage_manager},
 }
 secondaryPositionKeys = {
   {key="f", units=positions.maximize},
@@ -83,12 +74,9 @@ secondaryPositionKeys = {
   {key="1", units=positions.left_third},
   {key="2", units=positions.middle_third},
   {key="3", units=positions.right_third},
+  {key="4", units=positions.right_quarter},
 }
 
-layoutKeys = {
-  {key="c", layout=layouts[1]},
-  {key="t", layout=layouts[2]},
-}
 
 
 -- Go through window position and define keybindings
@@ -104,15 +92,9 @@ hs.fnutils.each(secondaryPositionKeys, function(entry)
   end)
 end)
 
--- Go through layouts and define keybindings
-hs.fnutils.each(layoutKeys, function(entry)
-  bindHyperKey(entry.key, function()
-    applyLayout(entry.layout)
-  end)
-end)
 
 --bindHyperKey("r", function() applyResearchLayout() end)
-bindKey("=", function() moveScreen(hs.window.focusedWindow()) end)
+--bindKey("=", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
   local screen = hs.screen.mainScreen()
@@ -123,8 +105,11 @@ function moveScreen(focus)
   elseif screen:name() == "DELL U2412M" then
     focus:moveOneScreenWest()
     focus:moveToUnit(positions.left_half)
-  else
+  elseif screen:name() == "T24v-20" then
     focus:moveOneScreenWest()
+    focus:moveToUnit(positions.maximize)
+  elseif screen:name() == "LEN T24i-20" then
+    focus:moveOneScreenEast()
     focus:moveToUnit(positions.maximize)
   end
 end
@@ -296,3 +281,43 @@ function sortKeys(inputTable)
   table.sort(sorted, (function(a,b) return a>b end))
   return sorted
 end
+
+
+-- Define Layouts
+-- Only kep tin case we every define layouts again.
+layouts = {
+  {
+    name="Coding",
+    small={
+      {"iTerm2", nil, screen, positions.left_half, nil, nil},
+      {"Safari", nil, screen, positions.right_half, nil, nil},
+    },
+    large={
+      {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
+      {"Safari", nil, screen, positions.right_2thirds, nil, nil},
+    }
+  },
+  {
+    name="Technical Writing",
+    small={
+      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
+      {"Skim",   nil, screen, positions.right_third, nil, nil},
+    },
+    large={
+      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
+      {"Safari", nil, screen, positions.right_third, nil, nil},
+    }
+  },
+}
+
+-- layoutKeys = {
+--  {key="c", layout=layouts[1]},
+--  {key="t", layout=layouts[2]},
+--}
+--
+-- Go through layouts and define keybindings
+-- hs.fnutils.each(layoutKeys, function(entry)
+--   bindHyperKey(entry.key, function()
+--     applyLayout(entry.layout)
+--   end)
+-- end)
