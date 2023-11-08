@@ -11,3 +11,6 @@ autocmd Filetype make setlocal noexpandtab
 
 "Git commits
 autocmd Filetype gitcommit setlocal spell textwidth=72 colorcolumn=72
+
+"diff
+au VimEnter * if &diff | execute 'windo set wrap' | endif

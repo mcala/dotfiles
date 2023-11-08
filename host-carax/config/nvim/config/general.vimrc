@@ -2,6 +2,7 @@
 " python3 problems? Remember to use :CheckHealth command in Neovim to figure
 " out what the issue is
 let g:python3_host_prog = '/Users/mcala/anaconda3/envs/py3/bin/python'
+let g:python_recommended_style = 0
 
 " use system clipboard rather than */+ register
 set clipboard+=unnamedplus

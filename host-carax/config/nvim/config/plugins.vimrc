@@ -26,7 +26,9 @@ let g:neotex_latexdiff = 'lualatex'
 
 " syntax highlighting
 set termguicolors
-colorscheme challenger_deep
+"let g:everforest_background = 'hard'
+"let g:everforest_better_performance = 1
+colorscheme rose-pine-dawn
 
 "set background=dark
 "colorscheme NeoSolarized
@@ -42,7 +44,8 @@ let g:editcommand_prompt = '>'
 " Airline settings
 set noshowmode
 let g:airline_powerline_fonts=1
-let g:airline_theme='challenger_deep'
+"let g:airline_theme='rose-pine-dawn'
+let g:airline_theme='transparent'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ''
 let g:airline#extensions#tabline#left_alt_sep = '|'
