@@ -26,4 +26,4 @@
     pager = less -R
     editor = nvim
 [commit]
-	gpgsign = true
+	gpgsign = false
