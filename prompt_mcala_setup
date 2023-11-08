@@ -42,19 +42,32 @@ function prompt_mcala_setup {
   # Add hook for calling vcs_info before each command.
   add-zsh-hook precmd prompt_mcala_precmd
 
-  # Use extended color pallete if available.
-  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
-    _prompt_mcala_colors=(
-      "%F{61}"  # purple
-      "%F{64}"  # green
-      "%F{33}"  # blue
-      "%F{160}" # red
-      "%F{136}" # yellow
-      "%F{254}" # white
-      "%F{166}" # orange
-      "%F{245}" # base (gray) -- Note that you had to change the iTerm color to match this (839496 → 8a8a8a)
-    )
-  else
+#  # Use extended color pallete if available.
+#  if [[ $TERM = *256color* || $TERM = *rxvt* ]]; then
+#    _prompt_mcala_colors=(
+#      "%F{61}"  # purple
+#      "%F{64}"  # green
+#      "%F{33}"  # blue
+#      "%F{160}" # red
+#      "%F{136}" # yellow
+#      "%F{254}" # white
+#      "%F{166}" # orange
+#      "%F{245}" # base (gray) -- Note that you had to change the iTerm color to match this (839496 → 8a8a8a)
+#    )
+#  else
+#    _prompt_mcala_colors=(
+#      "%F{purple}"
+#      "%F{green}"
+#      "%F{blue}"
+#      "%F{red}"
+#      "%F{yellow}"
+#      "%F{white}"
+#      "%F{orange}"
+#      "%F{gray}"
+#    )
+#  fi
+
+
     _prompt_mcala_colors=(
       "%F{purple}"
       "%F{green}"
@@ -65,7 +78,6 @@ function prompt_mcala_setup {
       "%F{orange}"
       "%F{gray}"
     )
-  fi
 
   # Formats:
   #   %b - branchname
