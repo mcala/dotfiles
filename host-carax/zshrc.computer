@@ -25,13 +25,14 @@ export PATH=$HOME/MacPorts/lib:$PATH
 export PATH=/Library/TeX/texbin/:$PATH
 export PATH=$HOME/anaconda3/bin:$PATH
 export PATH=/Users/mcala/.cabal/bin/:$PATH
+export PATH=/Users/mcala/opt/bin:$PATH
 export EDITOR=nvim
 export GIT_EDITOR=nvim
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-source activate py3
+conda activate py3
 
 #------------------------------------------------------------------
 # Accessing computers
