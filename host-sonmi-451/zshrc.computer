@@ -1,0 +1,35 @@
+# Computer file for sonmi-451
+
+# PATH
+export PATH=$HOME/software/bin:$PATH
+export PATH=$HOME/MacPorts/bin:$PATH
+export PATH=$HOME/MacPorts/sbin:$PATH
+export PATH=$HOME/MacPorts/lib:$PATH
+export PATH=/Library/TeX/texbin/:$PATH
+export PATH=$HOME/anaconda3/bin:$PATH
+#export PATH=/Users/mcala/.cabal/bin/:$PATH
+#export PATH=/Users/mcala/opt/bin:$PATH
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+
+# FZF
+#--preview 'bat --style=numbers --color=always {}' | head -500
+export FZF_DEFAULT_COMMAND='find . -type f'
+export FZF_DEFAULT_OPTS="--height 75% --layout=reverse"
+
+conda activate py3
+
+# use neovim
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
+# Gnucoreutils Options
+alias ls='gls --color=auto'
+alias shred='gshred'
+
+alias test-git='ssh -T git@github.com'
+
+#Getting Arond this filesystem
+alias icloud='cd /Users/mcala/Library/Mobile\ Documents'
+alias iclouddoc='cd /Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs'
+
