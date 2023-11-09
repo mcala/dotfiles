@@ -8,8 +8,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 Plug 'dkarter/bullets.vim'
 Plug 'neovim/nvim-lsp'
-Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
-Plug 'junegunn/goyo.vim', { 'for' : ['markdown', 'tex', 'latex'] }
 
 call plug#end() 
 
@@ -24,3 +22,5 @@ call plug#end()
 ""Plug 'junegunn/fzf.vim'
 "Plug 'vim-pandoc/vim-pandoc' 
 "Plug 'vim-pandoc/vim-pandoc-syntax'
+"Plug 'junegunn/goyo.vim', { 'for' : ['markdown', 'tex', 'latex'] }
+"Plug 'donRaphaco/neotex', { 'for': ['tex','latex'] }
