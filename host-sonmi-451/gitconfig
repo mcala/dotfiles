@@ -1,0 +1,29 @@
+[user]
+    name = Andrew McAllister
+    email = andrew@mcallister.science
+	signingkey = E761E09A1EC0FD5F
+[alias]
+    co = checkout
+    st = status
+    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[color]
+    ui = true
+    diff = always
+    status = always
+    branch = always
+    interactive = always
+    pager = true
+[color "status"]
+    changed = blue
+    untracked = red
+    added = green
+    branch = white
+[push]
+    default = current
+[diff]
+    mnemonicprefix = true
+[core]
+    pager = less -R
+    editor = nvim
+[commit]
+	gpgsign = false

@@ -1,0 +1,65 @@
+# Aliases
+
+# ls commands
+alias sl='ls'
+alias ll='ls -lh'
+alias lsa='ls -a'
+alias lla='ls -lha'
+alias ldot='ls -ld .*'
+
+# colored grep
+alias grep='ggrep --color -n -T'
+alias cgrep='ggrep --color=always -n -T'
+export GREP_COLORS="fn=00;34:mt=01;33:ln=32"
+
+# du size command
+alias size='du -hsc'
+alias size_save='du -hsc > size_of'
+alias size_all='du -hc'
+
+# moving commands alias ..='cd ..'
+alias ...='cd ../../'
+alias c\ d..='cd ..'
+
+# find commands
+alias findd='find . -maxdepth 1 -mindepth 1 -type d'
+alias findf='find . -maxdepth 1 -mindepth 1 -type f'
+
+# tar aliases
+alias mtar='tar -cvzf'
+alias otar='tar -xvzf'
+
+# misc aliases
+alias vi='vim'
+
+# misc git
+alias chkpull='git remote update; git status -uno'
+
+# zsh Global aliases
+alias -g L="|less"
+alias -g C="| wc -l"
+alias -g O="|xargs ls -G"
+
+zmodload zsh/mathfunc
+
+# Other zsh options
+setopt -o noclobber
+setopt histallowclobber
+setopt nobeep
+
+# Order files for ls in way you like
+LC_COLLATE='C'
+
+# when auto completing vim, ignore *.o and *.x
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
+
+# quickly updating general dot files
+alias loaddots='source $HOME/.zshrc'
+
+#alias for unlocking time machine drive
+alias unlockTM='diskutil coreStorage unlockVolume B8029037-40C5-4F54-9CC1-9F6135E99541'
+
+alias top='echo "You sure?"'
+alias kill='echo "You really sure?"'
+
+alias pjson='python -m json.tool | pygmentize'
