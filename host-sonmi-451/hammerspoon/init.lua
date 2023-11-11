@@ -23,6 +23,7 @@ end
 positions = {
   maximize = hs.layout.maximized,
   center = hs.geometry.new({x=0.125, y=0.0, w=0.75, h=1.0}),
+  absolute_center = hs.geometry.new({x=0.125, y=0.125, w=0.75, h=0.75}),
   center_left_for_stage_manager = {x=0.10, y=0, w=0.65, h=1},
   
   middle_left = hs.geometry.new({x=0.125, y=0.125, w=0.33, h=0.75}),
@@ -62,8 +63,9 @@ mainPositionKeys= {
   {key="m", units=positions.middle_right},
   {key="n", units=positions.middle_left},
   {key="g", units=positions.center},
-  {key="=", units=positions.left_2thirds_half},
-  {key="-", units=positions.right_2thirds_half},
+-- When did I actually use these?
+--  {key="=", units=positions.left_2thirds_half},
+--  {key="-", units=positions.right_2thirds_half},
   {key="\\", units=positions.right_90},
   {key="\'", units=positions.center_left_for_stage_manager},
 }
@@ -75,9 +77,8 @@ secondaryPositionKeys = {
   {key="2", units=positions.middle_third},
   {key="3", units=positions.right_third},
   {key="4", units=positions.right_quarter},
+  {key="g", units=positions.absolute_center},
 }
-
-
 
 -- Go through window position and define keybindings
 hs.fnutils.each(mainPositionKeys, function(entry)
@@ -92,9 +93,6 @@ hs.fnutils.each(secondaryPositionKeys, function(entry)
   end)
 end)
 
-
---bindHyperKey("r", function() applyResearchLayout() end)
---bindKey("=", function() moveScreen(hs.window.focusedWindow()) end)
 
 function moveScreen(focus)
   local screen = hs.screen.mainScreen()
@@ -112,95 +110,6 @@ function moveScreen(focus)
     focus:moveOneScreenEast()
     focus:moveToUnit(positions.maximize)
   end
-end
-
--- Apply layout, checks for either small or large window size before calling new
--- layout
-function applyLayout(layout)
-  local screen = screens[1]
-
-  layoutwithSize=layout.small
-  if layout.large and screen:currentMode().w > 1500 then
-    layoutwithSize = layout.large
-  end
-
-  hs.layout.apply(layoutwithSize)
-
-end
-
---[[
---Research is a bit more involved:
---After opening 6 or 4 latest research journal entries, tile them across the
---screen.
---]]
-function applyResearchLayout()
-  windows=hs.window.allWindows()
-  length=getLength(windows)
-  windowList={}
-
-  for i=1,length do
-    winTitle = windows[i]:title()
-    if (string.match(winTitle, '2017') == '2017') then
-      if (string.match(winTitle, ', [A-z]+') == nil and string.match(winTitle, 'Research Journal') == nil ) then
-        windowList[i] = 0
-      elseif (string.match(winTitle, 'Research Journal') ~= nil) then
-        windowList[i] = 1
-      else
-        month=string.match(winTitle, ', [A-z]+')
-        month=string.sub(month,3)
-        monthIndex=getMonth(month)
-        day=string.match(winTitle, '[0-9]+')
-        year=string.match(winTitle, '[0-9][0-9][0-9][0-9]')
-        time=os.time({day=day, month=monthIndex, year=year, hour=0, min=0, sec=0})
-        windowList[i] = time
-      end
-    else
-      windowList[i] = 0
-    end
-  end
-
-  inverted=invertTable(windowList)
-  sortedKeys=sortKeys(inverted)
-  -- Gets rid of the final "0" window, which is not part of the Research Journal
-  --table.remove(sortedKeys)
-  length=getLength(sortedKeys)
-  print("DEBUG DEBUG DEBUG")
-  for i=1,length do
-    print(windows[inverted[sortedKeys[i]]])
-  end
-  print("DEBUG DEBUG DEBUG")
-
-  if length == 5 then
-    researchLayout=  {
-      name="Research Journal",
-      small={
-        {"Bear", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_12, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_22, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[3]]]:title(), screen, positions.bot_12, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_22, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[5]]]:title(), screen, positions.center, nil, nil},
-      }}
-  else
-    researchLayout=  {
-      name="Research Journal",
-      large={
-        {"Bear", windows[inverted[sortedKeys[1]]]:title(), screen, positions.top_13, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[2]]]:title(), screen, positions.top_23, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[3]]]:title(), screen, positions.top_33, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[4]]]:title(), screen, positions.bot_13, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[5]]]:title(), screen, positions.bot_23, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[6]]]:title(), screen, positions.bot_33, nil, nil},
-        {"Bear", windows[inverted[sortedKeys[7]]]:title(), screen, positions.center, nil, nil},
-      }}
-  end
-  print("DEBUG DEBUG GOT TO SEND LAYOUT DEBUG DEBUG")
-
-  applyLayout(researchLayout)
-  for i =1,6 do
-    print(windows[inverted[sortedKeys[i]]])
-    windows[inverted[sortedKeys[i]]]:raise()
-  end
-
 end
 
 --[[
@@ -281,43 +190,3 @@ function sortKeys(inputTable)
   table.sort(sorted, (function(a,b) return a>b end))
   return sorted
 end
-
-
--- Define Layouts
--- Only kep tin case we every define layouts again.
-layouts = {
-  {
-    name="Coding",
-    small={
-      {"iTerm2", nil, screen, positions.left_half, nil, nil},
-      {"Safari", nil, screen, positions.right_half, nil, nil},
-    },
-    large={
-      {"iTerm2", nil, screen, positions.left_2thirds, nil, nil},
-      {"Safari", nil, screen, positions.right_2thirds, nil, nil},
-    }
-  },
-  {
-    name="Technical Writing",
-    small={
-      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
-      {"Skim",   nil, screen, positions.right_third, nil, nil},
-    },
-    large={
-      {"Sublime Text", nil, screen, positions.left_2thirds, nil, nil},
-      {"Safari", nil, screen, positions.right_third, nil, nil},
-    }
-  },
-}
-
--- layoutKeys = {
---  {key="c", layout=layouts[1]},
---  {key="t", layout=layouts[2]},
---}
---
--- Go through layouts and define keybindings
--- hs.fnutils.each(layoutKeys, function(entry)
---   bindHyperKey(entry.key, function()
---     applyLayout(entry.layout)
---   end)
--- end)
