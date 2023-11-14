@@ -1,0 +1,10 @@
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h-%p
+  ControlPersist 4h
+  ForwardAgent yes
+  AddKeystoAgent yes
+
+Host github.com
+	User git
+	IdentityFile ~/.ssh/github.key
