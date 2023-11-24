@@ -44,11 +44,5 @@ nnoremap <silent> Q vipJ
 
 set pastetoggle=<F3>
 
-" Plain Text Project Managment
-" Project Index
-nnoremap <leader>p :e /Users/mcala/Dropbox/5_management/index.md<cr>
-" Today's journal entry: Need to figure out how to use evaluation from zsh in vim
-"nnoremap <leader>j :e ~/Dropbox/5_management/journal/$(date "+%Y.%m.%d.md)<cr>
-
 "Toggle Goyo -> leader WRITE
 nnoremap <silent> <leader>W :Goyo<cr>
