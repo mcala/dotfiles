@@ -6,6 +6,11 @@
 vim.g.python3_host_prog = "/Users/mcala/anaconda3/envs/neovim/bin/python"
 vim.g.python_recommended_style = 0
 
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
 vim.opt.list = true
 vim.opt.listchars = "tab:▸ ,eol:¬,trail:."
 
@@ -15,3 +20,5 @@ vim.opt.undolevels = 10000
 
 vim.opt.swapfile = true
 vim.opt.directory = "/Users/mcala/.config/nvim/swapfiles/"
+
+vim.opt.winbar = "%=%m %f"
