@@ -30,7 +30,7 @@ alias mtar='tar -cvzf'
 alias otar='tar -xvzf'
 
 # misc aliases
-alias vi='vim'
+alias vi='nvim'
 
 # misc git
 alias chkpull='git remote update; git status -uno'
