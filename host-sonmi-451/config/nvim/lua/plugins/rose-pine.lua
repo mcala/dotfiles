@@ -1,4 +1,3 @@
--- add gruvbox
 return {
   { "rose-pine/neovim" },
   {

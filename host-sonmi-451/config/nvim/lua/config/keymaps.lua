@@ -5,6 +5,8 @@
 -- Renamp esc to jk in insert mode
 vim.keymap.set("i", "jk", "<Esc>", { silent = true })
 
+-- Python scripting
+
 -- Window mappings:
 -- Lazy Vim already has your _movement_ commands
 -- But use your own shorthand for opening vertical splits
