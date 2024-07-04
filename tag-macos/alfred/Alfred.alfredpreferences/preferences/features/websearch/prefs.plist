@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>customSites</key>
+	<dict>
+		<key>2D72CB37-8EC4-4A69-B237-ED1EE65A0B3B</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>ac</string>
+			<key>text</key>
+			<string>Assembly Committees</string>
+			<key>url</key>
+			<string>https://njleg.state.nj.us/committees/assembly-committees/schedules?committee={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>85F4F3D4-A31F-46C1-A559-06083F739F9E</key>
+		<dict>
+			<key>enabled</key>
+			<false/>
+			<key>keyword</key>
+			<string>bills</string>
+			<key>text</key>
+			<string>Bills</string>
+			<key>url</key>
+			<string>https://njleg.state.nj.us/bill-search/2022/{query}</string>
+		</dict>
+		<key>8C10682F-9315-4ADA-8C70-EB66BE955C82</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>sc</string>
+			<key>text</key>
+			<string>Senate Committees</string>
+			<key>url</key>
+			<string>https://njleg.state.nj.us/committees/senate-committees/schedules?committee=SBA</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>D4072301-08B1-4EDF-8B3C-85B437638407</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>news</string>
+			<key>text</key>
+			<string>Google News</string>
+			<key>url</key>
+			<string>https://news.google.com/search?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+		<key>E737A411-D3CF-4BBB-AAD8-CA0113535750</key>
+		<dict>
+			<key>enabled</key>
+			<true/>
+			<key>keyword</key>
+			<string>scholar</string>
+			<key>text</key>
+			<string>Search Google Scholar</string>
+			<key>url</key>
+			<string>https://scholar.google.com/scholar?q={query}</string>
+			<key>utf8</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>onlyShowEnabledInPrefs</key>
+	<true/>
+</dict>
+</plist>

@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string></string>
+	<key>category</key>
+	<string>In Use</string>
+	<key>connections</key>
+	<dict>
+		<key>2F299E81-3BEC-4EC9-B5C3-67758640A198</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A48274D6-4054-4B3C-A69A-9E4FF38D5E67</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A48274D6-4054-4B3C-A69A-9E4FF38D5E67</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A82C63F0-009B-4FE5-9661-118DF0BC618D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>0968A2C4-6B5B-4A9B-8C1F-C5CDB364D8B7</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>BB8B3B4B-746D-4CCA-99E5-288A6470D430</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>8E63E044-4A34-4902-AC33-45B7A57F434D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>3CA27425-4B5A-4848-8F7B-42089763CF27</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>799BDF0E-09B3-429F-94C3-32F3178382EE</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>1EAEEB44-468F-4799-9A68-42DCAE3E1150</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>37AD4843-BAB6-4319-B44D-1D5C0CE74376</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>5A18CC3A-8AA9-48EA-9976-D63FCF0F660A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>5949BD37-48C9-4DA0-ADC5-4AC8C65373F5</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Andrew McAllister</string>
+	<key>description</key>
+	<string>Shows hotkeys you are trying to use</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Show Hotkeys</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>⌃q → Left 2/3
+⌃] → Right 2/2
+⌃g → Center
+⌃f → Maximize
+
+HYPER q → Left 1/2
+HYPER ] → Right 1/2
+HYPER w → Left 1/3
+HYPER [ → Right 1/3
+
+HYPER t → Small</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>A82C63F0-009B-4FE5-9661-118DF0BC618D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>File System: Navigate with left and right arrows
+open       → opens file or folder
+find         → reveal in Finder
+ff             → find folder, search within
+previous → last path
+tags        → search tags
+buffer
+↳ ⌥↑  Add Files
+↳ ⌥← Remove Files
+↳ ⌥→ Do Something
+
+Shift →   preview
+Ctrl   → actions
+
+
+
+Keywords
+ibx.     → Inbox (can search)
+email  → contacts + gmail
+conv.  → unit conversion
+sc       → shortcuts
+win     → window sizes
+doi      → work w/ doi
+
+Evernote
+ens      → search all fields
+ens @ → search inside notebook
+ens #   → search with tags (can have multiple)
+ent       → search titltes
+enrec   → search recent notes
+
+Return  → Opens
+Shift     → Previews
+⌘         → Append to Note
+
+enn → Create Note
+
+Remember
+Convert colors
+Font Awesome
+Unicode
+Numpy Modules</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>BB8B3B4B-746D-4CCA-99E5-288A6470D430</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>Window</string>
+						<key>outputlabel</key>
+						<string>Window Management</string>
+						<key>uid</key>
+						<string>0968A2C4-6B5B-4A9B-8C1F-C5CDB364D8B7</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>Alfred</string>
+						<key>outputlabel</key>
+						<string>Alfred</string>
+						<key>uid</key>
+						<string>8E63E044-4A34-4902-AC33-45B7A57F434D</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>Vim</string>
+						<key>outputlabel</key>
+						<string>Vim</string>
+						<key>uid</key>
+						<string>799BDF0E-09B3-429F-94C3-32F3178382EE</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>iTerm2</string>
+						<key>outputlabel</key>
+						<string>iTerm2</string>
+						<key>uid</key>
+						<string>37AD4843-BAB6-4319-B44D-1D5C0CE74376</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string></string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>Arc</string>
+						<key>outputlabel</key>
+						<string>Arc</string>
+						<key>uid</key>
+						<string>5949BD37-48C9-4DA0-ADC5-4AC8C65373F5</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Error</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>A48274D6-4054-4B3C-A69A-9E4FF38D5E67</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>fixedorder</key>
+				<false/>
+				<key>items</key>
+				<string>[{"title":"Arc","arg":"arc"},{"title":"Alfred","arg":"alfred"},{"title":"Window Management","arg":"Window Management"},{"title":"iTerm2","arg":"iTerm2"},{"title":"Vim","arg":"Vim"}]</string>
+				<key>keyword</key>
+				<string>keys</string>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Show shortcuts for which app?</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.listfilter</string>
+			<key>uid</key>
+			<string>2F299E81-3BEC-4EC9-B5C3-67758640A198</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>Movement
+{ / } → Blocks
+F → Backward Search
+O/o → New Line Above/Below Current
+
+:r! → Shell to File
+
+Marks
+m [letter] → set mark
+' [letter] → jump to mark
+	↳capitals are universal</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>3CA27425-4B5A-4848-8F7B-42089763CF27</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>⌃s → Forward Search
+⌃k → Clear to EOL
+⌃t → Forward Word
+⌃b → Backward Word
+⌘# → Switch Tabs
+
+⌘;  → History of Session
+⌘⇧B → Show Toolbelt 
+
+Mousless Copy
+	↳ Find, Expand w/ Tab, ⌥-Enter to copy
+
+Shell Integration
+Marks → ⌘⌥A after starting a command will notify at completion
+	  → Right clicking will show failure info</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>1EAEEB44-468F-4799-9A68-42DCAE3E1150</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>Arc Keyboard Shortcuts
+
+Arc Features
+⌘⇧A - Capture
+⌘⇧E - New Easel
+⌘⇧N - New Note in Split
+
+Copy URL
+⌘⇧C - Copy URL
+⌘⌥⇧C - Copy URL as Markdown
+
+Navigation
+⌃⌘S - Manage Spaces
+⌃# - Jump to Space
+⌘⇧` - Show Archive
+⌃Tab - Open Tab Switcher
+
+Splits
+⌃⇧W - Make Split
+⌃⇧S - Separate Split
+⌃⇧# - Jump to Split
+
+View
+⌘S - Hide Sidebar
+⌘⌥R - Reader Mode
+⌘⇧D - Show Downloads Sidebar
+⌘⇧L - Show Library Sidebar
+⌃(Space) - Reveal Tab in Sidebar
+⌘⌥R - Reader Mode</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>5A18CC3A-8AA9-48EA-9976-D63FCF0F660A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>1EAEEB44-468F-4799-9A68-42DCAE3E1150</key>
+		<dict>
+			<key>note</key>
+			<string>iTerm2</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>470</real>
+		</dict>
+		<key>2F299E81-3BEC-4EC9-B5C3-67758640A198</key>
+		<dict>
+			<key>xpos</key>
+			<real>50</real>
+			<key>ypos</key>
+			<real>200</real>
+		</dict>
+		<key>3CA27425-4B5A-4848-8F7B-42089763CF27</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>4</integer>
+			<key>note</key>
+			<string>Vim</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>305</real>
+		</dict>
+		<key>5A18CC3A-8AA9-48EA-9976-D63FCF0F660A</key>
+		<dict>
+			<key>note</key>
+			<string>Arc</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>625</real>
+		</dict>
+		<key>A48274D6-4054-4B3C-A69A-9E4FF38D5E67</key>
+		<dict>
+			<key>xpos</key>
+			<real>215</real>
+			<key>ypos</key>
+			<real>175</real>
+		</dict>
+		<key>A82C63F0-009B-4FE5-9661-118DF0BC618D</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>7</integer>
+			<key>note</key>
+			<string>Window Management</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>25</real>
+		</dict>
+		<key>BB8B3B4B-746D-4CCA-99E5-288A6470D430</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>note</key>
+			<string>Alfred</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>160</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
