@@ -25,5 +25,6 @@
 [core]
     pager = less -R
     editor = nvim
+	autocrlf = input
 [commit]
 	gpgsign = false
