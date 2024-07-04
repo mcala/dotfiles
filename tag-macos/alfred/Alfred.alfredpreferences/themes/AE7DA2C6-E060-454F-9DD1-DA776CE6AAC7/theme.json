@@ -1,0 +1,65 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 4,
+      "subtext" : {
+        "size" : 13,
+        "colorSelected" : "#15151572",
+        "font" : "Inconsolata",
+        "color" : "#ADADADFF"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#0000007F",
+        "font" : "Inconsolata",
+        "color" : "#0000003F"
+      },
+      "backgroundSelected" : "#00000000",
+      "text" : {
+        "size" : 18,
+        "colorSelected" : "#151515FF",
+        "font" : "Lato",
+        "color" : "#00000072"
+      },
+      "iconPaddingHorizontal" : 5,
+      "roundness" : 0,
+      "paddingVertical" : 4,
+      "iconSize" : 40
+    },
+    "search" : {
+      "backgroundSelected" : "#0062E0B4",
+      "paddingHorizontal" : 8,
+      "spacing" : 20,
+      "text" : {
+        "size" : 24,
+        "colorSelected" : "#000000FF",
+        "font" : "Lato Bold",
+        "color" : "#000000F2"
+      },
+      "background" : "#FFFFFF00",
+      "roundness" : 0,
+      "paddingVertical" : 0
+    },
+    "window" : {
+      "color" : "#FFFFFFD9",
+      "paddingHorizontal" : 18,
+      "width" : 585,
+      "borderPadding" : 0,
+      "borderColor" : "#FFFFFF00",
+      "blur" : 0,
+      "roundness" : 20,
+      "paddingVertical" : 14
+    },
+    "credit" : "Florian Pircher",
+    "visualEffectMode" : 1,
+    "separator" : {
+      "color" : "#00000000",
+      "thickness" : 1
+    },
+    "scrollbar" : {
+      "color" : "#00000019",
+      "thickness" : 2
+    },
+    "name" : "Paper (v2) White"
+  }
+}
