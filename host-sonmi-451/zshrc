@@ -1,4 +1,4 @@
-# Source Prezto.
+# prezto initialize
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
@@ -18,9 +18,17 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-source $HOME/.zshrc.personal
-source $HOME/.zshrc.computer
-
+# >>> nvm initialize >>>
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# personal zsh initalize
+source $HOME/.zshrc.personal
+source $HOME/.zshrc.computer
+
+if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]; then
+    eval "$(oh-my-posh init zsh)"
+    eval "$(oh-my-posh init zsh --config ~/.mcala.omp.toml)"
+fi
+
