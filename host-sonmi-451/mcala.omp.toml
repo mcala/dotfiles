@@ -1,0 +1,52 @@
+version = 2
+final_space = true
+
+[[blocks]]
+    type = 'prompt'
+    alignment = 'left'
+
+    [[blocks.segments]]
+        type = 'session'
+        style = 'plain'
+        foreground = 'blue'
+        template = '{{ if .SSHSession }} {{ end }}<b>{{ .UserName }}</b> <d><default>on</></d> <green><i>{{.HostName}}</i></>'
+
+    [[blocks.segments]]
+        type = 'path'
+        style = 'plain'
+        foreground = 'yellow'
+        template = ' <d><default>in</></d> {{ .Path }} '
+
+    [[blocks.segments]]
+        type = 'git'
+        template = "{{ .HEAD }}{{ if .Working.String }} <red>●</>{{ end }} {{ if .Staging.String }}<yellow>●</> {{end}}{{if .Working.String }}{{ .Working.String }}{{ end }} {{ if .Staging.String }}{{ .Staging.String }}{{ end }} <d>{{ .Commit.Timestamp | date \"2006-01-02\" }}</d>"
+
+    [blocks.segments.properties]
+        fetch_status = true
+        branch_max_length = 25
+
+[[blocks]]
+    type = 'prompt'
+    alignment = 'left'
+    newline = true
+
+    [[blocks.segments]]
+        type = 'text'
+        template = ' <b><default>></></b>'
+
+
+[[blocks]]
+    type = 'rprompt'
+    overflow = 'hide'
+
+    [[blocks.segments]]
+        type = 'python'
+        foreground = 'magenta'
+        template = '  {{ .Venv }} '
+
+[transient_prompt]
+    foreground = 'default'
+    template = "{{ now | date \"15:04:05\" }} <b>></b> "
+
+[secondary_prompt]
+    template = '  → '
