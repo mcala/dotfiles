@@ -34,4 +34,23 @@ alias test-git='ssh -T git@github.com'
 #Getting Arond this filesystem
 alias icloud='cd /Users/mcala/Library/Mobile\ Documents'
 alias iclouddoc='cd /Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs'
+# ANSI color codes
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+RESET='\033[0m'
 
+# Run on shell startup
+neofetch
+
+# ASCII art
+echo -e "${BLUE}╔════════════════════════════ Command Reminders ════════════════════════════╗${RESET}"
+# Command reminders
+echo -e "${GREEN} 1.${RESET} ${MAGENTA}miller:${RESET} mlr --i[INPUT] --opprint cat [FILE] - csv, yaml, json reading"
+echo -e "${GREEN} 2.${RESET} ${MAGENTA}ripgrep:${RESET} rg [PATTERN] [PATH] - Modern grep"
+echo -e "${GREEN} 3.${RESET} ${MAGENTA}fd:${RESET} fd [PATTERN] - Modern find"
+echo -e "${GREEN} 4.${RESET} ${MAGENTA}fzf:${RESET} fzf - Fuzzy finder "
+echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════════════════╝${RESET}"
