@@ -1,5 +1,9 @@
 # Aliases
 
+# eza aliases
+#alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions'
+alias leza='eza --color=always --long --group-directories-first'
+
 # ls commands
 alias sl='ls'
 alias ll='ls -lh'
@@ -63,6 +67,8 @@ alias top='echo "You sure?"'
 alias kill='echo "You really sure?"'
 
 alias pjson='python -m json.tool | pygmentize'
+
+alias onefetch='onefetch --no-color-palette'
 
 # Terminal/ls Colors
 # I have no clue where I got this, but I like this more than the defaults.
