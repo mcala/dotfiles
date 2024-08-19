@@ -14,8 +14,6 @@
 			<string>Assembly Committees</string>
 			<key>url</key>
 			<string>https://njleg.state.nj.us/committees/assembly-committees/schedules?committee={query}</string>
-			<key>utf8</key>
-			<true/>
 		</dict>
 		<key>85F4F3D4-A31F-46C1-A559-06083F739F9E</key>
 		<dict>
@@ -38,8 +36,6 @@
 			<string>Senate Committees</string>
 			<key>url</key>
 			<string>https://njleg.state.nj.us/committees/senate-committees/schedules?committee=SBA</string>
-			<key>utf8</key>
-			<true/>
 		</dict>
 		<key>D4072301-08B1-4EDF-8B3C-85B437638407</key>
 		<dict>
@@ -51,8 +47,6 @@
 			<string>Google News</string>
 			<key>url</key>
 			<string>https://news.google.com/search?q={query}</string>
-			<key>utf8</key>
-			<true/>
 		</dict>
 		<key>E737A411-D3CF-4BBB-AAD8-CA0113535750</key>
 		<dict>
@@ -64,8 +58,17 @@
 			<string>Search Google Scholar</string>
 			<key>url</key>
 			<string>https://scholar.google.com/scholar?q={query}</string>
-			<key>utf8</key>
+		</dict>
+		<key>FC6DBA6C-67E6-48B8-B7B5-0AF47E47588C</key>
+		<dict>
+			<key>enabled</key>
 			<true/>
+			<key>keyword</key>
+			<string>genius</string>
+			<key>text</key>
+			<string>Genius</string>
+			<key>url</key>
+			<string>https://genius.com/search?q={query}</string>
 		</dict>
 	</dict>
 	<key>onlyShowEnabledInPrefs</key>

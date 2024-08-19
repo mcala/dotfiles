@@ -1,5 +1,6 @@
 #!/bin/zsh
 # shellcheck disable=SC2154
+PATH=$PATH:/Users/mcala/MacPorts/bin/
 
 # GUARD
 if ! command -v pandoc &>/dev/null; then
