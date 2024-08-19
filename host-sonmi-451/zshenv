@@ -14,3 +14,5 @@ autoload scratch_find get_prefix get_pseudos get_wannier make_pbs_nersc make_pbs
 if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
+
+. "$HOME/.cargo/env"
