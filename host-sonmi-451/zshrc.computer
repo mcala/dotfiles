@@ -49,6 +49,8 @@ alias test-git='ssh -T git@github.com'
 #Getting Arond this filesystem
 alias icloud='cd /Users/mcala/Library/Mobile\ Documents'
 alias iclouddoc='cd /Users/mcala/Library/Mobile\ Documents/com~apple~CloudDocs'
+alias code='cd /Users/mcala/Documents/3_resources/code'
+
 # ANSI color codes
 RED='\033[0;31m'
 GREEN='\033[0;32m'
