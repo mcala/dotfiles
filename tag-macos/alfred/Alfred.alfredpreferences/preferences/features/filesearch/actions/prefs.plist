@@ -8,6 +8,8 @@
 		<true/>
 		<key>alfred.action.emailto</key>
 		<true/>
+		<key>alfred.action.showaslargetype</key>
+		<true/>
 		<key>alfred.action.showpackagecontents</key>
 		<true/>
 	</dict>

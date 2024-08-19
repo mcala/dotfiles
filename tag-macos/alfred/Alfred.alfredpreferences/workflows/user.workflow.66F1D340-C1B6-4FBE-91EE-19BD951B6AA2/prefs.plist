@@ -6,5 +6,9 @@
 	<string>/Users/mcala/obsidian/zk/Bibliography.bib</string>
 	<key>citation_picker_keyword</key>
 	<string>cite</string>
+	<key>csl_for_pandoc</key>
+	<string>~/Zotero/styles/apa.csl</string>
+	<key>literature_note_folder</key>
+	<string>~/obsidian/zk/04 Literature</string>
 </dict>
 </plist>

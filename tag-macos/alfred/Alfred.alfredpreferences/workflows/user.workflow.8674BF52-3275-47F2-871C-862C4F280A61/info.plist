@@ -83,6 +83,18 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>94967ABA-4BF5-4808-8CB3-9DE2D80EC8A2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>9FB34FC0-B42A-4695-8BE7-A26437DCD83D</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 	</dict>
 	<key>createdby</key>
@@ -146,52 +158,28 @@ HYPER t → Small</string>
 				<key>fillmode</key>
 				<integer>0</integer>
 				<key>font</key>
-				<string></string>
+				<string>JetBrains Mono</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>largetypetext</key>
 				<string>File System: Navigate with left and right arrows
-open       → opens file or folder
-find         → reveal in Finder
-ff             → find folder, search within
+open     → opens file or folder
+find     → reveal in Finder
+ff    			→ find folder, search within
 previous → last path
-tags        → search tags
+tags     → search tags
+
 buffer
 ↳ ⌥↑  Add Files
 ↳ ⌥← Remove Files
 ↳ ⌥→ Do Something
 
-Shift →   preview
-Ctrl   → actions
-
-
+Shift		→ preview
+Ctrl		→ actions
 
 Keywords
-ibx.     → Inbox (can search)
 email  → contacts + gmail
-conv.  → unit conversion
-sc       → shortcuts
-win     → window sizes
-doi      → work w/ doi
-
-Evernote
-ens      → search all fields
-ens @ → search inside notebook
-ens #   → search with tags (can have multiple)
-ent       → search titltes
-enrec   → search recent notes
-
-Return  → Opens
-Shift     → Previews
-⌘         → Append to Note
-
-enn → Create Note
-
-Remember
-Convert colors
-Font Awesome
-Unicode
-Numpy Modules</string>
+doi    → work w/ doi</string>
 				<key>textcolor</key>
 				<string></string>
 				<key>wrapat</key>
@@ -267,7 +255,7 @@ Numpy Modules</string>
 					</dict>
 					<dict>
 						<key>inputstring</key>
-						<string></string>
+						<string>{query}</string>
 						<key>matchcasesensitive</key>
 						<false/>
 						<key>matchmode</key>
@@ -278,6 +266,20 @@ Numpy Modules</string>
 						<string>Arc</string>
 						<key>uid</key>
 						<string>5949BD37-48C9-4DA0-ADC5-4AC8C65373F5</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{query}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>Slack</string>
+						<key>outputlabel</key>
+						<string>Slack</string>
+						<key>uid</key>
+						<string>9FB34FC0-B42A-4695-8BE7-A26437DCD83D</string>
 					</dict>
 				</array>
 				<key>elselabel</key>
@@ -302,7 +304,7 @@ Numpy Modules</string>
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"Arc","arg":"arc"},{"title":"Alfred","arg":"alfred"},{"title":"Window Management","arg":"Window Management"},{"title":"iTerm2","arg":"iTerm2"},{"title":"Vim","arg":"Vim"}]</string>
+				<string>[{"title":"Arc","arg":"arc"},{"title":"Alfred","arg":"alfred"},{"title":"Window Management","arg":"Window Management"},{"title":"iTerm2","arg":"iTerm2"},{"title":"Vim","arg":"Vim"},{"title":"Slack","arg":"Slack","subtitle":""}]</string>
 				<key>keyword</key>
 				<string>keys</string>
 				<key>matchmode</key>
@@ -335,16 +337,16 @@ Numpy Modules</string>
 				<key>fillmode</key>
 				<integer>0</integer>
 				<key>font</key>
-				<string></string>
+				<string>JetBrains Mono</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>largetypetext</key>
 				<string>Movement
-{ / } → Blocks
-F → Backward Search
-O/o → New Line Above/Below Current
+{ / } 	→ Blocks
+F 				→ Backward Search
+O/o 		→ New Line Above/Below Current
 
-:r! → Shell to File
+:r! 		→ Shell to File
 
 Marks
 m [letter] → set mark
@@ -374,7 +376,7 @@ m [letter] → set mark
 				<key>fillmode</key>
 				<integer>0</integer>
 				<key>font</key>
-				<string></string>
+				<string>JetBrains Mono</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>largetypetext</key>
@@ -417,39 +419,38 @@ Marks → ⌘⌥A after starting a command will notify at completion
 				<key>fillmode</key>
 				<integer>0</integer>
 				<key>font</key>
-				<string></string>
+				<string>JetBrains Mono</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>largetypetext</key>
 				<string>Arc Keyboard Shortcuts
 
 Arc Features
-⌘⇧A - Capture
-⌘⇧E - New Easel
-⌘⇧N - New Note in Split
+⌘⇧A → Capture
+⌘⇧E → New Easel
 
 Copy URL
-⌘⇧C - Copy URL
-⌘⌥⇧C - Copy URL as Markdown
+⌘⇧C  → Copy URL
+⌘⌥⇧C → Copy URL as Markdown
 
 Navigation
-⌃⌘S - Manage Spaces
-⌃# - Jump to Space
-⌘⇧` - Show Archive
-⌃Tab - Open Tab Switcher
+⌃⌘S 	→ Manage Spaces
+⌃# 		→ Jump to Space
+⌘⇧` 	→ Show Archive
+⌃Tab → Open Tab Switcher
 
 Splits
-⌃⇧W - Make Split
-⌃⇧S - Separate Split
-⌃⇧# - Jump to Split
+⌃⇧W → Make Split
+⌃⇧S → Separate Split
+⌃⇧# → Jump to Split
 
 View
-⌘S - Hide Sidebar
-⌘⌥R - Reader Mode
-⌘⇧D - Show Downloads Sidebar
-⌘⇧L - Show Library Sidebar
-⌃(Space) - Reveal Tab in Sidebar
-⌘⌥R - Reader Mode</string>
+⌘S 	→ Hide Sidebar
+⌘⌥R → Reader Mode
+⌘⇧D → Show Downloads Sidebar
+⌘⇧L → Show Library Sidebar
+⌃(Space) → Reveal Tab in Sidebar
+⌘⌥R → Reader Mode</string>
 				<key>textcolor</key>
 				<string></string>
 				<key>wrapat</key>
@@ -459,6 +460,39 @@ View
 			<string>alfred.workflow.output.largetype</string>
 			<key>uid</key>
 			<string>5A18CC3A-8AA9-48EA-9976-D63FCF0F660A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string>JetBrains Mono Bold</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>largetypetext</key>
+				<string>Slack
+Use Control (^) to navigate left windows.
+⌘K  → Jump to Conversation
+A   → Save Message
+M   → Create Reminder</string>
+				<key>textcolor</key>
+				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>94967ABA-4BF5-4808-8CB3-9DE2D80EC8A2</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -479,9 +513,9 @@ View
 		<key>2F299E81-3BEC-4EC9-B5C3-67758640A198</key>
 		<dict>
 			<key>xpos</key>
-			<real>50</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>200</real>
+			<real>225</real>
 		</dict>
 		<key>3CA27425-4B5A-4848-8F7B-42089763CF27</key>
 		<dict>
@@ -502,6 +536,17 @@ View
 			<real>895</real>
 			<key>ypos</key>
 			<real>625</real>
+		</dict>
+		<key>94967ABA-4BF5-4808-8CB3-9DE2D80EC8A2</key>
+		<dict>
+			<key>colorindex</key>
+			<integer>9</integer>
+			<key>note</key>
+			<string>Slack</string>
+			<key>xpos</key>
+			<real>895</real>
+			<key>ypos</key>
+			<real>770</real>
 		</dict>
 		<key>A48274D6-4054-4B3C-A69A-9E4FF38D5E67</key>
 		<dict>
