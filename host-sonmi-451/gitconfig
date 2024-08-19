@@ -22,9 +22,12 @@
     default = current
 [diff]
     mnemonicprefix = true
+	tool = Kaleidoscope
 [core]
     pager = less -R
     editor = nvim
 	autocrlf = input
 [commit]
 	gpgsign = false
+[init]
+	defaultBranch = main
