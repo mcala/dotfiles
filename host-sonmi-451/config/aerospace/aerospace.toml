@@ -1,4 +1,5 @@
 # Available commands: https://nikitabobko.github.io/AeroSpace/commands
+# --- PREFACE
 start-at-login = true
 
 # Add commands for after login and after AeroSpace startup.
@@ -19,7 +20,7 @@ key-mapping.preset = 'qwerty'
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
-# Gaps and padding
+# --- GAPS & PADDING
 accordion-padding = 60
 
 [gaps]
@@ -60,7 +61,7 @@ outer.bottom = [
     0,
 ]
 
-# 'main' binding mode must be always presented
+# --- MODE MAIN
 [mode.main.binding]
 
 # All possible keys:
@@ -75,22 +76,23 @@ outer.bottom = [
 # - Arrows.         left, down, up, right
 # All possible modifiers: cmd, alt, ctrl, shift
 
+# --- SWAP LAYOUT
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
-# Focus container
+# --- FOCUS
 cmd-shift-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 cmd-shift-j = 'focus down'
 cmd-shift-k = 'focus up'
 cmd-shift-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
 
-# Move container
+# --- MOVES
 alt-shift-h = 'move left'
 alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-# Jump to Workspace
+# --- WORKSPACE DEFINITIONS
 alt-1 = 'workspace 1' # 1-4 are used as temporary workspaces
 alt-2 = 'workspace 2' # we rarely go past that to 6-9
 alt-3 = 'workspace 3'
@@ -155,14 +157,14 @@ alt-shift-x = 'move-node-to-workspace X'
 alt-shift-y = 'move-node-to-workspace Y'
 alt-shift-z = 'move-node-to-workspace Z'
 
-
 alt-tab = 'workspace-back-and-forth'
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-# Switch Modes
+# --- MODE SWITCH
 alt-equal = 'mode resize'
 alt-shift-semicolon = 'mode service'
 
+# --- MODE SERVICE
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 enter = ['reload-config', 'mode main']
@@ -172,6 +174,7 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+# --- MODE RESIZE
 [mode.resize.binding]
 enter = 'mode main'
 esc = 'mode main'
@@ -182,8 +185,7 @@ shift-l = 'resize smart -100'
 h = 'resize smart +50'
 l = 'resize smart -50'
 
-# Window Detection Workspace Assignment
-
+# --- WINDOW WORKSPACE ASSIGNMENT
 # Artificial Intelligence Tools
 [[on-window-detected]]
 if.app-id = "com.openai.chat"
@@ -354,8 +356,7 @@ if.app-id='net.ankiweb.dtop'
 if.window-title-regex-substring='AM'
 run = 'layout floating'
 
-
-# Workspace Monitor Assignment
+# --- FORCE WORKSPACE TO MONITORS
 [workspace-to-monitor-force-assignment]
 C = 'secondary'
 F = 'secondary'
