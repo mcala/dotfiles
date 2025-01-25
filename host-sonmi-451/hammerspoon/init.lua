@@ -60,8 +60,8 @@ positions = {
 -- Set up keybinding table
 mainPositionKeys = {
 	{ key = "q", units = positions.left_2thirds },
-	{ key = "]", units = positions.right_2thirds },
-	{ key = "m", units = positions.middle_right },
+--	{ key = "]", units = positions.right_2thirds },
+    { key = "m", units = positions.middle_right },
 	{ key = "n", units = positions.middle_left },
 	{ key = "g", units = positions.center },
 	{ key = "\\", units = positions.right_90 },
@@ -109,6 +109,8 @@ function moveScreen(focus)
 		focus:moveToUnit(positions.maximize)
 	end
 end
+
+--bindKey("", function() moveScreen(hs.window.focusedWindow()) end)
 
 --[[
 SSH Lock Function:
