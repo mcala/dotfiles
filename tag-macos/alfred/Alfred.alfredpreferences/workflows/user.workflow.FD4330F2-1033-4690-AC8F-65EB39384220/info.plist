@@ -48,27 +48,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>keyword</key>
-				<string>bill</string>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Bill Search</string>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>7C321AC5-3A29-42BE-994A-F23820B0C82E</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -114,6 +93,51 @@ echo -n $fixedQuery</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>bill</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Bill Search</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>7C321AC5-3A29-42BE-994A-F23820B0C82E</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>json</key>
+				<string>{
+  "alfredworkflow" : {
+    "config" : {
+      "scopes" : [
+        "{query}"
+      ]
+    },
+    "variables" : {
+      "folder": "{query}"
+    }
+  }
+}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.json</string>
+			<key>uid</key>
+			<string>8D2A76A9-28DC-4B97-8BA3-ED6834C99C12</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -122,9 +146,9 @@ echo -n $fixedQuery</string>
 		<key>163FAC32-EC06-43B8-98B0-12583FE9FBD9</key>
 		<dict>
 			<key>xpos</key>
-			<real>240</real>
+			<real>275</real>
 			<key>ypos</key>
-			<real>50</real>
+			<real>45</real>
 		</dict>
 		<key>7C321AC5-3A29-42BE-994A-F23820B0C82E</key>
 		<dict>
@@ -133,10 +157,19 @@ echo -n $fixedQuery</string>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
+		<key>8D2A76A9-28DC-4B97-8BA3-ED6834C99C12</key>
+		<dict>
+			<key>note</key>
+			<string>2. The JSON utility sets the folder dynamically as a config setting for the next File Filter.</string>
+			<key>xpos</key>
+			<real>340</real>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
 		<key>F0B3F941-2CBF-439F-856F-F7BDED8A264A</key>
 		<dict>
 			<key>xpos</key>
-			<real>435</real>
+			<real>510</real>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
