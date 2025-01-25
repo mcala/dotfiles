@@ -1,52 +1,96 @@
-version = 2
+version = 3
 final_space = true
 
 [[blocks]]
-    type = 'prompt'
-    alignment = 'left'
+type = 'prompt'
+alignment = 'left'
 
-    [[blocks.segments]]
-        type = 'session'
-        style = 'plain'
-        foreground = 'blue'
-        template = '{{ if .SSHSession }} {{ end }}<b>{{ .UserName }}</b> <d><default>on</></d> <green><i>{{.HostName}}</i></>'
+[[blocks.segments]]
+template = '{{ if .SSHSession }} {{ end }}<blue><i>{{.HostName}}</i></>'
+type = 'session'
+style = 'plain'
 
-    [[blocks.segments]]
-        type = 'path'
-        style = 'plain'
-        foreground = 'yellow'
-        template = ' <d><default>in</></d> {{ .Path }} '
+[blocks.segments.properties]
+cache_duration = 'none'
 
-    [[blocks.segments]]
-        type = 'git'
-        template = "{{ .HEAD }}{{ if .Working.String }} <red>●</>{{ end }} {{ if .Staging.String }}<yellow>●</> {{end}}{{if .Working.String }}{{ .Working.String }}{{ end }} {{ if .Staging.String }}{{ .Staging.String }}{{ end }} <d>{{ .Commit.Timestamp | date \"2006-01-02\" }}</d>"
+[[blocks.segments]]
+template = ' <d><default>in</></d> [<b>{{.Path}}</b>] '
+foreground = 'cyan'
+type = 'path'
 
-    [blocks.segments.properties]
-        fetch_status = true
-        branch_max_length = 25
+[blocks.segments.properties]
+cache_duration = 'none'
+style = 'unique'
 
-[[blocks]]
-    type = 'prompt'
-    alignment = 'left'
-    newline = true
+[[blocks.segments]]
+template = '  {{ .FormattedMs }} '
+foreground = 'blue'
+type = 'executiontime'
+style = 'plain'
 
-    [[blocks.segments]]
-        type = 'text'
-        template = ' <b><default>></></b>'
-
+[blocks.segments.properties]
+cache_duration = 'none'
 
 [[blocks]]
-    type = 'rprompt'
-    overflow = 'hide'
+type = 'prompt'
+alignment = 'left'
 
-    [[blocks.segments]]
-        type = 'python'
-        foreground = 'magenta'
-        template = '  {{ .Venv }} '
+[[blocks.segments]]
+template = '{{.HEAD}}{{ if .Working.String }} <red>●</>{{ end }} {{ if .Staging.String }}<yellow>●</> {{end}}{{if .Working.String }}{{ .Working.String }}{{ end }} {{ if .Staging.String }}{{.Staging.String}}{{end}} <d>{{.Commit.Timestamp | date "2006-01-02"}}</d>'
+type = 'git'
+style = 'plain'
 
-[transient_prompt]
-    foreground = 'default'
-    template = "{{ now | date \"15:04:05\" }} <b>></b> "
+[blocks.segments.properties]
+branch_max_length = 25
+cache_duration = 'none'
+fetch_status = true
+
+[[blocks]]
+type = 'prompt'
+alignment = 'left'
+newline = true
+
+[[blocks.segments]]
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{.Venv}} {{.Full}}{{ end }}</b> '
+foreground = 'green'
+type = 'python'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+home_enabled = true
+
+[[blocks.segments]]
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} </b>'
+foreground = 'red'
+type = 'rust'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+display_mode = 'files'
+home_enabled = true
+
+# Other Fun Prompt Indicators
+#  󰀫 󰝨 󰀜 󰾡 󱗆 󰯙 󰂣 󰙴 󰊠 󰮣  󰛡 󰫈
+# Also don't forget you can just use emoji in most modern prompts
+[[blocks.segments]]
+template = '<b> 󰫈</b>'
+type = 'text'
+style = 'plain'
+foreground = 'default'
+
+[blocks.segments.properties]
+cache_duration = 'none'
 
 [secondary_prompt]
-    template = '  → '
+template = ' <b>󰾡 </b>'
+type = 'text'
+style = 'plain'
+foreground = 'yellow'
+
+[transient_prompt]
+template = '{{ now | date "15:04:05" }} <b>󰛡 </b> '
+type = 'text'
+style = 'plain'
+foreground = 'yellow'
