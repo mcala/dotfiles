@@ -6,25 +6,23 @@ return {
 			require('rose-pine').setup({
 				variant = "dawn",
 				styles = {
+                    bold = true,
 					italic = true,
+                    transparency = true,
 				},
 			})
 		end
 	},
-
+    {
+        "gbprod/nord.nvim",
+        name = "nord"
+    },
 	{
 		"shaunsingh/solarized.nvim",
 		name = "solarized",
 	},
-	
 	{
 		"shaunsingh/moonlight.nvim",
 		name = "moonlight",
 	},
-	{
-		"shaunsingh/nord.nvim",
-		name = "nord",
-	},
-
-
 }
