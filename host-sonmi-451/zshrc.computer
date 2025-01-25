@@ -1,24 +1,38 @@
 # Computer file for sonmi-451
 
-# PATH
-export PATH=$HOME/software/bin:$PATH
-export PATH=$HOME/software/lib:$PATH
-export PATH=$HOME/software/share:$PATH
-export PATH=$HOME/MacPorts/bin:$PATH
-export PATH=$HOME/MacPorts/sbin:$PATH
-export PATH=$HOME/MacPorts/lib:$PATH
-export PATH=$HOME/opt/bin:$PATH
-export PATH=$HOME/opt/lib:$PATH
-export PATH=/Library/TeX/texbin/:$PATH
-export EDITOR=nvim
-export GIT_EDITOR=nvim
 
+# August 6, 2024: Resolving warning for upcoming Jupyter Changes. Unclear if this needs to be a permanent addition.
+export JUPYTER_PLATFORM_DIRS=1
+
+# UV
+export UV_PYTHON_PREFERENCE=only-managed
+
+# Bat
+export BAT_THEME="rose-pine-dawn"
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# zoxide
+export _ZO_DATA_DIR=$HOME/.config/zoxide
+
+# procs
+alias ps='procs --load-config=$HOME/.config/procs/config.toml'
+
+# tokei
+alias count_code='tokei'
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
-export FZF_DEFAULT_OPTS="--height 75% --layout reverse --color=fg:#797593,bg:#faf4ed,hl:#d7827e --color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e --color=border:#dfdad9,header:#286983,gutter:#faf4ed --color=spinner:#ea9d34,info:#56949f --color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
+export FZF_DEFAULT_OPTS="--height 75% --layout reverse"
+ FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+ --color=fg:#797593,bg:#faf4ed,hl:#d7827e 
+ --color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e 
+ --color=border:#dfdad9,header:#286983,gutter:#faf4ed 
+ --color=spinner:#ea9d34,info:#56949f 
+ --color=pointer:#907aa9,marker:#b4637a,prompt:#797593'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 eval "$(fzf --zsh)"
+
 
 # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
@@ -32,16 +46,13 @@ _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
 
-
-conda activate py3
-
 # use neovim
 alias vim='nvim'
 alias vimdiff='nvim -d'
 alias poetry='/Users/mcala/anaconda3/envs/poetry/bin/poetry'
 
 # Gnucoreutils Options
-alias ls='gls --color=auto'
+#alias ls='gls --color=auto'
 alias shred='gshred'
 
 alias test-git='ssh -T git@github.com'
@@ -64,10 +75,5 @@ RESET='\033[0m'
 neofetch
 
 # ASCII art
-echo -e "${BLUE}╔════════════════════════════ Command Reminders ════════════════════════════╗${RESET}"
-# Command reminders
-echo -e "${GREEN} 1.${RESET} ${MAGENTA}miller:${RESET} mlr --i[INPUT] --opprint cat [FILE] - csv, yaml, json reading"
-echo -e "${GREEN} 2.${RESET} ${MAGENTA}ripgrep:${RESET} rg [PATTERN] [PATH] - Modern grep"
-echo -e "${GREEN} 3.${RESET} ${MAGENTA}fd:${RESET} fd [PATTERN] - Modern find"
-echo -e "${GREEN} 4.${RESET} ${MAGENTA}fzf:${RESET} fzf - Fuzzy finder "
-echo -e "${BLUE}╚═══════════════════════════════════════════════════════════════════════════╝${RESET}"
+echo -e "${BLUE}════════════════════════════ Command Reminders ════════════════════════════${RESET}"
+mlr --icsv --ragged --opprint --key-color red cat $HOME/.zshrc_commands.csv

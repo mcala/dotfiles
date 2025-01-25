@@ -1,18 +1,48 @@
-# Defines environment variables.
+# ZSH Environment for sonmi-451
+# Author: Andrew McAllister (andrew@mcallister.science)
 
-# Andrew McAllister <mcala@umich.edu>
-# loading personal functions
-FPATH=${FPATH}:${HOME}/.functions
+# --- Exports
+## Configuration Files
+export XDG_CONFIG_DIR=/Users/mcala/.config
+export XDG_CONFIG_HOME=$XDG_CONFIG_DIR
+export XDG_CACHE_DIR=/Users/mcala/.cache
+export MACPORTS_PREFIX=/Users/mcala/MacPorts
+export RCRC=$XDG_CONFIG_DIR/rcm
+export ZDOTDIR=$XDG_CONFIG_DIR/zsh
+export ZIM_HOME=$XDG_CONFIG_DIR/zim
 
-autoload scratch_find get_prefix get_pseudos get_wannier make_pbs_nersc make_pbs_flux qsubqe calc swap_env
+## Perl, which is only used for exiftools
+export PERL5LIB=$MACPORTS_PREFIX/lib/perl5/vendor_perl/5.34
 
+## Editors
+export NVIM_APPNAME=nvim-lazy
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 
-# Ensure that a non-login, non-interactive shell has a defined environment.
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
+## Manual Pages
+export MANPATH=$MANPATH:$HOME/software/man
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANWIDTH=80
 
-if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN ) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprofile"
-fi
+# --- Path
+export PATH=$HOME/software/bin:$PATH
+export PATH=$HOME/software/lib:$PATH
+export PATH=$HOME/software/share:$PATH
+export PATH=$HOME/MacPorts/bin:$PATH
+export PATH=$HOME/MacPorts/sbin:$PATH
+export PATH=$HOME/MacPorts/lib:$PATH
+export PATH=$HOME/MacPorts/lib/ImageMagick7/bin:$PATH
+export PATH=$HOME/opt/bin:$PATH
+export PATH=$HOME/opt/lib:$PATH
+export PATH=/Library/TeX/texbin/:$PATH
+export PATH=/Users/mcala/.local/bin:$PATH
 
-. "$HOME/.cargo/env"
+## Exclusively for tmuxinator...
+export PATH=/Users/mcala/.rbenv/versions/3.3.6/bin:$PATH
+
+# -- Functions
+FPATH=${FPATH}:${XDG_CONFIG_DIR}/zsh_functions
+autoload calc rename_files_std zvm_config
+
+# Other Environments
+source "$HOME/.cargo/env"
