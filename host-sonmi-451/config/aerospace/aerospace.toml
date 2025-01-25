@@ -1,10 +1,23 @@
-# Available commands: https://nikitabobko.github.io/AeroSpace/commands
+#    █████╗ ███████╗██████╗  ██████╗ ███████╗██████╗  █████╗  ██████╗███████╗
+#   ██╔══██╗██╔════╝██╔══██╗██╔═══██╗██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝
+#   ███████║█████╗  ██████╔╝██║   ██║███████╗██████╔╝███████║██║     █████╗
+#   ██╔══██║██╔══╝  ██╔══██╗██║   ██║╚════██║██╔═══╝ ██╔══██║██║     ██╔══╝
+#   ██║  ██║███████╗██║  ██║╚██████╔╝███████║██║     ██║  ██║╚██████╗███████╗
+#   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝╚══════╝
+#
+# AeroSpace is an i3-like tiling window manager for macOS.
+#
+# Github:   https://github.com/nikitabobko/AeroSpace
+# Guide:    https://nikitabobko.github.io/AeroSpace/guide
+# Commands: https://nikitabobko.github.io/AeroSpace/commands
+
 # --- PREFACE
 start-at-login = true
 
 # Add commands for after login and after AeroSpace startup.
-after-login-command = []
-after-startup-command = ['exec-and-forget borders active_color=0xffe78a4e inactive_color=0xff404344 width=5.0']
+# Can't seem to get borders to work.
+# after-login-command = ['exec-and-forget borders']
+# after-startup-command = ['exec-and-forget borders']
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -17,12 +30,11 @@ default-root-container-orientation = 'auto'
 key-mapping.preset = 'qwerty'
 
 # Mouse follows focus when focused window or monitor changes
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-on-focus-changed = ['move-mouse window-lazy-center']
+#on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+#on-focus-changed = ['move-mouse window-lazy-center']
 
 # --- GAPS & PADDING
-accordion-padding = 60
-
+accordion-padding = 30
 [gaps]
 inner.vertical = [
     { monitor.built-in = 1 },
@@ -37,27 +49,27 @@ inner.horizontal = [
     0,
 ]
 outer.left = [
-    { monitor.built-in = 5 },
-    { monitor.main = 5 },
-    { monitor.secondary = 5 },
+    { monitor.built-in = 0 },
+    { monitor.main = 10 },
+    { monitor.secondary = 10 },
     0,
 ]
 outer.right = [
-    { monitor.built-in = 5 },
-    { monitor.main = 5 },
-    { monitor.secondary = 5 },
+    { monitor.built-in = 0 },
+    { monitor.main = 10 },
+    { monitor.secondary = 10 },
     0,
 ]
 outer.top = [
-    { monitor.built-in = 5 },
-    { monitor.main = 5 },
-    { monitor.secondary = 5 },
+    { monitor.built-in = 0 },
+    { monitor.main = 10 },
+    { monitor.secondary = 10 },
     0,
 ]
 outer.bottom = [
     { monitor.built-in = 5 },
-    { monitor.main = 5 },
-    { monitor.secondary = 5 },
+    { monitor.main = 10 },
+    { monitor.secondary = 10 },
     0,
 ]
 
@@ -77,8 +89,10 @@ outer.bottom = [
 # All possible modifiers: cmd, alt, ctrl, shift
 
 # --- SWAP LAYOUT
-alt-slash = 'layout tiles horizontal vertical'
-alt-comma = 'layout accordion horizontal vertical'
+alt-slash = 'layout floating tiling'
+alt-comma = 'layout accordion tiles'
+alt-shift-comma = 'layout tiles vertical horizontal'
+
 
 # --- FOCUS
 cmd-shift-h = 'focus left --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors'
@@ -88,9 +102,10 @@ cmd-shift-l = 'focus right --boundaries all-monitors-outer-frame --boundaries-ac
 
 # --- MOVES
 alt-shift-h = 'move left'
-alt-shift-j = 'move down'
-alt-shift-k = 'move up'
+#alt-shift-j = 'move up'
+#alt-shift-k = 'move down'
 alt-shift-l = 'move right'
+ctrl-backspace = 'move-workspace-to-monitor --wrap-around next'
 
 # --- WORKSPACE DEFINITIONS
 alt-1 = 'workspace 1' # 1-4 are used as temporary workspaces
@@ -102,28 +117,27 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-a = 'workspace A' # Artificial Intelligence Tools: Claude, ChatGPT
-alt-b = 'workspace B' # Browser: Arc, Safari
-alt-c = 'workspace C' # Comms: Slack, Discord, Messages
-alt-d = 'workspace D' # Dev: VSCode & Zed
-alt-e = 'workspace E' # Email: Mail & Timery
-alt-f = 'workspace F' # Files: Finder & Devonthink
-alt-g = 'workspace G'
-alt-i = 'workspace I' # aIrtable
-alt-m = 'workspace M' # Music: Music, MusicBox etc.
-alt-n = 'workspace N'
-alt-o = 'workspace O'
-alt-p = 'workspace P' # Potential Planning Vault Separation
+alt-a = 'workspace AI'         # Artificial Intelligence Tools: Claude, ChatGPT
+alt-b = 'workspace Browser'    # Browser: Arc, Safari, Firefox
+alt-c = 'workspace Comms'      # Comms: Slack, Discord, Messages
+alt-d = 'workspace Devonthink' # Devonthink
+alt-e = 'workspace Email'      # Email: Mail
+alt-f = 'workspace Files'      # Files: Finder 
+alt-g = 'workspace G'          # 
+alt-i = 'workspace Airtable'   # aIrtable
+alt-m = 'workspace Music'      # Music: Music, MusicBox etc.
+alt-n = 'workspace Journal'    #JourNaling (Day One)
+alt-o = 'workspace Video'      # Video Calls (ZOOm, Teams) alt-p = 'workspace P'
 alt-q = 'workspace Q'
-alt-r = 'workspace R' # Reading: Books, Kindle, Readwise
-alt-s = 'workspace S' # Schedule: Calendar, Todoist
-alt-t = 'workspace T' # Terminal
+alt-r = 'workspace Read'       # Reading: Books, Kindle, Readwise
+alt-s = 'workspace Schedule'   # Schedule: Calendar, Todoist, Trello
+alt-t = 'workspace Terminal'   # Terminal
 alt-u = 'workspace U'
-alt-v = 'workspace V'
-alt-w = 'workspace W' # Writing: Bear and Obsidian with accordion view
-alt-x = 'workspace X' # EXcel & Word
-alt-y = 'workspace Y'
-alt-z = 'workspace Z' # Potential Zettelkasten Separation
+alt-v = 'workspace Develop'    # Dev: VSCode & Zed
+alt-w = 'workspace Write'      # Writing: Obsidian with accordion view
+alt-x = 'workspace X'
+alt-y = 'workspace Youtube'    # Play (Youtube)
+alt-z = 'workspace Zotero'     # Zotero
 
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
@@ -134,31 +148,31 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
-alt-shift-a = 'move-node-to-workspace A'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-f = 'move-node-to-workspace F'
+alt-shift-a = 'move-node-to-workspace AI'
+alt-shift-b = 'move-node-to-workspace Browser'
+alt-shift-c = 'move-node-to-workspace Comms'
+alt-shift-d = 'move-node-to-workspace Develop'
+alt-shift-e = 'move-node-to-workspace Email'
+alt-shift-f = 'move-node-to-workspace Files'
 alt-shift-g = 'move-node-to-workspace G'
-alt-shift-i = 'move-node-to-workspace I'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-o = 'move-node-to-workspace O'
+alt-shift-i = 'move-node-to-workspace Airtable'
+alt-shift-m = 'move-node-to-workspace Music'
+alt-shift-n = 'move-node-to-workspace Journal'
+alt-shift-o = 'move-node-to-workspace Video'
 alt-shift-p = 'move-node-to-workspace P'
 alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-r = 'move-node-to-workspace R'
-alt-shift-s = 'move-node-to-workspace S'
-alt-shift-t = 'move-node-to-workspace T'
+alt-shift-r = 'move-node-to-workspace Read'
+alt-shift-s = 'move-node-to-workspace Schedule'
+alt-shift-t = 'move-node-to-workspace Terminal'
 alt-shift-u = 'move-node-to-workspace U'
 alt-shift-v = 'move-node-to-workspace V'
-alt-shift-w = 'move-node-to-workspace W'
+alt-shift-w = 'move-node-to-workspace Write'
 alt-shift-x = 'move-node-to-workspace X'
-alt-shift-y = 'move-node-to-workspace Y'
-alt-shift-z = 'move-node-to-workspace Z'
+alt-shift-y = 'move-node-to-workspace Youtube'
+alt-shift-z = 'move-node-to-workspace Zotero'
 
 alt-tab = 'workspace-back-and-forth'
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+#alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # --- MODE SWITCH
 alt-equal = 'mode resize'
@@ -189,130 +203,201 @@ l = 'resize smart -50'
 # Artificial Intelligence Tools
 [[on-window-detected]]
 if.app-id = "com.openai.chat"
-run = 'move-node-to-workspace A'
+run = 'move-node-to-workspace AI'
 
 [[on-window-detected]]
 if.window-title-regex-substring = "Claude"
-run = 'move-node-to-workspace A'
+run = 'move-node-to-workspace AI'
 
-# Broswers
+# Web Browsers
+# Arc requires multiple possibilities for how little Arc is displayed.
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = 'move-node-to-workspace B'
+if.workspace = "Email"
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser'
+run = ['layout floating', 'move-node-to-workspace Browser']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace B'
+run = ['layout floating', 'move-node-to-workspace Browser']
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.com.zen.browser'
+run = 'move-node-to-workspace Browser'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace Browser'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.librewolf'
+run = 'move-node-to-workspace Browser'
 
 # Dev Windows
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace Develop'
 
 [[on-window-detected]]
 if.app-id = 'dev.zed.Zed'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace Develop'
 
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace Terminal'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = 'tmux'
+run = 'move-node-to-workspace Terminal'
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+if.window-title-regex-substring = '~'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
-run = 'move-node-to-workspace T'
+run = 'move-node-to-workspace Terminal'
+
+[[on-window-detected]]
+if.app-id = 'dev.warp.Warp-Stable'
+run = 'move-node-to-workspace Terminal'
 
 # COMMS
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace Comms'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace Comms'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace C'
+run = 'move-node-to-workspace Comms'
 
 # Email & Timery
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace E'
+if.window-title-regex-substring = 'NJ Legislature'
+run = 'move-node-to-workspace Email'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.joehribar.toggl'
-run = 'move-node-to-workspace E'
+run = ['layout floating', 'move-node-to-workspace Email']
 
-# Files: Finder & DevonThink
+# Files: Finder
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'move-node-to-workspace F'
-
-[[on-window-detected]]
-if.app-id = 'com.devon-technologies.think3'
-run = 'move-node-to-workspace F'
+run = 'move-node-to-workspace Files'
 
 # Music: Music & MusicBox
 [[on-window-detected]]
-if.app-id='com.apple.Music'
-run = 'move-node-to-workspace M'
+if.app-id = 'com.apple.Music'
+run = 'move-node-to-workspace Music'
 
 [[on-window-detected]]
-if.app-id='br.com.marcosatanaka.musicbox'
-run = 'move-node-to-workspace M'
+if.app-id = 'br.com.marcosatanaka.musicbox'
+run = 'move-node-to-workspace Music'
+
+# DeVonthink
+[[on-window-detected]]
+if.app-id = 'com.devon-technologies.think3'
+run = 'move-node-to-workspace Devonthink'
+
+# Video: zOOm, teams
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace Video'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace Video'
 
 # aIrtable
 [[on-window-detected]]
 if.app-id = 'com.FormaGrid.Airtable'
-run = 'move-node-to-workspace I'
+run = 'move-node-to-workspace Airtable'
 
 # Reading: Books, Kindle, Readwise
 [[on-window-detected]]
 if.app-id = 'com.apple.iBooksX'
-run = 'move-node-to-workspace R'
+run = 'move-node-to-workspace Read'
 
 [[on-window-detected]]
 if.app-id = 'com.amazon.Lassen'
-run = 'move-node-to-workspace R'
+run = 'move-node-to-workspace Read'
 
 [[on-window-detected]]
 if.app-id = 'com.kovidgoyal.calibre'
-run = 'move-node-to-workspace R'
+run = 'move-node-to-workspace Read'
 
 [[on-window-detected]]
 if.app-id = 'io.readwise.read'
-run = 'move-node-to-workspace R'
-
-[[on-window-detected]]
-if.app-id = 'com.readdle.PDFExpert-Mac'
-run = 'move-node-to-workspace R'
+run = 'move-node-to-workspace Read'
 
 # Schedule: Calendar & Todoist
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace Schedule'
 
 [[on-window-detected]]
 if.app-id = 'com.todoist.mac.Todoist'
-run = 'move-node-to-workspace S'
+run = 'move-node-to-workspace Schedule'
+
+[[on-window-detected]]
+if.app-id = 'com.atlassian.trello'
+run = 'move-node-to-workspace Schedule'
 
 # WRITING
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace Write'
+
+[[on-window-detected]]
+if.app-id = 'com.literatureandlatte.scrivener3'
+run = 'move-node-to-workspace Write'
 
 [[on-window-detected]]
 if.app-id = 'net.shinyfrog.bear'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace Write'
 
-# Microsoft Office Tools
+# Play (YouTube)
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Excel'
-run = 'move-node-to-workspace X'
+if.app-id = 'br.com.marcosatanaka.play'
+run = 'move-node-to-workspace Youtube'
+
+# Zotero
+[[on-window-detected]]
+if.app-name-regex-substring = 'zotero'
+run = 'move-node-to-workspace Zotero'
+
+# Day One
+[[on-window-detected]]
+if.app-id = 'com.bloombuilt.dayone-mac'
+check-further-callbacks = true
+run = 'move-node-to-workspace Journal'
+
+[[on-window-detected]]
+if.app-id = 'com.bloombuilt.dayone-mac'
+if.workspace = 'Journal'
+run = 'layout floating'
 
 # FLOATING
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -344,21 +429,78 @@ if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id='org.pqrs.Karabiner-EventViewer'
+if.app-id = 'org.pqrs.Karabiner-EventViewer'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id='com.replay.sleeve'
+if.app-id = 'com.replay.sleeve'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id='net.ankiweb.dtop'
-if.window-title-regex-substring='AM'
+if.app-id = 'net.ankiweb.dtop'
+if.window-title-regex-substring = 'AM'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.astrio.Sofa'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.highcaffeinecontent.pastel'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.readdle.PDFExpert-Mac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Excel'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Word'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.stairways.keyboardmaestro.editor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ScreenContinuity'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.shortcuts'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = ['layout floating']
+
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred-Preferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.devon-technologies.agent'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tresorit.mac'
+run = ['layout floating', 'move-node-to-workspace Files']
+
+[[on-window-detected]]
+if.app-id = 'com.noodlesoft.Hazel'
+run = ['layout floating', 'move-node-to-workspace Files']
+
+[[on-window-detected]]
+if.app-id = 'com.roehl.habitkit'
+run = ['layout floating']
+
 
 # --- FORCE WORKSPACE TO MONITORS
 [workspace-to-monitor-force-assignment]
-C = 'secondary'
-F = 'secondary'
-S = 'secondary'
-#T = 'secondary'
+Comms = 'secondary'
+#Files = 'secondary'
+Music = 'secondary'
+#Scheduling = 'secondary'
