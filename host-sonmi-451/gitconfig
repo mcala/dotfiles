@@ -1,11 +1,22 @@
 [user]
     name = Andrew McAllister
     email = andrew@mcallister.science
-	signingkey = E761E09A1EC0FD5F
+    signingkey = E761E09A1EC0FD5F
 [alias]
-    co = checkout
+    co = switch
     st = status
     hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+[core]
+    pager = bat
+    editor = 'nvim'
+    autocrlf = input
+    excludesfile = ~/.config/git/gitignore_global
+[commit]
+    gpgsign = false
+[init]
+    defaultBranch = main
+[push]
+    default = current
 [color]
     ui = true
     diff = always
@@ -18,16 +29,5 @@
     untracked = red
     added = green
     branch = white
-[push]
-    default = current
 [diff]
     mnemonicprefix = true
-	tool = Kaleidoscope
-[core]
-    pager = less -R
-    editor = nvim
-	autocrlf = input
-[commit]
-	gpgsign = false
-[init]
-	defaultBranch = main
