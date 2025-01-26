@@ -1,0 +1,15 @@
+test_string='
+Command, Short Description, Use
+zoxide,"Modern cd", "Mapped to cd. cdi -> interactive search; cd query; cd -ls; zoxide -sl {query}"
+miller, "Read csv, yaml, json", "mlr --i[INPUT] --opprint cat [FILE]"
+ripgrep, "Modern grep", "rg [PATTERN] [PATH]"
+fd, "Modern find", fd [PATTERN]
+fzf, "Fuzzy finder", fzf
+bat, "Modern cat", bat
+tldr, "Command examples", tldr
+tokei, "Count your code", "Aliased to count_code"
+procs, "Modern ps", procs
+atuin, Manages your shell history
+'
+
+

@@ -7,7 +7,7 @@ export XDG_CONFIG_DIR=/Users/mcala/.config
 export XDG_CONFIG_HOME=$XDG_CONFIG_DIR
 export XDG_CACHE_DIR=/Users/mcala/.cache
 export MACPORTS_PREFIX=/Users/mcala/MacPorts
-export RCRC=$XDG_CONFIG_DIR/rcm
+export RCRC=$XDG_CONFIG_DIR/rcm/rcrc
 export ZDOTDIR=$XDG_CONFIG_DIR/zsh
 export ZIM_HOME=$XDG_CONFIG_DIR/zim
 
@@ -42,7 +42,7 @@ export PATH=/Users/mcala/.rbenv/versions/3.3.6/bin:$PATH
 
 # -- Functions
 FPATH=${FPATH}:${XDG_CONFIG_DIR}/zsh_functions
-autoload calc rename_files_std zvm_config
+autoload calc.zsh rename_files.zsh path.bash checksha.zsh
 
 # Other Environments
 source "$HOME/.cargo/env"
