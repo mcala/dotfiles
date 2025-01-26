@@ -1,0 +1,35 @@
+/* Hide titlebar for vertical tabs. */
+#titlebar {
+visibility: collapse;
+}
+
+/* Hide the header of Tree Style Tabs */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  display: none;
+}
+
+/* --- Add window controls to the toolbar. -- */
+
+/* Initial positioning of window controls */
+#TabsToolbar .titlebar-buttonbox-container {
+  display: block;
+  position: absolute;
+  visibility: visible;
+}
+
+/* This is the padding between the edge of the window and the first item in the toolbar (typically back/forward). */
+/* For our purposes, it is the spacing between the window controls and that first item*/
+#main-window:not([inFullscreen]) #nav-bar {
+  padding: 0px 0px 0px 90px !important;
+}
+
+/* This is the positition of the window controls within the container. */
+/* We consider two densities. "Normal" is considered undefined. */
+:root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 0px;
+  margin-top: 12px;
+
+:root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container {
+  margin-left: 0px;
+  margin-top: 9px;
+}
