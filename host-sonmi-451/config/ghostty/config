@@ -1,0 +1,57 @@
+#initial-command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+
+#theme = light:rose-pine-dawn, dark:nord
+theme = rose-pine-dawn
+
+# Typeface Settings
+#font-family = "VictorMono Nerd Font Mono"
+font-family = "Inconsolata Nerd Font"
+#font-family = "IBM Plex Mono"
+font-size = 22
+font-thicken = false
+bold-is-bright = true
+
+# Window Settings
+window-decoration = true
+window-save-state = always
+window-padding-x = 5
+window-padding-y = 5
+
+# Mouse Stuff
+mouse-hide-while-typing = true
+selection-invert-fg-bg = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+quick-terminal-position = right
+
+# Keybinding
+keybind = global:command+option+control+shift+a=toggle_quick_terminal
+
+## Sending keystrokes to manage tmux windows
+
+### Command palette with Sesh
+keybind = command+k=text:\x00\x54
+
+### windows
+keybind = command+n=text:\x00\x63
+keybind = command+l=text:\x00\x70
+keybind = command+h=text:\x00\x6e
+
+# TODO: For some reason can't get these to work...
+# keybind = command+1=text:\x00\x31
+# keybind = command+2=text:\x00\x32
+# keybind = command+3=text:\x00\x33
+
+### panes
+### **Switching** between panes is handled within tmux/nvim
+keybind = command+t=text:\x00\x7c
+keybind = command+w=text:\x00x
+
+
+
+
+
