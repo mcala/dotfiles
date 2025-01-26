@@ -35,6 +35,3 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # rbenv
 eval "$(rbenv init - --no-rehash bash)"
-
-# fzf
-#source <(fzf --zsh)
