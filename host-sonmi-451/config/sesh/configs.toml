@@ -1,0 +1,15 @@
+[[session]]
+name = "All Config Files"
+path = "~/.config"
+
+[[session]]
+name = "Configure Tmux"
+path = "~/.config/tmux"
+
+[[session]]
+name = "Configure Neovim"
+path = "~/.config/nvim-lazy"
+
+[[session]]
+name = "Configure Zsh"
+path = "~/.config/zsh"

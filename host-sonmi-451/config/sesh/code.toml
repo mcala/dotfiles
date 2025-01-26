@@ -1,0 +1,15 @@
+[[session]]
+name = "All Code Projects"
+path = "~/Documents/3_resources/code/active/"
+
+[[session]]
+name = "NJ Bill Database"
+path = "~/Documents/3_resources/code/active/nj_bill_database"
+
+[[session]]
+name = "NJ Budget Comparison"
+path = "~/Documents/3_resources/code/active/nj_budget_comparison/"
+
+[[session]]
+name = "Life in Graphs"
+path = "~/Documents/1_projects/life_in_graphs/"
