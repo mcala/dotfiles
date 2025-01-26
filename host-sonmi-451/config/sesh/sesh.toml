@@ -1,0 +1,49 @@
+#
+#     ███████╗███████╗███████╗██╗  ██╗
+#     ██╔════╝██╔════╝██╔════╝██║  ██║
+#     ███████╗█████╗  ███████╗███████║
+#     ╚════██║██╔══╝  ╚════██║██╔══██║
+#     ███████║███████╗███████║██║  ██║
+#     ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
+#
+#     Smart session management for the terminal. Uses zoxide and tmux
+#     https://github.com/joshmedeski/sesh
+#
+#     Each session has two requirements:
+#     * name: The name of the session
+#     * path: where the session is located in the filesystem
+#
+#     There are also two optional commands:
+#     * startup_command: Command to run when this session is opened.
+#     * startup_script: Script to run when this session is opened.
+#
+#     The default_session startup_command can be disabled with 
+#     * disable_startup_command = true
+
+import = [
+    "/Users/mcala/.config/sesh/code.toml",
+    "/Users/mcala/.config/sesh/configs.toml",
+    "/Users/mcala/.config/sesh/projects.toml",
+]
+
+[default_session]
+startup_command = "nvim -c ':FzfLua files'"
+
+[[session]]
+name = "Home"
+path = "~"
+
+[[session]]
+name = "MacPorts"
+path = "~/MacPorts"
+startup_command = "sudo port -v selfupdate"
+
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+startup_command = "yazi"
+
+[[session]]
+name = "btop"
+path = "~"
+startup_command = "btop"
