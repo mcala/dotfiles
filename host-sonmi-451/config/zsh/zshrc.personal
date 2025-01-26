@@ -1,14 +1,22 @@
 # Zsh bindings
-bindkey -r "^S"
+bindkey -r atuin-search
+
+#alias bat="bat --theme='base16-256'"
 
 # nvim
-alias nvim-old='NVIM_APPNAME="nvim" nvim'
 alias nv='NVIM_APPNAME="nvim-lazy" nvim'
+alias nv-new='NVIM_APPNAME="nvim" nvim'
+alias nvim='NVIM_APPNAME="nvim-lazy" nvim'
+alias nvim-old='NVIM_APPNAME="nvim-old" nvim'
 alias nvim-chad='NVIM_APPNAME="nvim-chad" nvim'
 
-# Aliases
+# aliases to use XDG_CONFIG_DIR
+alias aider='aider --config=$XDG_CONFIG_DIR/aider/aider.yaml'
+alias sqlite3='sqlite3 -init $XDG_CONFIG_DIR/sqlite/sqliterc'
 
-# eza aliases
+alias figlet='figlet -f $XDG_CONFIG_DIR/figlet/shadow.flf'
+
+# eza 
 alias ls='eza --color=always --icons=always --group-directories-first'
 alias sl='ls'
 
@@ -22,13 +30,6 @@ alias lla='eza --all --long --git --git-repos-no-status --created --modified --n
 alias tls='eza --tree --level=2 --group-directories-first --color=always --icons=always'
 alias tlsa='eza --tree --all --level=2 --group-directories-first --color=always --icons=always'
 alias tll='eza --long --tree --git --no-user --no-filesize --no-permissions --level=2 --group-directories-first --time-style='+%Y-%m-%d %H:%m' --color=always --icons=always'
-
-# ls commands
-#alias sl='ls'
-#alias ll='ls -lh'
-#alias lsa='ls -a'
-#alias lla='ls -lha'
-#alias ldot='ls -ld .*'
 
 # colored grep
 alias grep='ggrep --color -n -T'
@@ -55,6 +56,7 @@ alias otar='tar -xvzf'
 # misc aliases
 
 # misc git
+alias lg='lazygit'
 alias chkpull='git remote update; git status -uno'
 
 # zsh Global aliases
@@ -76,7 +78,7 @@ LC_COLLATE='C'
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
 
 # quickly updating general dot files
-alias loaddots='source $HOME/.zshrc'
+alias loaddots='source $XDG_CONFIG_DIR/zsh/zshrc'
 
 #alias for unlocking time machine drive
 alias unlockTM='diskutil coreStorage unlockVolume B8029037-40C5-4F54-9CC1-9F6135E99541'

@@ -1,5 +1,5 @@
 # Computer file for sonmi-451
-
+export TINTED_TMUX_OPTION_STATUSBAR=1
 
 # August 6, 2024: Resolving warning for upcoming Jupyter Changes. Unclear if this needs to be a permanent addition.
 export JUPYTER_PLATFORM_DIRS=1
@@ -13,38 +13,30 @@ alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # zoxide
-export _ZO_DATA_DIR=$HOME/.config/zoxide
+export _ZO_DATA_DIR=$XDG_CONFIG_DIR/zoxide
 
 # procs
-alias ps='procs --load-config=$HOME/.config/procs/config.toml'
+alias ps='procs --load-config=$XDG_CONFIG_DIR/procs/config.toml'
 
 # tokei
 alias count_code='tokei'
 
-# FZF
-export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
-export FZF_DEFAULT_OPTS="--height 75% --layout reverse"
- FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:#797593,bg:#faf4ed,hl:#d7827e 
- --color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e 
- --color=border:#dfdad9,header:#286983,gutter:#faf4ed 
- --color=spinner:#ea9d34,info:#56949f 
- --color=pointer:#907aa9,marker:#b4637a,prompt:#797593'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-eval "$(fzf --zsh)"
+## FZF
+alias gb='git branch | fzf --preview "git show --color=always {-1}" \
+                           --bind "enter:become(git checkout {-1})" \
+                           --height 40% --layout reverse'
 
 
-# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
-# - The first argument to the function ($1) is the base path to start traversal
-# - See the source code (completion.{bash,zsh}) for the details.
-_fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
-}
 
-# Use fd to generate the list for directory completion
-_fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
-}
+
+#export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
+#export FZF_DEFAULT_OPTS="--height 75% --layout reverse"
+# FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+# --color=fg:#797593,bg:#faf4ed,hl:#d7827e 
+# --color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e 
+# --color=border:#dfdad9,header:#286983,gutter:#faf4ed 
+# --color=spinner:#ea9d34,info:#56949f 
+# --color=pointer:#907aa9,marker:#b4637a,prompt:#797593'
 
 # use neovim
 alias vim='nvim'
@@ -76,4 +68,4 @@ neofetch
 
 # ASCII art
 echo -e "${BLUE}════════════════════════════ Command Reminders ════════════════════════════${RESET}"
-mlr --icsv --ragged --opprint --key-color red cat $HOME/.zshrc_commands.csv
+mlr --icsv --ragged --opprint --key-color red cat $XDG_CONFIG_DIR/zsh/zshrc_commands.csv
