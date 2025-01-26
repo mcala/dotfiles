@@ -1,1 +1,11 @@
-.zimrc
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule zimfw/environment
+zmodule zimfw/input
+zmodule zimfw/direnv
+zmodule zimfw/magic-enter
+zmodule zimfw/completion
+zmodule zimfw/fzf
+jeffreytsezstyle ':zim:completion' dumpfile ${XDG_CONFIG_DIR}/zsh/.zcompdump
+zstyle ':completion::complete:*' cache-path ${XDG_CACHE_DIR}/zsh/.zcompcache
+#zmodule jeffreytse/zsh-vi-mode
