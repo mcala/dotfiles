@@ -218,7 +218,7 @@ run = ['layout floating']
 
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser'
-run = ['layout floating', 'move-node-to-workspace Browser']
+run = ['layout tiling', 'move-node-to-workspace Browser']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
@@ -253,7 +253,6 @@ run = 'move-node-to-workspace Terminal'
 if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace Terminal'
 
-
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
 run = 'move-node-to-workspace Terminal'
@@ -265,15 +264,15 @@ run = 'move-node-to-workspace Terminal'
 # COMMS
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = 'move-node-to-workspace Comms'
+run = ['layout tiling', 'move-node-to-workspace Comms']
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace Comms'
+run = ['layout tiling', 'move-node-to-workspace Comms']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = 'move-node-to-workspace Comms'
+run = ['layout tiling', 'move-node-to-workspace Comms']
 
 # Email & Timery
 [[on-window-detected]]
@@ -306,6 +305,7 @@ run = 'move-node-to-workspace Music'
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = 'move-node-to-workspace Music'
+
 # DeVonthink
 [[on-window-detected]]
 if.app-id = 'com.devon-technologies.think3'
@@ -358,15 +358,15 @@ run = 'move-node-to-workspace Schedule'
 # WRITING
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace Write'
+run = ['layout tiling', 'move-node-to-workspace Write']
 
 [[on-window-detected]]
 if.app-id = 'com.literatureandlatte.scrivener3'
-run = 'move-node-to-workspace Write'
+run = ['layout tiling', 'move-node-to-workspace Write']
 
 [[on-window-detected]]
 if.app-id = 'net.shinyfrog.bear'
-run = 'move-node-to-workspace Write'
+run = ['layout tiling', 'move-node-to-workspace Write']
 
 # Play (YouTube)
 [[on-window-detected]]
@@ -397,6 +397,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.proton.pass.electron'
 run = 'layout floating'
+
 [[on-window-detected]]
 if.app-id = 'com.apple.Passwords'
 run = 'layout floating'
