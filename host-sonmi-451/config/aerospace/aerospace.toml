@@ -251,13 +251,8 @@ run = 'move-node-to-workspace Terminal'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-if.window-title-regex-substring = 'tmux'
 run = 'move-node-to-workspace Terminal'
 
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-if.window-title-regex-substring = '~'
-run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.googlecode.iterm2'
