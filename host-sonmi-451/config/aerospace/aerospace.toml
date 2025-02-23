@@ -303,6 +303,9 @@ run = 'move-node-to-workspace Music'
 if.app-id = 'br.com.marcosatanaka.musicbox'
 run = 'move-node-to-workspace Music'
 
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace Music'
 # DeVonthink
 [[on-window-detected]]
 if.app-id = 'com.devon-technologies.think3'
@@ -391,6 +394,9 @@ run = 'layout floating'
 if.app-id = 'com.1password.1password'
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-id = 'com.proton.pass.electron'
+run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.Passwords'
 run = 'layout floating'
