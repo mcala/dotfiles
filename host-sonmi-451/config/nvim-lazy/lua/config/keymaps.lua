@@ -1,24 +1,19 @@
+local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
-vim.g.mapleader = " "
-vim.keymap.set("i", "jk", "<Esc>", opts)
-vim.keymap.set("n", "<leader>n", vim.cmd.Ex)
+-- These are also lazyvim defaults
+--vim.g.mapleader = " "
+--vim.g.maplocalleader = "\\"
+
+keymap.set("i", "jk", "<Esc>", opts)
+
+-- get to command mode with a single key
 vim.keymap.set("n", ";", ":")
 
 -- Window mappings
 -- Use <leader>w to open vertical split.
 -- Mappings for window movement are now through vim-tmux-navigator
 vim.keymap.set("n", "<leader>w", "<C-w>v<C-w>l")
-
--- These mappings control the size of splits (height/width)
--- vim.keymap.set("n", "<M->>", "<c-w>5>", opts)
--- vim.keymap.set("n", "<M-t>", "<c-w>5+", opts)
--- vim.keymap.set("n", "<M-s>", "<c-w>5-", opts)
--- vim.keymap.set("n", "<M-<>", "<c-w>5<", opts)
---vim.keymap.set("n", "<C-h>", "<C-w>h")
---vim.keymap.set("n", "<C-j>", "<C-w>j")
---vim.keymap.set("n", "<C-k>", "<C-w>k")
---vim.keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Unhighligh
 vim.keymap.set("n", "<leader><space>", ":noh<cr>")
@@ -50,5 +45,20 @@ vim.keymap.set("v", "<leader>p", '"_dP')
 -- For when you accidentally leave visual mode with C-c instead of Esc and lose all your changes.
 vim.keymap.set("i", "C-c", "<Esc>")
 
+-- toggle checked / create checkbox if it doesn't exist
+--vim.keymap.set("n", "<leader>xx", require("markdown-togglecheck").toggle, { desc = "Toggle Checkmark" })
 -- Unset line numbers and blank characters
-vim.keymap.set("n", "<leader>C", ":set nu!<cr>:set rnu!<cr>:set list!<cr>")
+
+--vim.keymap.set(
+--  "n",
+--  "<leader>C",
+--  ":set nu!<cr>:set rnu!<cr>:set list!<cr>",
+--  { desc = "Unset line numbers and blank chars" }
+--)
+
+-- Include in Which Key
+
+local wk = require("which-key")
+wk.add({
+  { "<leader>C", ":set nu!<cr>:set rnu!<cr>:set list!<cr>", mode = "n", desc = "Unset line numbers and blanks." },
+})

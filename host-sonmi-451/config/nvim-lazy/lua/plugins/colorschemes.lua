@@ -1,4 +1,3 @@
--- TEST: Testing
 return {
   {
     "rose-pine/neovim",
@@ -25,5 +24,16 @@ return {
   {
     "shaunsingh/moonlight.nvim",
     name = "moonlight",
+  },
+  {
+    name = "everforest",
+    "neanias/everforest-nvim",
+    config = function()
+      require("everforest").setup({
+        variant = "dark",
+        background = "soft",
+        italics = true,
+      })
+    end,
   },
 }

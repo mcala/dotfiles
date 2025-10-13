@@ -1,6 +1,8 @@
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.g.filetype = "on"
+
 vim.g.python3_host_prog = "/Users/mcala/.venv/neovim/bin/python"
 
 vim.g.python_recommended_style = 0
@@ -11,7 +13,7 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.smartindent = true
 
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 vim.opt.list = true
 vim.opt.listchars = "tab:▸ ,eol:¬,trail:."
@@ -33,12 +35,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 
 vim.opt.winbar = "%=%m %f"
-
--- Netrw Options
-vim.g.netrw_banner = 0
-vim.g_netrw_liststyle = 3
-vim.g.netrw_browse_split = 4
-vim.g.netrw_winsize = 20
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
