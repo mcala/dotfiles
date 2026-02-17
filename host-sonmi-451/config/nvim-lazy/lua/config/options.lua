@@ -1,40 +1,39 @@
-vim.opt.nu = true
-vim.opt.relativenumber = true
+local opt = vim.opt
 
 vim.g.filetype = "on"
-
 vim.g.python3_host_prog = "/Users/mcala/.venv/neovim/bin/python"
-
 vim.g.python_recommended_style = 0
 
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.smartindent = true
+opt.nu = true
+opt.relativenumber = true
 
-vim.opt.termguicolors = true
+opt.expandtab = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.smartindent = true
 
-vim.opt.list = true
-vim.opt.listchars = "tab:▸ ,eol:¬,trail:."
+opt.termguicolors = true
 
-vim.opt.clipboard = "unnamedplus"
+opt.list = true
+opt.listchars = "tab:▸ ,eol:¬,trail:."
+opt.conceallevel = 1
 
-vim.opt.undofile = true
-vim.opt.undodir = "/Users/mcala/.config/nvim-lazy/undofiles/"
-vim.opt.undolevels = 10000
-vim.opt.swapfile = false
-vim.opt.backup = false
+opt.undofile = true
+opt.undodir = "/Users/mcala/.config/nvim-lazy/undofiles/"
+opt.undolevels = 10000
+opt.swapfile = false
+opt.backup = false
 
-vim.opt.hlsearch = true
-vim.opt.incsearch = true
+opt.hlsearch = true
+opt.incsearch = true
 
-vim.opt.scrolloff = 8
+opt.scrolloff = 8
 
-vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
+opt.signcolumn = "yes"
+opt.colorcolumn = "80"
 
-vim.opt.winbar = "%=%m %f"
+opt.winbar = "%=%m %f"
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])

@@ -529,6 +529,8 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -843,17 +845,18 @@ search_paths = search_paths.map do |search_path|
   File.exist?(path) ? path : nil
 end.compact.uniq
 
-fd_options     = ENV["fd_options"]     || ""
-num_candidates = ENV["num_candidates"] || "100"
-num_candidates = num_candidates.to_i
+fd_options       = ENV["fd_options"]      || ""
+fd_options_conf  = ENV["fd_options_conf"] || ""
+num_candidates   = ENV["num_candidates"]  || "100"
+num_candidates  = num_candidates.to_i
 
 keys = ARGV.join(" ").gsub("　", " ").split(/\s+/)
 query = +""
 keys.each do |key|
   if /\A(?:\^|\-)(?:d|dir|directory)\z/ =~ key
-    fd_options = "-p -t d"
+    fd_options = " -p -t d"
   elsif /\A(?:\^|\-)(?:f|file)\z/ =~ key
-    fd_options = "-p -t f"
+    fd_options = " -p -t f"
   else
     query &lt;&lt; key + " "
   end
@@ -864,10 +867,7 @@ query.strip!
 results = []
 
 search_paths.each do |search_path|
-  if /\A\/Users\/[^\/]+\z/ =~ search_path
-    fd_options += " --exclude Library" 
-  end
-  results_all = `#{fd_path} . "#{search_path}" #{fd_options} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
+  results_all = `#{fd_path} . "#{search_path}" #{fd_options} #{fd_options_conf} 2&gt; /dev/null | #{fzf_path} -e --filter="#{query}" --print0`
   results += results_all.split("\x00")[0...num_candidates]
 end
 
@@ -909,6 +909,7 @@ end
 jsonout = {"items": items}.to_json 
 
 print jsonout
+
 </string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
@@ -1285,6 +1286,8 @@ end</string>
 			<integer>1</integer>
 		</dict>
 		<dict>
+			<key>config</key>
+			<dict/>
 			<key>type</key>
 			<string>alfred.workflow.utility.junction</string>
 			<key>uid</key>
@@ -1743,13 +1746,15 @@ NOTE: If a home directory is specified, ~/Library will be ignored for better per
 	</array>
 	<key>variables</key>
 	<dict>
+		<key>fd_options_conf</key>
+		<string>--exclude Library</string>
 		<key>github_repo</key>
 		<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>1.6.2</string>
+	<string>1.7.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/yohasebe/fzf-alfred-workflow</string>
 </dict>

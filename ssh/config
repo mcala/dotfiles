@@ -4,8 +4,5 @@ Host *
   ControlPersist 4h
   ForwardAgent yes
   AddKeystoAgent yes
-  IdentityAgent "~/.ssh/sockets/1password.agent.sock"
-
-Host github.com
-	User git
-	IdentityFile ~/.ssh/github.key
+  IdentityAgent "~/.ssh/sockets/1password/agent.sock"
+  ConnectTimeout 5

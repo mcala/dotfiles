@@ -1,4 +1,4 @@
 .direnv
-.envrc
+.env
 .venv
 .DS_Store

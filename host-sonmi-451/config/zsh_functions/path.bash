@@ -1,9 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
-# Use ':' as the delimiter for splitting PATH
-IFS=':' read -r -a path_array <<< "$PATH"
-
+# Use zsh's built-in path array (lowercase)
 echo "Your PATH directories:"
-for dir in "${path_array[@]}"; do
-  echo "  - $dir"
+for dir in $path; do
+    echo "  - $dir"
 done

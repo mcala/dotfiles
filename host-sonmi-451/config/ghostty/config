@@ -1,21 +1,30 @@
-#initial-command = zsh --login -c "if command -v tmux >/dev/null 2>&1; then tmux attach || tmux; else zsh; fi"
+#initial-command = zsh --login -c "if command -v /Users/mcala/MacPorts/bin/tmux >/dev/null 2>&1; then /Users/mcala/MacPorts/bin/tmux attach || /Users/mcala/MacPorts/bin/tmux; else zsh; fi"
 
+# Mac OS Options
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+macos-titlebar-proxy-icon = visible
+macos-titlebar-style = hidden
+
+theme = everforest-dark-soft
 #theme = light:rose-pine-dawn, dark:nord
-theme = rose-pine-dawn
+#theme = rose-pine-dawn
+#theme = light:nord-light, dark:nord
 
 # Typeface Settings
-#font-family = "VictorMono Nerd Font Mono"
 font-family = "Inconsolata Nerd Font"
-#font-family = "IBM Plex Mono"
 font-size = 22
 font-thicken = false
 bold-is-bright = true
 
 # Window Settings
-window-decoration = true
+window-decoration = auto
+window-title-font-family = "Inconsolata Nerd Font"
+window-subtitle = false
 window-save-state = always
 window-padding-x = 5
 window-padding-y = 5
+window-padding-color = extend
 
 # Mouse Stuff
 mouse-hide-while-typing = true
@@ -26,10 +35,11 @@ clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
-quick-terminal-position = right
+quick-terminal-position = bottom
+quick-terminal-size = 95%, 75%
 
 # Keybinding
-keybind = global:command+option+control+shift+a=toggle_quick_terminal
+keybind = global:command+control+shift+t=toggle_quick_terminal
 
 ## Sending keystrokes to manage tmux windows
 
@@ -38,8 +48,8 @@ keybind = command+k=text:\x00\x54
 
 ### windows
 keybind = command+n=text:\x00\x63
-keybind = command+l=text:\x00\x70
-keybind = command+h=text:\x00\x6e
+keybind = command+h=text:\x00\x70
+keybind = command+l=text:\x00\x6e
 
 # TODO: For some reason can't get these to work...
 # keybind = command+1=text:\x00\x31
@@ -51,7 +61,4 @@ keybind = command+h=text:\x00\x6e
 keybind = command+t=text:\x00\x7c
 keybind = command+w=text:\x00x
 
-
-
-
-
+keybind = shift+enter=text:\n

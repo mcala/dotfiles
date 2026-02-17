@@ -1,22 +1,43 @@
 [user]
     name = Andrew McAllister
     email = andrew@mcallister.science
-    signingkey = E761E09A1EC0FD5F
-[alias]
-    co = switch
-    st = status
-    hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHKgaytVG3UiF798nzWF5vpnJwkYHLnCpMB/Svddq3kb
+[commit]
+    gpgsign = true
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [core]
-    pager = bat
+    pager = delta
     editor = 'nvim'
     autocrlf = input
     excludesfile = ~/.config/git/gitignore_global
-[commit]
-    gpgsign = false
+[alias]
+    co = switch
+    s = status -sb
+    st = status
+    blist = branch -v
+    hist = log --oneline --graph --decorate
+    undo = reset HEAD~1 --mixed
 [init]
     defaultBranch = main
+[branch]
+    sort = -committerdate
+[tag]
+    sort = -version:refname
+[fetch]
+    prune = true
+    pruneTags = true
+[pull]
+    rebase = true
 [push]
-    default = current
+    default = simple
+    autoSetupRemote = true
+[rebase]
+    autoStash = true
+[merge]
+    conflictStyle = zdiff3
 [color]
     ui = true
     diff = always
@@ -31,3 +52,18 @@
     branch = white
 [diff]
     mnemonicprefix = true
+    colorMoved = default
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = arctic-fox
+    true-color = always
+    navigate = true 
+    side-by-side = true
+    dark = true
+[include]
+    path = "./themes.gitconfig"
+[safe]
+	directory = /usr/local/texlive/2024/texmf-dist/tex/latex/moderncv
+[credential]
+  helper = !/usr/local/bin/op plugin run -- gh auth git-credential

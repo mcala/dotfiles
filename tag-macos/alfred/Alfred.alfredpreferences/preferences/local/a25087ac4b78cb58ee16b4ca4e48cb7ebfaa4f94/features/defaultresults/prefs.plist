@@ -4,10 +4,8 @@
 <dict>
 	<key>scope</key>
 	<array>
-		<string>/Library/PreferencePanes</string>
 		<string>/System/Library/CoreServices/Applications</string>
 		<string>/System/Library/PreferencePanes</string>
-		<string>~/Library/Caches/Metadata</string>
 		<string>~/Library/CloudStorage</string>
 		<string>~/Library/Mobile Documents</string>
 		<string>~/Library/PreferencePanes</string>

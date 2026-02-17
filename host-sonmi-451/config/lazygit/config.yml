@@ -15,7 +15,16 @@ gui:
     "Claude": "#C15F3C"
     "semantic-release": "#FFD43B"
 
-  branchColorPatterns: {}
+  branchColorPatterns:
+    "^main$": "#d3c6aa"     # White - primary branch
+    "^dev$": "#d3c6aa"      # White - development branch
+    "^feature/": "#a7c080"  # Green - main accent, growth/new features
+    "^fix/": "#e67e80"      # Red - problems/corrections
+    "^docs/": "#7fbbb3"     # Blue - information/documentation
+    "^build/": "#e69875"    # Orange - construction/tooling
+    "^chore/": "#859289"    # Gray - maintenance/mundane tasks
+    "^refactor/": "#d699b6" # Purple - transformation/refinement
+    "^test/": "#dbbc7f"     # Yellow - attention/verification
 
   # If true, allow scrolling past the bottom of the content in the main window
   scrollPastBottom: true
@@ -75,34 +84,12 @@ gui:
 
   # Config relating to git
 git:
-  # Array of pagers. Each entry has the following format:
-  #
-  #   # Value of the --color arg in the git diff command. Some pagers want
-  #   # this to be set to 'always' and some want it set to 'never'
-  #   colorArg: "always"
-  #
-  #   # e.g.
-  #   # diff-so-fancy
-  #   # delta --dark --paging=never
-  #   # ydiff -p cat -s --wrap --width={{columnWidth}}
-  #   pager: ""
-  #
-  #   # e.g. 'difft --color=always'
-  #   externalDiffCommand: ""
-  #
-  #   # If true, Lazygit will use git's `diff.external` config for paging.
-  #   # The advantage over `externalDiffCommand` is that this can be
-  #   # configured per file type in .gitattributes; see
-  #   # https://git-scm.com/docs/gitattributes#_defining_an_external_diff_driver.
-  #   useExternalDiffGitConfig: false
-  #
-  # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
-  # for more information.
   pagers:
     - pager: delta --dark --paging=never
 
   # Config relating to committing
   commit:
+    signOff: true
     # Automatic WYSIWYG wrapping of the commit message as you type
     autoWrapCommitMessage: true
 
@@ -148,13 +135,14 @@ git:
   renameSimilarityThreshold: 50
 
 # Background refreshes
+# Auto-fetch can be disabled via option 'git.autoFetch'.
+# Auto-refresh can be disabled via option 'git.autoRefresh'.
 refresher:
   # File/submodule refresh interval in seconds.
-  # Auto-refresh can be disabled via option 'git.autoRefresh'.
-  refreshInterval: 10
-
+  refreshInterval: 60
   # Re-fetch interval in seconds.
-  # Auto-fetch can be disabled via option 'git.autoFetch'.
+  fetchInterval: 86400
+
 customCommands:
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
   - key: "<c-v>"
@@ -220,4 +208,3 @@ customCommands:
         body: "Are you sure you want to commit?"
     command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
     loadingText: "Creating conventional commit..."
-  fetchInterval: 3600

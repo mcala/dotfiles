@@ -6,38 +6,36 @@ type = 'prompt'
 alignment = 'left'
 
 [[blocks.segments]]
-template = '{{ if .SSHSession }} {{ end }}<blue><i>{{.HostName}}</i></>'
 type = 'session'
+template = '{{ if .SSHSession }} {{ end }}<blue><i>{{.HostName}}</i></>'
 style = 'plain'
 
-[blocks.segments.properties]
-cache_duration = 'none'
-
 [[blocks.segments]]
+type = 'path'
 template = ' <d><default>in</></d> [<b>{{.Path}}</b>] '
 foreground = 'cyan'
-type = 'path'
 
 [blocks.segments.properties]
-cache_duration = 'none'
-style = 'unique'
+style = "folder"
+home_icon = "~"
+
+[blocks.segments.properties.mapped_locations]
+"/Users/mcala/.config" = ""
 
 [[blocks.segments]]
-template = '  {{ .FormattedMs }} '
-foreground = 'blue'
 type = 'executiontime'
+template = '  {{ .FormattedMs }} Exit with {{.Code}}'
+foreground = 'blue'
 style = 'plain'
 
-[blocks.segments.properties]
-cache_duration = 'none'
-
+# =========== Git
 [[blocks]]
 type = 'prompt'
 alignment = 'left'
 
 [[blocks.segments]]
-template = '{{.HEAD}}{{ if .Working.String }} <red>●</>{{ end }} {{ if .Staging.String }}<yellow>●</> {{end}}{{if .Working.String }}{{ .Working.String }}{{ end }} {{ if .Staging.String }}{{.Staging.String}}{{end}} <d>{{.Commit.Timestamp | date "2006-01-02"}}</d>'
 type = 'git'
+template = '{{.HEAD}}{{ if .Working.String }} <red>●</>{{ end }} {{ if .Staging.String }}<yellow>●</> {{end}}{{if .Working.String }}{{ .Working.String }}{{ end }} {{ if .Staging.String }}{{.Staging.String}}{{end}} <d>{{.Commit.Timestamp | date "2006-01-02"}}</d>'
 style = 'plain'
 
 [blocks.segments.properties]
@@ -45,38 +43,91 @@ branch_max_length = 25
 cache_duration = 'none'
 fetch_status = true
 
+# =========== Project Information
+[[blocks]]
+type = 'prompt'
+alignment = 'right'
+
+[[blocks.segments]]
+type = "project"
+style = "plain"
+template = " {{ if .Error }}{{ .Error }}{{ else }}{{ if .Version }} {{.Version}}{{ end }}{{ end }} "
+
+
+# =========== Environments and Projects ========== #
 [[blocks]]
 type = 'prompt'
 alignment = 'left'
 newline = true
 
+# =========== Python
 [[blocks.segments]]
-template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{.Venv}} {{.Full}}{{ end }}</b> '
-foreground = 'green'
 type = 'python'
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{.Venv}} {{.Full}}{{ end }}</b>'
+foreground = 'green'
 style = 'plain'
 
 [blocks.segments.properties]
 cache_duration = 'none'
-home_enabled = true
+fetch_virtual_env = true
+display_mode = 'context'
+home_enabled = false
 
+# =========== Rust
 [[blocks.segments]]
+type = 'rust'
 template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} </b>'
 foreground = 'red'
-type = 'rust'
 style = 'plain'
 
 [blocks.segments.properties]
 cache_duration = 'none'
-display_mode = 'files'
+display_mode = 'context'
+home_enabled = true
+
+# =========== Node
+[[blocks.segments]]
+type = 'node'
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}</b>'
+foreground = 'yellow'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+display_mode = 'context'
+home_enabled = true
+
+# =========== NPM
+[[blocks.segments]]
+type = 'npm'
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} </b>'
+foreground = 'yellow'
+style = 'plain'
+
+[blocks.segments.properties]
+cache_duration = 'none'
+display_mode = 'context'
+home_enabled = true
+fetch_package_manager = true
+
+[[blocks.segments]]
+type = "zig"
+style = "plain"
+foreground = "#342311"
+background = "#ffad55"
+template = "  {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+
+[blocks.segments.properties]
+cache_duration = 'none'
+display_mode = 'context'
 home_enabled = true
 
 # Other Fun Prompt Indicators
 #  󰀫 󰝨 󰀜 󰾡 󱗆 󰯙 󰂣 󰙴 󰊠 󰮣  󰛡 󰫈
 # Also don't forget you can just use emoji in most modern prompts
 [[blocks.segments]]
-template = '<b> 󰫈</b>'
 type = 'text'
+template = '<b> 󰫈</b>'
 style = 'plain'
 foreground = 'default'
 
@@ -84,13 +135,13 @@ foreground = 'default'
 cache_duration = 'none'
 
 [secondary_prompt]
-template = ' <b>󰾡 </b>'
 type = 'text'
+template = ' <b>󰾡 </b>'
 style = 'plain'
 foreground = 'yellow'
 
 [transient_prompt]
-template = '{{ now | date "15:04:05" }} <b>󰛡 </b> '
 type = 'text'
+template = '{{ now | date "15:04:05" }} <b>󰛡 </b> '
 style = 'plain'
 foreground = 'yellow'

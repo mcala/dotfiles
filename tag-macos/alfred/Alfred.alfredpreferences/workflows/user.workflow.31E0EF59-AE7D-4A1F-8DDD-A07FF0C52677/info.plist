@@ -240,6 +240,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>6E93521E-3178-44D3-B935-E431625CC918</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0F112DB8-4F31-4419-B64F-4D2F22C5CE9E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7176BEA1-7AF6-481A-B04F-D1F0854D6BC7</key>
 		<array>
 			<dict>
@@ -280,7 +293,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0F112DB8-4F31-4419-B64F-4D2F22C5CE9E</string>
+				<string>6E93521E-3178-44D3-B935-E431625CC918</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -729,7 +742,7 @@
 	<key>description</key>
 	<string>Generate icons from emoji or SF Symbols</string>
 	<key>disabled</key>
-	<false/>
+	<true/>
 	<key>name</key>
 	<string>Icon Generator</string>
 	<key>objects</key>
@@ -1199,6 +1212,33 @@ cp -f DBDC800C-892D-4517-833A-8ABC465E948E.png F29DB020-E6BD-4876-8E0C-26A9877DD
 				<key>type</key>
 				<integer>5</integer>
 			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0F112DB8-4F31-4419-B64F-4D2F22C5CE9E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>datapath="${alfred_workflow_data}"
+
+if  ! test -d "$datapath/swatch_icons" || ! test -f "$datapath/swatch.json"; then
+    cp -r "./defaults/" "$datapath/"
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>11</integer>
+			</dict>
 			<key>inboundconfig</key>
 			<dict>
 				<key>externalid</key>
@@ -1207,7 +1247,7 @@ cp -f DBDC800C-892D-4517-833A-8ABC465E948E.png F29DB020-E6BD-4876-8E0C-26A9877DD
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>0F112DB8-4F31-4419-B64F-4D2F22C5CE9E</string>
+			<string>6E93521E-3178-44D3-B935-E431625CC918</string>
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
@@ -2102,19 +2142,6 @@ set the clipboard to (read (POSIX file output) as  {«class PNGf»})</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>seconds</key>
-				<string>.25</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.delay</string>
-			<key>uid</key>
-			<string>F856ED1E-689A-4536-A5A0-35E8EAAA5EE5</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argument</key>
 				<string>{query}</string>
 				<key>passthroughargument</key>
@@ -2129,6 +2156,40 @@ set the clipboard to (read (POSIX file output) as  {«class PNGf»})</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>6381E717-93A3-4FC4-92D8-35E161FA7714</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>seconds</key>
+				<string>.25</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.delay</string>
+			<key>uid</key>
+			<string>F856ED1E-689A-4536-A5A0-35E8EAAA5EE5</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsfiles</key>
+				<false/>
+				<key>acceptsmulti</key>
+				<integer>0</integer>
+				<key>acceptstext</key>
+				<true/>
+				<key>acceptsurls</key>
+				<false/>
+				<key>name</key>
+				<string>Icon Generator</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.universalaction</string>
+			<key>uid</key>
+			<string>4E50EE8A-A0B7-4FEE-93FE-5F0EF7532709</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -2162,27 +2223,6 @@ fi</string>
 			<string>99745CA9-3E6B-4D75-95CE-9F51AF1E6CBF</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsfiles</key>
-				<false/>
-				<key>acceptsmulti</key>
-				<integer>0</integer>
-				<key>acceptstext</key>
-				<true/>
-				<key>acceptsurls</key>
-				<false/>
-				<key>name</key>
-				<string>Icon Generator</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.universalaction</string>
-			<key>uid</key>
-			<string>4E50EE8A-A0B7-4FEE-93FE-5F0EF7532709</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -2258,7 +2298,7 @@ Hold option when running Icon Generator to configure the icon's appearance</stri
 			<key>note</key>
 			<string>Generate icon preview</string>
 			<key>xpos</key>
-			<real>515</real>
+			<real>545</real>
 			<key>ypos</key>
 			<real>395</real>
 		</dict>
@@ -2353,16 +2393,16 @@ Colour Picker</string>
 		<key>4D7F6811-5901-44B6-A4B1-C56E98CC0C99</key>
 		<dict>
 			<key>xpos</key>
-			<real>100</real>
+			<real>30</real>
 			<key>ypos</key>
 			<real>395</real>
 		</dict>
 		<key>4E50EE8A-A0B7-4FEE-93FE-5F0EF7532709</key>
 		<dict>
 			<key>xpos</key>
-			<real>115</real>
+			<real>35</real>
 			<key>ypos</key>
-			<real>1105</real>
+			<real>1095</real>
 		</dict>
 		<key>53C7CA30-87EE-4107-99AB-61C2E4B0A93B</key>
 		<dict>
@@ -2377,9 +2417,9 @@ FG swatch preview</string>
 		<key>59FFA607-2846-4AA2-A124-9F64C28235C5</key>
 		<dict>
 			<key>xpos</key>
-			<real>280</real>
+			<real>200</real>
 			<key>ypos</key>
-			<real>915</real>
+			<real>905</real>
 		</dict>
 		<key>5B12AB9D-AA76-4239-9AC3-3E23B5FFFE24</key>
 		<dict>
@@ -2391,16 +2431,25 @@ FG swatch preview</string>
 		<key>5C5DFAFA-B4E7-4A90-990D-B9DB9703F9B8</key>
 		<dict>
 			<key>xpos</key>
-			<real>375</real>
+			<real>295</real>
 			<key>ypos</key>
-			<real>970</real>
+			<real>960</real>
 		</dict>
 		<key>6381E717-93A3-4FC4-92D8-35E161FA7714</key>
 		<dict>
 			<key>xpos</key>
-			<real>285</real>
+			<real>205</real>
 			<key>ypos</key>
-			<real>1070</real>
+			<real>1060</real>
+		</dict>
+		<key>6E93521E-3178-44D3-B935-E431625CC918</key>
+		<dict>
+			<key>note</key>
+			<string>Ensure required files are present in data path</string>
+			<key>xpos</key>
+			<real>400</real>
+			<key>ypos</key>
+			<real>395</real>
 		</dict>
 		<key>7176BEA1-7AF6-481A-B04F-D1F0854D6BC7</key>
 		<dict>
@@ -2412,16 +2461,16 @@ FG swatch preview</string>
 		<key>73352DE3-1237-455E-86DD-10F058887148</key>
 		<dict>
 			<key>xpos</key>
-			<real>110</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>940</real>
+			<real>930</real>
 		</dict>
 		<key>76557CB6-CADE-4EFD-97EE-C519C1511CED</key>
 		<dict>
 			<key>note</key>
 			<string>Set a preview glyph</string>
 			<key>xpos</key>
-			<real>335</real>
+			<real>195</real>
 			<key>ypos</key>
 			<real>425</real>
 		</dict>
@@ -2497,9 +2546,9 @@ with Pillow</string>
 		<key>A6E73533-57E0-4781-8F3C-E21CB458E4C5</key>
 		<dict>
 			<key>xpos</key>
-			<real>375</real>
+			<real>295</real>
 			<key>ypos</key>
-			<real>1135</real>
+			<real>1125</real>
 		</dict>
 		<key>AC87F7F8-4F37-4551-9E7C-C0B78DEE104B</key>
 		<dict>
@@ -2842,7 +2891,7 @@ Around 0 to 10 works best.</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>3.3.0</string>
+	<string>3.3.1</string>
 	<key>webaddress</key>
 	<string>https://github.com/NeighNeighNeigh/Alfred_IconGenerator</string>
 </dict>

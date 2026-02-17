@@ -1,37 +1,50 @@
+echo "PATH before zshrc: $PATH" >> ~/path_debug.log
 # ZIM Initialization
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 source ${ZIM_HOME}/init.zsh
 
-source $XDG_CONFIG_DIR/zsh/zshrc.personal
-source $XDG_CONFIG_DIR/zsh/zshrc.computer
+source $XDG_CONFIG_HOME/zsh/zshrc.personal
+source $XDG_CONFIG_HOME/zsh/zshrc.computer
 
 if [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]; then
-    eval "$(oh-my-posh init zsh --config $XDG_CONFIG_DIR/oh-my-posh/mcala.omp.toml)"
+    eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/mcala.omp.toml)"
 fi
 
-# >>> COMPLETIONS
-#
-# >>> nvm initialize >>>
+source ~/.config/op/plugins.sh
+# Remove gh alias so we can use a function instead (for proper completions)
+unalias gh 2>/dev/null
+
+# === COMPLETIONS
+# === nvm initialize ===
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# bun completions
 [ -s "/Users/mcala/.bun/_bun" ] && source "/Users/mcala/.bun/_bun"
-
-# procs completions
-source <(procs --gen-completion-out zsh)
-
-# atuin
-eval "$(atuin init zsh)"
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# zoxide
+eval "$(atuin init zsh)"  # Loads interactive search features, not completions
 eval "$(zoxide init --cmd cd zsh)"
-
-# rbenv
 eval "$(rbenv init - --no-rehash bash)"
+
+source /Users/mcala/.config/broot/launcher/bash/br
+
+echo "PATH after zshrc: $PATH" >> ~/path_debug.log
+
+# --- Path Configuration
+typeset -U PATH path
+
+path=(
+    $HOME/software/bin         # Manually compiled software
+    $MACPORTS_PREFIX/bin       # MacPorts primary binaries
+    $MACPORTS_PREFIX/sbin      # MacPorts system binaries
+    $HOME/.local/bin           # User-installed executables (uv, etc.)
+    /Applications/Obsidian.app/Contents/MacOS   # obsidian cli
+    $BUN_INSTALL/bin
+    $path
+)
+
+[[ -d $MACPORTS_PREFIX/lib/ImageMagick7/bin ]] && path+=($MACPORTS_PREFIX/lib/ImageMagick7/bin)
+[[ -d /Library/TeX/texbin ]] && path+=(/Library/TeX/texbin)
+
+export PATH

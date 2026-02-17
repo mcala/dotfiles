@@ -12,19 +12,20 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
+
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
+    -- import lazyvim plugins, then your plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
   },
-  defaults = {
+  defaults = { -- I do not know what I am doing and will leave these as is
     lazy = false,
     version = false,
   },
-  checker = {
+  checker = { -- check for updates; don't notify me about them
     enabled = true,
     notify = false,
   },
@@ -35,7 +36,7 @@ require("lazy").setup({
         "gzip",
         -- "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

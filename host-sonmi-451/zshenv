@@ -1,48 +1,50 @@
 # ZSH Environment for sonmi-451
 # Author: Andrew McAllister (andrew@mcallister.science)
 
-# --- Exports
-## Configuration Files
-export XDG_CONFIG_DIR=/Users/mcala/.config
-export XDG_CONFIG_HOME=$XDG_CONFIG_DIR
-export XDG_CACHE_DIR=/Users/mcala/.cache
+# -- Fallback for $OME
+export HOME=${HOME:-/Users/mcala}
+
+## XDG Specification
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DATA_HOME=$HOME/.local/share
+
+## MacPorts
 export MACPORTS_PREFIX=/Users/mcala/MacPorts
-export RCRC=$XDG_CONFIG_DIR/rcm/rcrc
-export ZDOTDIR=$XDG_CONFIG_DIR/zsh
-export ZIM_HOME=$XDG_CONFIG_DIR/zim
+# export DYLD_FALLBACK_LIBRARY_PATH=/Users/mcala/MacPorts/lib
 
-## Perl, which is only used for exiftools
-export PERL5LIB=$MACPORTS_PREFIX/lib/perl5/vendor_perl/5.34
+## Application Configuration
+export ZIM_HOME=$XDG_CONFIG_HOME/zim
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export RCRC=$XDG_CONFIG_HOME/rcm/rcrc
+export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza
+export LLM_USER_PATH=$XDG_CONFIG_HOME/llm
+[[ -f "$HOME/.bun" ]] && export BUN_INSTALL="$HOME/.bun"
 
-## Editors
-export NVIM_APPNAME=nvim-lazy
+## Neovim & Editors
 export EDITOR=nvim
+export VISUAL=$EDITOR
+export NVIM_APPNAME=nvim-lazy
 export GIT_EDITOR=nvim
+
+## Pagers
+export PAGER=less
+export BAT_PAGER=less
 
 ## Manual Pages
 export MANPATH=$MANPATH:$HOME/software/man
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 export MANWIDTH=80
 
-# --- Path
-export PATH=$HOME/software/bin:$PATH
-export PATH=$HOME/software/lib:$PATH
-export PATH=$HOME/software/share:$PATH
-export PATH=$HOME/MacPorts/bin:$PATH
-export PATH=$HOME/MacPorts/sbin:$PATH
-export PATH=$HOME/MacPorts/lib:$PATH
-export PATH=$HOME/MacPorts/lib/ImageMagick7/bin:$PATH
-export PATH=$HOME/opt/bin:$PATH
-export PATH=$HOME/opt/lib:$PATH
-export PATH=/Library/TeX/texbin/:$PATH
-export PATH=/Users/mcala/.local/bin:$PATH
+## One Password CLI
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-## Exclusively for tmuxinator...
-export PATH=/Users/mcala/.rbenv/versions/3.3.6/bin:$PATH
 
 # -- Functions
-FPATH=${FPATH}:${XDG_CONFIG_DIR}/zsh_functions
-autoload calc.zsh rename_files.zsh path.bash checksha.zsh
+FPATH=$XDG_CONFIG_HOME/zfunc:$XDG_CONFIG_HOME/zsh_functions:${FPATH}
+autoload -Uz calc checksha find_empty_dirs path rename_files gpg-cache
 
-# Other Environments
-source "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
+
+echo "PATH after zshenv: $PATH" >> ~/path_debug.log

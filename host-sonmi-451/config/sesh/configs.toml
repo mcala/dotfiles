@@ -13,3 +13,15 @@ path = "~/.config/nvim-lazy"
 [[session]]
 name = "Configure Zsh"
 path = "~/.config/zsh"
+
+[[session]]
+name = "Configure Sesh"
+path = "~/.config/sesh"
+
+[[session]]
+name = "Configure Aerospace"
+path = "~/.config/aerospace"
+
+[[session]]
+name = "Configure Ghostty"
+path = "~/.config/ghostty"

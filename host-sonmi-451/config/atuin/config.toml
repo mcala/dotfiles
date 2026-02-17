@@ -39,10 +39,8 @@ filter_mode = "directory"
 # directory with git repository tree.
 workspaces = true
 
-# Filter mode to use when atuin is invoked from up-key 
+# Filter and search mode to use when atuin is invoked from up-key 
 filter_mode_shell_up_key_binding = "global"
-
-# Which search mode to use when atuin is invoked up-key
 search_mode_shell_up_key_binding = "fuzzy"
 
 # Which history picker style to use.
@@ -62,9 +60,6 @@ show_preview = true
 # What to do when exiting while searching
 # Values: return-original, return-query (typed so far)
 exit_mode = "return-query"
-
-## number of context lines to show when scrolling by pages
-# scroll_context_lines = 1
 
 # use ctrl instead of alt as the shortcut modifier key for numerical UI shortcuts
 ctrl_n_shortcuts = true
@@ -108,17 +103,6 @@ secrets_filter = true
 # Enable enter running command automatically.
 enter_accept = false
 
-# Mode to use when starting search.
-# vim-normal allows "j/k" navigation
-# enter "insert" mode with i to continue modifying the search
-keymap_mode = "vim-normal"
-
-# Timeout (in seconds) for acquiring a local database connection (sqlite)
-# local_timeout = 5
-
-# New feature, but theme from shell seems to work just fine.
-[theme]
-name = ""
 
 [stats]
 # Set commands where we should consider the subcommand for statistics. Eg, kubectl get vs just kubectl
@@ -143,6 +127,7 @@ common_subcommands = [
     "systemctl",
     "tmux",
     "yarn",
+    "uv",
 ]
 
 # Set commands that should be totally stripped and ignored from stats
@@ -152,7 +137,6 @@ common_prefix = ["sudo"]
 ignored_commands = ["^cd", "^ls", "^vi", "^nv"]
 
 [sync]
-# Enable sync v2 by default
 records = true
 
 [preview]
@@ -161,46 +145,3 @@ records = true
 # auto: length of the selected command.
 # static: length of the longest command stored in the history.
 strategy = "auto"
-
-
-# Atuin can store your database remotely, however you are not using this feature.
-# If you do, you'll need to move these back to the top before any toml tags
-
-# Encryption Key Location
-# default linux/mac: ~/.local/share/atuin/key
-# alternative: key_path = "~/.key"
-
-# Authentication session token
-# default linux/mac: ~/.local/share/atuin/session
-# alternative: session_path = "~/.session"
-
-# Enable or disable automatic sync
-# auto_sync = true
-
-# Address of the sync server
-# sync_address = "https://api.atuin.sh"
-
-# How often to sync history. 
-# Note! Only triggered when a command is run.
-# So sync intervals may be longer.
-# sync_frequency = "10m"
-
-[daemon]
-# Enables using the daemon to sync. Requires the daemon to be running in the background. Start it with `atuin daemon`
-# enabled = false
-
-# How often the daemon should sync in seconds
-# sync_frequency = 300
-
-# Path to the unix socket used by the daemon
-# linux/mac: ~/.local/share/atuin/atuin.sock
-# windows: Not Supported
-# socket_path = "~/.local/share/atuin/atuin.sock"
-
-# Use systemd socket activation rather than opening the given path (the path must still be correct for the client)
-# linux: false
-# mac/windows: Not Supported
-# systemd_socket = false
-#
-# tcp port for non-linux systems
-# tcp_port = 8889

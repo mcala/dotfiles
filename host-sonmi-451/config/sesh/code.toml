@@ -1,15 +1,152 @@
+
 [[session]]
-name = "All Code Projects"
-path = "~/Documents/3_resources/code/active/"
+name = "NJ Legislature"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_legislature" 
+
+[[session]]
+name = "Understanding Variation Workbooks"
+path = "/Users/mcala/Documents/3_resources/code/1_active/understanding-variation-workbooks" 
+
+[[session]]
+name = "Docx Merge"
+path = "/Users/mcala/Documents/3_resources/code/1_active/docx_merge" 
+
+[[session]]
+name = "Hello Zig World"
+path = "/Users/mcala/Documents/3_resources/code/1_active/hello_zig_world" 
+
+[[session]]
+name = "Hello Rust World"
+path = "/Users/mcala/Documents/3_resources/code/1_active/hello_rust_world" 
+
+[[session]]
+name = "NJ Legislature API"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_legislature_api" 
+
+[[session]]
+name = "NJ Geographic Information"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_geographic_information" 
+
+[[session]]
+name = "Make Member Snippets"
+path = "/Users/mcala/Documents/3_resources/code/1_active/make-member-snippets" 
+
+[[session]]
+name = "Website"
+path = "/Users/mcala/Documents/3_resources/code/1_active/website" 
+
+[[session]]
+name = "FY26 ABU"
+path = "/Users/mcala/Documents/3_resources/code/1_active/fy26_abu" 
+
+[[session]]
+name = "LLM Concert Agent"
+path = "/Users/mcala/Documents/3_resources/code/1_active/llm_concert_agent" 
+
+[[session]]
+name = "LLM Pdf Analysis"
+path = "/Users/mcala/Documents/3_resources/code/1_active/llm_pdf_analysis" 
+
+[[session]]
+name = "Habits"
+path = "/Users/mcala/Documents/3_resources/code/1_active/habits" 
+
+[[session]]
+name = "Seb Plunkitt"
+path = "/Users/mcala/Documents/3_resources/code/1_active/SEB_plunkitt" 
+
+[[session]]
+name = "LLM Budget Testimony"
+path = "/Users/mcala/Documents/3_resources/code/1_active/llm_budget_testimony" 
+
+[[session]]
+name = "Testimony Download"
+path = "/Users/mcala/Documents/3_resources/code/1_active/testimony_download" 
+
+[[session]]
+name = "Pytml"
+path = "/Users/mcala/Documents/3_resources/code/1_active/pytml" 
+
+[[session]]
+name = "Obsidian Properties"
+path = "/Users/mcala/Documents/3_resources/code/1_active/obsidian_properties" 
+
+[[session]]
+name = "Link Organizer"
+path = "/Users/mcala/Documents/3_resources/code/1_active/link_organizer" 
+
+[[session]]
+name = "Reading Sync"
+path = "/Users/mcala/Documents/3_resources/code/1_active/reading_sync" 
+
+[[session]]
+name = "ABU"
+path = "/Users/mcala/Documents/3_resources/code/1_active/abu" 
+
+[[session]]
+name = "Raycast Devonthink Library"
+path = "/Users/mcala/Documents/3_resources/code/1_active/raycast-devonthink-library" 
+
+[[session]]
+name = "Event Database"
+path = "/Users/mcala/Documents/3_resources/code/1_active/event_database" 
+
+[[session]]
+name = "Trello API"
+path = "/Users/mcala/Documents/3_resources/code/1_active/trello_api" 
+
+[[session]]
+name = "Arc Export"
+path = "/Users/mcala/Documents/3_resources/code/1_active/arc-export" 
+
+[[session]]
+name = "Decision Records"
+path = "/Users/mcala/Documents/3_resources/code/1_active/decision_records" 
+
+[[session]]
+name = "Census Data"
+path = "/Users/mcala/Documents/3_resources/code/1_active/census_data" 
+
+[[session]]
+name = "School Funding Reform Act"
+path = "/Users/mcala/Documents/3_resources/code/1_active/school_funding_reform_act" 
+
+[[session]]
+name = "Grokking Relational Database Design"
+path = "/Users/mcala/Documents/3_resources/code/1_active/grokking-relational-database-design" 
+
+[[session]]
+name = "Volca"
+path = "/Users/mcala/Documents/3_resources/code/1_active/volca" 
+
+[[session]]
+name = "School Funding Reform Act Old FY26"
+path = "/Users/mcala/Documents/3_resources/code/1_active/school_funding_reform_act_OLD_FY26" 
+
+[[session]]
+name = "FY26 Resolutions"
+path = "/Users/mcala/Documents/3_resources/code/1_active/fy26_resolutions" 
+
+[[session]]
+name = "New NJ Bill Db"
+path = "/Users/mcala/Documents/3_resources/code/1_active/new_nj_bill_db" 
+
+[[session]]
+name = "NJ Budget Podcast"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_budget_podcast" 
+
+[[session]]
+name = "Toggl Analysis"
+path = "/Users/mcala/Documents/3_resources/code/1_active/toggl_analysis" 
 
 [[session]]
 name = "NJ Bill Database"
-path = "~/Documents/3_resources/code/active/nj_bill_database"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_bill_database" 
 
 [[session]]
-name = "NJ Budget Comparison"
-path = "~/Documents/3_resources/code/active/nj_budget_comparison/"
+name = "NJleg API"
+path = "/Users/mcala/Documents/3_resources/code/1_active/njleg_api" 
 
 [[session]]
-name = "Life in Graphs"
-path = "~/Documents/1_projects/life_in_graphs/"
+name = "NJ Geo"
+path = "/Users/mcala/Documents/3_resources/code/1_active/nj_geo" 

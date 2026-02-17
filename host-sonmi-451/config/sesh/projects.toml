@@ -1,3 +1,7 @@
 [[session]]
 name = "McAllister Life Work"
 path = "~/Documents/2_areas/career/life_work/"
+
+[[session]]
+name = "Code"
+path = "~/Documents/3_resources/code/"

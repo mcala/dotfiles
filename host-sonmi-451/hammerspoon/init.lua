@@ -59,13 +59,13 @@ positions = {
 
 -- Set up keybinding table
 mainPositionKeys = {
-	{ key = "q", units = positions.left_2thirds },
---	{ key = "]", units = positions.right_2thirds },
-    { key = "m", units = positions.middle_right },
+	--	{ key = "q", units = positions.left_2thirds },
+	--	{ key = "]", units = positions.right_2thirds },
+	{ key = "m", units = positions.middle_right },
 	{ key = "n", units = positions.middle_left },
 	{ key = "g", units = positions.center },
-	{ key = "\\", units = positions.right_90 },
-	{ key = "'", units = positions.center_left_for_stage_manager },
+	--	{ key = "\\", units = positions.right_90 },
+	--	{ key = "'", units = positions.center_left_for_stage_manager },
 }
 secondaryPositionKeys = {
 	{ key = "f", units = positions.maximize },

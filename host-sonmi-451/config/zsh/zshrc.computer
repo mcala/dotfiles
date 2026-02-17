@@ -1,22 +1,32 @@
 # Computer file for sonmi-451
 export TINTED_TMUX_OPTION_STATUSBAR=1
 
+# One Password Integration with gh
+# Use a function instead of alias for better completion support
+gh() {
+    command op plugin run -- gh "$@"
+}
+# Source gh completions directly (must be after compinit from Zim)
+source $XDG_CONFIG_HOME/zfunc/_gh
+compdef _gh gh
+
 # August 6, 2024: Resolving warning for upcoming Jupyter Changes. Unclear if this needs to be a permanent addition.
 export JUPYTER_PLATFORM_DIRS=1
 
-# UV
+# UV and Python
 export UV_PYTHON_PREFERENCE=only-managed
+export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
 
 # Bat
-export BAT_THEME="rose-pine-dawn"
+export BAT_THEME="everforest"
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # zoxide
-export _ZO_DATA_DIR=$XDG_CONFIG_DIR/zoxide
+export _ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide
 
 # procs
-alias ps='procs --load-config=$XDG_CONFIG_DIR/procs/config.toml'
+alias ps='procs --load-config=$XDG_CONFIG_HOME/procs/config.toml'
 
 # tokei
 alias count_code='tokei'
@@ -25,23 +35,9 @@ alias count_code='tokei'
 alias gb='git branch | fzf --preview "git show --color=always {-1}" \
                            --bind "enter:become(git checkout {-1})" \
                            --height 40% --layout reverse'
-
-
-
-
-#export FZF_DEFAULT_COMMAND='fd --hidden --strip-cwd-prefix --exclude .git'
-#export FZF_DEFAULT_OPTS="--height 75% --layout reverse"
-# FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-# --color=fg:#797593,bg:#faf4ed,hl:#d7827e 
-# --color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e 
-# --color=border:#dfdad9,header:#286983,gutter:#faf4ed 
-# --color=spinner:#ea9d34,info:#56949f 
-# --color=pointer:#907aa9,marker:#b4637a,prompt:#797593'
-
 # use neovim
 alias vim='nvim'
 alias vimdiff='nvim -d'
-alias poetry='/Users/mcala/anaconda3/envs/poetry/bin/poetry'
 
 # Gnucoreutils Options
 #alias ls='gls --color=auto'
@@ -64,8 +60,8 @@ CYAN='\033[0;36m'
 RESET='\033[0m'
 
 # Run on shell startup
-neofetch
+neofetch | lolcat --random
 
 # ASCII art
 echo -e "${BLUE}════════════════════════════ Command Reminders ════════════════════════════${RESET}"
-mlr --icsv --ragged --opprint --key-color red cat $XDG_CONFIG_DIR/zsh/zshrc_commands.csv
+mlr --icsv --ragged --opprint --key-color red cat $XDG_CONFIG_HOME/zsh/zshrc_commands.csv 

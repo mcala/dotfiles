@@ -1,2 +1,27 @@
-.headers on
+-- ███████╗ ██████╗ ██╗     ██╗████████╗███████╗
+-- ██╔════╝██╔═══██╗██║     ██║╚══██╔══╝██╔════╝
+-- ███████╗██║   ██║██║     ██║   ██║   █████╗  
+-- ╚════██║██║▄▄ ██║██║     ██║   ██║   ██╔══╝  
+-- ███████║╚██████╔╝███████╗██║   ██║   ███████╗
+-- ╚══════╝ ╚══▀▀═╝ ╚══════╝╚═╝   ╚═╝   ╚══════╝
+
+-- enforce foreign_keys
+PRAGMA foreign_keys = ON;
+
+-- format output as columns
 .mode column
+
+ -- show field names as columns
+.headers on
+
+ -- auto adjust width
+.width 0
+
+ -- show how long commands take to run
+.timer on
+
+ -- show null values as NULL instead of blanks
+.nullvalue NULL
+
+-- explain query plan
+.eqp on
