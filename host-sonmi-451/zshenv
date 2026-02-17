@@ -1,7 +1,7 @@
 # ZSH Environment for sonmi-451
 # Author: Andrew McAllister (andrew@mcallister.science)
 
-# -- Fallback for $OME
+# -- Fallback for $HOME
 export HOME=${HOME:-/Users/mcala}
 
 ## XDG Specification
