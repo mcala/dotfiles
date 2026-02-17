@@ -1,0 +1,42 @@
+# ████████╗██╗███╗   ██╗████████╗██╗   ██╗
+# ╚══██╔══╝██║████╗  ██║╚══██╔══╝╚██╗ ██╔╝
+#    ██║   ██║██╔██╗ ██║   ██║    ╚████╔╝ 
+#    ██║   ██║██║╚██╗██║   ██║     ╚██╔╝  
+#    ██║   ██║██║ ╚████║   ██║      ██║   
+#    ╚═╝   ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚═╝   
+#
+# Tinty is a base16 and base24 color scheme manager.
+# https://github.com/tinted-theming/tinty
+# 
+# Abandoned on January 11, 2025
+# Issues across the board, also struggling with the completions.
+# Too much overhead for now despite being a fun idea.
+
+shell = "zsh -c '{}'"
+default-scheme = "base16-rose-pine-dawn"
+hooks = ["echo \"Changing colorscheme to...$(tinty current)\""]
+
+[[items]]
+name = "tinted-shell"
+path = "https://github.com/tinted-theming/tinted-shell"
+themes-dir = "scripts"
+hook = "source %f"
+supported-systems = ["base16", "base24"]
+
+[[items]]
+name = "tinted-tmux"
+path = "https://github.com/tinted-theming/tinted-tmux"
+themes-dir = "colors"
+hook = "tmux run 2> /dev/null && tmux source-file %f"
+
+[[items]]
+name = "tinted-fzf"
+path = "https://github.com/tinted-theming/tinted-fzf"
+themes-dir = "sh"
+hook = ". %f"
+
+#[[items]]
+#path = "https://git.sr.ht/~blueingreen/base16-btop"
+#themes-dir = "colors"
+#name = "tinted-btop"
+#hook = ". %f"

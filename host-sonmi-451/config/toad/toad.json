@@ -1,0 +1,25 @@
+{
+    "anon_id": "beecca74-3e63-4195-9d51-419b4c9b7afb", 
+    "launcher": {
+        "agents": "claude.com"
+    }, 
+    "ui": {
+        "theme": "rose-pine", 
+        "compact-input": true, 
+        "footer": true, 
+        "status-line": true, 
+        "agent-title": true, 
+        "column": true, 
+        "scrollbar": "thin", 
+        "throbber": "pulse"
+    }, 
+    "shell": {
+        "command": "/Users/mcala/MacPorts/bin/zsh"
+    }, 
+    "statistics": {
+        "allow_collect": true
+    }, 
+    "sidebar": {
+        "hide": false
+    }
+}

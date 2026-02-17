@@ -1,0 +1,31 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // Unsuccessfull at getting either of these to work.
+  {
+    "context": "Workspace",
+    "bindings": {
+      "alt-left": "workspace::ActivatePaneLeft",
+      "alt-right": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "shift-l": "pane::GoForward",
+      "shift-r": "pane::GoBack"
+    }
+  },
+
+  {
+    "context": "Editor",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"]
+    }
+  }
+]

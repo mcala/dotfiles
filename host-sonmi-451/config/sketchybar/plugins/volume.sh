@@ -1,0 +1,1 @@
+/Users/mcala/software/SketchyBar/plugins/volume.sh
