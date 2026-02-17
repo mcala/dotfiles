@@ -1,0 +1,9 @@
+default_context:
+  author: "Andrew McAllister"
+  email: "andrew@mcallister.science"
+  github_username: "mcala"
+  python_version: "3.13"
+  uv_version: "0.8.22"
+
+cookiecutters_dir: "/Users/mcala/Documents/3_resources/code/2_lib/my-cookiecutter"
+replay_dir: "${XDG_CACHE_HOME}/cookiecutter_replay/"
