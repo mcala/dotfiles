@@ -60,7 +60,8 @@ CYAN='\033[0;36m'
 RESET='\033[0m'
 
 # Run on shell startup
-neofetch | lolcat --random
+# neofetch | lolcat --random
+neofetch
 
 # ASCII art
 echo -e "${BLUE}════════════════════════════ Command Reminders ════════════════════════════${RESET}"

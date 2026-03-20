@@ -46,5 +46,3 @@ FPATH=$XDG_CONFIG_HOME/zfunc:$XDG_CONFIG_HOME/zsh_functions:${FPATH}
 autoload -Uz calc checksha find_empty_dirs path rename_files gpg-cache
 
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-echo "PATH after zshenv: $PATH" >> ~/path_debug.log

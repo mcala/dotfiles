@@ -19,9 +19,8 @@ alias sr-local-release='semantic-release -v version --no-push --no-vcs-release'
 alias sr-release='semantic-release version --push --vcs-release'
 
 # nvim
-alias nv='NVIM_APPNAME="nvim-lazy" nvim'
+alias nv='nvim'
 alias nv-new='NVIM_APPNAME="nvim" nvim'
-alias nvim='NVIM_APPNAME="nvim-lazy" nvim'
 alias nvim-old='NVIM_APPNAME="nvim-old" nvim'
 alias nvim-chad='NVIM_APPNAME="nvim-chad" nvim'
 

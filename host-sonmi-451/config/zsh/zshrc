@@ -1,4 +1,3 @@
-echo "PATH before zshrc: $PATH" >> ~/path_debug.log
 # ZIM Initialization
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
@@ -26,10 +25,10 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(atuin init zsh)"  # Loads interactive search features, not completions
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(rbenv init - --no-rehash bash)"
+eval "$(but completions zsh)"
 
 source /Users/mcala/.config/broot/launcher/bash/br
 
-echo "PATH after zshrc: $PATH" >> ~/path_debug.log
 
 # --- Path Configuration
 typeset -U PATH path
