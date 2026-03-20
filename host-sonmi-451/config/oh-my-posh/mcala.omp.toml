@@ -63,7 +63,7 @@ newline = true
 # =========== Python
 [[blocks.segments]]
 type = 'python'
-template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{.Venv}} {{.Full}}{{ end }}</b>'
+template = '  <b>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Env.VIRTUAL_ENV }}{{ base (dir .Env.VIRTUAL_ENV) }}/{{ base .Env.VIRTUAL_ENV }}{{ else }}{{ .Venv }}{{ end }} {{.Full}}{{ end }}</b>'
 foreground = 'green'
 style = 'plain'
 
