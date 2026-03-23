@@ -1,6 +1,6 @@
 # Python Preferences
 
-- Please always type hint code using modern type hint practices for python 3.12, UNLESS the project indicates that an earlier version of python is used
+- Please always type hint code using modern type hint practices for python 3.13, UNLESS the project indicates that an earlier version of python is used
 - Please always use the pathlib library over any os commands
 - When using pathlib, I prefer to use the `.joinpath` method over the overloaded `/` operator
 - Please always put import statements at the top of the file, NEVER put them within a method or exception block

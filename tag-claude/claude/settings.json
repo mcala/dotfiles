@@ -1,26 +1,6 @@
 {
     "$schema": "https://json.schemastore.org/claude-code-settings.json",
     "cleanupPeriodDays": 10,
-    "alwaysThinkingEnabled": true,
-    "statusLine": {
-        "type": "command",
-        "command": "bash ~/.claude/statusline.sh"
-    },
-    "sandbox": {
-        "enabled": true,
-        "allowUnsandboxedCommands": false,
-        "autoAllowBashIfSandboxed": true,
-        "excludedCommands": [
-            "docker",
-            "podman"
-        ],
-        "network": {
-            "allowUnixSockets": [],
-            "allowAllUnixSockets": false,
-            "allowLocalBinding": true,
-            "allowedDomains": []
-        }
-    },
     "permissions": {
         "allow": [
             "Read",
@@ -56,8 +36,211 @@
             "Bash(wget *)"
         ]
     },
+    "model": "opus[1m]",
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "WebSearch|WebFetch",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/scripts/notify.sh search"
+                    }
+                ]
+            }
+        ],
+        "PermissionRequest": [
+            {
+                "matcher": "*",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/scripts/notify.sh approval 'Need approval ⚠️'"
+                    }
+                ]
+            }
+        ],
+        "PostToolUse": [
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/scripts/notify.sh"
+                    }
+                ]
+            }
+        ],
+        "Notification": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/scripts/notify.sh approval 'Claude says Hi 👋'"
+                    }
+                ]
+            }
+        ],
+        "Stop": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "~/.claude/scripts/notify.sh finished"
+                    }
+                ]
+            }
+        ],
+        "SessionEnd": [
+            {
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "npx claude-receipts@latest generate --output html",
+                        "timeout": 60
+                    }
+                ]
+            }
+        ]
+    },
+    "statusLine": {
+        "type": "command",
+        "command": "bash ~/.claude/statusline.sh"
+    },
     "enabledPlugins": {
         "pyright-lsp@claude-plugins-official": true,
         "claude-md-management@claude-plugins-official": true
-    }
+    },
+    "sandbox": {
+        "enabled": true,
+        "autoAllowBashIfSandboxed": true,
+        "allowUnsandboxedCommands": false,
+        "network": {
+            "allowedDomains": [
+                "api.github.com"
+            ],
+            "allowUnixSockets": [
+                "/Users/mcala/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+            ],
+            "allowAllUnixSockets": false,
+            "allowLocalBinding": true
+        },
+        "filesystem": {
+            "allowWrite": [
+                "~/.cache/uv",
+                "~/.cache/huggingface",
+                "~/.venv/**",
+                "~/.local/state/**",
+                "~/.claude/memory/**",
+                "~/.claude/skills/**"
+            ]
+        },
+        "excludedCommands": [
+            "docker",
+            "podman"
+        ]
+    },
+    "spinnerVerbs": {
+        "mode": "replace",
+        "verbs": [
+            "Noodling",
+            "Spooling",
+            "Pondering",
+            "Floating on",
+            "Editing the sad parts",
+            "Checking the dashboard",
+            "Steering into the ocean",
+            "Orbiting the third planet",
+            "Missing the boat",
+            "Building nothing to something",
+            "Grinding the teeth",
+            "Trapeeze swinging",
+            "Crossing the Atlantic",
+            "Following into the dark",
+            "Spiraling downward",
+            "Getting closer",
+            "Fragmenting",
+            "Adding teeth",
+            "Bloodbuzzing",
+            "Avenging the mariner",
+            "Hazarding the love",
+            "Hoppípolla-ing",
+            "( )-ing",
+            "Takk-ing",
+            "Getting through this year",
+            "Going to Georgia",
+            "Hailing Satan",
+            "Hailing West Texas",
+            "Tallahassee-bound",
+            "Nesting timelines inside timelines",
+            "Stitching souls between centuries",
+            "Opening the Time Tombs",
+            "Waiting for the Shrike",
+            "Consulting the Technocore",
+            "Falling through farcaster portals",
+            "Growing the Worldtree",
+            "Starting a book you'll never finish",
+            "Reading the first chapter again",
+            "Swapping manuscripts mid-sentence",
+            "Learning the true name of things",
+            "Sailing past the farthest shore",
+            "Whispering in the Old Speech",
+            "Remembering the future",
+            "Inflating a digital cosmos",
+            "Dissecting a tower to heaven",
+            "Forking every garden path",
+            "Indexing the Library of Babel",
+            "Dreaming the dreamer's dream",
+            "Shuffling the lottery in Babylon",
+            "Counting grains of sand in the Aleph",
+            "Mapping a 1:1 scale empire",
+            "Adding footnotes",
+            "Queuing for the Entertainment",
+            "Untangling the Eschaton",
+            "Unsticking from time",
+            "So it goes",
+            "Listening to the Tralfamadorians",
+            "Letting yourself be seen",
+            "Choosing courage over comfort",
+            "Embracing the vulnerability",
+            "Belonging to yourself first",
+            "Dropping the armor",
+            "Showing up imperfectly",
+            "Daring greatly",
+            "Rumbling with the story",
+            "Rising strong",
+            "Pausing before reacting",
+            "Radical acceptance in progress",
+            "Offering yourself compassion",
+            "Recognizing, allowing, investigating",
+            "Arriving in the present moment",
+            "Resting in awareness",
+            "Remembering your own goodness",
+            "Saying yes to what is",
+            "Tending to what's here",
+            "Focusing on what you control",
+            "The obstacle is the way",
+            "Ego is the enemy",
+            "Practicing amor fati",
+            "Returning to the present",
+            "Choosing your response",
+            "Memento mori",
+            "Letting go of what isn't yours",
+            "Doing the next right thing",
+            "Staying on the path",
+            "Trusting the process",
+            "Being kind to yourself about this",
+            "Breathing before deciding",
+            "Allowing the difficult feeling",
+            "Not everything needs fixing right now",
+            "You're doing enough",
+            "Progress, not perfection",
+            "Resting is productive too",
+            "Holding space for yourself",
+            "Noticing without judging",
+            "Taking the gentler interpretation"
+        ]
+    },
+    "alwaysThinkingEnabled": true,
+    "effortLevel": "high"
 }
