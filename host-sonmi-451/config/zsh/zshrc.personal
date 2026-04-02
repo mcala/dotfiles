@@ -98,9 +98,6 @@ alias loaddots='source $XDG_CONFIG_HOME/zsh/zshrc'
 #alias for unlocking time machine drive
 alias unlockTM='diskutil coreStorage unlockVolume B8029037-40C5-4F54-9CC1-9F6135E99541'
 
-alias top='echo "You sure?"'
-alias kill='echo "You really sure?"'
-
 #alias ipython='uvx --with pandas ipython'
 
 alias onefetch='onefetch --no-color-palette'
