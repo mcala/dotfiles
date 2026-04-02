@@ -1,5 +1,6 @@
 local opt = vim.opt
 
+vim.g.lazyvim_python_lsp = "ty"
 vim.g.filetype = "on"
 vim.g.python3_host_prog = "/Users/mcala/.venv/neovim/bin/python"
 vim.g.python_recommended_style = 0
