@@ -1,74 +1,139 @@
-[[columns]]
-kind = "Pid"
-style = "BrightYellow|Yellow"
-numeric_search = true
-nonnumeric_search = false
+# procs config — everforest-light, compact developer layout
+#
+# Install location (macOS): ~/Library/Preferences/com.github.dalance.procs/config.toml
+# Install location (Linux): ~/.config/procs/config.toml
+#
+# Color format: "DarkThemeColor|LightThemeColor"
+# Using xterm-256 color indices mapped from the everforest-light palette:
+#
+#   fg      #5C6A72 → 66      red     #F85552 → 203
+#   orange  #F57D26 → 208     yellow  #DFA000 → 178
+#   green   #8DA101 → 106     aqua    #35A77C → 36
+#   blue    #3A94C5 → 67      purple  #DF69BA → 170
+#   grey1   #939F91 → 108     grey2   #829181 → 65
+
+# ── Columns ──────────────────────────────────────────────────────────────────
 
 [[columns]]
 kind = "Pid"
-style = "BrightYellow|Yellow"
+style = "BrightGreen|67"
 numeric_search = true
 nonnumeric_search = false
-
-[[columns]]
-kind = "Username"
-style = "BrightGreen|Green"
-numeric_search = false
-nonnumeric_search = true
 align = "Right"
 
+[[columns]]
+kind = "User"
+style = "BrightYellow|36"
+numeric_search = false
+nonnumeric_search = true
+align = "Left"
+
+[[columns]]
+kind = "Separator"
+style = "White|108"
+
+[[columns]]
+kind = "State"
+style = "BrightMagenta|170"
+numeric_search = false
+nonnumeric_search = false
+align = "Center"
+
+[[columns]]
+kind = "UsageCpu"
+style = "BrightCyan|208"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "UsageMem"
+style = "BrightCyan|178"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "VmRss"
+style = "BrightCyan|106"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "Separator"
+style = "White|108"
+
+[[columns]]
+kind = "CpuTime"
+style = "BrightBlue|65"
+numeric_search = false
+nonnumeric_search = false
+align = "Right"
+
+[[columns]]
+kind = "Command"
+style = "BrightWhite|66"
+numeric_search = false
+nonnumeric_search = true
+align = "Left"
+
+# ── Style ────────────────────────────────────────────────────────────────────
+
 [style]
-header = "BrightWhite|Black"
-unit = "BrightWhite|Black"
-tree = "BrightWhite|Black"
+header = "BrightWhite|108"
+unit = "BrightWhite|108"
+tree = "BrightWhite|106"
 
 [style.by_percentage]
-color_000 = "BrightBlue|Blue"
-color_025 = "BrightGreen|Green"
-color_050 = "BrightYellow|Yellow"
-color_075 = "BrightRed|Red"
-color_100 = "BrightRed|Red"
+color_000 = "BrightBlue|106"
+color_025 = "BrightGreen|36"
+color_050 = "BrightYellow|178"
+color_075 = "Yellow|208"
+color_100 = "BrightRed|203"
 
 [style.by_state]
-color_d = "BrightRed|Red"
-color_r = "BrightGreen|Green"
-color_s = "BrightBlue|Blue"
-color_t = "BrightCyan|Cyan"
-color_z = "BrightMagenta|Magenta"
-color_x = "BrightMagenta|Magenta"
-color_k = "BrightYellow|Yellow"
-color_w = "BrightYellow|Yellow"
-color_p = "BrightYellow|Yellow"
+color_d = "BrightRed|203"
+color_r = "BrightGreen|106"
+color_s = "BrightBlue|67"
+color_t = "BrightYellow|178"
+color_z = "BrightMagenta|170"
+color_x = "BrightMagenta|170"
+color_k = "BrightYellow|178"
+color_w = "BrightCyan|36"
+color_p = "BrightWhite|108"
 
 [style.by_unit]
-color_k = "BrightBlue|Blue"
-color_m = "BrightGreen|Green"
-color_g = "BrightYellow|Yellow"
-color_t = "BrightRed|Red"
-color_p = "BrightRed|Red"
-color_x = "BrightBlue|Blue"
+color_k = "BrightBlue|67"
+color_m = "BrightGreen|106"
+color_g = "BrightYellow|178"
+color_t = "Yellow|208"
+color_p = "BrightRed|203"
+color_x = "BrightCyan|36"
+
+# ── Search ───────────────────────────────────────────────────────────────────
 
 [search]
 numeric_search = "Exact"
 nonnumeric_search = "Partial"
 logic = "And"
 
+# ── Display ──────────────────────────────────────────────────────────────────
+
 [display]
 show_self = false
-show_thread = false
-show_thread_in_tree = true
 cut_to_terminal = true
 cut_to_pager = false
 cut_to_pipe = false
 color_mode = "Auto"
 
-[sort]
-column = 0
-order = "Ascending"
+# ── Sort (by CPU usage, descending) ─────────────────────────────────────────
 
-[docker]
-path = "unix:///var/run/docker.sock"
+[sort]
+column = 4
+order = "Descending"
+
+# ── Pager ────────────────────────────────────────────────────────────────────
 
 [pager]
 mode = "Auto"
-command = "bat"
