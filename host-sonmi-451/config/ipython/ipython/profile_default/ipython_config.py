@@ -1,1 +1,0 @@
-/Users/mcala/.dotfiles/host-sonmi-451/config/ipython/profile_default/ipython_config.py
