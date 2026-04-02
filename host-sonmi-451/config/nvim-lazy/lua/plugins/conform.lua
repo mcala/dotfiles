@@ -7,8 +7,8 @@ return {
     formatters = {
       rumdl = {
         command = "rumdl",
-        args = { "--fix", "$FILENAME" },
-        stdin = false,
+        args = { "fmt", "--stdin", "--stdin-filename", "$FILENAME" },
+        stdin = true,
       },
     },
   },

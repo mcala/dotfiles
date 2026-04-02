@@ -38,17 +38,6 @@ return {
     end,
   },
   {
-    "mfussenegger/nvim-lint",
-    optional = true,
-    opts = {
-      linters = {
-        ["markdownlint-cli2"] = {
-          args = { "--config", "/Users/mcala/.config/markdown-linting/markdownlind-cli2.yaml", "--" },
-        },
-      },
-    },
-  },
-  {
     "nfrid/markdown-togglecheck",
     dependencies = { "nfrid/treesitter-utils" },
     ft = { "markdown" },

@@ -6,11 +6,11 @@ return {
         ty = {
           settings = {
             ty = {
-              showSyntaxErrors = false, -- Let ruff handle syntax errors
+              showSyntaxErrors = false,
             },
           },
         },
-        ruff = {}, -- Keep ruff for linting/formatting
+        ruff = {},
       },
     },
   },
