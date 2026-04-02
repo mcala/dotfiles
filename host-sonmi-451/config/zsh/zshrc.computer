@@ -6,6 +6,10 @@ export TINTED_TMUX_OPTION_STATUSBAR=1
 gh() {
     command op plugin run -- gh "$@"
 }
+# stupid man shit
+man() {
+    command man "$@" | col -b | bat -p -lman
+}
 # Source gh completions directly (must be after compinit from Zim)
 source $XDG_CONFIG_HOME/zfunc/_gh
 compdef _gh gh

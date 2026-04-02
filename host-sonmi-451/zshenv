@@ -34,7 +34,6 @@ export BAT_PAGER=less
 
 ## Manual Pages
 export MANPATH=$MANPATH:$HOME/software/man
-export MANPAGER="sh -c 'awk '\''{ gsub(/\x1B\[[0-9;]*m/, \"\", \$0); gsub(/.\x08/, \"\", \$0); print }'\'' | bat -p -lman'"
 export MANWIDTH=80
 
 ## One Password CLI
