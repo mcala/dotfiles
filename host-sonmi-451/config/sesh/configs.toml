@@ -3,6 +3,10 @@ name = "All Config Files"
 path = "~/.config"
 
 [[session]]
+name = "etc"
+path = "/etc"
+
+[[session]]
 name = "Configure Tmux"
 path = "~/.config/tmux"
 
@@ -25,3 +29,7 @@ path = "~/.config/aerospace"
 [[session]]
 name = "Configure Ghostty"
 path = "~/.config/ghostty"
+
+[[session]]
+name = "Configure Global Claude"
+path = "~/.claude"
