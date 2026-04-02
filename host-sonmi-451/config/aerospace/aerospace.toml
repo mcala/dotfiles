@@ -134,7 +134,7 @@ alt-r = 'workspace Read'       # Reading: Books, Kindle, Readwise
 alt-s = 'workspace Schedule'   # Schedule: Calendar, Todoist, Trello
 alt-t = 'workspace Terminal'   # Terminal
 alt-u = 'workspace U'
-alt-v = 'workspace Develop'    # Dev: VSCode & Zed & Cursor -- Not used, put all in Terminal
+alt-v = 'workspace Develop'    # Dev: VSCode & Zed & Cursor 
 alt-w = 'workspace Write'      # Writing: Obsidian with accordion view
 alt-x = 'workspace Anki'       # Anki; just easy via left hand to get here
 alt-y = 'workspace Youtube'    # Play (Youtube)
@@ -166,7 +166,7 @@ alt-shift-r = 'move-node-to-workspace Read'
 alt-shift-s = 'move-node-to-workspace Schedule'
 alt-shift-t = 'move-node-to-workspace Terminal'
 alt-shift-u = 'move-node-to-workspace U'
-alt-shift-v = 'move-node-to-workspace V'
+alt-shift-v = 'move-node-to-workspace Develop'
 alt-shift-w = 'move-node-to-workspace Write'
 alt-shift-x = 'move-node-to-workspace Anki'
 alt-shift-y = 'move-node-to-workspace Youtube'
@@ -217,19 +217,6 @@ run = 'move-node-to-workspace AI'
 # Web Browsers
 # Arc requires multiple possibilities for how little Arc is displayed.
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-if.workspace = "Email"
-run = ['layout floating']
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'
-run = ['layout tiling', 'move-node-to-workspace Browser']
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.dia'
-run = ['layout tiling', 'move-node-to-workspace Browser']
-
-[[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = ['layout floating', 'move-node-to-workspace Browser']
 
@@ -271,6 +258,14 @@ run = 'move-node-to-workspace Browser'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.librewolf'
+run = 'move-node-to-workspace Browser'
+
+[[on-window-detected]]
+if.app-id = 'org.google.Chrome'
+run = 'move-node-to-workspace Browser'
+
+[[on-window-detected]]
+if.app-id = 'com.electron.horse'
 run = 'move-node-to-workspace Browser'
 
 # Dev Windows
@@ -316,6 +311,11 @@ run = ['layout floating', 'move-node-to-workspace Email']
 # Files: Finder
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace Files'
+
+# Files: Finder
+[[on-window-detected]]
+if.app-id = 'com.asiafu.Bloom'
 run = 'move-node-to-workspace Files'
 
 # Music: Music & MusicBox
@@ -425,6 +425,15 @@ run = 'move-node-to-workspace Youtube'
 [[on-window-detected]]
 if.app-name-regex-substring = 'zotero'
 run = 'move-node-to-workspace Zotero'
+
+# Develop
+[[on-window-detected]]
+if.app-name-regex-substring = 'Zed'
+run = 'move-node-to-workspace Develop'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'gitbutler'
+run = 'move-node-to-workspace Develop'
 
 # Day One
 [[on-window-detected]]
