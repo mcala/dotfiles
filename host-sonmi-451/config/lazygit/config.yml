@@ -16,15 +16,15 @@ gui:
     "semantic-release": "#FFD43B"
 
   branchColorPatterns:
-    "^main$": "#d3c6aa"     # White - primary branch
-    "^dev$": "#d3c6aa"      # White - development branch
-    "^feature/": "#a7c080"  # Green - main accent, growth/new features
-    "^fix/": "#e67e80"      # Red - problems/corrections
-    "^docs/": "#7fbbb3"     # Blue - information/documentation
-    "^build/": "#e69875"    # Orange - construction/tooling
-    "^chore/": "#859289"    # Gray - maintenance/mundane tasks
+    "^main$": "#d3c6aa" # White - primary branch
+    "^dev$": "#d3c6aa" # White - development branch
+    "^feature/": "#a7c080" # Green - main accent, growth/new features
+    "^fix/": "#e67e80" # Red - problems/corrections
+    "^docs/": "#7fbbb3" # Blue - information/documentation
+    "^build/": "#e69875" # Orange - construction/tooling
+    "^chore/": "#859289" # Gray - maintenance/mundane tasks
     "^refactor/": "#d699b6" # Purple - transformation/refinement
-    "^test/": "#dbbc7f"     # Yellow - attention/verification
+    "^test/": "#dbbc7f" # Yellow - attention/verification
 
   # If true, allow scrolling past the bottom of the content in the main window
   scrollPastBottom: true
@@ -101,7 +101,7 @@ git:
   skipHookPrefix: WIP
 
   # If true, periodically fetch from remote
-  autoFetch: true
+  autoFetch: false
 
   # If true, periodically refresh files and submodules
   autoRefresh: true
@@ -140,8 +140,6 @@ git:
 refresher:
   # File/submodule refresh interval in seconds.
   refreshInterval: 60
-  # Re-fetch interval in seconds.
-  fetchInterval: 86400
 
 customCommands:
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
@@ -180,6 +178,9 @@ customCommands:
           - name: "revert"
             description: "Reverts a previous commit"
             value: "revert"
+          - name: "data"
+            description: "Changes to data included in the repository"
+            value: "data"
           - name: "style"
             description: "Changes that do not affect the meaning of the code"
             value: "style"
@@ -202,9 +203,29 @@ customCommands:
         title: "message"
         key: "Message"
         initialValue: ""
+      - type: "menu"
+        key: "AITag"
+        title: "AI contribution level"
+        options:
+          - name: "None"
+            description: "No AI involvement"
+            value: ""
+          - name: "[AI]"
+            description: "AI generated the substantial or core work"
+            value: "[AI] "
+          - name: "[AI-minor]"
+            description: "AI made minor contributions (formatting, boilerplate, small fixes)"
+            value: "[AI-minor] "
+          - name: "[AI-review]"
+            description: "Human wrote the code; AI reviewed or debugged"
+            value: "[AI-review] "
+      - type: "input"
+        title: "AI details (what AI did and what human did)"
+        key: "AIDetails"
+        initialValue: ""
       - type: "confirm"
         key: "Confirm"
         title: "Commit"
         body: "Are you sure you want to commit?"
-    command: "git commit --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.Message}}'"
+    command: "git commit --signoff --message '{{.Form.Type}}{{ if .Form.Scope }}({{ .Form.Scope }}){{ end }}{{.Form.Breaking}}: {{.Form.AITag}}{{.Form.Message}}'{{ if .Form.AITag }} --trailer 'Co-Authored-By: Claude <noreply@anthropic.com>' --trailer 'AI-assisted: {{.Form.AIDetails}}'{{ end }}"
     loadingText: "Creating conventional commit..."
