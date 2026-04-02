@@ -117,7 +117,8 @@
         "allowUnsandboxedCommands": false,
         "network": {
             "allowedDomains": [
-                "api.github.com"
+                "api.github.com",
+                " www.njleg.state.nj.us"
             ],
             "allowUnixSockets": [
                 "/Users/mcala/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

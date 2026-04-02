@@ -24,8 +24,8 @@ Follow these steps exactly:
 ### 1. Validate Input
 
 Parse `$ARGUMENTS` to get the input file path and optional `-o output.xlsx`.
-Verify the file exists. If `-o` is not provided, default output is the input
-filename with `.xlsx` extension.
+Verify the file exists. If `-o` is not provided, the output filename will be
+determined after analysis (see step 4).
 
 Determine the input type by file extension:
 - **Video** (.mp4) → Follow steps 2a, 3a
@@ -50,16 +50,25 @@ Read tool in the next step.
 
 ### 3a. Read and Analyze (video)
 
-1. Read the transcript file using the Read tool.
-2. Read each frame image in the `<stem>_frames/` directory using the Read tool
+1. Check for a `.description` file alongside the video (e.g., `<stem>.description`).
+   If it exists, read it — this is the post caption and often contains the
+   complete list of items, especially when the video itself is just an intro.
+2. Read the transcript file using the Read tool.
+3. Read each frame image in the `<stem>_frames/` directory using the Read tool
    (they are numbered sequentially — read them in order).
-3. Analyze all the frames and transcript together. Determine the fields
-   described in "Analysis Fields" below.
+4. Analyze all sources together (caption, frames, and transcript). Prefer the
+   caption as the primary source for item names and metadata when available,
+   using frames and transcript to supplement. Determine the fields described
+   in "Analysis Fields" below.
 
 ### 3b. Read and Analyze (image)
 
-1. Read the image file directly using the Read tool.
-2. Analyze the image. Determine the fields described in "Analysis Fields" below.
+1. Check for a `.description` file alongside the image (e.g., `<stem>.description`).
+   If it exists, read it — this is the post caption and may contain additional
+   item details.
+2. Read the image file directly using the Read tool.
+3. Analyze all sources together (caption and image). Determine the fields
+   described in "Analysis Fields" below.
 
 ### Analysis Fields
 
@@ -77,6 +86,15 @@ For both video and image inputs, determine:
   give your best guess and append "(uncertain)".
 
 ### 4. Build Spreadsheet
+
+Choose the output filename. If `-o` was provided, use that. Otherwise, generate
+a short, descriptive snake_case filename based on the list content (not the
+source video/image name). Examples:
+- A list of Irish music recommendations → `irish_music_recs.xlsx`
+- 10 NYC stationery stores → `nyc_stationery_stores.xlsx`
+- Atheist philosophy books → `atheist_philosophy_books.xlsx`
+
+The file is saved in the same directory as the input file.
 
 Write the analysis as a JSON file named `<stem>_analysis.json` with this
 structure:

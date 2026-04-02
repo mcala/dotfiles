@@ -66,4 +66,4 @@
 [safe]
 	directory = /usr/local/texlive/2024/texmf-dist/tex/latex/moderncv
 [credential]
-  helper = !/usr/local/bin/op plugin run -- gh auth git-credential
+    helper = !/usr/local/bin/op plugin run -- gh auth git-credential

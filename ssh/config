@@ -5,4 +5,4 @@ Host *
   ForwardAgent yes
   AddKeystoAgent yes
   IdentityAgent "~/.ssh/sockets/1password/agent.sock"
-  ConnectTimeout 5
+  ConnectTimeout 10
