@@ -4,3 +4,6 @@
 *.DS_Store
 undofiles
 undofiles/*
+.claude/
+**/op/op-daemon.sock
+**/op/plugins.sh
