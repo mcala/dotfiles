@@ -1,0 +1,13 @@
+defaults
+tls on
+
+account default
+    host smtp.protonmail.ch
+    port 587
+    from service@mcallister.science
+    set_from_header on
+    auth on
+    user service@mcallister.science
+    password 3R25LXEDFZRCWU8U
+    auth plain
+
