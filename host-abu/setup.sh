@@ -40,7 +40,8 @@ $SUDO apt-get install -y --no-install-recommends \
   build-essential pkg-config \
   rcm locales \
   ripgrep fd-find bat fzf \
-  unzip xz-utils less
+  unzip xz-utils less \
+  python3 python3-pip python3-venv
 
 # Generate UTF-8 locale (avoids the "perl: warning: Setting locale failed" noise)
 log "Ensuring en_US.UTF-8 locale exists"
@@ -68,6 +69,13 @@ if ! command -v eza >/dev/null; then
   $SUDO chmod 644 /etc/apt/keyrings/gierens.gpg /etc/apt/sources.list.d/gierens.list
   $SUDO apt-get update -y
   $SUDO apt-get install -y eza || warn "eza install failed; you can drop the eza aliases or install manually."
+fi
+
+# ---- 1b. Node.js LTS (Mason needs npm for yamlls, tsserver, jsonls, ...) ---
+if ! command -v node >/dev/null || ! command -v npm >/dev/null; then
+  log "Installing Node.js LTS via NodeSource (required by Mason LSPs)"
+  curl -fsSL https://deb.nodesource.com/setup_lts.x | $SUDO -E bash -
+  $SUDO apt-get install -y nodejs
 fi
 
 # ---- 2. Neovim from official tarball ----------------------------------------
