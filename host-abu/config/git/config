@@ -1,0 +1,47 @@
+[user]
+    name = Andrew McAllister
+    email = andrew@mcallister.science
+[core]
+    editor = nvim
+    autocrlf = input
+    excludesfile = ~/.config/git/gitignore_global
+[alias]
+    co = switch
+    s = status -sb
+    st = status
+    blist = branch -v
+    hist = log --oneline --graph --decorate
+    undo = reset HEAD~1 --mixed
+[init]
+    defaultBranch = main
+[branch]
+    sort = -committerdate
+[tag]
+    sort = -version:refname
+[fetch]
+    prune = true
+    pruneTags = true
+[pull]
+    rebase = true
+[push]
+    default = simple
+    autoSetupRemote = true
+[rebase]
+    autoStash = true
+[merge]
+    conflictStyle = zdiff3
+[color]
+    ui = true
+    diff = always
+    status = always
+    branch = always
+    interactive = always
+    pager = true
+[color "status"]
+    changed = blue
+    untracked = red
+    added = green
+    branch = white
+[diff]
+    mnemonicprefix = true
+    colorMoved = default

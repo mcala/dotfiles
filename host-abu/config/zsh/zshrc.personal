@@ -1,0 +1,71 @@
+# Zsh bindings
+bindkey -r atuin-search 2>/dev/null
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
+bindkey '^W' forward-word
+bindkey '^B' backward-word
+
+alias weather='curl wttr.in'
+
+# nvim
+alias nv='nvim'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+
+# aliases to use XDG_CONFIG_HOME
+alias sqlite3='sqlite3 -init $XDG_CONFIG_HOME/sqlite/sqliterc'
+
+# eza (icons=auto so it gracefully degrades without nerd fonts)
+if command -v eza >/dev/null; then
+  alias ls='eza --color=always --icons=auto --group-directories-first'
+  alias lsa='eza --all --color=always --icons=auto --group-directories-first'
+  alias ldots='eza --all --group-directories-first .*'
+  alias ll='eza --long --git --git-repos-no-status --created --modified --no-user --no-permissions --group-directories-first --header --time-style='\''+%Y-%m-%d %H:%m'\'' --icons=auto --color=always'
+  alias lla='eza --all --long --git --git-repos-no-status --created --modified --no-user --no-permissions --group-directories-first --header --time-style='\''+%Y-%m-%d %H:%m'\'' --icons=auto --color=always'
+  alias tls='eza --tree --level=2 --group-directories-first --color=always --icons=auto'
+fi
+alias sl='ls'
+
+# colored grep (GNU grep is default on Linux)
+alias grep='grep --color -n'
+alias cgrep='grep --color=always -n'
+export GREP_COLORS="fn=00;34:mt=01;33:ln=32"
+
+# du size command
+alias size='du -hsc'
+alias size_all='du -hc'
+
+# moving commands
+alias ...='cd ../../'
+
+# find commands
+alias findd='find . -maxdepth 1 -mindepth 1 -type d'
+alias findf='find . -maxdepth 1 -mindepth 1 -type f'
+
+# tar aliases
+alias mtar='tar -cvzf'
+alias otar='tar -xvzf'
+
+# misc git
+alias lg='lazygit'
+alias chkpull='git remote update; git status -uno'
+
+# zsh Global aliases
+alias -g L="|less"
+alias -g C="| wc -l"
+
+zmodload zsh/mathfunc
+
+# Other zsh options
+setopt -o noclobber
+setopt histallowclobber
+setopt nobeep
+
+# Order files for ls in way you like
+LC_COLLATE='C'
+
+# when auto completing vim, ignore *.o and *.x
+zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
+
+# quickly updating general dot files
+alias loaddots='source $XDG_CONFIG_HOME/zsh/zshrc'
