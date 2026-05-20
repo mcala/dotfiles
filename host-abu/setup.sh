@@ -135,21 +135,31 @@ fi
 log "Installing Zim modules"
 zsh -c "export ZIM_HOME='$ZIM_HOME' ZDOTDIR='$HOME/.config/zsh' XDG_CONFIG_HOME='$HOME/.config' XDG_CACHE_HOME='$HOME/.cache'; source '$ZIM_HOME/zimfw.zsh' install" || warn "zimfw install failed; run \`zimfw install\` after first login"
 
-# ---- 6. tmux plugin manager -------------------------------------------------
+# ---- 6. oh-my-posh ----------------------------------------------------------
+if ! command -v oh-my-posh >/dev/null; then
+  log "Installing oh-my-posh to /usr/local/bin"
+  if [ -n "$SUDO" ]; then
+    curl -fsSL https://ohmyposh.dev/install.sh | $SUDO bash -s -- -d /usr/local/bin
+  else
+    curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d /usr/local/bin
+  fi
+fi
+
+# ---- 7. tmux plugin manager -------------------------------------------------
 TPM_DIR="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TPM_DIR" ]; then
   log "Installing tmux plugin manager"
   git clone --depth=1 https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-# ---- 7. Change login shell to zsh ------------------------------------------
+# ---- 8. Change login shell to zsh ------------------------------------------
 zsh_bin="$(command -v zsh)"
 if [ -n "$zsh_bin" ] && [ "${SHELL:-}" != "$zsh_bin" ]; then
   log "Changing default shell to $zsh_bin"
   $SUDO chsh -s "$zsh_bin" "$USER" || warn "chsh failed; run it manually"
 fi
 
-# ---- 8. Done ----------------------------------------------------------------
+# ---- 9. Done ----------------------------------------------------------------
 cat <<'EOF'
 
 ==> Bootstrap complete.
