@@ -7,6 +7,11 @@ source ${ZIM_HOME}/init.zsh
 source $XDG_CONFIG_HOME/zsh/zshrc.personal
 source $XDG_CONFIG_HOME/zsh/zshrc.computer
 
+# oh-my-posh prompt
+if command -v oh-my-posh >/dev/null; then
+  eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/mcala.omp.toml)"
+fi
+
 # nvm if installed
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
