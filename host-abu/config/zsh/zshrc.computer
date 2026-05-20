@@ -1,0 +1,19 @@
+# Computer file for abu (Digital Ocean remote, Linux)
+
+# Bat (Debian/Ubuntu ships it as `batcat`; setup.sh symlinks /usr/local/bin/bat)
+if command -v bat >/dev/null; then
+  export BAT_THEME="ansi"
+fi
+
+# fd is `fdfind` on Debian/Ubuntu; setup.sh symlinks /usr/local/bin/fd
+# ripgrep is `rg` from apt
+
+# UV / Python defaults
+export UV_PYTHON_PREFERENCE=only-managed
+export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
+
+# zoxide data dir
+export _ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide
+
+# Show the host on every prompt - cheap reminder this is the remote
+export PROMPT_SUBST=1

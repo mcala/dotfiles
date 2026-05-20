@@ -1,0 +1,32 @@
+# ZSH Environment for abu (Linux remote)
+# Author: Andrew McAllister (andrew@mcallister.science)
+
+## XDG Specification
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DATA_HOME=$HOME/.local/share
+
+## Application Configuration
+export ZIM_HOME=$XDG_CONFIG_HOME/zim
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export RCRC=$XDG_CONFIG_HOME/rcm/rcrc
+export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza
+
+## Neovim & Editors
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export NVIM_APPNAME=nvim-lazy
+export GIT_EDITOR=nvim
+
+## Pagers
+export PAGER=less
+export BAT_PAGER=less
+
+## Manual Pages
+export MANWIDTH=80
+
+# -- Functions
+FPATH=$XDG_CONFIG_HOME/zfunc:$XDG_CONFIG_HOME/zsh_functions:${FPATH}
+
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
