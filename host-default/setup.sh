@@ -119,6 +119,7 @@ log "Writing bootstrap ~/.rcrc"
 cat > "$HOME/.rcrc" <<EOF
 DOTFILES_DIRS="$DOTFILES_DIR"
 HOSTNAME="$HOSTNAME_TAG"
+TAGS="base"
 EXCLUDES="README* *.md setup.sh LICENSE* *.swp *.un~ .git .gitignore adr"
 EOF
 
