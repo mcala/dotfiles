@@ -74,8 +74,8 @@ fi
 
 # ---- Phase 1: sslh on :443 -------------------------------------------------
 log "Installing sslh"
-$SUDO DEBIAN_FRONTEND=noninteractive apt-get update -y
-$SUDO DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends sslh
+$SUDO env DEBIAN_FRONTEND=noninteractive apt-get update -y
+$SUDO env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends sslh
 
 log "Writing /etc/default/sslh (listen on :${SSLH_LISTEN_PORT})"
 $SUDO tee /etc/default/sslh >/dev/null <<EOF
