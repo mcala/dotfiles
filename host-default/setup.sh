@@ -43,7 +43,7 @@ $SUDO apt-get update -y
 $SUDO apt-get install -y --no-install-recommends \
   zsh tmux git curl wget ca-certificates gnupg \
   build-essential pkg-config \
-  rcm locales \
+  rcm locales ncurses-bin \
   ripgrep fd-find bat fzf \
   unzip xz-utils less
 
@@ -120,7 +120,7 @@ cat > "$HOME/.rcrc" <<EOF
 DOTFILES_DIRS="$DOTFILES_DIR"
 HOSTNAME="$HOSTNAME_TAG"
 TAGS="base claude"
-EXCLUDES="README* setup.sh harden-remote.sh LICENSE* *.swp *.un~ .git .gitignore adr"
+EXCLUDES="README* setup.sh harden-remote.sh *.terminfo LICENSE* *.swp *.un~ .git .gitignore adr"
 EOF
 
 log "Running rcup -v"
@@ -209,14 +209,21 @@ if ! command -v claude >/dev/null; then
   curl -fsSL https://claude.ai/install.sh | bash || warn "Claude Code install failed"
 fi
 
-# ---- 11. Change login shell to zsh -----------------------------------------
+# ---- 11. Ghostty terminfo (TUIs misbehave without it when SSH'd from Ghostty/tmux)
+TERMINFO_SRC="$DOTFILES_DIR/host-default/xterm-ghostty.terminfo"
+if [ -f "$TERMINFO_SRC" ] && ! infocmp xterm-ghostty >/dev/null 2>&1; then
+  log "Installing Ghostty terminfo (xterm-ghostty)"
+  $SUDO tic -x "$TERMINFO_SRC" || warn "tic failed; check ncurses-bin"
+fi
+
+# ---- 12. Change login shell to zsh -----------------------------------------
 zsh_bin="$(command -v zsh)"
 if [ -n "$zsh_bin" ] && [ "${SHELL:-}" != "$zsh_bin" ]; then
   log "Changing default shell to $zsh_bin"
   $SUDO chsh -s "$zsh_bin" "$USER" || warn "chsh failed; run it manually"
 fi
 
-# ---- 12. Done ---------------------------------------------------------------
+# ---- 13. Done ---------------------------------------------------------------
 cat <<'EOF'
 
 ==> Bootstrap complete.
