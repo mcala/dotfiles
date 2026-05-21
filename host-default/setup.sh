@@ -174,6 +174,8 @@ Next steps:
   1. Log out and back in (or `exec zsh -l`) to land in zsh.
   2. Inside tmux, run prefix + I (capital i) to install tmux plugins.
   3. Open `nvim` once — LazyVim will install plugins on first run.
-  4. (Optional) drop your SSH key in ~/.ssh/authorized_keys if you haven't.
+  4. Make sure ~/.ssh/authorized_keys has your public key.
+  5. (Optional) Run ./harden-remote.sh to put sshd on :443 (via sslh)
+     and disable password auth. Read the script header first.
 
 EOF
