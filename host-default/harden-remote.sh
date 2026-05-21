@@ -15,7 +15,8 @@
 #        PubkeyAuthentication yes
 #        PermitRootLogin prohibit-password   (root still allowed via key)
 #   3. (Opt-in, NEW_USER=name) Create a sudo-group user with the same
-#      authorized_keys file you're logged in with.
+#      authorized_keys file you're logged in with. A 20-char random sudo
+#      password is generated and printed (override with NEW_USER_PASSWORD).
 #   4. (Opt-in, LOCK_ROOT=1) Flip PermitRootLogin to `no`. Refuses unless
 #      a non-root sudoer exists.
 #
@@ -35,6 +36,8 @@
 #
 # Env knobs:
 #   NEW_USER          create + key-provision this user, add to sudo group
+#   NEW_USER_PASSWORD if NEW_USER is set, use this as their sudo password
+#                     instead of a generated random one
 #   LOCK_ROOT         "1" → PermitRootLogin no (requires a non-root sudoer)
 #   SSLH_LISTEN_PORT  default 443
 #   SSLH_TLS_TARGET   where sslh routes TLS traffic; default 127.0.0.1:4443
@@ -128,6 +131,22 @@ if [ -n "$NEW_USER" ]; then
   $SUDO install -d -m 700 -o "$NEW_USER" -g "$NEW_USER" "$user_home/.ssh"
   $SUDO install -m 600 -o "$NEW_USER" -g "$NEW_USER" \
     "$HOME/.ssh/authorized_keys" "$user_home/.ssh/authorized_keys"
+
+  # adduser --disabled-password leaves a `*` in /etc/shadow so `sudo` can't
+  # authenticate the user. Set a password (honors NEW_USER_PASSWORD env var;
+  # otherwise generates a 20-char random one and prints it).
+  if $SUDO grep -qE "^${NEW_USER}:[!*]" /etc/shadow; then
+    user_password="${NEW_USER_PASSWORD:-$(LC_ALL=C tr -dc 'A-Za-z0-9' </dev/urandom | head -c 20)}"
+    echo "${NEW_USER}:${user_password}" | $SUDO chpasswd
+    if [ -z "${NEW_USER_PASSWORD:-}" ]; then
+      printf '\n\033[1;33m================================================================\033[0m\n'
+      printf '\033[1;33m   Sudo password for %s:\033[0m  \033[1;36m%s\033[0m\n' "$NEW_USER" "$user_password"
+      printf '\033[1;33m   RECORD THIS NOW — it will not be shown again.\033[0m\n'
+      printf '\033[1;33m================================================================\033[0m\n\n'
+    fi
+  else
+    log "User $NEW_USER already has a password; leaving it alone"
+  fi
 
   cat <<EOF
 
