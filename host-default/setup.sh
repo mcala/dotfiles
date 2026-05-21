@@ -119,8 +119,8 @@ log "Writing bootstrap ~/.rcrc"
 cat > "$HOME/.rcrc" <<EOF
 DOTFILES_DIRS="$DOTFILES_DIR"
 HOSTNAME="$HOSTNAME_TAG"
-TAGS="base"
-EXCLUDES="README* *.md setup.sh LICENSE* *.swp *.un~ .git .gitignore adr"
+TAGS="base claude"
+EXCLUDES="README* setup.sh harden-remote.sh LICENSE* *.swp *.un~ .git .gitignore adr"
 EOF
 
 log "Running rcup -v"
@@ -151,21 +151,72 @@ if ! command -v oh-my-posh >/dev/null; then
   fi
 fi
 
-# ---- 7. tmux plugin manager -------------------------------------------------
+# ---- 7. atuin (shell history sync + up-arrow search) -----------------------
+if ! command -v atuin >/dev/null; then
+  case "$(uname -m)" in
+    x86_64) atuin_arch="x86_64" ;;
+    aarch64|arm64) atuin_arch="aarch64" ;;
+    *) warn "Unsupported arch $(uname -m); skipping atuin install"; atuin_arch="" ;;
+  esac
+  if [ -n "$atuin_arch" ]; then
+    log "Installing atuin (${atuin_arch}) to /usr/local/bin"
+    tmp="$(mktemp -d)"
+    tarball="atuin-${atuin_arch}-unknown-linux-gnu.tar.gz"
+    curl -fsSL "https://github.com/atuinsh/atuin/releases/latest/download/${tarball}" \
+      -o "$tmp/$tarball"
+    tar -C "$tmp" -xzf "$tmp/$tarball"
+    atuin_bin="$(find "$tmp" -maxdepth 3 -type f -name atuin -perm -u+x | head -n1)"
+    if [ -n "$atuin_bin" ]; then
+      $SUDO install -m 755 "$atuin_bin" /usr/local/bin/atuin
+    else
+      warn "atuin binary not found in unpacked tarball; skipping"
+    fi
+    rm -rf "$tmp"
+  fi
+fi
+
+# ---- 8. tmux plugin manager -------------------------------------------------
 TPM_DIR="$HOME/.config/tmux/plugins/tpm"
 if [ ! -d "$TPM_DIR" ]; then
   log "Installing tmux plugin manager"
   git clone --depth=1 https://github.com/tmux-plugins/tpm "$TPM_DIR"
 fi
 
-# ---- 8. Change login shell to zsh ------------------------------------------
+# ---- 9. uv + Astral tools (ruff, ty) ---------------------------------------
+# uv goes in /usr/local/bin so every user gets it. Tools live in /opt/uv/tools
+# with binaries linked into /usr/local/bin, so `ruff` / `ty` work for all users.
+if ! command -v uv >/dev/null; then
+  log "Installing uv to /usr/local/bin"
+  $SUDO mkdir -p /usr/local/bin
+  curl -LsSf https://astral.sh/uv/install.sh \
+    | $SUDO env UV_INSTALL_DIR=/usr/local/bin INSTALLER_NO_MODIFY_PATH=1 sh
+fi
+
+if command -v uv >/dev/null; then
+  $SUDO mkdir -p /opt/uv/tools
+  for tool in ruff ty; do
+    if ! command -v "$tool" >/dev/null; then
+      log "Installing $tool via uv tool"
+      $SUDO env UV_TOOL_DIR=/opt/uv/tools UV_TOOL_BIN_DIR=/usr/local/bin \
+        uv tool install "$tool" || warn "uv tool install $tool failed"
+    fi
+  done
+fi
+
+# ---- 10. Claude Code (installs for the user running this script) -----------
+if ! command -v claude >/dev/null; then
+  log "Installing Claude Code via official installer"
+  curl -fsSL https://claude.ai/install.sh | bash || warn "Claude Code install failed"
+fi
+
+# ---- 11. Change login shell to zsh -----------------------------------------
 zsh_bin="$(command -v zsh)"
 if [ -n "$zsh_bin" ] && [ "${SHELL:-}" != "$zsh_bin" ]; then
   log "Changing default shell to $zsh_bin"
   $SUDO chsh -s "$zsh_bin" "$USER" || warn "chsh failed; run it manually"
 fi
 
-# ---- 9. Done ----------------------------------------------------------------
+# ---- 12. Done ---------------------------------------------------------------
 cat <<'EOF'
 
 ==> Bootstrap complete.
@@ -177,5 +228,8 @@ Next steps:
   4. Make sure ~/.ssh/authorized_keys has your public key.
   5. (Optional) Run ./harden-remote.sh to put sshd on :443 (via sslh)
      and disable password auth. Read the script header first.
+  6. `claude` is installed for the user that ran this script. Any other
+     user that wants it should run:
+       curl -fsSL https://claude.ai/install.sh | bash
 
 EOF
