@@ -1,3 +1,3 @@
 HOSTNAME="sonmi-451"
-TAGS="base"
-
+TAGS="base claude"
+EXCLUDES="README* setup.sh harden-remote.sh LICENSE* *.swp *.un~ .git .gitignore adr"
