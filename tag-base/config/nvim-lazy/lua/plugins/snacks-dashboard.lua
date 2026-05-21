@@ -6,14 +6,18 @@ return {
         pick = function(cmd, opts)
           return LazyVim.pick(cmd, opts)()
         end,
-        header = [[
-   ███████╗ ██████╗ ███╗   ██╗███╗   ███╗██╗      ██╗  ██╗███████╗ ██╗
-   ██╔════╝██╔═══██╗████╗  ██║████╗ ████║██║      ██║  ██║██╔════╝███║
-   ███████╗██║   ██║██╔██╗ ██║██╔████╔██║██║█████╗███████║███████╗╚██║
-   ╚════██║██║   ██║██║╚██╗██║██║╚██╔╝██║██║╚════╝╚════██║╚════██║ ██║
-   ███████║╚██████╔╝██║ ╚████║██║ ╚═╝ ██║██║           ██║███████║ ██║
-   ╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝╚═╝           ╚═╝╚══════╝ ╚═╝
- ]],
+        header = (function()
+          -- Render the hostname as an ANSI Shadow figlet banner. Override
+          -- the displayed name with $DASHBOARD_HOSTNAME (useful when the
+          -- system hostname is ugly, e.g. ubuntu-2gb-nyc1-01).
+          local name = (os.getenv("DASHBOARD_HOSTNAME") or vim.fn.hostname()):upper()
+          local font_dir = vim.fn.stdpath("config") .. "/figlet-fonts"
+          local lines = vim.fn.systemlist({ "figlet", "-d", font_dir, "-f", "ansi-shadow", name })
+          if vim.v.shell_error == 0 and #lines > 0 then
+            return "\n   " .. table.concat(lines, "\n   ") .. "\n "
+          end
+          return "\n   " .. name .. "\n "
+        end)(),
         ---@type snacks.dashboard.Item[]
         keys = {
           { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
@@ -36,38 +40,14 @@ return {
         { section = "header", padding = 2 },
         { section = "startup", padding = 1 },
         { section = "keys", padding = 1, gap = 0.0 },
-        { pane = 1, icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, limit = 8 },
+        { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1, limit = 8 },
         {
-          pane = 1,
           icon = " ",
           title = "Recent Files",
           section = "recent_files",
           indent = 2,
           padding = 1,
           limit = 8,
-        },
-        {
-          pane = 2,
-          section = "terminal",
-          enabled = function()
-            return Snacks.git.get_root() ~= nil
-          end,
-          cmd = "onefetch --no-art --no-title -d languages -d churn -d size -d version -d url -t 0 0 0 12 12 6",
-          padding = 1,
-          ttl = 10 * 60,
-        },
-        {
-          pane = 2,
-          icon = " ",
-          title = "Git Status",
-          section = "terminal",
-          enabled = function()
-            return Snacks.git.get_root() ~= nil
-          end,
-          cmd = "git status --short --branch --renames",
-          padding = 1,
-          ttl = 5 * 60,
-          indent = 3,
         },
       },
     },

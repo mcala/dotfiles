@@ -45,7 +45,8 @@ $SUDO apt-get install -y --no-install-recommends \
   build-essential pkg-config \
   rcm locales ncurses-bin \
   ripgrep fd-find bat fzf \
-  unzip xz-utils less
+  unzip xz-utils less \
+  figlet
 
 # Generate UTF-8 locale (avoids the "perl: warning: Setting locale failed" noise)
 log "Ensuring en_US.UTF-8 locale exists"
