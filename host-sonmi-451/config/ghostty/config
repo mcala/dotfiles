@@ -12,14 +12,16 @@ theme = everforest-dark-soft
 #theme = light:nord-light, dark:nord
 
 # Typeface Settings
-font-family = "Inconsolata Nerd Font"
-font-size = 22
+#font-family = "Iosevka Term"
+#font-family = "VictorMono Nerd Font"
+font-family = "JetbrainsMono Nerd Font"
+font-size = 24
 font-thicken = false
 bold-is-bright = true
 
 # Window Settings
 window-decoration = auto
-window-title-font-family = "Inconsolata Nerd Font"
+#window-title-font-family = "Inconsolata Nerd Font"
 window-subtitle = false
 window-save-state = always
 window-padding-x = 5
@@ -41,20 +43,42 @@ quick-terminal-size = 95%, 75%
 # Keybinding
 keybind = global:command+control+shift+t=toggle_quick_terminal
 
-## Sending keystrokes to manage tmux windows
+# sending keystrokes to manage tmux windows:
+# I'm not really sure why I decided to not just make the direct keystrokes the
+# bindings?
 
 ### Command palette with Sesh
+# bind k to T
 keybind = command+k=text:\x00\x54
 
 ### windows
+# bind n to c
+# bind h to p
+# bind l to n
 keybind = command+n=text:\x00\x63
 keybind = command+h=text:\x00\x70
 keybind = command+l=text:\x00\x6e
 
-# TODO: For some reason can't get these to work...
-# keybind = command+1=text:\x00\x31
-# keybind = command+2=text:\x00\x32
-# keybind = command+3=text:\x00\x33
+# known bug in ghostty that you need to unbind 1-9
+keybind = cmd+1=unbind
+keybind = cmd+physical:one=unbind
+keybind = command+1=text:\x00\x31
+
+keybind = cmd+2=unbind
+keybind = cmd+physical:two=unbind
+keybind = command+2=text:\x00\x32
+
+keybind = cmd+3=unbind
+keybind = cmd+physical:three=unbind
+keybind = command+3=text:\x00\x33
+
+keybind = cmd+4=unbind
+keybind = cmd+physical:four=unbind
+keybind = command+4=text:\x00\x34
+
+keybind = cmd+5=unbind
+keybind = cmd+physical:five=unbind
+keybind = command+5=text:\x00\x35
 
 ### panes
 ### **Switching** between panes is handled within tmux/nvim

@@ -301,6 +301,10 @@ if.window-title-regex-substring = 'NJ Legislature'
 run = 'move-node-to-workspace Email'
 
 [[on-window-detected]]
+if.app-id = 'com.readdle.SparkDesktop'
+run = 'move-node-to-workspace Email'
+
+[[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = 'layout floating'
 
@@ -360,6 +364,10 @@ if.app-id = 'com.apple.iBooks'
 run = 'move-node-to-workspace Read'
 
 [[on-window-detected]]
+if.app-id = 'net.kovidgoyal.calibre'
+run = 'move-node-to-workspace Read'
+
+[[on-window-detected]]
 if.app-id = 'com.amazon.Lassen'
 run = 'move-node-to-workspace Read'
 
@@ -378,6 +386,10 @@ run = 'move-node-to-workspace Schedule'
 
 [[on-window-detected]]
 if.app-id = 'com.todoist.mac.Todoist'
+run = 'move-node-to-workspace Schedule'
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
 run = 'move-node-to-workspace Schedule'
 
 [[on-window-detected]]

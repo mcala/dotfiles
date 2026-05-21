@@ -18,6 +18,7 @@ gui:
   branchColorPatterns:
     "^main$": "#d3c6aa" # White - primary branch
     "^dev$": "#d3c6aa" # White - development branch
+    "^feat/": "#a7c080" # Green - main accent, growth/new features
     "^feature/": "#a7c080" # Green - main accent, growth/new features
     "^fix/": "#e67e80" # Red - problems/corrections
     "^docs/": "#7fbbb3" # Blue - information/documentation
@@ -86,6 +87,7 @@ gui:
 git:
   pagers:
     - pager: delta --dark --paging=never
+  overrideGpg: true
 
   # Config relating to committing
   commit:

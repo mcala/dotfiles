@@ -37,6 +37,7 @@
 [rebase]
     autoStash = true
 [merge]
+    ff = only
     conflictStyle = zdiff3
 [color]
     ui = true
@@ -62,7 +63,8 @@
     side-by-side = true
     dark = true
 [include]
-    path = "./themes.gitconfig"
+    path = "/Users/mcala/MacPorts/share/git-delta/themes.gitconfig"
+
 [safe]
 	directory = /usr/local/texlive/2024/texmf-dist/tex/latex/moderncv
 [credential]

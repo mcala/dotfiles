@@ -8,8 +8,17 @@ gh() {
 }
 # stupid man shit
 man() {
-    command man "$@" | col -b | bat -p -lman
+    #command man "$@" | col -b | bat -p -lman
+    command man "$@" 
 }
+
+alias nix='noglob nix'
+
+alias checkmsg="~/mcp/imessage-playground/imsgn chats --limit 10"
+alias checkcz="~/mcp/imessage-playground/imsgn history --chat-id 10 --limit 10"
+alias checkmom="~/mcp/imessage-playground/imsgn history --chat-id 1274 --limit 10"
+alias checkdad="~/mcp/imessage-playground/imsgn history --chat-id 643 --limit 10"
+
 # Source gh completions directly (must be after compinit from Zim)
 source $XDG_CONFIG_HOME/zfunc/_gh
 compdef _gh gh
@@ -22,9 +31,9 @@ export UV_PYTHON_PREFERENCE=only-managed
 export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
 
 # Bat
-export BAT_THEME="everforest"
-alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
-alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+#export BAT_THEME="everforest"
+#alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+#alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 
 # zoxide
 export _ZO_DATA_DIR=$XDG_CONFIG_HOME/zoxide

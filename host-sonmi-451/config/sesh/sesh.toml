@@ -21,13 +21,13 @@
 #     * disable_startup_command = true
 
 import = [
-    "/Users/mcala/.config/sesh/code.toml",
-    "/Users/mcala/.config/sesh/configs.toml",
-    "/Users/mcala/.config/sesh/projects.toml",
+  "/Users/mcala/.config/sesh/code.toml",
+  "/Users/mcala/.config/sesh/configs.toml",
+  "/Users/mcala/.config/sesh/projects.toml",
 ]
 
-[default_session]
-startup_command = "nvim -c ':FzfLua files'"
+#[default_session]
+#startup_command = "nvim -c ':FzfLua files'"
 
 [[session]]
 name = "Home"
@@ -41,9 +41,27 @@ startup_command = "sudo port -v selfupdate"
 [[session]]
 name = "Downloads"
 path = "~/Downloads"
-startup_command = "yazi"
 
 [[session]]
-name = "btop"
-path = "~"
-startup_command = "btop"
+name = "☕️ Caffeinate"
+path = "~/"
+
+[[wildcard]]
+pattern = "~/Documents/3_resources/code/1_active/*"
+preview_command = "eza --all --git --icons --color=always {}"
+startup_command = "git status"
+windows = ["git"]
+
+[[wildcard]]
+pattern = "~/Documents/3_resources/code/1_active/nj_legislature/*"
+preview_command = "eza --all --git --icons --color=always {}"
+startup_command = "git status"
+dir_length = 2
+
+[[wildcard]]
+pattern = "~/.config/*"
+preview_command = "eza --all --git --icons --color=always {}"
+
+[[window]]
+name = "git"
+startup_script = "lazygit"

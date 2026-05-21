@@ -54,6 +54,10 @@ def make_sesh_block(directory: Path) -> str:
 
 
 def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(message)s",
+    )
     logging.info("Generating Sesh code configuration...")
     try:
         projects: list[Path] = find_dirs()

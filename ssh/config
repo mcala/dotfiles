@@ -6,3 +6,12 @@ Host *
   AddKeystoAgent yes
   IdentityAgent "~/.ssh/sockets/1password/agent.sock"
   ConnectTimeout 10
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
+
+Host abu
+    HostName 167.172.156.91
+    User root

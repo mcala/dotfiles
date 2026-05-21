@@ -9,17 +9,16 @@
 
 We use the conventional commit specification:
 
-```
-<type>(optional scope): <description>
-
-<optional body>
+```text
+<type>(optional scope): <description> <optional body>
 
 <optional footer(s)>
 ```
 
 - type: feat, fix, docs, style, refactor, test, chore, data, build, revert
 - optional scope: Changed components/modules
-- breaking_change_indicator: if the commit has a breaking change, an exclamation point is used before the colon after the parenthesis of the scope are closed
+- breaking_change_indicator: if the commit has a breaking change, an exclamation point is used before the colon after
+  the parenthesis of the scope are closed
 - description: Summary of changes (aim for 80 characters or less)
 - optional body: Detailed description (optional)
 - optional footer(s): Breaking changes, issue reference (optional)
@@ -41,7 +40,8 @@ The following are the ONLY types that are allowed.
 
 ### Scope
 
-A scope MAY be provided after a type. A scope MUST consist of a noun describing a section of the codebase surrounded by parenthesis.
+A scope MAY be provided after a type. A scope MUST consist of a noun describing a section of the codebase surrounded by
+parenthesis.
 
 <example>
 fix(parser):
@@ -49,7 +49,8 @@ fix(parser):
 
 ### Description
 
-A description MUST immediately follow the colon and space after the type/scope prefix. The description is a short summary of the code changes.
+A description MUST immediately follow the colon and space after the type/scope prefix. The description is a short
+summary of the code changes.
 
 <example>
 fix: array parsing issue when multiple spaces were contained in string.
@@ -57,24 +58,28 @@ fix: array parsing issue when multiple spaces were contained in string.
 
 ### Body
 
-A longer commit body MAY be provided after the short description, providing additional contextual information about the code changes. The body MUST begin one blank line after the description.
+A longer commit body MAY be provided after the short description, providing additional contextual information about the
+code changes. The body MUST begin one blank line after the description.
 
 A commit body is free-form and MAY consist of any number of newline separated paragraphs.
 
 ### Footer
 
-If there are breaking changes, they are elaborated on in the footer as follows, to make identifying and grepping for them easier.
-`BREAKING CHANGE:``
+If there are breaking changes, they are elaborated on in the footer as follows, to make identifying and grepping for
+them easier. `BREAKING CHANGE:``
 
 ## Breaking Changes
 
-A commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope, introduces a breaking API change (correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
+A commit that has a footer BREAKING CHANGE:, or appends a! after the type/scope, introduces a breaking API change
+(correlating with MAJOR in Semantic Versioning). A BREAKING CHANGE can be part of commits of any type.
 
-If ! is used, BREAKING CHANGE: MAY be omitted from the footer section, and the commit description SHALL be used to describe the breaking change.
+If! is used, BREAKING CHANGE: MAY be omitted from the footer section, and the commit description SHALL be used to
+describe the breaking change.
 
 ### Breaking Changes Header Example
 
-If there are breaking changes, you indicate this by an exclamation point `!` before the colon in the header of the commit message.
+If there are breaking changes, you indicate this by an exclamation point `!` before the colon in the header of the
+commit message.
 <example>
 feat(main)!: Rewrites main function
 </example>
@@ -83,7 +88,7 @@ feat(main)!: Rewrites main function
 
 <example>
 
-```
+```text
 feat(reso_tweak)!: Updates method for handling the duplicate resolutions
 recipient information into the summary column.
 

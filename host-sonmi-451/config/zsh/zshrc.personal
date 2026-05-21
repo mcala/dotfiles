@@ -5,18 +5,11 @@ bindkey '^E' end-of-line
 bindkey '^W' forward-word
 bindkey '^B' backward-word
 
-alias weather='curl wttr.in'
 
 #alias bat="bat --theme='base16-256'"
 # Use bad for help
-alias -g -- -h='-h 2>&1 | bat --language=help'
-alias -g -- --help='--help 2>&1 | bat --language=help'
-
-# python semantic-release
-alias sr-dry='semantic-release -vv --noop version'
-alias sr-change='semantic-release -vv version --no-commit --no-tag'
-alias sr-local-release='semantic-release -v version --no-push --no-vcs-release'
-alias sr-release='semantic-release version --push --vcs-release'
+#alias -g -- -h='-h 2>&1 | bat --language=help'
+#alias -g -- --help='--help 2>&1 | bat --language=help'
 
 # nvim
 alias nv='nvim'
@@ -68,15 +61,13 @@ alias findf='find . -maxdepth 1 -mindepth 1 -type f'
 alias mtar='tar -cvzf'
 alias otar='tar -xvzf'
 
-# misc aliases
-
 # misc git
 alias lg='lazygit'
 alias chkpull='git remote update; git status -uno'
 
 # zsh Global aliases
 alias -g L="|less"
-alias -g C="| wc -l"
+alias -g C='| pbcopy'
 alias -g O="|xargs ls -G"
 
 zmodload zsh/mathfunc

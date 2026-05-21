@@ -17,7 +17,7 @@ unalias gh 2>/dev/null
 
 # === COMPLETIONS
 # === nvm initialize ===
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
@@ -25,7 +25,6 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(atuin init zsh)"  # Loads interactive search features, not completions
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(rbenv init - --no-rehash bash)"
-eval "$(but completions zsh)"
 
 source /Users/mcala/.config/broot/launcher/bash/br
 
@@ -39,6 +38,8 @@ path=(
     $MACPORTS_PREFIX/sbin      # MacPorts system binaries
     $HOME/.local/bin           # User-installed executables (uv, etc.)
     /Applications/Obsidian.app/Contents/MacOS   # obsidian cli
+    /Applications/calibre.app/Contents/MacOS/   # calibre cli
+    /Applications/Bear.app/Contents/MacOS/   # calibre cli
     $BUN_INSTALL/bin
     $path
 )
@@ -47,3 +48,11 @@ path=(
 [[ -d /Library/TeX/texbin ]] && path+=(/Library/TeX/texbin)
 
 export PATH
+
+export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/npmrc"
+
+# Don't install packages from npm or uv newer than 14 days
+# Can unset environment variable if needed to get around limit
+#export NPM_CONFIG_BEFORE="$(date -u -v-14d +%Y-%m-%dT%H:%M:%SZ)"
+export UV_EXCLUDE_NEWER="$(date -u -v-14d +%Y-%m-%dT%H:%M:%SZ)"
+
