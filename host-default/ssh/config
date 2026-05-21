@@ -1,7 +1,0 @@
-Host *
-  ControlMaster auto
-  ControlPath ~/.ssh/sockets/%r@%h-%p
-  ControlPersist 4h
-  ForwardAgent yes
-  AddKeysToAgent yes
-  ConnectTimeout 10
