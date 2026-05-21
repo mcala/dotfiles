@@ -82,8 +82,8 @@ LC_COLLATE='C'
 # when auto completing vim, ignore *.o and *.x
 zstyle ':completion:*:*:vim:*:*files' ignored-patterns '*.o' '*.x' '*.mod'
 
-# quickly reload dot files
-alias loaddots='source $XDG_CONFIG_HOME/zsh/.zshrc'
+# quickly reload dot files (zshrc deployed by rcm, .zshrc is a post-up symlink)
+alias loaddots='source $XDG_CONFIG_HOME/zsh/zshrc'
 
 # yazi: y() opens yazi and cd's to its exit directory
 function y() {

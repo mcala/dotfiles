@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+# rcm strips/skips leading dots in subdirectory files, so the canonical
+# zsh files in tag-base ship as `zshrc` and `zimrc`. zsh/Zim look for
+# them at $ZDOTDIR/.zshrc and $ZDOTDIR/.zimrc, so we point dotted
+# symlinks at the no-dot files after every rcup. Idempotent.
+
+set -eu
+
+zdir="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+
+# Only act if the no-dot files were deployed (i.e. tag-base is applied).
+[ -e "$zdir/zshrc" ] || exit 0
+
+ln -sfn zshrc "$zdir/.zshrc"
+[ -e "$zdir/zimrc" ] && ln -sfn zimrc "$zdir/.zimrc"

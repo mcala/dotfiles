@@ -1,4 +1,6 @@
 # Canonical cross-host .zshrc. Deployed by rcm via tag-base.
+# rcm copies this file to $XDG_CONFIG_HOME/zsh/zshrc; the post-up hook
+# symlinks .zshrc -> zshrc so zsh actually loads it.
 # Per-host overrides live in host-<name>/config/zsh/zshrc.computer.
 
 # Zim
