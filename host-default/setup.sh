@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
-# Bootstrap a fresh Debian/Ubuntu host (e.g. a Digital Ocean droplet) to use
-# this dotfiles repo for the "abu" host profile.
+# Bootstrap a fresh Debian/Ubuntu host (e.g. a cloud VM) to use this
+# dotfiles repo. Picks up tag-base/ (cross-host baseline) plus the
+# host-default/ profile by default.
 #
 # Idempotent: re-running won't reinstall already-installed pieces.
 #
-# Usage:
-#   curl -fsSL https://raw.githubusercontent.com/mcala/dotfiles/main/host-abu/setup.sh | bash
+# Usage (generic remote, picks up host-default):
+#   curl -fsSL https://raw.githubusercontent.com/mcala/dotfiles/main/host-default/setup.sh | bash
 # or, if you've already cloned:
-#   ~/.dotfiles/host-abu/setup.sh
+#   ~/.dotfiles/host-default/setup.sh
+#
+# To bootstrap a remote that needs its own host directory, override the
+# hostname tag and ship a sibling host-<name>/:
+#   HOSTNAME_TAG=<name> ~/.dotfiles/host-default/setup.sh
 
 set -euo pipefail
 
 # ---- Config (override via env) ----------------------------------------------
 REPO_URL="${REPO_URL:-https://github.com/mcala/dotfiles.git}"
 DOTFILES_DIR="${DOTFILES_DIR:-$HOME/.dotfiles}"
-HOSTNAME_TAG="${HOSTNAME_TAG:-abu}"
+HOSTNAME_TAG="${HOSTNAME_TAG:-default}"
 NVIM_VERSION="${NVIM_VERSION:-stable}"
 
 log() { printf '\033[1;32m==>\033[0m %s\n' "$*"; }

@@ -1,4 +1,5 @@
-# Computer file for abu (Digital Ocean remote, Linux)
+# Computer file for the generic remote (host-default).
+# Linux-remote-flavored overrides applied after tag-base/zshrc.personal.
 
 # Bat (Debian/Ubuntu ships it as `batcat`; setup.sh symlinks /usr/local/bin/bat)
 if command -v bat >/dev/null; then
