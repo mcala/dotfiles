@@ -1,0 +1,28 @@
+# Mac-specific overrides for kern.
+# Sourced by the canonical .zshrc (tag-base) after zshrc.personal,
+# so anything here overrides the cross-host defaults.
+
+# GNU userland from MacPorts (coreutils/grep/gsed) — prefer the g-prefixed
+# tools when present. Guarded so the shell is clean before `port install`.
+if command -v ggrep >/dev/null; then
+  alias grep='ggrep --color -n'
+  alias cgrep='ggrep --color=always -n'
+fi
+command -v gshred >/dev/null && alias shred='gshred'
+
+# Pipe to the macOS clipboard (overrides the cross-host `C` global alias)
+alias -g C='| pbcopy'
+
+# UV and Python
+export UV_PYTHON_PREFERENCE=only-managed
+export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
+
+# PATH (per-host entries; canonical .zshrc dedups via `typeset -U`)
+typeset -U PATH path
+path=(
+    $HOME/.local/bin
+    $MACPORTS_PREFIX/bin
+    $MACPORTS_PREFIX/sbin
+    $path
+)
+export PATH

@@ -1,0 +1,37 @@
+# ZSH Environment for kern
+# Author: Andrew McAllister (andrew@mcallister.science)
+
+# -- Fallback for $HOME
+export HOME=${HOME:-/Users/mcala}
+
+## XDG Specification
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_DATA_HOME=$HOME/.local/share
+
+## MacPorts (kern uses the default prefix; sonmi-451 uses /Users/mcala/MacPorts)
+export MACPORTS_PREFIX=/opt/local
+
+## Application Configuration
+export ZIM_HOME=$XDG_CONFIG_HOME/zim
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh
+export RCRC=$XDG_CONFIG_HOME/rcm/rcrc
+export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza
+
+## Neovim & Editors
+export EDITOR=nvim
+export VISUAL=$EDITOR
+export NVIM_APPNAME=nvim-lazy
+export GIT_EDITOR=nvim
+
+## Pagers
+export PAGER=less
+export BAT_PAGER=less
+export MANWIDTH=80
+export MANPAGER='less'
+
+## 1Password CLI / SSH agent
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+[[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"

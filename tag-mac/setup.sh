@@ -70,12 +70,10 @@ log "Installing MacPorts packages: ${ports[*]}"
 sudo port -N install "${ports[@]}"
 
 # ---- 2. rcm (dotfiles manager) ---------------------------------------------
-# NOTE: rcm may not be in MacPorts — verify on first run. If `port install rcm`
-# fails, install from upstream (https://github.com/thoughtbot/rcm) and we'll
-# bake the working method back into this block.
+# rcm is a MacPorts port (installs rcup/lsrc/mkrc/rcdn into $PORT_PREFIX/bin).
 if ! command -v rcup >/dev/null; then
   log "Installing rcm via MacPorts"
-  sudo port -N install rcm || warn "rcm not available via port; install from https://github.com/thoughtbot/rcm and re-run"
+  sudo port -N install rcm
 fi
 
 # ---- 3. Clone dotfiles ------------------------------------------------------
