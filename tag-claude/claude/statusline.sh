@@ -6,6 +6,7 @@ input=$(cat)
 # Extract data from input
 current_dir=$(echo "$input" | jq -r '.workspace.current_dir // empty')
 model_name=$(echo "$input" | jq -r '.model.display_name // empty')
+effort_level=$(echo "$input" | jq -r '.effort.level // empty')
 output_style=$(echo "$input" | jq -r '.output_style.name // empty')
 context_used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 context_remaining=$(echo "$input" | jq -r '.context_window.remaining_percentage // empty')
@@ -22,7 +23,10 @@ BLUE=$'\033[34m'
 GREEN=$'\033[32m'
 YELLOW=$'\033[33m'
 RED=$'\033[31m'
-ORANGE=$'\033[33m'
+MAGENTA=$'\033[35m'
+BLACK=$'\033[30m'
+WHITE=$'\033[37m'
+
 DIM=$'\033[2m'
 BOLD=$'\033[1m'
 RESET=$'\033[0m'
@@ -34,6 +38,19 @@ output=""
 if [ -n "$model_name" ]; then
     short_model=$(echo "$model_name" | sed 's/Claude //' | sed 's/ (.*)//')
     output="${output}${BLUE}${short_model}${RESET}"
+fi
+
+# Reasoning effort level (color-coded by intensity; absent for models without effort control)
+if [ -n "$effort_level" ]; then
+    case "$effort_level" in
+    low) effort_color="$WHITE" ;;
+    medium) effort_color="$GREEN" ;;
+    high) effort_color="$YELLOW" ;;
+    xhigh) effort_color="$RED" ;;
+    max) effort_color="$MAGENTA" ;;
+    *) effort_color="$DIM" ;;
+    esac
+    output="${output}${DIM}·${RESET}${effort_color}${effort_level}${RESET}"
 fi
 
 if [ -n "$output_style" ] && [ "$output_style" != "default" ]; then
@@ -211,4 +228,3 @@ if [ -n "$total_duration_ms" ]; then
 fi
 
 printf "%s\n%s" "$output" "$line2"
-
