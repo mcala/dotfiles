@@ -1,4 +1,4 @@
-#initial-command = zsh --login -c "if command -v /Users/mcala/MacPorts/bin/tmux >/dev/null 2>&1; then /Users/mcala/MacPorts/bin/tmux attach || /Users/mcala/MacPorts/bin/tmux; else zsh; fi"
+initial-command = zsh --login -c "if command -v /Users/mcala/MacPorts/bin/tmux >/dev/null 2>&1; then /Users/mcala/MacPorts/bin/tmux attach || /Users/mcala/MacPorts/bin/tmux; else zsh; fi"
 
 # Mac OS Options
 macos-auto-secure-input = true
@@ -6,7 +6,8 @@ macos-secure-input-indication = true
 macos-titlebar-proxy-icon = visible
 macos-titlebar-style = hidden
 
-theme = everforest-dark-soft
+theme = "Melange Dark"
+#theme = everforest-dark-soft
 #theme = light:rose-pine-dawn, dark:nord
 #theme = rose-pine-dawn
 #theme = light:nord-light, dark:nord

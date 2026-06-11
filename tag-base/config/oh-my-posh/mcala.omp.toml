@@ -7,13 +7,13 @@ alignment = 'left'
 
 [[blocks.segments]]
 type = 'session'
-template = '{{ if .SSHSession }} {{ end }}<blue><i>{{.HostName}}</i></>'
+template = '{{ if .SSHSession }} {{ end }}<yellow><i>{{.HostName}}</i></>'
 style = 'plain'
 
 [[blocks.segments]]
 type = 'path'
 template = ' <d><default>in</></d> [<b>{{.Path}}</b>] '
-foreground = 'cyan'
+foreground = 'red'
 
 [blocks.segments.properties]
 style = "folder"
@@ -138,10 +138,10 @@ cache_duration = 'none'
 type = 'text'
 template = ' <b>󰾡 </b>'
 style = 'plain'
-foreground = 'yellow'
+foreground = 'green'
 
 [transient_prompt]
 type = 'text'
 template = '{{ now | date "15:04:05" }} <b>󰛡 </b> '
 style = 'plain'
-foreground = 'yellow'
+foreground = 'green'

@@ -26,6 +26,10 @@ return {
     name = "moonlight",
   },
   {
+    name = "melange",
+    "savq/melange-nvim",
+  },
+  {
     name = "everforest",
     "neanias/everforest-nvim",
     config = function()
