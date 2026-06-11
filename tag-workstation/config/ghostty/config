@@ -1,6 +1,7 @@
-# Cross-host Ghostty settings (tag-workstation). Applies on every
-# workstation that runs Ghostty as its local terminal, regardless of OS.
-# Host- and OS-specific Ghostty tweaks live in host-<name>/config/ghostty/.
+# Workstation Ghostty config (tag-workstation). Promoted from the sonmi-451
+# host profile so every workstation gets the same terminal. Currently
+# macOS-flavored (cmd keybindings, macos-* options); a future non-macOS
+# workstation should override the OS-specific lines in host-<name>/config/ghostty/.
 
 # Auto-provision the Ghostty terminfo on each remote over SSH so TUIs don't
 # fail with "missing or unsuitable terminal: xterm-ghostty" when the remote
@@ -8,3 +9,97 @@
 # ssh-env + ssh-terminfo on; ssh-env falls back to TERM=xterm-256color when
 # the terminfo can't be installed.
 shell-integration-features = cursor,no-sudo,title,ssh-env,ssh-terminfo,path
+
+#initial-command = zsh --login -c "if command -v /Users/mcala/MacPorts/bin/tmux >/dev/null 2>&1; then /Users/mcala/MacPorts/bin/tmux attach || /Users/mcala/MacPorts/bin/tmux; else zsh; fi"
+
+# Mac OS Options
+macos-auto-secure-input = true
+macos-secure-input-indication = true
+macos-titlebar-proxy-icon = visible
+macos-titlebar-style = hidden
+
+theme = "Melange Dark"
+#theme = everforest-dark-soft
+#theme = light:rose-pine-dawn, dark:nord
+#theme = rose-pine-dawn
+#theme = light:nord-light, dark:nord
+
+# Typeface Settings
+#font-family = "Iosevka Term"
+#font-family = "VictorMono Nerd Font"
+font-family = "JetbrainsMono Nerd Font"
+font-size = 14
+font-thicken = false
+bold-is-bright = true
+
+# Window Settings
+window-decoration = auto
+#window-title-font-family = "Inconsolata Nerd Font"
+window-subtitle = false
+window-save-state = always
+window-padding-x = 5
+window-padding-y = 5
+window-padding-color = extend
+
+# Mouse Stuff
+mouse-hide-while-typing = true
+selection-invert-fg-bg = true
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+quick-terminal-position = bottom
+quick-terminal-size = 95%, 75%
+
+# Keybinding
+keybind = global:command+control+shift+t=toggle_quick_terminal
+
+# sending keystrokes to manage tmux windows:
+# I'm not really sure why I decided to not just make the direct keystrokes the
+# bindings?
+
+### Command palette with Sesh
+# cmd+k -> `ESC T` (= tmux M-T). Verified on kern: cmd+k emits ^[T outside tmux.
+# tmux binds M-T (root table) to the sesh picker. Using esc: (literal ESC + T)
+# rather than sending the prefix as a raw NUL via `text:\x00\x54`, which kern's
+# ghostty did not deliver into tmux (sonmi's same-version build does — unresolved,
+# but esc: works on both).
+keybind = command+k=esc:T
+
+### windows
+# bind n to c
+# bind h to p
+# bind l to n
+keybind = command+n=text:\x00\x63
+keybind = command+h=text:\x00\x70
+keybind = command+l=text:\x00\x6e
+
+# known bug in ghostty that you need to unbind 1-9
+keybind = cmd+1=unbind
+keybind = cmd+physical:one=unbind
+keybind = command+1=text:\x00\x31
+
+keybind = cmd+2=unbind
+keybind = cmd+physical:two=unbind
+keybind = command+2=text:\x00\x32
+
+keybind = cmd+3=unbind
+keybind = cmd+physical:three=unbind
+keybind = command+3=text:\x00\x33
+
+keybind = cmd+4=unbind
+keybind = cmd+physical:four=unbind
+keybind = command+4=text:\x00\x34
+
+keybind = cmd+5=unbind
+keybind = cmd+physical:five=unbind
+keybind = command+5=text:\x00\x35
+
+### panes
+### **Switching** between panes is handled within tmux/nvim
+keybind = command+t=text:\x00\x7c
+keybind = command+w=text:\x00x
+
+keybind = shift+enter=text:\n
