@@ -62,8 +62,8 @@ outer.right = [
 ]
 outer.top = [
   { monitor.built-in = 0 },
-  { monitor.main = 10 },
-  { monitor.secondary = 10 },
+  { monitor.main = 0 },
+  { monitor.secondary = 0 },
   0,
 ]
 outer.bottom = [
@@ -301,6 +301,10 @@ if.window-title-regex-substring = 'NJ Legislature'
 run = 'move-node-to-workspace Email'
 
 [[on-window-detected]]
+if.app-id = 'com.superhuman.electron'
+run = 'move-node-to-workspace Email'
+
+[[on-window-detected]]
 if.app-id = 'com.readdle.SparkDesktop'
 run = 'move-node-to-workspace Email'
 
@@ -508,7 +512,7 @@ if.app-id = 'com.replay.sleeve'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'net.ankiweb.dtop'
+if.app-id = 'net.ankiweb.launcher'
 if.window-title-regex-substring = 'AM'
 run = ['layout floating', 'move-node-to-workspace Anki']
 
