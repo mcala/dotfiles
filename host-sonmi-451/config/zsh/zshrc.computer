@@ -85,7 +85,8 @@ path=(
     $path
 )
 [[ -d $MACPORTS_PREFIX/lib/ImageMagick7/bin ]] && path+=($MACPORTS_PREFIX/lib/ImageMagick7/bin)
-[[ -d /Library/TeX/texbin ]] && path+=(/Library/TeX/texbin)
+# Prepend so MacTeX supersedes any MacPorts latex on PATH.
+[[ -d /Library/TeX/texbin ]] && path=(/Library/TeX/texbin $path)
 export PATH
 
 # ANSI color codes (used by the startup banner below)
