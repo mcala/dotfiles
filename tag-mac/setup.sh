@@ -200,13 +200,14 @@ run_extras() {
   sudo port -N install "${ports_extras[@]}"
 
   # ---- E2. Rust toolchain (rustup, not the MacPorts cargo) ----------------------
-  # Official rustup keeps the toolchain self-managed in ~/.rustup (~1.2 GB for
-  # the default profile). --no-modify-path because rcm owns the shell config;
-  # host-kern/zshenv already sources ~/.cargo/env.
+  # Official rustup keeps the toolchain self-managed in ~/.rustup (~600 MB for
+  # the minimal profile: rustc/cargo/std, no clippy/rustfmt/docs).
+  # --no-modify-path because rcm owns the shell config; host-kern/zshenv
+  # already sources ~/.cargo/env.
   if [ ! -x "$HOME/.cargo/bin/rustup" ]; then
-    log "Installing rust toolchain via rustup"
+    log "Installing rust toolchain via rustup (minimal profile)"
     curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs \
-      | sh -s -- -y --no-modify-path || warn "rustup install failed"
+      | sh -s -- -y --no-modify-path --profile minimal || warn "rustup install failed"
   fi
 
   # ---- E3. Cargo packages --------------------------------------------------------
