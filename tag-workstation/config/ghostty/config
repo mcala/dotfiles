@@ -1,0 +1,10 @@
+# Cross-host Ghostty settings (tag-workstation). Applies on every
+# workstation that runs Ghostty as its local terminal, regardless of OS.
+# Host- and OS-specific Ghostty tweaks live in host-<name>/config/ghostty/.
+
+# Auto-provision the Ghostty terminfo on each remote over SSH so TUIs don't
+# fail with "missing or unsuitable terminal: xterm-ghostty" when the remote
+# lacks the entry. This restates Ghostty's default feature set and only flips
+# ssh-env + ssh-terminfo on; ssh-env falls back to TERM=xterm-256color when
+# the terminfo can't be installed.
+shell-integration-features = cursor,no-sudo,title,ssh-env,ssh-terminfo,path
