@@ -1,3 +1,6 @@
+# ABOUTME: Logging helpers (log_info/log_warn/log_error/log_die) for zsh scripts.
+# ABOUTME: Sourced, not executed; deployed by rcm to ~/.config/zsh/lib/log.zsh.
+
 # Gate color on stderr being a terminal, so redirected logs aren't full of escapes
 if [[ -t 2 ]]; then
   _log_color=1
