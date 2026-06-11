@@ -21,6 +21,7 @@ export IPYTHONDIR=$XDG_CONFIG_HOME/ipython
 typeset -U PATH path
 path=(
     $HOME/.local/bin
+    $HOME/.cargo/bin
     $MACPORTS_PREFIX/bin
     $MACPORTS_PREFIX/sbin
     $path

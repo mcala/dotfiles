@@ -18,6 +18,8 @@ export ZIM_HOME=$XDG_CONFIG_HOME/zim
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export RCRC=$XDG_CONFIG_HOME/rcm/rcrc
 export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza
+## npm globals install to ~/.local/bin (no sudo; matches tag-mac/setup.sh extras)
+export NPM_CONFIG_PREFIX=$HOME/.local
 
 ## Neovim & Editors
 export EDITOR=nvim
