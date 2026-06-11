@@ -75,11 +75,12 @@ run_core() {
   # we install more — verify any new name with `port search <name>` first.
   ports=(
     zsh oh-my-posh tmux git gh wget neovim
-    ripgrep fd bat fzf figlet
+    ripgrep fd fzf figlet
     coreutils gsed grep gawk      # GNU userland: gshred/gsed/ggrep/gawk
-    jq direnv zoxide              # shell/dev tooling
-    atuin
+    jq direnv                     # shell/dev tooling
   )
+  # atuin/bat/zoxide are cargo-owned (extras pass); their shell inits are
+  # command -v guarded, so the pass-1 shell works without them.
 
   log "Running port selfupdate"
   sudo port selfupdate
@@ -107,7 +108,7 @@ run_core() {
 DOTFILES_DIRS="$DOTFILES_DIR"
 HOSTNAME="$HOSTNAME_TAG"
 TAGS="$TAGS"
-EXCLUDES="README* setup.sh harden-remote.sh *.terminfo LICENSE* *.swp *.un~ .git .gitignore adr"
+EXCLUDES="README* setup.sh macos-defaults.sh harden-remote.sh *.terminfo LICENSE* *.swp *.un~ .git .gitignore adr docs"
 EOF
 
   log "Running rcup -v"
@@ -141,22 +142,28 @@ EOF
     curl -fsSL https://claude.ai/install.sh | bash || warn "Claude Code install failed"
   fi
 
-  # ---- 8. macOS defaults (opt-in: RUN_MACOS_DEFAULTS=1) -------------------------
-  # These set system prefs via `defaults write` and are aggressive. They live in
-  # tag-macos/ for now (TODO: relocate the curated ones into tag-mac/).
+  # ---- 8. uv (official standalone installer) -------------------------------------
+  # Installs to ~/.local/bin; self-updates via `uv self update`. UV_NO_MODIFY_PATH
+  # because rcm owns the shell config. uv tools come in the extras pass.
+  if ! command -v uv >/dev/null && [ ! -x "$HOME/.local/bin/uv" ]; then
+    log "Installing uv via astral.sh installer"
+    curl -LsSf https://astral.sh/uv/install.sh | env UV_NO_MODIFY_PATH=1 sh || warn "uv install failed"
+  fi
+
+  # ---- 9. macOS defaults (opt-in: RUN_MACOS_DEFAULTS=1) -------------------------
+  # Sets system prefs via `defaults write` (Dock, Finder, Safari, screenshots,
+  # etc.). Aggressive, so opt in explicitly. Curated script lives beside this one.
   if [ "$RUN_MACOS_DEFAULTS" = "1" ]; then
-    for script in actualMacOS macos2; do
-      src="$DOTFILES_DIR/tag-macos/$script"
-      if [ -f "$src" ]; then
-        log "Applying macOS defaults: $script"
-        bash "$src" || warn "$script exited non-zero"
-      fi
-    done
+    src="$DOTFILES_DIR/tag-mac/macos-defaults.sh"
+    if [ -f "$src" ]; then
+      log "Applying macOS defaults"
+      bash "$src" || warn "macos-defaults.sh exited non-zero"
+    fi
   else
     log "Skipping macOS defaults (set RUN_MACOS_DEFAULTS=1 to apply)"
   fi
 
-  # ---- 9. Change login shell to the MacPorts zsh --------------------------------
+  # ---- 10. Change login shell to the MacPorts zsh -------------------------------
   zsh_bin="$PORT_PREFIX/bin/zsh"
   if [ -x "$zsh_bin" ] && [ "${SHELL:-}" != "$zsh_bin" ]; then
     log "Changing default shell to $zsh_bin"
@@ -184,15 +191,29 @@ EOF
 # ==============================================================================
 run_extras() {
   # ---- E1. Heavy MacPorts packages ---------------------------------------------
+  # Curated from the sonmi-451 inventory (docs/macports-sonmi-451.csv, R rows).
   # pandoc pulls the Haskell toolchain; nodejs24 is the current LTS with its
   # matching npm. Verify new names with `port search`.
   ports_extras=(
     pandoc                        # document conversion (Haskell; slow build)
     lazygit                       # TUI git client (aliased: lg)
     nodejs24 npm11                # node LTS + npm, for npm_pkgs below
+    go                            # toolchain for go-installed tools (sesh)
+    git-delta                     # syntax-highlighting git pager
+    gnupg2                        # signing/encryption
+    gum                           # glamorous shell-script prompts
+    miller                        # CSV/JSON processor (mlr)
+    ripgrep-all                   # rga: rg inside PDFs/archives/etc
+    rsync                         # macOS ships openrsync; want real rsync
+    sqlite3 sqlite3-tools
+    dos2unix
+    doctl                         # DigitalOcean CLI
   )
-  # Candidates to add as you actually use them on kern (verify name first):
-  #   btop sesh miller tokei procs fastfetch
+  # Candidates from the sonmi-451 inventory — add when actually used on kern:
+  #   ffmpeg yt-dlp ImageMagick7 tesseract tesseract-eng   # media/OCR (heavy)
+  #   zig rbenv curl less pinentry-mac btop fastfetch
+  #   bat-extras   # WARNING: depends on the bat PORT — conflicts with cargo bat
+  # Deliberately omitted (sonmi-specific): nyxt lagrange m1ddc macfuse msmtp libpst
 
   log "Running port selfupdate"
   sudo port selfupdate
@@ -211,19 +232,29 @@ run_extras() {
   fi
 
   # ---- E3. Cargo packages --------------------------------------------------------
-  # Built from source into ~/.cargo/bin (on PATH via zshrc.computer). Assumes
-  # the package name matches its installed binary name.
+  # Built from source into ~/.cargo/bin (on PATH via zshrc.computer). Entries are
+  # crate names; where the installed binary differs, use crate=binary so the
+  # idempotency check looks for the right file.
   cargo_pkgs=(
+    atuin bat zoxide              # cargo-owned, not MacPorts (see core pass note)
     eza                           # ls replacement (zshrc.personal aliases)
+    broot just onefetch procs rumdl tokei
+    du-dust=dust
+    typst-cli=typst
+    tree-sitter-cli=tree-sitter
+    cargo-update=cargo-install-update   # provides `cargo install-update` for update.zsh
+    jj-cli=jj
   )
 
   if [ -n "${cargo_pkgs[*]:-}" ]; then
-    for pkg in "${cargo_pkgs[@]}"; do
-      if [ -x "$HOME/.cargo/bin/$pkg" ]; then
-        log "cargo: $pkg already installed (skipping)"
+    for entry in "${cargo_pkgs[@]}"; do
+      crate="${entry%%=*}"
+      bin="${entry##*=}"
+      if [ -x "$HOME/.cargo/bin/$bin" ]; then
+        log "cargo: $crate already installed (skipping)"
       else
-        log "cargo install $pkg"
-        "$HOME/.cargo/bin/cargo" install --locked "$pkg"
+        log "cargo install $crate"
+        "$HOME/.cargo/bin/cargo" install --locked "$crate"
       fi
     done
   fi
@@ -233,7 +264,8 @@ run_extras() {
   # matching NPM_CONFIG_PREFIX lives in host-kern/zshenv.
   export NPM_CONFIG_PREFIX="$HOME/.local"
   npm_pkgs=(
-    # add npm globals here, e.g.: prettier
+    tldr                          # community man-page summaries
+    ccusage                       # Claude Code usage tracker
   )
 
   if [ -n "${npm_pkgs[*]:-}" ]; then
@@ -243,7 +275,34 @@ run_extras() {
     log "No npm globals listed yet (edit npm_pkgs in setup.sh)"
   fi
 
-  log "Extras pass complete."
+  # ---- E5. uv tools -----------------------------------------------------------------
+  # uv itself comes from the core pass (astral.sh installer). Explicit binary
+  # path: this bash session's PATH may not include ~/.local/bin yet.
+  uv_bin="$HOME/.local/bin/uv"
+  command -v uv >/dev/null && uv_bin="$(command -v uv)"
+  uv_tools=(ty ruff cookiecutter marimo llm gallery-dl batrachian-toad aider-chat)
+
+  if [ -x "$uv_bin" ]; then
+    for tool in "${uv_tools[@]}"; do
+      if "$uv_bin" tool list 2>/dev/null | grep -q "^$tool "; then
+        log "uv tool: $tool already installed (skipping)"
+      else
+        log "uv tool install $tool"
+        "$uv_bin" tool install "$tool" || warn "uv tool install $tool failed"
+      fi
+    done
+  else
+    warn "uv missing — run the core pass first"
+  fi
+
+  # ---- E6. go-installed tools ---------------------------------------------------------
+  # GOBIN: ~/go/bin isn't on PATH; ~/.local/bin is.
+  if [ ! -x "$HOME/.local/bin/sesh" ]; then
+    log "go install sesh -> ~/.local/bin"
+    GOBIN="$HOME/.local/bin" "$PORT_PREFIX/bin/go" install github.com/joshmedeski/sesh/v2@latest || warn "sesh install failed"
+  fi
+
+  log "Extras pass complete. (LaTeX = MacTeX, installed manually: https://www.tug.org/mactex/)"
 }
 
 case "$STAGE" in
