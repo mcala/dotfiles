@@ -1,0 +1,39 @@
+# Host-specific sesh sessions for sonmi-451 (the legacy daily driver).
+# Imported by the workstation sesh.toml as ~/.config/sesh/local.toml.
+# The generated project list lives beside this file in code.toml (refreshed
+# by update_sesh_code_config.py).
+
+[[session]]
+name = "MacPorts"
+path = "~/MacPorts"
+startup_command = "sudo port -v selfupdate"
+
+# Project roots (sonmi's PARA tree)
+[[session]]
+name = "McAllister Life Work"
+path = "~/Documents/2_areas/career/life_work/"
+
+[[session]]
+name = "Code"
+path = "~/Documents/3_resources/code/"
+
+# Aerospace WM config (sonmi-only)
+[[session]]
+name = "Configure Aerospace"
+path = "~/.config/aerospace"
+
+[[wildcard]]
+pattern = "~/Documents/3_resources/code/1_active/*"
+preview_command = "eza --all --git --icons --color=always {}"
+startup_command = "git status"
+windows = ["git"]
+
+[[wildcard]]
+pattern = "~/Documents/3_resources/code/1_active/nj_legislature/*"
+preview_command = "eza --all --git --icons --color=always {}"
+startup_command = "git status"
+dir_length = 2
+
+[[window]]
+name = "git"
+startup_script = "lazygit"

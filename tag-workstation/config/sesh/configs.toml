@@ -1,3 +1,7 @@
+# Portable config-editing sessions (tag-workstation). Jump straight to a
+# config directory on any workstation. Host-only config shortcuts (e.g.
+# aerospace) live in host-<name>/config/sesh/local.toml.
+
 [[session]]
 name = "All Config Files"
 path = "~/.config"
@@ -21,10 +25,6 @@ path = "~/.config/zsh"
 [[session]]
 name = "Configure Sesh"
 path = "~/.config/sesh"
-
-[[session]]
-name = "Configure Aerospace"
-path = "~/.config/aerospace"
 
 [[session]]
 name = "Configure Ghostty"

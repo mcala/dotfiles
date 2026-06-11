@@ -1,0 +1,4 @@
+# Generated project list (per host). On sonmi-451 this is produced by
+# update_sesh_code_config.py from its code tree. kern has no such tree yet,
+# so this is an empty placeholder that keeps the workstation sesh.toml import
+# resolvable until kern has projects to generate from.

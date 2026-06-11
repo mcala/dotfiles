@@ -1,0 +1,44 @@
+#
+#     ███████╗███████╗███████╗██╗  ██╗
+#     ██╔════╝██╔════╝██╔════╝██║  ██║
+#     ███████╗█████╗  ███████╗███████║
+#     ╚════██║██╔══╝  ╚════██║██╔══██║
+#     ███████║███████╗███████║██║  ██║
+#     ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝
+#
+#     Smart session management for the terminal. Uses zoxide and tmux.
+#     https://github.com/joshmedeski/sesh
+#
+#     Portable workstation root config (tag-workstation): the sessions every
+#     workstation shares. Host-specific sessions live in the imported files,
+#     supplied per host by host-<name>/config/sesh/:
+#       * configs.toml — portable config-editing shortcuts (tag-workstation)
+#       * code.toml    — generated project list (host-specific; placeholder
+#                        until that host has a code tree to generate from)
+#       * local.toml   — that host's misc sessions and wildcards
+#
+#     Import paths are absolute (not ~/...): sesh's import does not expand the
+#     tilde. Every workstation is /Users/mcala on macOS; a host with a
+#     different home would need to adjust these.
+
+import = [
+  "/Users/mcala/.config/sesh/configs.toml",
+  "/Users/mcala/.config/sesh/code.toml",
+  "/Users/mcala/.config/sesh/local.toml",
+]
+
+[[session]]
+name = "Home"
+path = "~"
+
+[[session]]
+name = "Downloads"
+path = "~/Downloads"
+
+[[session]]
+name = "☕️ Caffeinate"
+path = "~/"
+
+[[wildcard]]
+pattern = "~/.config/*"
+preview_command = "eza --all --git --icons --color=always {}"

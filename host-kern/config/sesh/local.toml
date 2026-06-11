@@ -1,0 +1,7 @@
+# Host-specific sesh sessions for kern.
+# Imported by the workstation sesh.toml as ~/.config/sesh/local.toml.
+# Add project sessions here as kern's working tree fills in.
+
+[[session]]
+name = "Dotfiles"
+path = "~/.dotfiles"
