@@ -14,6 +14,12 @@ source ${ZIM_HOME}/init.zsh
 # Per-host overrides
 [[ -f $XDG_CONFIG_HOME/zsh/zshrc.computer ]] && source $XDG_CONFIG_HOME/zsh/zshrc.computer
 
+# Interactive shell libraries (log helpers, manpages, etc.).
+# (N) null-glob: skip silently when the dir is empty.
+for file in $XDG_CONFIG_HOME/zsh/lib/*.zsh(N); do
+  [[ -r "$file" ]] && source $file
+done
+
 # Prompt (oh-my-posh, installed by host bootstrap; config in tag-base)
 if command -v oh-my-posh >/dev/null && [[ "$TERM_PROGRAM" != "Apple_Terminal" ]]; then
   eval "$(oh-my-posh init zsh --config $XDG_CONFIG_HOME/oh-my-posh/mcala.omp.toml)"
@@ -34,6 +40,8 @@ if date -u -v-14d +%Y-%m-%dT%H:%M:%SZ >/dev/null 2>&1; then
 else
   export UV_EXCLUDE_NEWER="$(date -u -d '14 days ago' +%Y-%m-%dT%H:%M:%SZ)"
 fi
+# Apply the same cutoff to npm. Unset NPM_CONFIG_BEFORE to bypass.
+export NPM_CONFIG_BEFORE="$UV_EXCLUDE_NEWER"
 
 # Path dedup; per-host zshrc.computer owns the actual PATH entries.
 typeset -U PATH path
