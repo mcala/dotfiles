@@ -1,0 +1,117 @@
+Status,Port,Purpose/Justification
+K,apache-arrow,Arrow library used in pandas and other data science applications.
+K,autoconf,Essential for building software from source; generates configure scripts needed by many packages
+K,autoconf-archive,Provides additional macros for autoconf that many projects require
+K,automake,Works with autoconf to generate Makefiles; critical for source builds
+R, bat, Just do it in ports instead of cargo
+R, bat-extras, Because of this
+K,boost176,Legacy version needed by some packages that haven't updated to newer Boost
+K,boost181,C++ libraries used by many packages; hard to rebuild and widely depended upon
+K,bzip2,Compression library that many packages depend on for archive handling
+K,cairo,Graphics rendering library essential for GUI applications and image processing
+K,cargo,Rust package manager needed for building Rust-based ports
+K,cabal, Haskell building and packaging
+K,clang-18,Modern C/C++ compiler; analyzer variant provides static analysis tools
+K,cmake,Build system required by numerous modern C++ projects
+K,cmake-bootstrap,Bootstrap version of cmake needed for building cmake itself
+R,coreutils,GNU core utilities providing basic file/shell/text manipulation
+R,curl,Command-line tool for transferring data with URLs
+R,direnv,Environment variable manager that loads/unloads based on directory
+R,dos2unix,Converts text files between DOS and Unix formats
+R,fd,Fast alternative to 'find' with intuitive syntax
+R,ffmpeg,Comprehensive multimedia framework for video/audio processing
+K,fftw-3,Fast Fourier Transform library used by audio/signal processing software
+R,figlet,Creates ASCII art text banners
+R,fzf,Fuzzy finder for command-line
+K,gcc14,GNU compiler needed for Fortran and some C++ projects requiring GCC
+K,gcc14-libcxx,C++ standard library for GCC14 compatibility
+K,gcc15,Latest GNU compiler for cutting-edge development
+K,gcc15-libcxx,C++ standard library for GCC15
+K,gcc_select,Manages switching between GCC versions
+K,gettext,Internationalization framework required by many applications
+K,gettext-runtime,Runtime libraries for gettext
+K,gettext-tools-libs,Development libraries for gettext
+K,gh,GitHub CLI tool for repository management
+K,ghc, Haskell compiler
+K,ghc-prebuilt,Glasgow Haskell Compiler needed for Haskell development
+K,ghostscript,PostScript/PDF interpreter needed by TeX and printing systems
+R,git,Distributed version control system
+R,git-delta,Syntax-highlighting pager for git diffs
+K,glib2,Core GNOME library that many applications depend on
+R,gnupg2,GNU Privacy Guard for encryption and signing
+R,go,Go programming language compiler and tools
+K,graphviz,Graph visualization toolkit used for documentation and diagrams
+R,grep,Pattern searching utility
+R,gum,Tool for creating glamorous shell scripts
+K,icu,International Components for Unicode; large but critical for text processing
+R,ImageMagick7,Image manipulation and conversion toolkit
+R,lagrange,Graphical Gemini protocol browser
+R,lazygit,Terminal UI for git commands
+R,less,Pager program for viewing text files
+K,libass,Subtitle rendering library required by video players
+K,libassuan,IPC library required by GnuPG
+K,libgcc,GNU compiler runtime library (base version)
+K,libgcc14,GNU compiler runtime for GCC 14
+K,libgcc15,GNU compiler runtime for GCC 15
+K,libgcrypt,Cryptographic library used by GnuPG and other security tools
+K,libiconv,Character encoding conversion library widely used
+K,libogg,Container format for audio; dependency for many media tools
+K,libopus,Modern audio codec used in web and streaming applications
+K,libtool,Generic library support script essential for building libraries
+K,libvorbis,Audio compression codec widely used in games and media
+K,libvpx,VP8/VP9 video codec required by ffmpeg
+K,llvm-14,Legacy LLVM needed by some older packages
+K,llvm-16,LLVM version required by specific tools
+K,llvm-18,Modern LLVM toolchain infrastructure
+K,llvm-19,Latest LLVM for cutting-edge development
+K,llvm_select,Manages switching between LLVM versions
+K,llvm_select-19,LLVM 19 specific selector
+R,macfuse,File system in userspace for macOS
+K,meson,Modern build system used by GNOME and many other projects
+R,miller,Command-line CSV/JSON processor
+R,msmtp,Sending emails; largely for your cron jobs
+K,ncurses,Terminal control library essential for CLI tools
+R,neofetch,System information display tool
+K,ninja,Fast build system often used with cmake and meson
+R,oh-my-posh,Prompt theme engine for any shell
+K,pinentry-mac,macOS pinentry for GPG password prompts
+K,pkgconfig,Helper tool for finding library compile/link flags
+K,poppler,PDF rendering library used by many document tools
+K,poppler-data,Encoding data for poppler
+R,rbenv,Ruby version management tool
+R,rcm,Dotfile management suite
+K,readline,Command-line editing library used by shells and REPLs
+R,ripgrep,Fast recursive grep alternative
+R,ripgrep-all,ripgrep wrapper that searches in PDFs/archives/etc
+R,rsync,Fast incremental file transfer utility
+K,rust,Rust programming language compiler and standard library
+R,sqlite3,Lightweight SQL database engine
+R,sqlite3-tools,Command-line tools for SQLite
+K,tcl,Tool Command Language interpreter
+R,tesseract,OCR engine for text recognition
+R,tesseract-eng,English language data for Tesseract
+K,texinfo,GNU documentation system
+K,texlive-basic,Core TeX/LaTeX distribution
+K,texlive-bin,TeX/LaTeX binaries
+K,texlive-common,Common TeX/LaTeX files
+K,texlive-fonts-extra,Additional fonts for TeX/LaTeX
+K,texlive-fonts-recommended,Recommended fonts for TeX/LaTeX
+K,texlive-latex,LaTeX base system
+K,texlive-latex-extra,Extra LaTeX packages
+K,texlive-latex-recommended,Recommended LaTeX packages
+K,texlive-pictures,Picture drawing packages for LaTeX
+K,texlive-plain-generic,Plain TeX and generic packages
+K,texlive-xetex,XeTeX and packages
+R,tmux,Terminal multiplexer for managing sessions
+R,wget,Non-interactive network downloader
+K,x264,H.264 video encoder library required by ffmpeg
+K,x265,H.265/HEVC video encoder required by ffmpeg
+K,xz,High-ratio compression utility and library
+R,yt-dlp,YouTube and video site downloader
+R,zsh,Z shell with advanced features
+R,pandoc, Document conversion
+R,zig, zig compiler
+R,libpst, tool for converting pst files (Microsoft) to mbox files
+R,nyxt, nerd and keyboard-centric browser 
+R,doctl, CLI for Digital Ocean
+R,m1ddc, CLI for controlling external displays from Apple silicon
