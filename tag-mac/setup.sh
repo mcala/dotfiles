@@ -184,12 +184,11 @@ EOF
 # ==============================================================================
 run_extras() {
   # ---- E1. Heavy MacPorts packages ---------------------------------------------
-  # pandoc pulls the Haskell toolchain; cargo pulls rust; nodejs24 is the
-  # current LTS with its matching npm. Verify new names with `port search`.
+  # pandoc pulls the Haskell toolchain; nodejs24 is the current LTS with its
+  # matching npm. Verify new names with `port search`.
   ports_extras=(
     pandoc                        # document conversion (Haskell; slow build)
-    lazygit yazi                  # TUI git client + file manager (aliased: lg, y)
-    cargo                         # rust toolchain, for cargo_pkgs below
+    lazygit                       # TUI git client (aliased: lg)
     nodejs24 npm11                # node LTS + npm, for npm_pkgs below
   )
   # Candidates to add as you actually use them on kern (verify name first):
@@ -200,7 +199,17 @@ run_extras() {
   log "Installing MacPorts extras: ${ports_extras[*]}"
   sudo port -N install "${ports_extras[@]}"
 
-  # ---- E2. Cargo packages --------------------------------------------------------
+  # ---- E2. Rust toolchain (rustup, not the MacPorts cargo) ----------------------
+  # Official rustup keeps the toolchain self-managed in ~/.rustup (~1.2 GB for
+  # the default profile). --no-modify-path because rcm owns the shell config;
+  # host-kern/zshenv already sources ~/.cargo/env.
+  if [ ! -x "$HOME/.cargo/bin/rustup" ]; then
+    log "Installing rust toolchain via rustup"
+    curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs \
+      | sh -s -- -y --no-modify-path || warn "rustup install failed"
+  fi
+
+  # ---- E3. Cargo packages --------------------------------------------------------
   # Built from source into ~/.cargo/bin (on PATH via zshrc.computer). Assumes
   # the package name matches its installed binary name.
   cargo_pkgs=(
@@ -213,12 +222,12 @@ run_extras() {
         log "cargo: $pkg already installed (skipping)"
       else
         log "cargo install $pkg"
-        cargo install --locked "$pkg"
+        "$HOME/.cargo/bin/cargo" install --locked "$pkg"
       fi
     done
   fi
 
-  # ---- E3. npm global packages ----------------------------------------------------
+  # ---- E4. npm global packages ----------------------------------------------------
   # Globals go to ~/.local (bin already on PATH) so no sudo is needed; the
   # matching NPM_CONFIG_PREFIX lives in host-kern/zshenv.
   export NPM_CONFIG_PREFIX="$HOME/.local"
