@@ -55,11 +55,11 @@ log "MacPorts prefix: $PORT_PREFIX"
 # the workstation aliases expect (ggrep, gsed, gshred via coreutils). Grows as
 # we install more — verify any new name with `port search <name>` first.
 ports=(
-  zsh tmux git wget neovim
-  ripgrep fd bat fzf eza figlet
+  zsh oh-my-posh tmux git gh wget neovim
+  ripgrep fd bat fzf figlet
   coreutils gsed grep gawk      # GNU userland: gshred/gsed/ggrep/gawk
   jq direnv zoxide              # shell/dev tooling
-  atuin uv                      # MacPorts-preferred over their curl installers
+  atuin                       
 )
 # Candidates to add as you actually use them on kern (uncomment / verify name):
 #   lazygit yazi btop sesh gh miller tokei procs fastfetch
@@ -110,12 +110,6 @@ if [ ! -f "$ZIM_HOME/zimfw.zsh" ]; then
 fi
 log "Installing Zim modules"
 zsh -c "export ZIM_HOME='$ZIM_HOME' ZDOTDIR='$HOME/.config/zsh' XDG_CONFIG_HOME='$HOME/.config' XDG_CACHE_HOME='$HOME/.cache'; source '$ZIM_HOME/zimfw.zsh' install" || warn "zimfw install failed; run \`zimfw install\` after first login"
-
-# ---- 6. oh-my-posh (no MacPorts port; official installer) -------------------
-if ! command -v oh-my-posh >/dev/null; then
-  log "Installing oh-my-posh to ~/.local/bin"
-  curl -fsSL https://ohmyposh.dev/install.sh | bash -s -- -d "$HOME/.local/bin"
-fi
 
 # ---- 7. tmux plugin manager -------------------------------------------------
 TPM_DIR="$HOME/.config/tmux/plugins/tpm"
