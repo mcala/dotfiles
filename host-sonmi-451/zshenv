@@ -12,7 +12,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 ## MacPorts
 export MACPORTS_PREFIX=/Users/mcala/MacPorts
-# export DYLD_FALLBACK_LIBRARY_PATH=/Users/mcala/MacPorts/lib
 
 ## Application Configuration
 export ZIM_HOME=$XDG_CONFIG_HOME/zim
@@ -20,6 +19,7 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export RCRC=$XDG_CONFIG_HOME/rcm/rcrc
 export EZA_CONFIG_DIR=$XDG_CONFIG_HOME/eza
 export LLM_USER_PATH=$XDG_CONFIG_HOME/llm
+export TEXMFHOME=$XDG_CONFIG_HOME/texmf
 [[ -f "$HOME/.bun" ]] && export BUN_INSTALL="$HOME/.bun"
 
 ## Neovim & Editors
@@ -32,46 +32,17 @@ export GIT_EDITOR=nvim
 export PAGER=less
 export BAT_PAGER=less
 
-## Manual Pages
-export MANPATH=$MANPATH:$HOME/software/man
-export MANWIDTH=80
-
-## Colorizes less manpages. Stolen from YSAP: https://www.youtube.com/watch?v=D0sG2fj0G4Y
-export MANPAGER='less'
-
-# I just use bold blue here since my terminal has blinking disabled
-export LESS_TERMCAP_mb=$'\e[1;34m'
-# Begin bold text mode
-export LESS_TERMCAP_md=$'\e[1;34m'
-# End all special formatting started by mb/md/etc. export LESS_TERMCAP_me=$'\e[0m'
-# End standout mode
-export LESS_TERMCAP_se=$'\e[0m'
-# Begin standout mode--dark on light ansi
-export LESS_TERMCAP_so=$'\e[30;47m'
-# End underline mode
-export LESS_TERMCAP_ue=$'\e[0m'
-# Begin underline mode
-# underline and bold green
-export LESS_TERMCAP_us=$'\e[4;1;35m'
-# Begin reverse-video mode
-export LESS_TERMCAP_mr=$'\e[7m'
-# Begin dim/half-bright mode
-export LESS_TERMCAP_mh=$'\e[2m'
-# Begin subscript mode (probably isn't supported)
-export LESS_TERMCAP_ZN=$'\e[74m'
-# End subscript mode (probably isn't supported)
-export LESS_TERMCAP_ZV=$'\e[75m'
-# Begin superscript mode (probably isn't supported)
-export LESS_TERMCAP_ZO=$'\e[73m'
-# End superscript mode (probably isn't supported)
-export LESS_TERMCAP_ZW=$'\e[75m'
 
 ## One Password CLI
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 
 # -- Functions
-FPATH=$XDG_CONFIG_HOME/zfunc:$XDG_CONFIG_HOME/zsh_functions:${FPATH}
-autoload -Uz calc checksha find_empty_dirs path rename_files gpg-cache
+fpath=(
+    $XDG_CONFIG_HOME/zfunc
+    $XDG_CONFIG_HOME/zsh_functions
+    /Users/mcala/.docker/completions 
+    $fpath)
+autoload -Uz calc compinit checksha find_empty_dirs path rename_files gpg-cache
 
 [[ -f "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
