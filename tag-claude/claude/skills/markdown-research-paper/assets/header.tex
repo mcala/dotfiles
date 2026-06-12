@@ -1,0 +1,28 @@
+% Header include for markdown-to-PDF via pandoc + xelatex.
+% Targets the usual pain points of a research-paper layout.
+
+% --- Code blocks -----------------------------------------------------------
+% Pandoc defines a "Highlighting" Verbatim environment for syntax-highlighted
+% code. Redefine it using fvextra so long lines wrap instead of overflowing
+% the text width.
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
+  breaklines,%
+  breakanywhere,%
+  fontsize=\footnotesize,%
+  commandchars=\\\{\}%
+}
+
+% --- Graphics --------------------------------------------------------------
+% Pandoc auto-loads graphicx when it sees markdown images, but the
+% documented raw-LaTeX figure pattern (\begin{figure} \includegraphics...)
+% bypasses that detection. Load it unconditionally so the pattern works
+% regardless of whether the doc also uses markdown images.
+\usepackage{graphicx}
+
+% --- Tables ----------------------------------------------------------------
+% Pandoc auto-loads longtable + booktabs for markdown tables. Load tabularx
+% and booktabs unconditionally so hand-written raw-LaTeX tables (the pattern
+% documented in SKILL.md) work even when the doc has no markdown tables.
+\usepackage{tabularx}
+\usepackage{booktabs}

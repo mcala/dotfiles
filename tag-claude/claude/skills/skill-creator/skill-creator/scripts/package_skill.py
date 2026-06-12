@@ -1,0 +1,1 @@
+/Users/mcala/.dotfiles/tag-claude/claude/skills/skill-creator/scripts/package_skill.py

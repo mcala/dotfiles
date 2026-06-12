@@ -1,0 +1,43 @@
+% Header include for markdown-to-Tufte-PDF via pandoc + xelatex.
+% Loaded with --include-in-header, so it lands at the END of the preamble
+% (after the tufte-handout class and any \setmainfont pandoc emits). Keep
+% font selection OUT of here — it belongs in frontmatter / the wrapper so a
+% user-supplied mainfont is not clobbered.
+
+% --- Sidenotes -------------------------------------------------------------
+% The whole point of this skill: route pandoc's footnotes into the margin.
+% tufte-handout keeps \footnote as a bottom-of-page note and offers a separate
+% \sidenote. Pandoc emits \footnote{...} for markdown footnotes, so alias it
+% to \sidenote globally. A note-style CSL (e.g. chicago-note-bibliography)
+% then also lands its citations in the margin, which is the Tufte ideal.
+%
+% Caveat: \sidenote uses \marginpar, which LaTeX forbids inside floats and
+% some boxes. A footnote placed inside a table cell or a figure caption will
+% therefore error. See SKILL.md ("Sidenotes and the float caveat").
+\let\footnote\sidenote
+
+% --- Code blocks -----------------------------------------------------------
+% Pandoc defines a "Highlighting" Verbatim environment for syntax-highlighted
+% code. Redefine it via fvextra so long lines wrap instead of overflowing the
+% (narrow, by Tufte design) text column.
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
+  breaklines,%
+  breakanywhere,%
+  fontsize=\footnotesize,%
+  commandchars=\\\{\}%
+}
+
+% --- Graphics --------------------------------------------------------------
+% tufte-handout loads graphicx, but load it unconditionally so the raw-LaTeX
+% figure/marginfigure pattern documented in SKILL.md works even when the doc
+% contains no markdown images.
+\usepackage{graphicx}
+
+% --- Tables ----------------------------------------------------------------
+% Pandoc auto-loads longtable + booktabs for markdown tables; load tabularx
+% and booktabs unconditionally so hand-written raw-LaTeX tables work too.
+% NOTE: longtable does not coexist with the Tufte margin layout — long tables
+% should go in a \begin{fullwidth}...\end{fullwidth} block. See SKILL.md.
+\usepackage{tabularx}
+\usepackage{booktabs}
