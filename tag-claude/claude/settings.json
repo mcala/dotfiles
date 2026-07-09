@@ -36,6 +36,7 @@
       "Bash(wget *)"
     ]
   },
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PreToolUse": [
       {
@@ -66,6 +67,16 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/notify.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/py-quality.sh",
+            "timeout": 30
           }
         ]
       }
@@ -107,9 +118,9 @@
     "command": "bash ~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "pyright-lsp@claude-plugins-official": true,
-    "claude-md-management@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": false,
+    "claude-md-management@claude-plugins-official": false,
+    "frontend-design@claude-plugins-official": false,
     "telegram@claude-plugins-official": true
   },
   "sandbox": {
@@ -119,7 +130,7 @@
     "network": {
       "allowedDomains": [
         "api.github.com",
-        " www.njleg.state.nj.us"
+        "www.njleg.state.nj.us"
       ],
       "allowUnixSockets": [
         "/Users/mcala/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
@@ -129,17 +140,25 @@
     },
     "filesystem": {
       "allowWrite": [
+        "~/.claude/memory/**",
+        "~/.claude/skills/**",
+        "~/obsidian/**",
+        "~/obsidian/claude/**",
+        "~/.venv/**",
         "~/.cache/uv",
         "~/.cache/huggingface",
+        "~/.dotfiles/**",
         "~/.venv/**",
         "~/.local/state/**",
-        "~/.claude/memory/**",
-        "~/.claude/skills/**"
+        "~/.local/share/**",
+        "~/Documents/3_resources/code/5_data/**"
       ]
     },
+    "enableWeakerNetworkIsolation": true,
     "excludedCommands": [
       "docker",
-      "podman"
+      "podman",
+      "gh"
     ]
   },
   "spinnerVerbs": {
@@ -240,15 +259,18 @@
       "Resting is productive too",
       "Holding space for yourself",
       "Noticing without judging",
-      "Taking the gentler interpretation"
+      "Taking the gentler interpretation",
+      "Weaving a data fabric",
+      "Navigating the data lake",
+      "Building a data lakehouse"
     ]
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
+  "theme": "dark-ansi",
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
-  "theme": "dark-ansi",
   "skipAutoPermissionPrompt": true
 }
