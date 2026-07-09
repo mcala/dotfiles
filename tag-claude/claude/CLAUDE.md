@@ -242,6 +242,29 @@ memory (see "Learning and Memory Management" above).
   vaults (garden, planning, zk). A weekly automated pass
   keeps the vault tidy, so don't worry about upkeep.
 
+### Multi-Machine Memory (Vault-First Recall)
+
+The Claude Vault syncs between Andrew's machines; the
+per-project auto-memory in `~/.claude/projects/*/memory/`
+does NOT. A missing or empty MEMORY.md means "not synced to
+this machine", NEVER "no prior experience with this
+project".
+
+- At session start, if the current project's MEMORY.md is
+  missing or empty, YOU MUST check the vault before treating
+  the project as new: look for a hub note at
+  `/Users/mcala/obsidian/claude/02 Projects/<project>.md`
+  (hubs are named after the repo/directory) and read its
+  linked Project Memory notes.
+- Cross-project context (who Andrew is, preferences,
+  tooling) is in the vault root — start at `index.md`.
+- Where both exist and disagree, the newer one wins; where
+  only the vault exists, it is the source of truth.
+- New memories on any machine follow the experiment rule:
+  write BOTH places. When the local MEMORY.md is empty but a
+  vault hub exists, seed the local file from the hub as you
+  work.
+
 ## Summary Instructions
 
 When you are using /compact, please focus on our
