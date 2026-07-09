@@ -302,7 +302,7 @@ run = 'move-node-to-workspace Email'
 
 [[on-window-detected]]
 if.app-id = 'com.superhuman.electron'
-run = 'move-node-to-workspace Email'
+run = ['layout tiling', 'move-node-to-workspace Email']
 
 [[on-window-detected]]
 if.app-id = 'com.readdle.SparkDesktop'
@@ -314,7 +314,8 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.joehribar.toggl'
-run = ['layout floating', 'move-node-to-workspace Email']
+run = ['layout tiling', 'move-node-to-workspace Email']
+#run = ['layout floating', 'move-node-to-workspace Email']
 
 # Files: Finder
 [[on-window-detected]]
