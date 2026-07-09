@@ -24,6 +24,7 @@ alias nix='noglob nix'
 # iMessage helpers (local mcp playground)
 alias checkmsg="~/mcp/imessage-playground/imsgn chats --limit 10"
 alias checkcz="~/mcp/imessage-playground/imsgn history --chat-id 10 --limit 10"
+alias checks="~/mcp/imessage-playground/imsgn history --chat-id 11 --limit 10"
 alias checkmom="~/mcp/imessage-playground/imsgn history --chat-id 1274 --limit 10"
 alias checkdad="~/mcp/imessage-playground/imsgn history --chat-id 643 --limit 10"
 
