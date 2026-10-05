@@ -280,3 +280,4 @@ the tools that we use together:
 
 - @./docs/python.md
 - @./docs/using-uv.md
+- @./docs/git.md
