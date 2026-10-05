@@ -2,6 +2,8 @@
 # /// script
 # requires-python = ">=3.13"
 # ///
+# ABOUTME: Generates sesh's code.toml with a session for each active code project.
+# ABOUTME: Bare repositories also get a "repo/worktree" session for each worktree.
 import logging
 import subprocess
 import sys
@@ -43,8 +45,26 @@ def create_name(directory: Path) -> str:
     return temp_name
 
 
-def make_sesh_block(directory: Path) -> str:
-    name: str = create_name(directory)
+def find_worktrees(directory: Path) -> list[Path]:
+    """Return the linked worktrees of a bare repository, or [] otherwise."""
+    result = subprocess.run(
+        ["git", "-C", str(directory), "worktree", "list", "--porcelain"],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return []
+    blocks = [block.splitlines() for block in result.stdout.strip().split("\n\n")]
+    if not any("bare" in block for block in blocks):
+        return []
+    return [
+        Path(block[0].removeprefix("worktree "))
+        for block in blocks
+        if "bare" not in block
+    ]
+
+
+def make_sesh_block(name: str, directory: Path) -> str:
     path: str = str(directory.resolve())
     block: str = f"""
         [[session]]
@@ -64,8 +84,11 @@ def main():
         output: list[str] = []
 
         for project in projects:
-            block = make_sesh_block(project)
+            block = make_sesh_block(create_name(project), project)
             output.append(block)
+            for worktree in find_worktrees(project):
+                name = f"{project.name}/{worktree.name}".lower()
+                output.append(make_sesh_block(name, worktree))
 
         output_file = Path("./code.toml")
         output_file.write_text(textwrap.dedent("\n".join(output)))
@@ -88,7 +111,7 @@ def main():
         send_custom_email(
             f"❌ Session Config Update FAILED on {datetime.now():%Y-%m-%d}",
             f"The following error occurred during session config generation:\n\n"
-            f"Error: {str(e)}\n"
+            f"Error: {e!s}\n"
             f"Time: {datetime.now():%Y-%m-%d %H:%M:%S}\n",
             "andrew@mcallister.science",
         )
