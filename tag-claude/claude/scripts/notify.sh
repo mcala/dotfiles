@@ -115,4 +115,5 @@ tool)
     ;;
 esac
 
-alerter --title "$ICON $TITLE" --message "$MESSAGE" --app-icon /Applications/Claude.app/Contents/Resources/electron.icns --timeout 5 &
+# Detach alerter's output so the hook returns immediately instead of waiting on the timeout
+alerter --title "$ICON $TITLE" --message "$MESSAGE" --app-icon /Applications/Claude.app/Contents/Resources/electron.icns --timeout 5 >/dev/null 2>&1 &
