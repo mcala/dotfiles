@@ -2,6 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "cleanupPeriodDays": 10,
   "permissions": {
+    "defaultMode": "auto",
     "allow": [
       "Read",
       "Bash(python *)",
@@ -36,7 +37,7 @@
       "Bash(wget *)"
     ]
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -121,8 +122,10 @@
     "pyright-lsp@claude-plugins-official": false,
     "claude-md-management@claude-plugins-official": false,
     "frontend-design@claude-plugins-official": false,
-    "telegram@claude-plugins-official": true
+    "telegram@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
   },
+  "extraKnownMarketplaces": {},
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -130,7 +133,9 @@
     "network": {
       "allowedDomains": [
         "api.github.com",
-        "www.njleg.state.nj.us"
+        "www.njleg.state.nj.us",
+        "pub.njleg.state.nj.us",
+        "api.census.gov"
       ],
       "allowUnixSockets": [
         "/Users/mcala/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
@@ -142,16 +147,16 @@
       "allowWrite": [
         "~/.claude/memory/**",
         "~/.claude/skills/**",
+        "/var/folders/**",
+        "~/.local/state/**",
+        "~/.local/share/**",
         "~/obsidian/**",
         "~/obsidian/claude/**",
         "~/.venv/**",
         "~/.cache/uv",
         "~/.cache/huggingface",
         "~/.dotfiles/**",
-        "~/.venv/**",
-        "~/.local/state/**",
-        "~/.local/share/**",
-        "~/Documents/3_resources/code/5_data/**"
+        "~/Data/**"
       ]
     },
     "enableWeakerNetworkIsolation": true,
@@ -181,6 +186,8 @@
       "Spiraling downward",
       "Getting closer",
       "Fragmenting",
+      "...copy of a copy of a copy of a",
+      "Becoming something else",
       "Adding teeth",
       "Bloodbuzzing",
       "Avenging the mariner",
@@ -193,6 +200,7 @@
       "Hailing Satan",
       "Hailing West Texas",
       "Tallahassee-bound",
+      "Turning heel",
       "Nesting timelines inside timelines",
       "Stitching souls between centuries",
       "Opening the Time Tombs",
@@ -267,10 +275,17 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
   "theme": "dark-ansi",
   "inputNeededNotifEnabled": true,
-  "agentPushNotifEnabled": true,
-  "skipAutoPermissionPrompt": true
+  "agentPushNotifEnabled": true
 }
