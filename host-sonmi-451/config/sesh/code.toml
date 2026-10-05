@@ -1,88 +1,16 @@
 
 [[session]]
 name = "Research"
-path = "/Users/mcala/Documents/3_resources/code/1_active/research" 
+path = "/Users/mcala/Developer/1_active/research" 
 
 [[session]]
 name = "NJ Legislature"
-path = "/Users/mcala/Documents/3_resources/code/1_active/nj_legislature" 
-
-[[session]]
-name = "Readlog Single"
-path = "/Users/mcala/Documents/3_resources/code/1_active/readlog-single" 
-
-[[session]]
-name = "Readlog"
-path = "/Users/mcala/Documents/3_resources/code/1_active/readlog" 
-
-[[session]]
-name = "Website"
-path = "/Users/mcala/Documents/3_resources/code/1_active/website" 
-
-[[session]]
-name = "LLM Concert Agent"
-path = "/Users/mcala/Documents/3_resources/code/1_active/llm_concert_agent" 
-
-[[session]]
-name = "LLM Pdf Analysis"
-path = "/Users/mcala/Documents/3_resources/code/1_active/llm_pdf_analysis" 
-
-[[session]]
-name = "Habits"
-path = "/Users/mcala/Documents/3_resources/code/1_active/habits" 
-
-[[session]]
-name = "Obsidian Workspaces Plus"
-path = "/Users/mcala/Documents/3_resources/code/1_active/obsidian-workspaces-plus" 
-
-[[session]]
-name = "Seb Plunkitt"
-path = "/Users/mcala/Documents/3_resources/code/1_active/SEB_plunkitt" 
-
-[[session]]
-name = "Volca Old"
-path = "/Users/mcala/Documents/3_resources/code/1_active/volca_old" 
-
-[[session]]
-name = "Obsidian Context Workspaces"
-path = "/Users/mcala/Documents/3_resources/code/1_active/obsidian-context-workspaces" 
-
-[[session]]
-name = "Obsidian Properties"
-path = "/Users/mcala/Documents/3_resources/code/1_active/obsidian_properties" 
-
-[[session]]
-name = "Link Organizer"
-path = "/Users/mcala/Documents/3_resources/code/1_active/link_organizer" 
-
-[[session]]
-name = "Reading Sync"
-path = "/Users/mcala/Documents/3_resources/code/1_active/reading_sync" 
-
-[[session]]
-name = "Raycast Devonthink Library"
-path = "/Users/mcala/Documents/3_resources/code/1_active/raycast-devonthink-library" 
-
-[[session]]
-name = "Event Database"
-path = "/Users/mcala/Documents/3_resources/code/1_active/event_database" 
+path = "/Users/mcala/Developer/1_active/nj_legislature" 
 
 [[session]]
 name = "Research Old"
-path = "/Users/mcala/Documents/3_resources/code/1_active/research-old" 
+path = "/Users/mcala/Developer/1_active/research-old" 
 
 [[session]]
-name = "Scripts"
-path = "/Users/mcala/Documents/3_resources/code/1_active/scripts" 
-
-[[session]]
-name = "Volca"
-path = "/Users/mcala/Documents/3_resources/code/1_active/volca" 
-
-[[session]]
-name = "Readlog Error"
-path = "/Users/mcala/Documents/3_resources/code/1_active/readlog_error" 
-
-[[session]]
-name = "Toggl Analysis"
-path = "/Users/mcala/Documents/3_resources/code/1_active/toggl_analysis" 
+name = "SFRA Data Process"
+path = "/Users/mcala/Developer/1_active/sfra_data_process" 

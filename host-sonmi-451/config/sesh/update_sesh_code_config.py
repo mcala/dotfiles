@@ -9,8 +9,8 @@ import textwrap
 from datetime import datetime
 from pathlib import Path
 
-CODE_DIR = Path("/Users/mcala/Documents/3_resources/code/1_active/")
-NAME_FIXES = ["Nj", "Fy", "Llm", "Api", "Abu"]
+CODE_DIR = Path("/Users/mcala/Developer/1_active")
+NAME_FIXES = ["Nj", "Fy", "Llm", "Api", "Abu", "Sfra"]
 
 
 def send_custom_email(subject: str, body: str, recipient: str) -> None:
