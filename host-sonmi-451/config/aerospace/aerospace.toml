@@ -13,6 +13,7 @@
 
 # --- PREFACE
 start-at-login = true
+config-version = 2
 
 # Add commands for after login and after AeroSpace startup.
 # Can't seem to get borders to work.
@@ -123,7 +124,7 @@ alt-c = 'workspace Comms'      # Comms: Slack, Discord, Messages
 alt-d = 'workspace Devonthink' # Devonthink
 alt-e = 'workspace Email'      # Email: Mail
 alt-f = 'workspace Files'      # Files: Finder 
-alt-g = 'workspace G'          # 
+alt-g = 'workspace Tinderbox'  # 
 alt-i = 'workspace Airtable'   # aIrtable
 alt-m = 'workspace Music'      # Music: Music, MusicBox etc.
 alt-n = 'workspace Journal'    #JourNaling (Day One)
@@ -155,7 +156,7 @@ alt-shift-c = 'move-node-to-workspace Comms'
 alt-shift-d = 'move-node-to-workspace Devonthink'
 alt-shift-e = 'move-node-to-workspace Email'
 alt-shift-f = 'move-node-to-workspace Files'
-alt-shift-g = 'move-node-to-workspace G'
+alt-shift-g = 'move-node-to-workspace Tinderbox'
 alt-shift-i = 'move-node-to-workspace Airtable'
 alt-shift-m = 'move-node-to-workspace Music'
 alt-shift-n = 'move-node-to-workspace Journal'
@@ -261,7 +262,7 @@ if.app-id = 'org.mozilla.librewolf'
 run = 'move-node-to-workspace Browser'
 
 [[on-window-detected]]
-if.app-id = 'org.google.Chrome'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace Browser'
 
 [[on-window-detected]]
@@ -316,6 +317,15 @@ run = 'layout floating'
 if.app-id = 'com.joehribar.toggl'
 run = ['layout tiling', 'move-node-to-workspace Email']
 #run = ['layout floating', 'move-node-to-workspace Email']
+
+# Meta Documents: Tinderbox and Omnioutliner
+[[on-window-detected]]
+if.app-id = 'org.eastgate.Tinderbox-11'
+run = 'move-node-to-workspace Tinderbox'
+
+[[on-window-detected]]
+if.app-id = 'com.omnigroup.OmniOutliner5.MacAppStore'
+run = 'move-node-to-workspace Tinderbox'
 
 # Files: Finder
 [[on-window-detected]]
