@@ -8,9 +8,29 @@ name = "NJ Legislature"
 path = "/Users/mcala/Developer/1_active/nj_legislature" 
 
 [[session]]
+name = "nj_legislature/database"
+path = "/Users/mcala/Developer/1_active/nj_legislature/database" 
+
+[[session]]
+name = "nj_legislature/dev"
+path = "/Users/mcala/Developer/1_active/nj_legislature/dev" 
+
+[[session]]
+name = "nj_legislature/fresh-start"
+path = "/Users/mcala/Developer/1_active/nj_legislature/fresh-start" 
+
+[[session]]
+name = "nj_legislature/main"
+path = "/Users/mcala/Developer/1_active/nj_legislature/main" 
+
+[[session]]
 name = "Research Old"
 path = "/Users/mcala/Developer/1_active/research-old" 
 
 [[session]]
 name = "SFRA Data Process"
 path = "/Users/mcala/Developer/1_active/sfra_data_process" 
+
+[[session]]
+name = "sfra_data_process/main"
+path = "/Users/mcala/Developer/1_active/sfra_data_process/main" 
